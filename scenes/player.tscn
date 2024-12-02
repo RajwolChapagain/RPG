@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cx2lym7krpsie"]
+
+[ext_resource type="Texture2D" uid="uid://dfhva4n1oxgvi" path="res://assets/sprites/cleric_draft.png" id="1_kpl7a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kcvcf"]
+size = Vector2(32, 32)
+
+[node name="Player" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kcvcf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_kpl7a")
