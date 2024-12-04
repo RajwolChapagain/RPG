@@ -4,6 +4,7 @@ const SPEED: int = 1
 const GRID_SIZE: int = 32
 var grid_pos = Vector2(0, 0)
 var is_moving = false
+var is_active = false
 
 func _ready() -> void:
 	grid_pos.x = 0
@@ -21,6 +22,9 @@ func take_input() -> void:
 	if is_moving:
 		return
 
+	if not is_active:
+		return
+		
 	if Input.is_action_pressed("move_right"):
 		grid_pos.x += 1
 	elif Input.is_action_pressed("move_up"):
@@ -36,3 +40,6 @@ func update_position() -> void:
 	is_moving = true
 	velocity = direction * SPEED
 	move_and_collide(velocity)
+
+func set_active(value: bool) -> void:
+	is_active = value
