@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://4tpi2115bjdi"]
+
+[ext_resource type="PackedScene" uid="uid://cx2lym7krpsie" path="res://scenes/archer.tscn" id="1_pcsol"]
+[ext_resource type="Texture2D" uid="uid://b05m1dyypsf7b" path="res://assets/sprites/knight_draft.png" id="2_sag8q"]
+
+[node name="Player" instance=ExtResource("1_pcsol")]
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_sag8q")

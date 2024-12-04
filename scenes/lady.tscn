@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dybafy3qxap2q"]
+
+[ext_resource type="PackedScene" uid="uid://cx2lym7krpsie" path="res://scenes/archer.tscn" id="1_dionf"]
+[ext_resource type="Texture2D" uid="uid://bsslqt5koukvh" path="res://assets/sprites/lady_draft.png" id="2_ydehs"]
+
+[node name="Player" instance=ExtResource("1_dionf")]
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_ydehs")

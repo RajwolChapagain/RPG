@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://btp1ybbdujkbw"]
+
+[ext_resource type="PackedScene" uid="uid://cx2lym7krpsie" path="res://scenes/archer.tscn" id="1_05b0j"]
+[ext_resource type="Texture2D" uid="uid://dsjeqsopvs5qh" path="res://assets/sprites/mage_draft.png" id="2_ihbsn"]
+
+[node name="Player" instance=ExtResource("1_05b0j")]
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_ihbsn")

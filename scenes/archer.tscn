@@ -1,16 +1,16 @@
 [gd_scene load_steps=4 format=3 uid="uid://cx2lym7krpsie"]
 
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_ulrqu"]
-[ext_resource type="Texture2D" uid="uid://c3ga2aubvh5j8" path="res://assets/sprites/archer_draft.png" id="2_rfuk4"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_2iv4p"]
+[ext_resource type="Texture2D" uid="uid://c3ga2aubvh5j8" path="res://assets/sprites/archer_draft.png" id="2_htyto"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kcvcf"]
 size = Vector2(32, 32)
 
 [node name="Player" type="CharacterBody2D"]
-script = ExtResource("1_ulrqu")
+script = ExtResource("1_2iv4p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_kcvcf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_rfuk4")
+texture = ExtResource("2_htyto")
