@@ -9,3 +9,5 @@ func _ready() -> void:
 		var character = scene.instantiate()
 		add_child(character)
 		party_members.append(character)
+
+	party_members[0].is_active = true
