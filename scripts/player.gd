@@ -49,6 +49,12 @@ func update_position() -> void:
 
 func set_active(value: bool) -> void:
 	is_active = value
+	
+	if is_active:
+		$Pointer.visible = true
+	else:
+		$Pointer.visible = false
+		
 
 func set_grid_pos(pos: Vector2):
 	grid_pos = pos
