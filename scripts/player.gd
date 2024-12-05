@@ -31,13 +31,13 @@ func take_input() -> void:
 		return
 		
 	if Input.is_action_pressed("move_right"):
-		grid_pos.x += 1
+		set_grid_pos(Vector2(grid_pos.x + 1, grid_pos.y))
 	elif Input.is_action_pressed("move_up"):
-		grid_pos.y -= 1
+		set_grid_pos(Vector2(grid_pos.x, grid_pos.y - 1))
 	elif Input.is_action_pressed("move_left"):
-		grid_pos.x -= 1
+		set_grid_pos(Vector2(grid_pos.x - 1, grid_pos.y))
 	elif Input.is_action_pressed("move_down"):
-		grid_pos.y += 1
+		set_grid_pos(Vector2(grid_pos.x, grid_pos.y + 1))
 	
 # Updates the position to reflect the position in grid_pos
 func update_position() -> void:
