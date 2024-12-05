@@ -6,8 +6,9 @@ var grid_pos = Vector2(0, 0)
 var is_moving = false
 var is_active = false
 var last_grid_pos = grid_pos
-
-signal character_moved(new_pos)
+var next_character = null
+	
+signal character_moved(character, old_grid_pos)
 
 func _ready() -> void:
 	grid_pos.x = 0
@@ -20,7 +21,7 @@ func _process(_delta: float) -> void:
 	else:
 		if is_moving:
 			is_moving = false
-			character_moved.emit(last_grid_pos)
+			character_moved.emit(self, last_grid_pos)
 			last_grid_pos = grid_pos
 
 func take_input() -> void:

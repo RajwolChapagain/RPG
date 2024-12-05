@@ -10,9 +10,16 @@ func _ready() -> void:
 		add_child(character)
 		party_members.append(character)
 
+	for i in range(0, len(party_members)):
+		if i == len(party_members) - 1:
+			party_members[i].next_character = party_members[0]
+		else:
+			party_members[i].next_character = party_members[i + 1]
+			
+		party_members[i].character_moved.connect(on_character_moved)
+		
 	party_members[0].is_active = true
-	party_members[0].character_moved.connect(on_character_moved)
 	
-func on_character_moved(grid_pos):
-	for i in range(1, len(party_members)):
-		party_members[i].grid_pos = grid_pos
+func on_character_moved(character, old_grid_pos):
+	if not character.next_character.is_active:
+		character.next_character.set_grid_pos(old_grid_pos)
