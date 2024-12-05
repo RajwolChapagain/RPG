@@ -27,9 +27,9 @@ func establish_queue(party_members):
 func activate_party_member(index: int):
 	for i in range(0, len(party_members)):
 		if i == index:
-			party_members[index].is_active = true
+			party_members[index].set_active(true)
 		else:
-			party_members[i].is_active = false
+			party_members[i].set_active(false)
 	
 func on_character_moved(character, old_grid_pos):
 	if not character.next_character.is_active:
