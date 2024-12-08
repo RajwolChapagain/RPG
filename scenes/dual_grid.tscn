@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bitedxhspi8i5"]
+
+[node name="DualGrid" type="Node2D"]
+
+[node name="WorldGrid" type="TileMapLayer" parent="."]
+
+[node name="DisplayGrid" type="TileMapLayer" parent="."]
