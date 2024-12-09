@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccy0aydyv2sxd"]
+
+[ext_resource type="Texture2D" uid="uid://onsf4e7pukfl" path="res://assets/sprites/goblin_placeholder.png" id="1_dwlsm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqqey"]
+size = Vector2(32, 32)
+
+[node name="Enemy" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_dwlsm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_hqqey")
