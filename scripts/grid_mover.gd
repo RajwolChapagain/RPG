@@ -3,7 +3,7 @@ class_name GridMover
 
 @export var target: Node2D
 @export var grid_size: int = 32
-@export var speed: float = 0.5
+@export var time_to_move_one_grid: float = 0.5
 
 var is_moving = false
 
@@ -14,7 +14,7 @@ func move_target_left():
 	is_moving = true
 	var new_pos = target.position - Vector2(grid_size, 0)
 	var tween = get_tree().create_tween()
-	tween.tween_property(target, "position", new_pos, speed)
+	tween.tween_property(target, "position", new_pos, time_to_move_one_grid)
 	tween.tween_callback(make_moveable)
 
 func move_target_right():		
@@ -24,7 +24,7 @@ func move_target_right():
 	is_moving = true
 	var new_pos = target.position + Vector2(grid_size, 0)
 	var tween = get_tree().create_tween()
-	tween.tween_property(target, "position", new_pos, speed)
+	tween.tween_property(target, "position", new_pos, time_to_move_one_grid)
 	tween.tween_callback(make_moveable)
 	
 func move_target_up():
@@ -34,7 +34,7 @@ func move_target_up():
 	is_moving = true
 	var new_pos = target.position - Vector2(0, grid_size)
 	var tween = get_tree().create_tween()
-	tween.tween_property(target, "position", new_pos, speed)
+	tween.tween_property(target, "position", new_pos, time_to_move_one_grid)
 	tween.tween_callback(make_moveable)
 
 func move_target_down():
@@ -44,7 +44,7 @@ func move_target_down():
 	is_moving = true
 	var new_pos = target.position + Vector2(0, grid_size)
 	var tween = get_tree().create_tween()
-	tween.tween_property(target, "position", new_pos, speed)
+	tween.tween_property(target, "position", new_pos, time_to_move_one_grid)
 	tween.tween_callback(make_moveable)
 
 func make_moveable():
