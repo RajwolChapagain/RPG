@@ -2,40 +2,62 @@ extends Area2D
 
 const SPEED: int = 1
 const GRID_SIZE: int = 32
-var grid_pos = Vector2(0, 0)
-var is_moving = true
 var is_active = true
+var grid_pos
 var last_grid_pos = grid_pos
 var next_character = null
+var move_queue = []
 	
 signal character_moved(character, old_grid_pos)
 
-func _ready() -> void:
-	grid_pos.x = 0
-
 func _process(_delta: float) -> void:
+	print(move_queue)
 	take_input()
+	process_movement_queue()
 	
-	if is_moving:
-		is_moving = false
-		character_moved.emit(self, last_grid_pos)
-		last_grid_pos = grid_pos
+	#if $GridMover.is_moving:
+		#character_moved.emit(self, last_grid_pos)
+		#last_grid_pos = grid_pos
 
 func take_input() -> void:
-	if is_moving:
+	if $GridMover.is_moving:
 		return
 
 	if not is_active:
 		return
 		
 	if Input.is_action_pressed("move_right"):
-		$GridMover.move_target_right()
+		move_queue.push_back($GridPositionTracker.get_grid_coord() + Vector2i.RIGHT)
 	elif Input.is_action_pressed("move_up"):
-		$GridMover.move_target_up()
+		move_queue.push_back($GridPositionTracker.get_grid_coord() + Vector2i.UP)
 	elif Input.is_action_pressed("move_left"):
-		$GridMover.move_target_left()
+		move_queue.push_back($GridPositionTracker.get_grid_coord() + Vector2i.LEFT)
 	elif Input.is_action_pressed("move_down"):
+		move_queue.push_back($GridPositionTracker.get_grid_coord() + Vector2i.DOWN)
+
+func process_movement_queue() -> void:
+	if $GridMover.is_moving:
+		return
+		
+	if move_queue.is_empty():
+		return
+		
+	var next_grid_pos = move_queue.front()
+	move_queue.remove_at(0)
+	var direction = next_grid_pos - $GridPositionTracker.get_grid_coord()
+	
+	if direction == Vector2i.RIGHT:
+		$GridMover.move_target_right()
+	elif direction == Vector2i.UP:
+		$GridMover.move_target_up()
+	elif direction == Vector2i.LEFT:
+		$GridMover.move_target_left()
+	elif direction == Vector2i.DOWN:
 		$GridMover.move_target_down()
+	else:
+		print("Weird direction encountered. Cannot move:")
+		print("Current grid pos: ", $GridPositionTracker.get_grid_coord(), " | Next grid pos: ", next_grid_pos)
+
 
 func set_active(value: bool) -> void:
 	is_active = value
@@ -44,7 +66,3 @@ func set_active(value: bool) -> void:
 		$Pointer.visible = true
 	else:
 		$Pointer.visible = false
-		
-
-func set_grid_pos(pos: Vector2):
-	grid_pos = pos
