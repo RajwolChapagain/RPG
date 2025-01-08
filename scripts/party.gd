@@ -37,7 +37,7 @@ func activate_party_member(index: int) -> void:
 	
 func on_character_moved(character, old_grid_pos) -> void:
 	if not character.next_character.is_active:
-		character.next_character.set_grid_pos(old_grid_pos)
+		character.next_character.move_queue.push_back(old_grid_pos)
 
 func get_active_member_index() -> int:
 	for i in range(0, len(party_members)):
