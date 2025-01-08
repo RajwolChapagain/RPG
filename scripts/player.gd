@@ -11,13 +11,9 @@ var move_queue = []
 signal character_moved(character, old_grid_pos)
 
 func _process(_delta: float) -> void:
-	print(move_queue)
 	take_input()
 	process_movement_queue()
-	
-	#if $GridMover.is_moving:
-		#character_moved.emit(self, last_grid_pos)
-		#last_grid_pos = grid_pos
+	check_and_emit_last_pos()
 
 func take_input() -> void:
 	if $GridMover.is_moving:
@@ -58,7 +54,11 @@ func process_movement_queue() -> void:
 		print("Weird direction encountered. Cannot move:")
 		print("Current grid pos: ", $GridPositionTracker.get_grid_coord(), " | Next grid pos: ", next_grid_pos)
 
-
+func check_and_emit_last_pos() -> void:
+	if last_grid_pos != $GridPositionTracker.get_grid_coord():
+		character_moved.emit(self, last_grid_pos)
+		last_grid_pos = $GridPositionTracker.get_grid_coord()
+		
 func set_active(value: bool) -> void:
 	is_active = value
 	
