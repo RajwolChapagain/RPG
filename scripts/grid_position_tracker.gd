@@ -5,7 +5,7 @@ class_name GridPositionTracker
 @onready var grid_coord: Vector2i = global_position / grid_size
 
 func _physics_process(delta: float) -> void:
-	set_grid_coord(global_position / grid_size)
+	set_grid_coord(ceil(global_position / grid_size))
 	
 func set_grid_coord(new_coord: Vector2i) -> void:
 	grid_coord = new_coord
