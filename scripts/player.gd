@@ -14,7 +14,7 @@ func _process(_delta: float) -> void:
 	take_input()
 	process_movement_queue()
 	check_and_emit_last_pos()
-
+	
 func take_input() -> void:
 	if $GridMover.is_moving:
 		return
@@ -40,6 +40,12 @@ func process_movement_queue() -> void:
 		
 	var next_grid_pos = move_queue.front()
 	move_queue.remove_at(0)
+	if (next_grid_pos == null):
+		return
+		
+	if (next_grid_pos == $GridPositionTracker.get_grid_coord()):
+		return
+		
 	var direction = next_grid_pos - $GridPositionTracker.get_grid_coord()
 	
 	if direction == Vector2i.RIGHT:
