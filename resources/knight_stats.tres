@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PlayerStats" load_steps=3 format=3 uid="uid://dn5btoyt542k5"]
+
+[ext_resource type="Script" path="res://scripts/resource_scripts/player_stats.gd" id="1_d6yei"]
+[ext_resource type="Texture2D" uid="uid://b05m1dyypsf7b" path="res://assets/sprites/knight_draft.png" id="1_nd572"]
+
+[resource]
+script = ExtResource("1_d6yei")
+type = 2
+attack_damage = 10
+hp = 150
+battle_sprite = ExtResource("1_nd572")

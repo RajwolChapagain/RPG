@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PlayerStats" load_steps=3 format=3 uid="uid://bked6tbb027th"]
+
+[ext_resource type="Script" path="res://scripts/resource_scripts/player_stats.gd" id="1_qnjrg"]
+[ext_resource type="Texture2D" uid="uid://dfhva4n1oxgvi" path="res://assets/sprites/cleric_draft.png" id="1_wn4hs"]
+
+[resource]
+script = ExtResource("1_qnjrg")
+type = 1
+attack_damage = 3
+hp = 100
+battle_sprite = ExtResource("1_wn4hs")
