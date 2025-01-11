@@ -1,7 +1,6 @@
 extends Area2D
 
-const SPEED: int = 1
-const GRID_SIZE: int = 32
+@export var stats: PlayerStats
 var is_active = true
 var grid_pos
 var last_grid_pos = grid_pos
