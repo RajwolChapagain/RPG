@@ -1,8 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://hqlhygr4xwpx"]
+[gd_scene load_steps=3 format=3 uid="uid://hqlhygr4xwpx"]
 
 [ext_resource type="Script" path="res://scripts/battler.gd" id="1_1v4t1"]
+[ext_resource type="Texture2D" uid="uid://bvh0dl870ttbp" path="res://assets/sprites/pointer.png" id="2_foo5t"]
 
 [node name="BattlerPlayer" type="Node2D"]
 script = ExtResource("1_1v4t1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Pointer" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-20, 0)
+rotation = -1.5708
+texture = ExtResource("2_foo5t")
