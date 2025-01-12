@@ -2,6 +2,7 @@ extends Node
 
 @export var character_spacing = 30
 
+var battler_player = preload("res://scenes/battler.tscn")
 var player_character_stats = [PlayerStats]
 var player_characters = [Area2D]
 var enemy_stats = [EnemyStats]
@@ -13,8 +14,8 @@ func _ready() -> void:
 
 func spawn_players() -> void:
 	for i in range(len(player_character_stats)):
-		var player_character = Sprite2D.new()
-		player_character.texture = player_character_stats[i].battle_sprite
+		var player_character = battler_player.instantiate()
+		player_character.stats = player_character_stats[i]
 		player_character.position = Vector2($PlayerStart.position.x, $PlayerStart.position.y + character_spacing * i)
 		add_child(player_character)
 
