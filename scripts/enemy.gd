@@ -1,5 +1,6 @@
 extends Area2D
 
+@export var stats: EnemyStats
 signal enemy_encountered_player(enemy)
 
 func _on_area_entered(area: Area2D) -> void:
