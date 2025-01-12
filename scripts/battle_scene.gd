@@ -9,6 +9,8 @@ var player_characters = []
 var enemy_stats = [EnemyStats]
 var enemies = []
 var active_character_index = 0
+var active_enemy_index = 0
+var players_turn = true
 
 func _ready() -> void:
 	spawn_players()
@@ -16,9 +18,19 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("attack"):
+		if not players_turn:
+			return
+			
 		player_characters[active_character_index].attack(enemies.front())
+		if active_character_index == len(player_characters) - 1:
+			start_enemy_turn()
 		update_active_player( (active_character_index + 1) % len(player_characters))
 		
+func start_enemy_turn():
+	players_turn = false
+	enemies[active_enemy_index].attack(player_characters[randi_range(0, len(player_characters))])
+	players_turn = true
+	
 func update_active_player(new_index):
 	player_characters[active_character_index].mark_inactive()
 	player_characters[new_index].mark_active()
