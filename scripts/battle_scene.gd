@@ -3,6 +3,7 @@ extends Node
 @export var character_spacing = 30
 
 var battler_player = preload("res://scenes/battler.tscn")
+var battler_enemy = preload("res://scenes/battler_enemy.tscn")
 var player_character_stats = [PlayerStats]
 var player_characters = [Area2D]
 var enemy_stats = [EnemyStats]
@@ -21,7 +22,7 @@ func spawn_players() -> void:
 
 func spawn_enemies() -> void:
 	for i in range(len(enemy_stats)):
-		var enemy = Sprite2D.new()
-		enemy.texture = enemy_stats[i].battle_sprite
+		var enemy = battler_enemy.instantiate()
+		enemy.stats = enemy_stats[i]
 		enemy.position = Vector2($EnemyStart.position.x, $EnemyStart.position.y + character_spacing * i)
 		add_child(enemy)
