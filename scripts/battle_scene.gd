@@ -17,7 +17,13 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("attack"):
 		player_characters[active_character_index].attack(enemies.front())
+		update_active_player( (active_character_index + 1) % len(player_characters))
 		
+func update_active_player(new_index):
+	player_characters[active_character_index].mark_inactive()
+	player_characters[new_index].mark_active()
+	active_character_index = new_index
+	
 func spawn_players() -> void:
 	for i in range(len(player_character_stats)):
 		var player_character = battler_player.instantiate()
@@ -25,6 +31,8 @@ func spawn_players() -> void:
 		player_character.position = Vector2($PlayerStart.position.x, $PlayerStart.position.y + character_spacing * i)
 		player_characters.append(player_character)
 		add_child(player_character)
+		
+	player_characters[active_character_index].mark_active()
 
 func spawn_enemies() -> void:
 	for i in range(len(enemy_stats)):

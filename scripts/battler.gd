@@ -15,3 +15,9 @@ func take_damage(damage: int) -> void:
 	
 	if (stats.hp == 0):
 		queue_free()
+
+func mark_active():
+	$Pointer.visible = true
+	
+func mark_inactive():
+	$Pointer.visible = false
