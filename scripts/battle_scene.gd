@@ -28,7 +28,7 @@ func _input(event: InputEvent) -> void:
 		
 func start_enemy_turn():
 	players_turn = false
-	enemies[active_enemy_index].attack(player_characters[randi_range(0, len(player_characters))])
+	enemies[active_enemy_index].attack(player_characters[randi_range(0, len(player_characters) - 1)])
 	players_turn = true
 	
 func update_active_player(new_index):
