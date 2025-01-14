@@ -6,6 +6,7 @@ func _ready() -> void:
 	$Sprite2D.texture = stats.battle_sprite
 	
 func attack(target) -> void:
+	$AnimationPlayer.play("attack")
 	target.take_damage(stats.attack_damage)
 	
 func take_damage(damage: int) -> void:
