@@ -19,6 +19,8 @@ func take_damage(damage: int) -> void:
 		is_alive = false
 		$Sprite2D.self_modulate = Color.DARK_RED
 		#queue_free()
+	else:
+		$AnimationPlayer.play("flash_white")
 
 func mark_active():
 	$Pointer.visible = true
