@@ -33,6 +33,10 @@ func start_enemy_turn():
 	
 func update_active_player(new_index):
 	player_characters[active_character_index].mark_inactive()
+	if not player_characters[new_index].is_alive:
+		update_active_player(new_index + 1)
+		return
+		
 	player_characters[new_index].mark_active()
 	active_character_index = new_index
 	
