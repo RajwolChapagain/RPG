@@ -10,6 +10,7 @@ func attack(target) -> void:
 	target.take_damage(stats.attack_damage)
 	
 func take_damage(damage: int) -> void:
+	$AnimationPlayer.play("flash_white")
 	stats.hp -= damage
 	
 	stats.hp = clamp(stats.hp, 0, INF)

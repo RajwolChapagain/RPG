@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://drpvwldqdeahy"]
+[gd_scene load_steps=7 format=3 uid="uid://drpvwldqdeahy"]
 
 [ext_resource type="Script" path="res://scripts/enemy_battler.gd" id="1_dmwk1"]
 [ext_resource type="Texture2D" uid="uid://onsf4e7pukfl" path="res://assets/sprites/goblin_placeholder.png" id="2_mxkh7"]
@@ -29,6 +29,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_u3xjc"]
 resource_name = "attack"
@@ -58,10 +70,27 @@ tracks/1/keys = {
 "values": [Vector2(1, 1), Vector2(1.6, 1.6), Vector2(1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_1g8u7"]
+resource_name = "flash_white"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(100, 100, 100, 1), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8gttq"]
 _data = {
 "RESET": SubResource("Animation_xod44"),
-"attack": SubResource("Animation_u3xjc")
+"attack": SubResource("Animation_u3xjc"),
+"flash_white": SubResource("Animation_1g8u7")
 }
 
 [node name="BattlerEnemy" type="Node2D"]
