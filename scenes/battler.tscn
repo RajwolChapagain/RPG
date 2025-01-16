@@ -102,8 +102,7 @@ texture = ExtResource("2_fyfas")
 
 [node name="Pointer" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(-20, 0)
-rotation = -1.5708
+position = Vector2(0, -20)
 texture = ExtResource("2_foo5t")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
