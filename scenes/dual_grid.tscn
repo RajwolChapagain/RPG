@@ -67,5 +67,5 @@ script = ExtResource("2_0nav7")
 
 [node name="DisplayGrid" type="TileMapLayer" parent="."]
 unique_name_in_owner = true
-position = Vector2(8, 8)
+position = Vector2(16, 16)
 tile_set = SubResource("TileSet_wk6v0")
