@@ -36,7 +36,7 @@ func set_tile(coords: Vector2i, atlas_coords: Vector2i) -> void:
 func set_display_tile(pos: Vector2i) -> void:
 	for neighbor in NEIGHBORS:
 		var new_pos = pos + neighbor
-		%DisplayGrid.set_cell(new_pos, 0, calculate_display_tile(new_pos))
+		%DisplayGrid.set_cell(new_pos, 2, calculate_display_tile(new_pos))
 
 func calculate_display_tile(coords: Vector2i) -> Vector2i:
 	var bot_right = get_world_tile(coords - NEIGHBORS[0])
