@@ -44,7 +44,7 @@ func spawn_players() -> void:
 	for i in range(len(player_character_stats)):
 		var player_character = battler_player.instantiate()
 		player_character.stats = player_character_stats[i]
-		player_character.position = Vector2($PlayerStart.position.x, $PlayerStart.position.y + character_spacing * i)
+		player_character.position = Vector2($PlayerStart.position.x  + character_spacing * i, $PlayerStart.position.y)
 		player_characters.append(player_character)
 		add_child(player_character)
 		
