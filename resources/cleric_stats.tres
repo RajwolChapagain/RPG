@@ -1,11 +1,18 @@
-[gd_resource type="Resource" script_class="PlayerStats" load_steps=3 format=3 uid="uid://bked6tbb027th"]
+[gd_resource type="Resource" script_class="PlayerStats" load_steps=5 format=3 uid="uid://bked6tbb027th"]
 
+[ext_resource type="Script" path="res://scripts/resource_scripts/base_stats.gd" id="1_8s0k5"]
 [ext_resource type="Script" path="res://scripts/resource_scripts/player_stats.gd" id="1_qnjrg"]
-[ext_resource type="Texture2D" uid="uid://dfhva4n1oxgvi" path="res://assets/sprites/cleric_draft.png" id="1_wn4hs"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nrbha"]
+load_path = "res://.godot/imported/cleric_draft.png-a3136ff20cf8b15f5e39e4a3d2286f39.ctex"
+
+[sub_resource type="Resource" id="Resource_82xy2"]
+script = ExtResource("1_8s0k5")
+attack_damage = 5
+hp = 70
+battle_sprite = SubResource("CompressedTexture2D_nrbha")
 
 [resource]
 script = ExtResource("1_qnjrg")
 type = 1
-attack_damage = 3
-hp = 100
-battle_sprite = ExtResource("1_wn4hs")
+base_stats = SubResource("Resource_82xy2")

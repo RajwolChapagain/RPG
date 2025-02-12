@@ -1,11 +1,16 @@
-[gd_resource type="Resource" script_class="PlayerStats" load_steps=3 format=3 uid="uid://cj5mkbq0utn52"]
+[gd_resource type="Resource" script_class="PlayerStats" load_steps=5 format=3 uid="uid://cj5mkbq0utn52"]
 
+[ext_resource type="Script" path="res://scripts/resource_scripts/base_stats.gd" id="1_3i5ic"]
 [ext_resource type="Texture2D" uid="uid://dsjeqsopvs5qh" path="res://assets/sprites/mage_draft.png" id="1_57lji"]
 [ext_resource type="Script" path="res://scripts/resource_scripts/player_stats.gd" id="1_rj7hk"]
+
+[sub_resource type="Resource" id="Resource_5hkcp"]
+script = ExtResource("1_3i5ic")
+attack_damage = 15
+hp = 80
+battle_sprite = ExtResource("1_57lji")
 
 [resource]
 script = ExtResource("1_rj7hk")
 type = 4
-attack_damage = 2
-hp = 50
-battle_sprite = ExtResource("1_57lji")
+base_stats = SubResource("Resource_5hkcp")

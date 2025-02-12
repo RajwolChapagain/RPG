@@ -1,11 +1,18 @@
-[gd_resource type="Resource" script_class="PlayerStats" load_steps=3 format=3 uid="uid://dn5btoyt542k5"]
+[gd_resource type="Resource" script_class="PlayerStats" load_steps=5 format=3 uid="uid://dn5btoyt542k5"]
 
 [ext_resource type="Script" path="res://scripts/resource_scripts/player_stats.gd" id="1_d6yei"]
-[ext_resource type="Texture2D" uid="uid://b05m1dyypsf7b" path="res://assets/sprites/knight_draft.png" id="1_nd572"]
+[ext_resource type="Script" path="res://scripts/resource_scripts/base_stats.gd" id="1_vn4u7"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4png7"]
+load_path = "res://.godot/imported/knight_draft.png-b3b0aa84473847261b6905a3cb8823aa.ctex"
+
+[sub_resource type="Resource" id="Resource_5nfqn"]
+script = ExtResource("1_vn4u7")
+attack_damage = 15
+hp = 120
+battle_sprite = SubResource("CompressedTexture2D_4png7")
 
 [resource]
 script = ExtResource("1_d6yei")
 type = 2
-attack_damage = 10
-hp = 150
-battle_sprite = ExtResource("1_nd572")
+base_stats = SubResource("Resource_5nfqn")
