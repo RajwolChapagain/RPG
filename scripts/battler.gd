@@ -1,4 +1,5 @@
 extends Node2D
+class_name Battler
 
 @export var stats: PlayerStats
 var is_alive = true
