@@ -16,9 +16,7 @@ func take_damage(damage: int) -> void:
 	stats.hp = clamp(stats.hp, 0, INF)
 	
 	if (stats.hp == 0):
-		is_alive = false
-		$Sprite2D.self_modulate = Color.DARK_RED
-		#queue_free()
+		die()
 	else:
 		$AnimationPlayer.play("flash_white")
 
@@ -27,3 +25,7 @@ func mark_active():
 	
 func mark_inactive():
 	$Pointer.visible = false
+	
+func die():
+	is_alive = false
+	$Sprite2D.self_modulate = Color.DARK_RED
