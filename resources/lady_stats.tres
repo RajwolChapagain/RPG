@@ -1,18 +1,11 @@
-[gd_resource type="Resource" script_class="PlayerStats" load_steps=5 format=3 uid="uid://c3u28jojk8scy"]
+[gd_resource type="Resource" script_class="PlayerStats" load_steps=3 format=3 uid="uid://c3u28jojk8scy"]
 
+[ext_resource type="Texture2D" uid="uid://bsslqt5koukvh" path="res://assets/sprites/lady_draft.png" id="1_20yyj"]
 [ext_resource type="Script" path="res://scripts/resource_scripts/player_stats.gd" id="1_ivpsd"]
-[ext_resource type="Script" path="res://scripts/resource_scripts/base_stats.gd" id="1_yki5w"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_r3hfq"]
-load_path = "res://.godot/imported/lady_draft.png-0f04aef90f5af83ab13f31727695880f.ctex"
-
-[sub_resource type="Resource" id="Resource_8xvm2"]
-script = ExtResource("1_yki5w")
-attack_damage = 25
-hp = 50
-battle_sprite = SubResource("CompressedTexture2D_r3hfq")
 
 [resource]
 script = ExtResource("1_ivpsd")
 type = 3
-base_stats = SubResource("Resource_8xvm2")
+attack_damage = 20
+hp = 20
+battle_sprite = ExtResource("1_20yyj")

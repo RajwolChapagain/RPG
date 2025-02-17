@@ -1,18 +1,11 @@
-[gd_resource type="Resource" script_class="PlayerStats" load_steps=5 format=3 uid="uid://cdl55yknosnrm"]
+[gd_resource type="Resource" script_class="PlayerStats" load_steps=3 format=3 uid="uid://cdl55yknosnrm"]
 
 [ext_resource type="Script" path="res://scripts/resource_scripts/player_stats.gd" id="1_dliyp"]
-[ext_resource type="Script" path="res://scripts/resource_scripts/base_stats.gd" id="2_tb5ge"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_s8f21"]
-load_path = "res://.godot/imported/archer_draft.png-1d7200c3a8ce2d5cfd7adc7b846dd628.ctex"
-
-[sub_resource type="Resource" id="Resource_l7cgf"]
-script = ExtResource("2_tb5ge")
-attack_damage = 10
-hp = 100
-battle_sprite = SubResource("CompressedTexture2D_s8f21")
+[ext_resource type="Texture2D" uid="uid://c3ga2aubvh5j8" path="res://assets/sprites/archer_draft.png" id="1_uj1vb"]
 
 [resource]
 script = ExtResource("1_dliyp")
 type = 0
-base_stats = SubResource("Resource_l7cgf")
+attack_damage = 5
+hp = 70
+battle_sprite = ExtResource("1_uj1vb")

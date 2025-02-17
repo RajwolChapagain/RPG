@@ -1,15 +1,10 @@
-[gd_resource type="Resource" script_class="EnemyStats" load_steps=5 format=3 uid="uid://by14ypqxtsecw"]
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=3 format=3 uid="uid://by14ypqxtsecw"]
 
 [ext_resource type="Texture2D" uid="uid://onsf4e7pukfl" path="res://assets/sprites/goblin_placeholder.png" id="1_k7862"]
 [ext_resource type="Script" path="res://scripts/resource_scripts/enemy_stats.gd" id="1_uehg3"]
-[ext_resource type="Script" path="res://scripts/resource_scripts/base_stats.gd" id="2_jnxdd"]
-
-[sub_resource type="Resource" id="Resource_1xnmt"]
-script = ExtResource("2_jnxdd")
-attack_damage = 25
-hp = 120
-battle_sprite = ExtResource("1_k7862")
 
 [resource]
 script = ExtResource("1_uehg3")
-base_stats = SubResource("Resource_1xnmt")
+attack_damage = 100
+hp = 100
+battle_sprite = ExtResource("1_k7862")

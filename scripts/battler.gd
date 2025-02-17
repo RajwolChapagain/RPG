@@ -1,7 +1,6 @@
 extends Node2D
-class_name Battler
 
-@export var stats: BaseStats
+@export var stats: PlayerStats
 var is_alive = true
 
 func _ready() -> void:
