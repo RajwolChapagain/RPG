@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c38oeyopjv5q4"]
+
+[ext_resource type="PackedScene" uid="uid://hqlhygr4xwpx" path="res://scenes/battler.tscn" id="1_8u3t1"]
+[ext_resource type="Resource" uid="uid://cym67rsdldl6j" path="res://resources/archer_base_stats.tres" id="2_t50s5"]
+
+[node name="BattlerPlayer" type="Node2D"]
+
+[node name="Battler" parent="." instance=ExtResource("1_8u3t1")]
+stats = ExtResource("2_t50s5")
+
+[editable path="Battler"]
