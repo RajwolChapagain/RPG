@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var stats: PlayerStats
+@export var stats: BaseStats
 var is_alive = true
 
 func _ready() -> void:

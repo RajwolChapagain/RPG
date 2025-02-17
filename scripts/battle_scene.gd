@@ -4,7 +4,7 @@ extends Node
 
 var battler_player = preload("res://scenes/battler.tscn")
 var battler_enemy = preload("res://scenes/battler_enemy.tscn")
-var player_character_stats = [PlayerStats]
+var player_character_stats : Array[BaseStats]= []
 var player_characters = []
 var enemy_stats = [EnemyStats]
 var enemies = []

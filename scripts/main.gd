@@ -3,7 +3,7 @@ extends Node
 @export var battle_scene: PackedScene
 
 func _on_enemy_enemy_encountered_player(enemy: Variant) -> void:
-	var player_character_stats = []
+	var player_character_stats : Array[BaseStats] = []
 	for player_character in get_tree().get_nodes_in_group("player_character"):
 		player_character_stats.append(player_character.stats)
 	
