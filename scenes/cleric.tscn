@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://cx2lym7krpsie" path="res://scenes/archer.tscn" id="1_20ynq"]
 [ext_resource type="Texture2D" uid="uid://dfhva4n1oxgvi" path="res://assets/sprites/cleric_draft.png" id="2_cm0e5"]
-[ext_resource type="Resource" uid="uid://bked6tbb027th" path="res://resources/cleric_stats.tres" id="2_jo3bh"]
+[ext_resource type="Resource" uid="uid://biubxrgae4cha" path="res://resources/cleric_base_stats.tres" id="2_ms6yq"]
 
 [node name="Player" instance=ExtResource("1_20ynq")]
-stats = ExtResource("2_jo3bh")
+stats = ExtResource("2_ms6yq")
 
 [node name="Sprite2D" parent="." index="1"]
 texture = ExtResource("2_cm0e5")

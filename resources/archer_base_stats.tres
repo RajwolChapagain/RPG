@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BaseStats" load_steps=3 format=3 uid="uid://cym67rsdldl6j"]
+
+[ext_resource type="Script" path="res://scripts/resource_scripts/base_stats.gd" id="1_e6gcu"]
+[ext_resource type="Texture2D" uid="uid://c3ga2aubvh5j8" path="res://assets/sprites/archer_draft.png" id="1_ih43g"]
+
+[resource]
+script = ExtResource("1_e6gcu")
+attack_damage = 5
+hp = 70
+battle_sprite = ExtResource("1_ih43g")

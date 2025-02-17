@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var stats: PlayerStats
+@export var stats: BaseStats
 var is_active = true
 var grid_pos
 var last_grid_pos = grid_pos

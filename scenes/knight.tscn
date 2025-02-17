@@ -1,11 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://4tpi2115bjdi"]
 
 [ext_resource type="PackedScene" uid="uid://cx2lym7krpsie" path="res://scenes/archer.tscn" id="1_pcsol"]
+[ext_resource type="Resource" uid="uid://c3bvbxqpkkgu3" path="res://resources/knight_base_stats.tres" id="2_glhtv"]
 [ext_resource type="Texture2D" uid="uid://b05m1dyypsf7b" path="res://assets/sprites/knight_draft.png" id="2_sag8q"]
-[ext_resource type="Resource" uid="uid://dn5btoyt542k5" path="res://resources/knight_stats.tres" id="2_trcsw"]
 
 [node name="Player" instance=ExtResource("1_pcsol")]
-stats = ExtResource("2_trcsw")
+stats = ExtResource("2_glhtv")
 
 [node name="Sprite2D" parent="." index="1"]
 texture = ExtResource("2_sag8q")

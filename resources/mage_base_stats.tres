@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BaseStats" load_steps=3 format=3 uid="uid://d3kyf2naa3duo"]
+
+[ext_resource type="Texture2D" uid="uid://dsjeqsopvs5qh" path="res://assets/sprites/mage_draft.png" id="1_gxl8e"]
+[ext_resource type="Script" path="res://scripts/resource_scripts/base_stats.gd" id="2_jutst"]
+
+[resource]
+script = ExtResource("2_jutst")
+attack_damage = 2
+hp = 50
+battle_sprite = ExtResource("1_gxl8e")
