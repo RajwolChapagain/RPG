@@ -1,12 +1,12 @@
 extends Node
 
 @export var character_spacing = 30
+@export var player_character_stats : Array[BaseStats]= []
+@export var enemy_stats : Array[BaseStats]= []
 
 var battler_player = preload("res://scenes/battler_player.tscn")
 var battler_enemy = preload("res://scenes/battler_enemy.tscn")
-var player_character_stats : Array[BaseStats]= []
 var player_characters = []
-var enemy_stats : Array[BaseStats]= []
 var enemies = []
 var active_character_index = 0
 var active_enemy_index = 0
