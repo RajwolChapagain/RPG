@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BaseStats" load_steps=3 format=3 uid="uid://c46k2b5fxukoi"]
+
+[ext_resource type="Texture2D" uid="uid://onsf4e7pukfl" path="res://assets/sprites/goblin_placeholder.png" id="1_2gk5n"]
+[ext_resource type="Script" path="res://scripts/resource_scripts/base_stats.gd" id="1_by2lk"]
+
+[resource]
+script = ExtResource("1_by2lk")
+attack_damage = 100
+hp = 100
+battle_sprite = ExtResource("1_2gk5n")
