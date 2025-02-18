@@ -48,6 +48,7 @@ func spawn_players() -> void:
 		player_characters.append(player_character)
 		add_child(player_character)
 		
+	connect_player_animation_finished_signal()
 	player_characters[active_character_index].mark_active()
 
 func spawn_enemies() -> void:
@@ -57,3 +58,11 @@ func spawn_enemies() -> void:
 		enemy.position = Vector2($EnemyStart.position.x, $EnemyStart.position.y + character_spacing * i)
 		enemies.append(enemy)
 		add_child(enemy)
+		
+func connect_player_animation_finished_signal() -> void:
+	for character in player_characters:
+		character.get_node("AnimationPlayer").animation_finished.connect(on_animation_finished)
+		
+func on_animation_finished(animation: StringName) -> void:
+	if (animation == "attack"):
+		print("Attack animation finished")
