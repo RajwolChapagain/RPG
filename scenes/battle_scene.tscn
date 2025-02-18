@@ -14,7 +14,7 @@
 script = ExtResource("1_0yksl")
 character_spacing = 60
 player_character_stats = Array[ExtResource("2_xwxfl")]([ExtResource("3_kbn5v"), ExtResource("4_4cvxg"), ExtResource("5_jwuvd"), ExtResource("6_2d5uy")])
-enemy_stats = Array[ExtResource("2_xwxfl")]([ExtResource("4_mbwmo")])
+enemy_stats = Array[ExtResource("2_xwxfl")]([ExtResource("4_mbwmo"), ExtResource("4_mbwmo"), ExtResource("4_mbwmo")])
 
 [node name="DualGrid" parent="." instance=ExtResource("1_6lmhm")]
 
