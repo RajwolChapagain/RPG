@@ -59,10 +59,16 @@ func spawn_enemies() -> void:
 		enemies.append(enemy)
 		add_child(enemy)
 		
+	connect_enemy_animation_finished_signal()
+	
 func connect_player_animation_finished_signal() -> void:
 	for character in player_characters:
 		character.get_node("AnimationPlayer").animation_finished.connect(on_animation_finished)
+
+func connect_enemy_animation_finished_signal() -> void:
+	for enemy in enemies:
+		enemy.get_node("AnimationPlayer").animation_finished.connect(on_animation_finished)
 		
 func on_animation_finished(animation: StringName) -> void:
-	if (animation == "attack"):
+	if animation == "attack":
 		print("Attack animation finished")
