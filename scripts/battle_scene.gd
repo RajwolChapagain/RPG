@@ -39,12 +39,21 @@ func update_active_battler(new_index):
 	active_team[active_index].mark_inactive()
 	
 	if not active_team[new_index].is_alive:
+		if new_index == len(active_team) - 1:
+			if players_turn:
+				end_player_turn()
+			else:
+				end_enemy_turn()
+			return
+		
+		active_index = new_index
 		update_turn()
 		return
 		
 	active_team[new_index].mark_active()
 	active_index = new_index
 	
+#region: initialization
 func spawn_players() -> void:
 	for i in range(len(player_character_stats)):
 		var player_character = battler_player.instantiate()
@@ -88,7 +97,9 @@ func on_animation_finished(animation: StringName) -> void:
 		
 func on_enemy_attack_animation_started(animation: StringName) -> void:
 	enemy_is_attacking = true
-	
+#endregion initialization
+
+#region: turntaking
 func update_turn() -> void:
 	if players_turn:
 		update_player_turn()
@@ -121,3 +132,4 @@ func end_enemy_turn() -> void:
 	players_turn = true
 	active_index = 0
 	update_active_battler(0)
+#endregion: turntaking
