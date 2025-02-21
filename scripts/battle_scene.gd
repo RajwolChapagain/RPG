@@ -110,9 +110,11 @@ func update_enemy_turn() -> void:
 	update_active_battler( (active_index + 1) % len(enemies))
 	
 func end_player_turn() -> void:
+	player_characters[active_index].mark_inactive()
 	players_turn = false
 	active_index = 0
 	enemy_is_attacking = false
 
 func end_enemy_turn() -> void:
+	enemies[active_index].mark_inactive()
 	players_turn = true
