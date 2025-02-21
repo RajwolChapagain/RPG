@@ -13,6 +13,7 @@ var players_turn = true
 var enemy_is_attacking = false
 
 func _ready() -> void:
+	%AttackButton.grab_focus()
 	spawn_players()
 	spawn_enemies()
 

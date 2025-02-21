@@ -58,6 +58,7 @@ size_flags_stretch_ratio = 0.15
 theme_override_constants/separation = 2
 
 [node name="AttackButton" type="Button" parent="UI/MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("3_gj8wv")
 theme_override_font_sizes/font_size = 4
@@ -70,6 +71,7 @@ theme_override_font_sizes/font_size = 4
 text = "ABILITIES"
 
 [node name="ItemsButton" type="Button" parent="UI/MarginContainer/HBoxContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme = ExtResource("3_gj8wv")
 theme_override_font_sizes/font_size = 4
