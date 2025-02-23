@@ -47,7 +47,8 @@ func activate() -> void:
 	mark_selected(selected)
 	
 func deactivate() -> void:
-	targets.clear()
 	active = false
 	%Pointer.visible = false
-	
+
+func is_active() -> bool:
+	return active
