@@ -293,4 +293,6 @@ theme = ExtResource("3_gj8wv")
 value = 100.0
 show_percentage = false
 
+[connection signal="button_up" from="UI/MarginContainer/HBoxContainer/VBoxContainer/AttackButton" to="." method="_on_attack_button_button_up"]
+
 [editable path="DualGrid"]

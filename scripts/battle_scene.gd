@@ -16,14 +16,6 @@ func _ready() -> void:
 	%AttackButton.grab_focus()
 	spawn_players()
 	spawn_enemies()
-
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("attack"):
-		if not players_turn:
-			return
-			
-		player_characters[active_index].attack(enemies.front())
-		
 	
 func _process(delta: float) -> void:
 	if not players_turn and not enemy_is_attacking:
@@ -134,3 +126,10 @@ func end_enemy_turn() -> void:
 	active_index = 0
 	update_active_battler(0)
 #endregion: turntaking
+
+
+func _on_attack_button_button_up() -> void:
+	if not players_turn:
+		return
+		
+	player_characters[active_index].attack(enemies.front())
