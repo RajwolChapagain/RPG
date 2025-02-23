@@ -3,7 +3,6 @@ extends Node
 @export var character_spacing = 30
 @export var player_character_stats : Array[BaseStats]= []
 @export var enemy_stats : Array[BaseStats]= []
-
 var battler_player = preload("res://scenes/battler_player.tscn")
 var battler_enemy = preload("res://scenes/battler_enemy.tscn")
 var player_characters = []
@@ -14,6 +13,7 @@ var enemy_is_attacking = false
 var alive_player_count: int
 var alive_enemy_count: int
 
+signal battle_ended
 
 func _ready() -> void:
 	%AttackButton.grab_focus()
@@ -203,3 +203,4 @@ func end_battle(won: bool) -> void:
 		print("Battle won!")
 	else:
 		print("Battle lost!")
+	battle_ended.emit()
