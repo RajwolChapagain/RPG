@@ -1,32 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://b2iwifb80auqp"]
+[gd_scene load_steps=3 format=3 uid="uid://b2iwifb80auqp"]
 
 [ext_resource type="Script" path="res://scripts/target_select.gd" id="1_yhy6j"]
-[ext_resource type="Texture2D" uid="uid://c3ga2aubvh5j8" path="res://assets/sprites/archer_draft.png" id="2_gkg5i"]
 [ext_resource type="Texture2D" uid="uid://dwpfp7c34mgmb" path="res://assets/sprites/pointer_red.png" id="2_l7lun"]
-[ext_resource type="Texture2D" uid="uid://dfhva4n1oxgvi" path="res://assets/sprites/cleric_draft.png" id="3_5i8pr"]
-[ext_resource type="Texture2D" uid="uid://onsf4e7pukfl" path="res://assets/sprites/goblin_placeholder.png" id="4_xtwt6"]
-[ext_resource type="Texture2D" uid="uid://b05m1dyypsf7b" path="res://assets/sprites/knight_draft.png" id="5_d0dbi"]
 
-[node name="TargetSelect" type="Node" node_paths=PackedStringArray("targets")]
+[node name="TargetSelect" type="Node"]
 script = ExtResource("1_yhy6j")
-targets = [NodePath("Target1"), NodePath("Target2"), NodePath("Target3"), NodePath("Target4")]
 target_indicator = ExtResource("2_l7lun")
-
-[node name="Target1" type="Sprite2D" parent="."]
-position = Vector2(69, 70)
-texture = ExtResource("2_gkg5i")
-
-[node name="Target2" type="Sprite2D" parent="."]
-position = Vector2(129, 70)
-texture = ExtResource("3_5i8pr")
-
-[node name="Target3" type="Sprite2D" parent="."]
-position = Vector2(189, 70)
-texture = ExtResource("4_xtwt6")
-
-[node name="Target4" type="Sprite2D" parent="."]
-position = Vector2(249, 70)
-texture = ExtResource("5_d0dbi")
 
 [node name="Pointer" type="Sprite2D" parent="."]
 unique_name_in_owner = true
