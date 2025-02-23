@@ -59,6 +59,8 @@ func purge_dead_members() -> void:
 			
 	for index in dead_member_indices:
 		party_members[index].queue_free()
+	
+	for index in dead_member_indices:
 		party_members.remove_at(index)
 		
 	activate_party_member(0)
