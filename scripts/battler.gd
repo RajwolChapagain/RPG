@@ -29,6 +29,7 @@ func mark_inactive():
 	$Pointer.visible = false
 	
 func die():
-	is_alive = false
-	$Sprite2D.self_modulate = Color.DARK_RED
-	battler_died.emit()
+	if is_alive:
+		battler_died.emit()
+		is_alive = false
+		$Sprite2D.self_modulate = Color.DARK_RED
