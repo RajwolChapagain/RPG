@@ -16,6 +16,9 @@ func _on_enemy_enemy_encountered_player(enemy: Variant) -> void:
 	curr_battle_scene.active_index = $Party.get_active_member_index()
 	curr_battle_scene.battle_ended.connect(on_battle_ended)
 	add_child(curr_battle_scene)
+	
+	for player in get_tree().get_nodes_in_group("player_character"):
+		player.set_active(false)
 
 func on_battle_ended() -> void:
 	get_node("BattleScene").queue_free()
