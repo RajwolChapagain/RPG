@@ -143,12 +143,15 @@ func end_player_turn() -> void:
 	enemy_is_attacking = false
 	active_index = 0
 	update_active_battler(0)
+	disable_attack_button()
 
 func end_enemy_turn() -> void:
 	enemies[active_index].mark_inactive()
 	players_turn = true
 	active_index = 0
 	update_active_battler(0)
+	enable_attack_button()
+	
 #endregion: turntaking
 
 #region: attacking
