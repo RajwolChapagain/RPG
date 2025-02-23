@@ -158,15 +158,21 @@ func _on_attack_button_button_down() -> void:
 
 	$TargetSelect.set_targets(enemies) 
 	$TargetSelect.activate()
-	%AttackButton.disabled = true
-	%AttackButton.set_focus_mode(Control.FOCUS_NONE)
+	disable_attack_button()
 
 func _on_target_select_target_selected(target_index: int) -> void:
 	player_characters[active_index].attack(enemies[target_index])
-	%AttackButton.disabled = false
-	%AttackButton.set_focus_mode(Control.FOCUS_ALL)
-	%AttackButton.grab_focus()
+	enable_attack_button()
 	await get_tree().process_frame
 	$TargetSelect.deactivate()
 
 #endregion: attacking
+	
+func enable_attack_button() -> void:
+	%AttackButton.disabled = false
+	%AttackButton.set_focus_mode(Control.FOCUS_ALL)
+	%AttackButton.grab_focus()
+	
+func disable_attack_button() -> void:
+	%AttackButton.disabled = true
+	%AttackButton.set_focus_mode(Control.FOCUS_NONE)
