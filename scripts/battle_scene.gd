@@ -11,20 +11,20 @@ var enemies = []
 var active_index = 0
 var players_turn = true
 var enemy_is_attacking = false
-var alive_players: int
-var alive_enemies: int
+var alive_player_count: int
+var alive_enemy_count: int
 
 
 func _ready() -> void:
 	%AttackButton.grab_focus()
 	spawn_players()
 	spawn_enemies()
-	alive_players = len(player_characters)
-	alive_enemies = len(enemies)
+	alive_player_count = len(player_characters)
+	alive_enemy_count = len(enemies)
 	
 func _process(delta: float) -> void:
 	if not players_turn and not enemy_is_attacking:
-		enemies[active_index].attack(player_characters[randi_range(0, len(player_characters) - 1)])
+		attack_random_player()
 		
 func update_active_battler(new_index):
 	var active_team = []
@@ -52,13 +52,13 @@ func update_active_battler(new_index):
 	active_index = new_index
 	
 func on_player_battler_died():
-	alive_players -= 1
-	if alive_players == 0:
+	alive_player_count -= 1
+	if alive_player_count == 0:
 		end_battle(false)
 	
 func on_enemy_battler_died():
-	alive_enemies -= 1
-	if alive_enemies == 0:
+	alive_enemy_count -= 1
+	if alive_enemy_count == 0:
 		end_battle(true)
 	
 #region: initialization
@@ -157,6 +157,9 @@ func end_enemy_turn() -> void:
 #endregion: turntaking
 
 #region: attacking
+
+### Player Attacking ###
+
 func _on_attack_button_button_down() -> void:
 	if not players_turn or $TargetSelect.is_active():
 		return
@@ -170,8 +173,6 @@ func _on_target_select_target_selected(target_index: int) -> void:
 	enable_attack_button()
 	await get_tree().process_frame
 	$TargetSelect.deactivate()
-
-#endregion: attacking
 	
 func enable_attack_button() -> void:
 	%AttackButton.disabled = false
@@ -181,6 +182,21 @@ func enable_attack_button() -> void:
 func disable_attack_button() -> void:
 	%AttackButton.disabled = true
 	%AttackButton.set_focus_mode(Control.FOCUS_NONE)
+
+### Enemy Attacking ###
+
+func attack_random_player() -> void:
+	enemies[active_index].attack(get_random_alive_player())
+	
+func get_random_alive_player():
+	var alive_players = []
+	for character in player_characters:
+		if character.is_alive:
+			alive_players.append(character)
+			
+	return alive_players.pick_random()
+	
+#endregion: attacking
 
 func end_battle(won: bool) -> void:
 	if won:
