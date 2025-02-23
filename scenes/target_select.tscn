@@ -6,6 +6,7 @@
 [node name="TargetSelect" type="Node"]
 script = ExtResource("1_yhy6j")
 target_indicator = ExtResource("2_l7lun")
+pointer_y_offset = 20
 
 [node name="Pointer" type="Sprite2D" parent="."]
 unique_name_in_owner = true
