@@ -11,11 +11,16 @@ var enemies = []
 var active_index = 0
 var players_turn = true
 var enemy_is_attacking = false
+var alive_players: int
+var alive_enemies: int
+
 
 func _ready() -> void:
 	%AttackButton.grab_focus()
 	spawn_players()
 	spawn_enemies()
+	alive_players = len(player_characters)
+	alive_enemies = len(enemies)
 	
 func _process(delta: float) -> void:
 	if not players_turn and not enemy_is_attacking:
@@ -46,6 +51,14 @@ func update_active_battler(new_index):
 	active_team[new_index].mark_active()
 	active_index = new_index
 	
+func on_player_battler_died():
+	alive_players -= 1
+	print("Players left:", alive_players)
+	
+func on_enemy_battler_died():
+	alive_enemies -= 1
+	print("Enemies left:", alive_enemies)
+	
 #region: initialization
 func spawn_players() -> void:
 	for i in range(len(player_character_stats)):
@@ -56,6 +69,7 @@ func spawn_players() -> void:
 		add_child(player_character)
 		
 	connect_player_animation_finished_signal()
+	connect_player_battler_died_signal()
 	player_characters[active_index].mark_active()
 
 func spawn_enemies() -> void:
@@ -68,6 +82,7 @@ func spawn_enemies() -> void:
 		
 	connect_enemy_animation_started_signal()
 	connect_enemy_animation_finished_signal()
+	connect_enemy_battler_died_signal()
 	
 func connect_player_animation_finished_signal() -> void:
 	for character in player_characters:
@@ -90,6 +105,15 @@ func on_animation_finished(animation: StringName) -> void:
 		
 func on_enemy_attack_animation_started(animation: StringName) -> void:
 	enemy_is_attacking = true
+	
+func connect_player_battler_died_signal() -> void:
+	for character in player_characters:
+		character.battler_died.connect(on_player_battler_died)
+		
+func connect_enemy_battler_died_signal() -> void:
+	for enemy in enemies:
+		enemy.battler_died.connect(on_enemy_battler_died)
+		
 #endregion initialization
 
 #region: turntaking
@@ -127,7 +151,7 @@ func end_enemy_turn() -> void:
 	update_active_battler(0)
 #endregion: turntaking
 
-
+#region: attacking
 func _on_attack_button_button_down() -> void:
 	if not players_turn or $TargetSelect.is_active():
 		return
@@ -144,3 +168,5 @@ func _on_target_select_target_selected(target_index: int) -> void:
 	%AttackButton.grab_focus()
 	await get_tree().process_frame
 	$TargetSelect.deactivate()
+
+#endregion: attacking
