@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://cdvr88h8f2nsx"]
+[gd_scene load_steps=11 format=4 uid="uid://cdvr88h8f2nsx"]
 
 [ext_resource type="Script" path="res://scripts/battle_scene.gd" id="1_0yksl"]
 [ext_resource type="PackedScene" uid="uid://bitedxhspi8i5" path="res://scenes/dual_grid.tscn" id="1_6lmhm"]
@@ -9,6 +9,7 @@
 [ext_resource type="Resource" uid="uid://c46k2b5fxukoi" path="res://resources/goblin_base_stats.tres" id="4_mbwmo"]
 [ext_resource type="Resource" uid="uid://c3bvbxqpkkgu3" path="res://resources/knight_base_stats.tres" id="5_jwuvd"]
 [ext_resource type="Resource" uid="uid://d3kyf2naa3duo" path="res://resources/mage_base_stats.tres" id="6_2d5uy"]
+[ext_resource type="PackedScene" uid="uid://b2iwifb80auqp" path="res://scenes/target_select.tscn" id="10_ceooa"]
 
 [node name="BattleScene" type="Node"]
 script = ExtResource("1_0yksl")
@@ -293,6 +294,9 @@ theme = ExtResource("3_gj8wv")
 value = 100.0
 show_percentage = false
 
-[connection signal="button_up" from="UI/MarginContainer/HBoxContainer/VBoxContainer/AttackButton" to="." method="_on_attack_button_button_up"]
+[node name="TargetSelect" parent="." instance=ExtResource("10_ceooa")]
+
+[connection signal="button_down" from="UI/MarginContainer/HBoxContainer/VBoxContainer/AttackButton" to="." method="_on_attack_button_button_down"]
+[connection signal="target_selected" from="TargetSelect" to="." method="_on_target_select_target_selected"]
 
 [editable path="DualGrid"]

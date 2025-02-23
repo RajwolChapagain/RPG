@@ -128,8 +128,19 @@ func end_enemy_turn() -> void:
 #endregion: turntaking
 
 
-func _on_attack_button_button_up() -> void:
-	if not players_turn:
+func _on_attack_button_button_down() -> void:
+	if not players_turn or $TargetSelect.is_active():
 		return
-		
-	player_characters[active_index].attack(enemies.front())
+
+	$TargetSelect.set_targets(enemies) 
+	$TargetSelect.activate()
+	%AttackButton.disabled = true
+	%AttackButton.set_focus_mode(Control.FOCUS_NONE)
+
+func _on_target_select_target_selected(target_index: int) -> void:
+	player_characters[active_index].attack(enemies[target_index])
+	%AttackButton.disabled = false
+	%AttackButton.set_focus_mode(Control.FOCUS_ALL)
+	%AttackButton.grab_focus()
+	await get_tree().process_frame
+	$TargetSelect.deactivate()
