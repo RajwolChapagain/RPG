@@ -49,3 +49,17 @@ func get_active_member_index() -> int:
 func activate_next_member() -> void:
 	var new_active_index = (get_active_member_index() + 1) % len(party_members)
 	activate_party_member(new_active_index)
+	
+func purge_dead_members() -> void:
+	var dead_member_indices = []
+	
+	for i in range(len(party_members)):
+		if party_members[i].stats.hp == 0:
+			dead_member_indices.append(i)
+			
+	for index in dead_member_indices:
+		party_members[index].queue_free()
+		party_members.remove_at(index)
+		
+	activate_party_member(0)
+	establish_queue()
