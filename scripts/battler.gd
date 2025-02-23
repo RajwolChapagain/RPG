@@ -3,6 +3,8 @@ extends Node2D
 @export var stats: BaseStats
 var is_alive = true
 
+signal battler_died
+
 func _ready() -> void:
 	$Sprite2D.texture = stats.battle_sprite
 	
@@ -29,3 +31,4 @@ func mark_inactive():
 func die():
 	is_alive = false
 	$Sprite2D.self_modulate = Color.DARK_RED
+	battler_died.emit()
