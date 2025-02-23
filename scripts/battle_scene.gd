@@ -53,11 +53,13 @@ func update_active_battler(new_index):
 	
 func on_player_battler_died():
 	alive_players -= 1
-	print("Players left:", alive_players)
+	if alive_players == 0:
+		end_battle(false)
 	
 func on_enemy_battler_died():
 	alive_enemies -= 1
-	print("Enemies left:", alive_enemies)
+	if alive_enemies == 0:
+		end_battle(true)
 	
 #region: initialization
 func spawn_players() -> void:
@@ -179,3 +181,9 @@ func enable_attack_button() -> void:
 func disable_attack_button() -> void:
 	%AttackButton.disabled = true
 	%AttackButton.set_focus_mode(Control.FOCUS_NONE)
+
+func end_battle(won: bool) -> void:
+	if won:
+		print("Battle won!")
+	else:
+		print("Battle lost!")
