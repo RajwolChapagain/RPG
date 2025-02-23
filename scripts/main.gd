@@ -19,4 +19,17 @@ func _on_enemy_enemy_encountered_player(enemy: Variant) -> void:
 
 func on_battle_ended() -> void:
 	get_node("BattleScene").queue_free()
+	remove_dead_entities()
+	
+func remove_dead_entities() -> void:
+	remove_dead_players()
+	remove_dead_enemies()
+	
+func remove_dead_players() -> void:
 	$Party.purge_dead_members()
+
+func remove_dead_enemies() -> void:
+	for enemy in get_tree().get_nodes_in_group("enemy"):
+		if enemy.stats.hp == 0:
+			enemy.queue_free()
+	
