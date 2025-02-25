@@ -26,5 +26,6 @@ corner_radius_bottom_left = 1
 
 [resource]
 Button/styles/focus = SubResource("StyleBoxFlat_r702l")
+Label/font_sizes/font_size = 10
 ProgressBar/styles/background = SubResource("StyleBoxFlat_wpx7l")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_3tp7c")
