@@ -12,7 +12,6 @@ script = ExtResource("1_6ihyw")
 stats = ExtResource("2_fegey")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.665, 0.665)
 texture = ExtResource("1_dwlsm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
