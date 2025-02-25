@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b5h7ovaw0yjei"]
+[gd_scene load_steps=3 format=3 uid="uid://b5h7ovaw0yjei"]
 
 [ext_resource type="Theme" uid="uid://5dapp0d0f0x5" path="res://resources/ui.tres" id="1_xsx77"]
+[ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_y8f2w"]
 
 [node name="Dialogue" type="Control"]
 layout_mode = 3
@@ -9,6 +10,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_y8f2w")
+dialogues = Array[String](["Hello.", "I hope you're doing well.", "Goodbye."])
 
 [node name="Panel" type="Panel" parent="."]
 custom_minimum_size = Vector2(0, 60)
@@ -32,7 +35,8 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="Label" type="Label" parent="Panel/MarginContainer"]
+[node name="DialogueLabel" type="Label" parent="Panel/MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 1
 theme = ExtResource("1_xsx77")
