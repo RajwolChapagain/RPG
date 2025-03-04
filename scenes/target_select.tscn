@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b2iwifb80auqp"]
 
-[ext_resource type="Script" path="res://scripts/target_select.gd" id="1_yhy6j"]
+[ext_resource type="Script" uid="uid://c4h6nqceo4nd2" path="res://scripts/target_select.gd" id="1_yhy6j"]
 [ext_resource type="Texture2D" uid="uid://dwpfp7c34mgmb" path="res://assets/sprites/pointer_red.png" id="2_l7lun"]
 
 [node name="TargetSelect" type="Node"]

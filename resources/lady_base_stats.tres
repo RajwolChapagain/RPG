@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="BaseStats" load_steps=3 format=3 uid="uid://bgg065a045ww"]
 
 [ext_resource type="Texture2D" uid="uid://bsslqt5koukvh" path="res://assets/sprites/lady_draft.png" id="1_vycqt"]
-[ext_resource type="Script" path="res://scripts/resource_scripts/base_stats.gd" id="2_b4vgm"]
+[ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="2_b4vgm"]
 
 [resource]
 script = ExtResource("2_b4vgm")

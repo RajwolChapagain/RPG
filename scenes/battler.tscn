@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://hqlhygr4xwpx"]
 
-[ext_resource type="Script" path="res://scripts/battler.gd" id="1_1v4t1"]
+[ext_resource type="Script" uid="uid://gr353ga32m08" path="res://scripts/battler.gd" id="1_1v4t1"]
 [ext_resource type="Texture2D" uid="uid://bvh0dl870ttbp" path="res://assets/sprites/pointer.png" id="2_foo5t"]
 [ext_resource type="Texture2D" uid="uid://c3ga2aubvh5j8" path="res://assets/sprites/archer_draft.png" id="2_fyfas"]
 
@@ -89,9 +89,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fmb78"]
 _data = {
-"RESET": SubResource("Animation_iakmq"),
-"attack": SubResource("Animation_oys1h"),
-"flash_white": SubResource("Animation_dtvjg")
+&"RESET": SubResource("Animation_iakmq"),
+&"attack": SubResource("Animation_oys1h"),
+&"flash_white": SubResource("Animation_dtvjg")
 }
 
 [node name="Battler" type="Node2D"]
@@ -107,5 +107,5 @@ texture = ExtResource("2_foo5t")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_fmb78")
+&"": SubResource("AnimationLibrary_fmb78")
 }

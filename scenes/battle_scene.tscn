@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=4 uid="uid://cdvr88h8f2nsx"]
 
-[ext_resource type="Script" path="res://scripts/battle_scene.gd" id="1_0yksl"]
+[ext_resource type="Script" uid="uid://cj36ljr7yngtl" path="res://scripts/battle_scene.gd" id="1_0yksl"]
 [ext_resource type="PackedScene" uid="uid://bitedxhspi8i5" path="res://scenes/dual_grid.tscn" id="1_6lmhm"]
-[ext_resource type="Script" path="res://scripts/resource_scripts/base_stats.gd" id="2_xwxfl"]
+[ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="2_xwxfl"]
 [ext_resource type="Theme" uid="uid://5dapp0d0f0x5" path="res://resources/ui.tres" id="3_gj8wv"]
 [ext_resource type="Resource" uid="uid://cym67rsdldl6j" path="res://resources/archer_base_stats.tres" id="3_kbn5v"]
 [ext_resource type="Resource" uid="uid://biubxrgae4cha" path="res://resources/cleric_base_stats.tres" id="4_4cvxg"]

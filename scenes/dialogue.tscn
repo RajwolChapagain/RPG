@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b5h7ovaw0yjei"]
 
 [ext_resource type="Theme" uid="uid://5dapp0d0f0x5" path="res://resources/ui.tres" id="1_xsx77"]
-[ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_y8f2w"]
+[ext_resource type="Script" uid="uid://cs13nd58c8eu1" path="res://scripts/dialogue.gd" id="1_y8f2w"]
 
 [node name="Dialogue" type="Control"]
 layout_mode = 3

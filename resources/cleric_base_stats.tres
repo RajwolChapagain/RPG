@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="BaseStats" load_steps=3 format=3 uid="uid://biubxrgae4cha"]
 
 [ext_resource type="Texture2D" uid="uid://dfhva4n1oxgvi" path="res://assets/sprites/cleric_draft.png" id="1_b6jf2"]
-[ext_resource type="Script" path="res://scripts/resource_scripts/base_stats.gd" id="2_vggh8"]
+[ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="2_vggh8"]
 
 [resource]
 script = ExtResource("2_vggh8")

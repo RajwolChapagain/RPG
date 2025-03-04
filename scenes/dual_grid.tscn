@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=4 uid="uid://bitedxhspi8i5"]
 
 [ext_resource type="Texture2D" uid="uid://cxnaso8ig7j4l" path="res://assets/sprites/TilemapPlaceholders.png" id="1_l62v8"]
-[ext_resource type="Script" path="res://scripts/world_grid.gd" id="2_0nav7"]
+[ext_resource type="Script" uid="uid://6wrdnatf03cy" path="res://scripts/world_grid.gd" id="2_0nav7"]
 [ext_resource type="Texture2D" uid="uid://bep8vaa3t2g6" path="res://assets/sprites/TilemapDemo.png" id="2_4a7ew"]
 [ext_resource type="Texture2D" uid="uid://v4x62t75rq6k" path="res://assets/sprites/tilemap.png" id="3_3ptjr"]
 

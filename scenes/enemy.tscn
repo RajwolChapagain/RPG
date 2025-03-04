@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ccy0aydyv2sxd"]
 
-[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_6ihyw"]
+[ext_resource type="Script" uid="uid://drochfksobdgv" path="res://scripts/enemy.gd" id="1_6ihyw"]
 [ext_resource type="Texture2D" uid="uid://onsf4e7pukfl" path="res://assets/sprites/goblin_placeholder.png" id="1_dwlsm"]
 [ext_resource type="Resource" uid="uid://c46k2b5fxukoi" path="res://resources/goblin_base_stats.tres" id="2_fegey"]
 
