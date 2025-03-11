@@ -11,7 +11,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_y8f2w")
-dialogues = Array[String](["Hello.", "I hope you're doing well.", "Goodbye."])
+dialogues_1 = Array[String](["Hi!", "", "Slim Shady."])
+dialogues_2 = Array[String](["My name is...", ""])
 
 [node name="Panel" type="Panel" parent="."]
 custom_minimum_size = Vector2(0, 60)
