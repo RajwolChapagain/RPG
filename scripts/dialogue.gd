@@ -37,7 +37,9 @@ func switch_turns() -> void:
 		current_dialogue_index_2 = current_dialogue_index +  1
 		turn = 1
 		
-	current_dialogue_index -= 1
+	current_dialogue_index -= 1 # Because advance_dialogue() increments the current_dialogue index by 1
+								# So this expects that current_dialogue_index is already pointing to the
+								# appropriate non-empty dialogue string
 	advance_dialogue()
 		
 func update_dialogue_label() -> void:
