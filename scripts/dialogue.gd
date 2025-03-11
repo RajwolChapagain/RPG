@@ -6,8 +6,7 @@ var current_dialogue_index_1: int = 0
 var current_dialogue_index_2: int = 0
 var current_dialogues: Array[String]
 var current_dialogue_index: int = 0
-var dialogue_ended: bool = false
-
+var has_dialogue_ended: bool = false
 var turn: int:
 	get:
 		return turn
@@ -15,13 +14,15 @@ var turn: int:
 		current_dialogues = dialogues_1 if value == 1 else dialogues_2
 		current_dialogue_index = current_dialogue_index_1 if value == 1 else current_dialogue_index_2
 		turn = value
+		
+signal dialogue_ended
 
 func _ready() -> void:
 	turn = 1
 	update_dialogue_label()
 	
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("advance_dialogue") and not dialogue_ended:
+	if event.is_action_pressed("advance_dialogue") and not has_dialogue_ended:
 		advance_dialogue()
 		
 func advance_dialogue() -> void:
@@ -48,8 +49,8 @@ func switch_turns() -> void:
 	advance_dialogue()
 		
 func end_dialogue() -> void:
-	print("Dialogue ended")
-	dialogue_ended = true
+	dialogue_ended.emit()
+	has_dialogue_ended = true
 	
 func update_dialogue_label() -> void:
 	%DialogueLabel.text = current_dialogues[current_dialogue_index]
