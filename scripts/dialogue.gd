@@ -2,6 +2,8 @@ extends Control
 
 @export var dialogues_1: Array[String]= []
 @export var dialogues_2: Array[String] = []
+@export var sprite_1: Texture2D
+@export var sprite_2: Texture2D
 var current_dialogue_index_1: int = 0
 var current_dialogue_index_2: int = 0
 var current_dialogues: Array[String]
@@ -19,6 +21,8 @@ signal dialogue_ended
 
 func _ready() -> void:
 	turn = 1
+	%Portrait1.texture = sprite_1
+	%Portrait2.texture = sprite_2
 	update_dialogue_label()
 	
 func _input(event: InputEvent) -> void:
