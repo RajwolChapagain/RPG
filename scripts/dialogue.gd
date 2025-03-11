@@ -27,6 +27,8 @@ func advance_dialogue() -> void:
 		current_dialogue_index += 1
 		if current_dialogues[current_dialogue_index].is_empty():
 			switch_turns()
+			return
+			
 		update_dialogue_label()
 
 func switch_turns() -> void:
