@@ -6,6 +6,7 @@ extends Area2D
  
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player_character"):
+		player_dialogues.sprite = area.dialogue_info.sprite
 		initiate_dialogue()
 
 func initiate_dialogue() -> void:
