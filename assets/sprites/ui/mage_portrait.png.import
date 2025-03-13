@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brtxa1yt5xu6v"
-path="res://.godot/imported/lady_portrait.webp-43955b8032e17480f8ec455d20848b12.ctex"
+uid="uid://dg4kpgvnw0v7l"
+path="res://.godot/imported/mage_portrait.png-d0ff3b7153c7c89316eab7558babaffb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/ui/lady_portrait.webp"
-dest_files=["res://.godot/imported/lady_portrait.webp-43955b8032e17480f8ec455d20848b12.ctex"]
+source_file="res://assets/sprites/ui/mage_portrait.png"
+dest_files=["res://.godot/imported/mage_portrait.png-d0ff3b7153c7c89316eab7558babaffb.ctex"]
 
 [params]
 
