@@ -17,9 +17,9 @@ battle_scene = ExtResource("2_v8u3f")
 position = Vector2(32, 32)
 
 [node name="Enemy" parent="." instance=ExtResource("3_0ij44")]
-position = Vector2(256, 77)
+position = Vector2(222, 48)
 
 [node name="NPC" parent="." instance=ExtResource("6_tefeu")]
-position = Vector2(133, 168)
+position = Vector2(222, 157)
 
 [connection signal="enemy_encountered_player" from="Enemy" to="." method="_on_enemy_enemy_encountered_player"]
