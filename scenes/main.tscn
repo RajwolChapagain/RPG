@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://di22kpskfdmkw"]
+[gd_scene load_steps=7 format=3 uid="uid://di22kpskfdmkw"]
 
 [ext_resource type="Script" uid="uid://cli8m4dkhd5tk" path="res://scripts/main.gd" id="1_2o4jk"]
 [ext_resource type="PackedScene" uid="uid://b6pcibljvig3f" path="res://scenes/party.tscn" id="1_cj7xw"]
 [ext_resource type="PackedScene" uid="uid://cdvr88h8f2nsx" path="res://scenes/battle_scene.tscn" id="2_v8u3f"]
 [ext_resource type="PackedScene" uid="uid://bitedxhspi8i5" path="res://scenes/dual_grid.tscn" id="2_xwdsx"]
 [ext_resource type="PackedScene" uid="uid://ccy0aydyv2sxd" path="res://scenes/enemy.tscn" id="3_0ij44"]
+[ext_resource type="PackedScene" uid="uid://cglapshtkljpc" path="res://scenes/npc.tscn" id="6_tefeu"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_2o4jk")
@@ -17,5 +18,8 @@ position = Vector2(32, 32)
 
 [node name="Enemy" parent="." instance=ExtResource("3_0ij44")]
 position = Vector2(256, 77)
+
+[node name="NPC" parent="." instance=ExtResource("6_tefeu")]
+position = Vector2(133, 168)
 
 [connection signal="enemy_encountered_player" from="Enemy" to="." method="_on_enemy_enemy_encountered_player"]
