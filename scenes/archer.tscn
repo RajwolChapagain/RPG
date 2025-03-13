@@ -1,11 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://cx2lym7krpsie"]
+[gd_scene load_steps=11 format=3 uid="uid://cx2lym7krpsie"]
 
 [ext_resource type="Script" uid="uid://co51hx7h8y0x" path="res://scripts/player.gd" id="1_2iv4p"]
 [ext_resource type="Texture2D" uid="uid://c3ga2aubvh5j8" path="res://assets/sprites/archer_draft.png" id="2_htyto"]
 [ext_resource type="Resource" uid="uid://cym67rsdldl6j" path="res://resources/archer_base_stats.tres" id="2_i7o62"]
 [ext_resource type="Texture2D" uid="uid://bvh0dl870ttbp" path="res://assets/sprites/pointer.png" id="3_8jjyp"]
+[ext_resource type="Script" uid="uid://1iltisebf21d" path="res://scripts/resource_scripts/dialoguer.gd" id="3_d71b8"]
 [ext_resource type="Script" uid="uid://dbaog62au36hq" path="res://scripts/grid_mover.gd" id="4_d5x13"]
+[ext_resource type="Texture2D" uid="uid://kbicjjivguhm" path="res://assets/sprites/ui/archer_portrait_placeholder.png" id="4_mak8i"]
 [ext_resource type="Script" uid="uid://bgopu73k5cjvg" path="res://scripts/grid_position_tracker.gd" id="5_8gkgf"]
+
+[sub_resource type="Resource" id="Resource_1s68y"]
+script = ExtResource("3_d71b8")
+sprite = ExtResource("4_mak8i")
+dialogues = Array[String]([])
+metadata/_custom_type_script = "uid://1iltisebf21d"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kcvcf"]
 size = Vector2(32, 32)
@@ -14,6 +22,7 @@ size = Vector2(32, 32)
 collision_mask = 0
 script = ExtResource("1_2iv4p")
 stats = ExtResource("2_i7o62")
+dialogue_info = SubResource("Resource_1s68y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_kcvcf")

@@ -1,6 +1,7 @@
 extends Area2D
 
 @export var stats: BaseStats
+@export var dialogue_info: Dialoguer
 var is_active = true
 var grid_pos
 var last_grid_pos = grid_pos

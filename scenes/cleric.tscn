@@ -1,11 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://dntk1hqtl8ews"]
+[gd_scene load_steps=7 format=3 uid="uid://dntk1hqtl8ews"]
 
 [ext_resource type="PackedScene" uid="uid://cx2lym7krpsie" path="res://scenes/archer.tscn" id="1_20ynq"]
 [ext_resource type="Texture2D" uid="uid://dfhva4n1oxgvi" path="res://assets/sprites/cleric_draft.png" id="2_cm0e5"]
 [ext_resource type="Resource" uid="uid://biubxrgae4cha" path="res://resources/cleric_base_stats.tres" id="2_ms6yq"]
+[ext_resource type="Script" uid="uid://1iltisebf21d" path="res://scripts/resource_scripts/dialoguer.gd" id="3_mpcme"]
+[ext_resource type="Texture2D" uid="uid://vccprsqwvitk" path="res://assets/sprites/ui/cleric_portrait_placeholder.png" id="4_j4aii"]
+
+[sub_resource type="Resource" id="Resource_qrr8t"]
+script = ExtResource("3_mpcme")
+sprite = ExtResource("4_j4aii")
+dialogues = Array[String]([])
+metadata/_custom_type_script = "uid://1iltisebf21d"
 
 [node name="Player" instance=ExtResource("1_20ynq")]
 stats = ExtResource("2_ms6yq")
+dialogue_info = SubResource("Resource_qrr8t")
 
 [node name="Sprite2D" parent="." index="1"]
 texture = ExtResource("2_cm0e5")
