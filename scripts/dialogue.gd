@@ -62,3 +62,10 @@ func end_dialogue() -> void:
 	
 func update_dialogue_label() -> void:
 	%DialogueLabel.text = current_dialogues[current_dialogue_index]
+	
+func initialize(d1: Dialoguer, d2: Dialoguer) -> void:
+	sprite_1 = d1.sprite
+	sprite_2 = d2.sprite
+	dialogues_1 = d1.dialogues
+	dialogues_2 = d2.dialogues
+	
