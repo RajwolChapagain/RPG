@@ -42,9 +42,13 @@ func advance_dialogue() -> void:
 func switch_turns() -> void:
 	if turn == 1:
 		current_dialogue_index_1 = current_dialogue_index + 1
+		%Portrait1.modulate = Color.from_hsv(%Portrait1.modulate.h, %Portrait1.modulate.s, 0.5);
+		%Portrait2.modulate = Color.from_hsv(%Portrait2.modulate.h, %Portrait2.modulate.s, 1);
 		turn = 2
 	else:
 		current_dialogue_index_2 = current_dialogue_index +  1
+		%Portrait2.modulate = Color.from_hsv(%Portrait2.modulate.h, %Portrait2.modulate.s, 0.5);
+		%Portrait1.modulate = Color.from_hsv(%Portrait1.modulate.h, %Portrait1.modulate.s, 1);
 		turn = 1
 		
 	current_dialogue_index -= 1 # Because advance_dialogue() increments the current_dialogue index by 1

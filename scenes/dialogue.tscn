@@ -13,8 +13,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_y8f2w")
-dialogues_1 = Array[String](["How's it going, partner?", ""])
-dialogues_2 = Array[String](["I'm not your partner!"])
+dialogues_1 = Array[String](["How's it going, partner?", "", "Okay, okay. Relax. Geez."])
+dialogues_2 = Array[String](["I'm not your partner!", ""])
 sprite_1 = ExtResource("2_bfpow")
 sprite_2 = ExtResource("3_fyky8")
 
@@ -50,6 +50,7 @@ stretch_mode = 5
 
 [node name="Portrait2" type="TextureRect" parent="MarginContainer/VBoxContainer/Portraits"]
 unique_name_in_owner = true
+modulate = Color(0.5, 0.5, 0.5, 1)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 3
