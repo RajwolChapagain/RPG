@@ -2,8 +2,8 @@
 
 [ext_resource type="Theme" uid="uid://5dapp0d0f0x5" path="res://resources/ui.tres" id="1_xsx77"]
 [ext_resource type="Script" uid="uid://cs13nd58c8eu1" path="res://scripts/dialogue.gd" id="1_y8f2w"]
-[ext_resource type="Texture2D" uid="uid://biem2uepb43yi" path="res://assets/sprites/ui/knight_portrait.webp" id="2_bfpow"]
-[ext_resource type="Texture2D" uid="uid://ba7rc43m4vsr2" path="res://assets/sprites/ui/mage_portrait.webp" id="3_fyky8"]
+[ext_resource type="Texture2D" uid="uid://en0teytc2egu" path="res://assets/sprites/ui/knight_portrait.png" id="4_led2e"]
+[ext_resource type="Texture2D" uid="uid://dg4kpgvnw0v7l" path="res://assets/sprites/ui/mage_portrait.png" id="5_vogiq"]
 
 [node name="Dialogue" type="Control"]
 layout_mode = 3
@@ -15,8 +15,8 @@ grow_vertical = 2
 script = ExtResource("1_y8f2w")
 dialogues_1 = Array[String](["How's it going, partner?", "", "Okay, okay. Relax. Geez."])
 dialogues_2 = Array[String](["I'm not your partner!", ""])
-sprite_1 = ExtResource("2_bfpow")
-sprite_2 = ExtResource("3_fyky8")
+sprite_1 = ExtResource("4_led2e")
+sprite_2 = ExtResource("5_vogiq")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -44,7 +44,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 3
-texture = ExtResource("2_bfpow")
+texture = ExtResource("4_led2e")
 expand_mode = 2
 stretch_mode = 5
 
@@ -54,7 +54,7 @@ modulate = Color(0.5, 0.5, 0.5, 1)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 3
-texture = ExtResource("3_fyky8")
+texture = ExtResource("5_vogiq")
 expand_mode = 2
 stretch_mode = 5
 flip_h = true
