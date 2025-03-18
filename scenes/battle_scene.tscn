@@ -33,7 +33,7 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -53.0
+offset_top = -48.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -45,258 +45,135 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 2
+theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer/HBoxContainer"]
+[node name="ButtonsContainer" type="VBoxContainer" parent="UI/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.15
 theme_override_constants/separation = 2
 
-[node name="AttackButton" type="Button" parent="UI/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="AttackButton" type="Button" parent="UI/MarginContainer/HBoxContainer/ButtonsContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("3_gj8wv")
 theme_override_font_sizes/font_size = 4
 text = "ATTACK"
 
-[node name="AbilitiesButton" type="Button" parent="UI/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="AbilitiesButton" type="Button" parent="UI/MarginContainer/HBoxContainer/ButtonsContainer"]
 layout_mode = 2
 theme = ExtResource("3_gj8wv")
 theme_override_font_sizes/font_size = 4
 text = "ABILITIES"
 
-[node name="ItemsButton" type="Button" parent="UI/MarginContainer/HBoxContainer/VBoxContainer"]
-visible = false
-layout_mode = 2
-theme = ExtResource("3_gj8wv")
-theme_override_font_sizes/font_size = 4
-text = "ITEMS"
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="UI/MarginContainer/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer/HBoxContainer/VBoxContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
+[node name="CharacterNameLabel" type="Label" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.22
-
-[node name="Label" type="Label" parent="UI/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 4
-text = "Archer"
-
-[node name="Label2" type="Label" parent="UI/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 4
-text = "Cleric"
-
-[node name="Label3" type="Label" parent="UI/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 4
-text = "Knight"
-
-[node name="Label4" type="Label" parent="UI/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 4
-text = "Lady"
-
-[node name="Label5" type="Label" parent="UI/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 4
-text = "Mage"
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="UI/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="UI/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 4
-text = "HP"
-
-[node name="ProgressBar" type="ProgressBar" parent="UI/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
+size_flags_vertical = 0
 theme = ExtResource("3_gj8wv")
-value = 100.0
+theme_override_font_sizes/font_size = 4
+text = "Testing"
+
+[node name="ProgressBar" type="ProgressBar" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+value = 75.0
 show_percentage = false
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="UI/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="UI/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer2"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 4
-text = "HP"
-
-[node name="ProgressBar" type="ProgressBar" parent="UI/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer2"]
+[node name="ProgressBar2" type="ProgressBar" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 1
-theme = ExtResource("3_gj8wv")
-value = 100.0
+value = 75.0
 show_percentage = false
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="UI/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="UI/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer3"]
+[node name="CharacterNameLabel" type="Label" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("3_gj8wv")
 theme_override_font_sizes/font_size = 4
-text = "HP"
+text = "Testing"
 
-[node name="ProgressBar" type="ProgressBar" parent="UI/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer3"]
+[node name="ProgressBar" type="ProgressBar" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 1
-theme = ExtResource("3_gj8wv")
-value = 100.0
+value = 75.0
 show_percentage = false
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="UI/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="UI/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer4"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 4
-text = "HP"
-
-[node name="ProgressBar" type="ProgressBar" parent="UI/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer4"]
+[node name="ProgressBar2" type="ProgressBar" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 1
-theme = ExtResource("3_gj8wv")
-value = 100.0
+value = 75.0
 show_percentage = false
 
-[node name="HBoxContainer5" type="HBoxContainer" parent="UI/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="UI/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer5"]
+[node name="CharacterNameLabel" type="Label" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("3_gj8wv")
 theme_override_font_sizes/font_size = 4
-text = "HP"
+text = "Testing"
 
-[node name="ProgressBar" type="ProgressBar" parent="UI/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer5"]
+[node name="ProgressBar" type="ProgressBar" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 1
-theme = ExtResource("3_gj8wv")
-value = 100.0
+value = 75.0
 show_percentage = false
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="UI/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
+[node name="ProgressBar2" type="ProgressBar" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer3"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="UI/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer3/HBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 4
-text = "MP"
-
-[node name="ProgressBar" type="ProgressBar" parent="UI/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer3/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-theme = ExtResource("3_gj8wv")
-value = 100.0
+value = 75.0
 show_percentage = false
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="UI/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer3"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="UI/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer3/HBoxContainer2"]
+[node name="CharacterNameLabel" type="Label" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer4"]
 layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("3_gj8wv")
 theme_override_font_sizes/font_size = 4
-text = "MP"
+text = "Testing"
 
-[node name="ProgressBar" type="ProgressBar" parent="UI/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer3/HBoxContainer2"]
+[node name="ProgressBar" type="ProgressBar" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 1
-theme = ExtResource("3_gj8wv")
-value = 100.0
+value = 75.0
 show_percentage = false
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="UI/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer3"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="UI/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer3/HBoxContainer3"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 4
-text = "MP"
-
-[node name="ProgressBar" type="ProgressBar" parent="UI/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer3/HBoxContainer3"]
+[node name="ProgressBar2" type="ProgressBar" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 1
-theme = ExtResource("3_gj8wv")
-value = 100.0
-show_percentage = false
-
-[node name="HBoxContainer4" type="HBoxContainer" parent="UI/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer3"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="UI/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer3/HBoxContainer4"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 4
-text = "MP"
-
-[node name="ProgressBar" type="ProgressBar" parent="UI/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer3/HBoxContainer4"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-theme = ExtResource("3_gj8wv")
-value = 100.0
-show_percentage = false
-
-[node name="HBoxContainer5" type="HBoxContainer" parent="UI/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer3"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="UI/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer3/HBoxContainer5"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 4
-text = "MP"
-
-[node name="ProgressBar" type="ProgressBar" parent="UI/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer3/HBoxContainer5"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-theme = ExtResource("3_gj8wv")
-value = 100.0
+value = 75.0
 show_percentage = false
 
 [node name="TargetSelect" parent="." instance=ExtResource("10_ceooa")]
 
-[connection signal="button_down" from="UI/MarginContainer/HBoxContainer/VBoxContainer/AttackButton" to="." method="_on_attack_button_button_down"]
+[connection signal="button_down" from="UI/MarginContainer/HBoxContainer/ButtonsContainer/AttackButton" to="." method="_on_attack_button_button_down"]
 [connection signal="target_selected" from="TargetSelect" to="." method="_on_target_select_target_selected"]
 
 [editable path="DualGrid"]
