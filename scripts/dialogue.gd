@@ -26,10 +26,14 @@ func _ready() -> void:
 	update_dialogue_label()
 	
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("advance_dialogue") and not has_dialogue_ended:
+	if event.is_action_pressed("advance_dialogue"):
 		advance_dialogue()
 		
 func advance_dialogue() -> void:
+	if has_dialogue_ended:
+		queue_free()
+		return
+		
 	current_dialogue_index += 1
 	if current_dialogues[current_dialogue_index].is_empty():
 		switch_turns()
