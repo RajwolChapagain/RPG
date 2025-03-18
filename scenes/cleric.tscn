@@ -4,11 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://dfhva4n1oxgvi" path="res://assets/sprites/cleric_draft.png" id="2_cm0e5"]
 [ext_resource type="Resource" uid="uid://biubxrgae4cha" path="res://resources/cleric_base_stats.tres" id="2_ms6yq"]
 [ext_resource type="Script" uid="uid://1iltisebf21d" path="res://scripts/resource_scripts/dialoguer.gd" id="3_mpcme"]
-[ext_resource type="Texture2D" uid="uid://vccprsqwvitk" path="res://assets/sprites/ui/cleric_portrait_placeholder.png" id="4_j4aii"]
+[ext_resource type="Texture2D" uid="uid://ykdf0ync8jll" path="res://assets/sprites/ui/cleric_portrait.png" id="4_mpcme"]
 
 [sub_resource type="Resource" id="Resource_qrr8t"]
 script = ExtResource("3_mpcme")
-sprite = ExtResource("4_j4aii")
+sprite = ExtResource("4_mpcme")
 dialogues = Array[String]([])
 metadata/_custom_type_script = "uid://1iltisebf21d"
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vccprsqwvitk"
-path="res://.godot/imported/cleric_portrait_placeholder.png-c8e633838ff18f4dc1b02edecde1bcdf.ctex"
+uid="uid://ykdf0ync8jll"
+path="res://.godot/imported/cleric_portrait.png-7098781ce7afcfcddb02e1cef16910f9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/ui/cleric_portrait_placeholder.png"
-dest_files=["res://.godot/imported/cleric_portrait_placeholder.png-c8e633838ff18f4dc1b02edecde1bcdf.ctex"]
+source_file="res://assets/sprites/ui/cleric_portrait.png"
+dest_files=["res://.godot/imported/cleric_portrait.png-7098781ce7afcfcddb02e1cef16910f9.ctex"]
 
 [params]
 
