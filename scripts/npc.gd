@@ -13,3 +13,4 @@ func initiate_dialogue() -> void:
 	var dialogue_scene = DIALOGUE_SCENE.instantiate()
 	dialogue_scene.initialize(player_dialogues, my_dialogues)
 	get_tree().root.add_child(dialogue_scene)
+	get_tree().paused = true

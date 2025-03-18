@@ -32,6 +32,7 @@ func _input(event: InputEvent) -> void:
 func advance_dialogue() -> void:
 	if has_dialogue_ended:
 		queue_free()
+		get_tree().paused = false
 		return
 		
 	current_dialogue_index += 1
