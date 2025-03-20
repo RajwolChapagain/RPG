@@ -100,6 +100,21 @@ size_flags_horizontal = 3
 value = 75.0
 show_percentage = false
 
+[node name="HPLabel1" type="Label" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/P1Info/HealthBarP1"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_gj8wv")
+theme_override_colors/font_color = Color(0.20871, 0.20871, 0.20871, 1)
+theme_override_font_sizes/font_size = 3
+text = "100/100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="ProgressBar2" type="ProgressBar" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/P1Info"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -126,6 +141,21 @@ layout_mode = 2
 size_flags_horizontal = 3
 value = 75.0
 show_percentage = false
+
+[node name="HPLabel2" type="Label" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/P2Info/HealthBarP2"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_gj8wv")
+theme_override_colors/font_color = Color(0.20871, 0.20871, 0.20871, 1)
+theme_override_font_sizes/font_size = 3
+text = "100/100"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ProgressBar2" type="ProgressBar" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/P2Info"]
 layout_mode = 2
@@ -154,6 +184,21 @@ size_flags_horizontal = 3
 value = 75.0
 show_percentage = false
 
+[node name="HPLabel3" type="Label" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/P3Info/HealthBarP3"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_gj8wv")
+theme_override_colors/font_color = Color(0.20871, 0.20871, 0.20871, 1)
+theme_override_font_sizes/font_size = 3
+text = "100/100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="ProgressBar2" type="ProgressBar" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/P3Info"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -180,6 +225,21 @@ layout_mode = 2
 size_flags_horizontal = 3
 value = 75.0
 show_percentage = false
+
+[node name="HPLabel4" type="Label" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/P4Info/HealthBarP4"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_gj8wv")
+theme_override_colors/font_color = Color(0.20871, 0.20871, 0.20871, 1)
+theme_override_font_sizes/font_size = 3
+text = "100/100"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ProgressBar2" type="ProgressBar" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/P4Info"]
 layout_mode = 2
