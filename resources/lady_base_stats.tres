@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("2_b4vgm")
+name = "Lady"
 attack_damage = 20
 hp = 20
 battle_sprite = ExtResource("1_vycqt")

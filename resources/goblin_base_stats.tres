@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("1_by2lk")
+name = "Goblin"
 attack_damage = 100
 hp = 100
 battle_sprite = ExtResource("1_2gk5n")

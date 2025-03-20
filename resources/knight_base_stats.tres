@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("2_rdlod")
+name = "Rachelle"
 attack_damage = 10
 hp = 150
 battle_sprite = ExtResource("1_pev6q")
