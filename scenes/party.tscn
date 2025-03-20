@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://b6pcibljvig3f"]
+[gd_scene load_steps=6 format=3 uid="uid://b6pcibljvig3f"]
 
 [ext_resource type="Script" uid="uid://cibsesln54s3" path="res://scripts/party.gd" id="1_j0ect"]
-[ext_resource type="PackedScene" uid="uid://cx2lym7krpsie" path="res://scenes/archer.tscn" id="2_fgs8k"]
 [ext_resource type="PackedScene" uid="uid://dntk1hqtl8ews" path="res://scenes/cleric.tscn" id="3_j43yp"]
 [ext_resource type="PackedScene" uid="uid://4tpi2115bjdi" path="res://scenes/knight.tscn" id="4_h114t"]
 [ext_resource type="PackedScene" uid="uid://dybafy3qxap2q" path="res://scenes/lady.tscn" id="5_q54hc"]
@@ -9,4 +8,4 @@
 
 [node name="Party" type="Node2D"]
 script = ExtResource("1_j0ect")
-character_scenes = Array[PackedScene]([ExtResource("2_fgs8k"), ExtResource("3_j43yp"), ExtResource("4_h114t"), ExtResource("5_q54hc"), ExtResource("6_vyonn")])
+character_scenes = Array[PackedScene]([ExtResource("3_j43yp"), ExtResource("4_h114t"), ExtResource("5_q54hc"), ExtResource("6_vyonn")])
