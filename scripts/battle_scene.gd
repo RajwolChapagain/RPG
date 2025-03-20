@@ -21,6 +21,7 @@ func _ready() -> void:
 	spawn_enemies()
 	alive_player_count = len(player_characters)
 	alive_enemy_count = len(enemies)
+	initialize_ui()
 	
 func _process(delta: float) -> void:
 	if not players_turn and not enemy_is_attacking:
@@ -115,6 +116,11 @@ func connect_player_battler_died_signal() -> void:
 func connect_enemy_battler_died_signal() -> void:
 	for enemy in enemies:
 		enemy.battler_died.connect(on_enemy_battler_died)
+		
+func initialize_ui() -> void:
+	var info_fields = [%P1Info, %P2Info, %P3Info, %P4Info]
+	for i in range(len(player_characters), 4):
+		info_fields[i].visible = false
 		
 #endregion initialization
 
