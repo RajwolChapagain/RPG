@@ -129,12 +129,25 @@ func initialize_ui() -> void:
 		info_fields[i].visible = false
 		
 	initialize_ui_names()
+	initialize_hp_bar()
 	
 func initialize_ui_names() -> void:
 	var name_fields = [%NameLabelP1, %NameLabelP2, %NameLabelP3, %NameLabelP4]
 	for i in range(len(player_characters)):
 		name_fields[i].text = player_characters[i].stats.name
 		
+func initialize_hp_bar() -> void:
+	var hp_bars = [%HealthBarP1, %HealthBarP2, %HealthBarP3, %HealthBarP4]
+	for i in range(len(player_characters)):
+		hp_bars[i].max_value = player_characters[i].stats.max_hp
+		hp_bars[i].value = player_characters[i].stats.hp
+	
+	# Initialize hp labels
+	var hp_labels = [%HPLabel1, %HPLabel2, %HPLabel3, %HPLabel4]
+	for i in range(len(player_characters)):
+		var string = str(player_characters[i].stats.hp) + "/" + str(player_characters[i].stats.max_hp)
+		hp_labels[i].text = string
+	
 #endregion initialization
 
 #region: turntaking
