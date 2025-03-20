@@ -79,97 +79,101 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="P1Info" type="HBoxContainer" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="CharacterNameLabel" type="Label" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="NameLabelP1" type="Label" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/P1Info"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 0
 theme = ExtResource("3_gj8wv")
 theme_override_font_sizes/font_size = 4
 text = "Testing"
 
-[node name="HealthBarP1" type="ProgressBar" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="HealthBarP1" type="ProgressBar" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/P1Info"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 value = 75.0
 show_percentage = false
 
-[node name="ProgressBar2" type="ProgressBar" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="ProgressBar2" type="ProgressBar" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/P1Info"]
 layout_mode = 2
 size_flags_horizontal = 3
 value = 75.0
 show_percentage = false
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="P2Info" type="HBoxContainer" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="CharacterNameLabel" type="Label" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="NameLabelP2" type="Label" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/P2Info"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 0
 theme = ExtResource("3_gj8wv")
 theme_override_font_sizes/font_size = 4
 text = "Testing"
 
-[node name="HealthBarP2" type="ProgressBar" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="HealthBarP2" type="ProgressBar" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/P2Info"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 value = 75.0
 show_percentage = false
 
-[node name="ProgressBar2" type="ProgressBar" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="ProgressBar2" type="ProgressBar" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/P2Info"]
 layout_mode = 2
 size_flags_horizontal = 3
 value = 75.0
 show_percentage = false
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="P3Info" type="HBoxContainer" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="CharacterNameLabel" type="Label" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
+[node name="NameLabelP3" type="Label" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/P3Info"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 0
 theme = ExtResource("3_gj8wv")
 theme_override_font_sizes/font_size = 4
 text = "Testing"
 
-[node name="HealthBarP3" type="ProgressBar" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
+[node name="HealthBarP3" type="ProgressBar" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/P3Info"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 value = 75.0
 show_percentage = false
 
-[node name="ProgressBar2" type="ProgressBar" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
+[node name="ProgressBar2" type="ProgressBar" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/P3Info"]
 layout_mode = 2
 size_flags_horizontal = 3
 value = 75.0
 show_percentage = false
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="P4Info" type="HBoxContainer" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="CharacterNameLabel" type="Label" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer4"]
+[node name="NameLabelP4" type="Label" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/P4Info"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 0
 theme = ExtResource("3_gj8wv")
 theme_override_font_sizes/font_size = 4
 text = "Testing"
 
-[node name="HealthBarP4" type="ProgressBar" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer4"]
+[node name="HealthBarP4" type="ProgressBar" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/P4Info"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 value = 75.0
 show_percentage = false
 
-[node name="ProgressBar2" type="ProgressBar" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer4"]
+[node name="ProgressBar2" type="ProgressBar" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/P4Info"]
 layout_mode = 2
 size_flags_horizontal = 3
 value = 75.0
