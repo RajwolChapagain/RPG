@@ -122,6 +122,13 @@ func initialize_ui() -> void:
 	for i in range(len(player_characters), 4):
 		info_fields[i].visible = false
 		
+	initialize_ui_names()
+	
+func initialize_ui_names() -> void:
+	var name_fields = [%NameLabelP1, %NameLabelP2, %NameLabelP3, %NameLabelP4]
+	for i in range(len(player_characters)):
+		name_fields[i].text = player_characters[i].stats.name
+		
 #endregion initialization
 
 #region: turntaking
