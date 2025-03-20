@@ -33,6 +33,11 @@ func update_ui() -> void:
 	for i in range(len(player_characters)):
 		health_fields[i].value = player_characters[i].stats.hp
 		
+	var hp_labels = [%HPLabel1, %HPLabel2, %HPLabel3, %HPLabel4]
+	for i in range(len(player_characters)):
+		var string = str(player_characters[i].stats.hp) + "/" + str(player_characters[i].stats.max_hp)
+		hp_labels[i].text = string
+		
 func update_active_battler(new_index):
 	var active_team = []
 	
