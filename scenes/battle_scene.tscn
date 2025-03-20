@@ -85,11 +85,12 @@ size_flags_vertical = 3
 
 [node name="NameLabelP1" type="Label" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/P1Info"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(23, 0)
 layout_mode = 2
 size_flags_vertical = 0
 theme = ExtResource("3_gj8wv")
 theme_override_font_sizes/font_size = 4
-text = "Testing"
+text = "Magda"
 
 [node name="HealthBarP1" type="ProgressBar" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/P1Info"]
 unique_name_in_owner = true
@@ -110,11 +111,12 @@ size_flags_vertical = 3
 
 [node name="NameLabelP2" type="Label" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/P2Info"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(23, 0)
 layout_mode = 2
 size_flags_vertical = 0
 theme = ExtResource("3_gj8wv")
 theme_override_font_sizes/font_size = 4
-text = "Testing"
+text = "Lachlan"
 
 [node name="HealthBarP2" type="ProgressBar" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/P2Info"]
 unique_name_in_owner = true
@@ -135,11 +137,12 @@ size_flags_vertical = 3
 
 [node name="NameLabelP3" type="Label" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/P3Info"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(23, 0)
 layout_mode = 2
 size_flags_vertical = 0
 theme = ExtResource("3_gj8wv")
 theme_override_font_sizes/font_size = 4
-text = "Testing"
+text = "Rachelle"
 
 [node name="HealthBarP3" type="ProgressBar" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/P3Info"]
 unique_name_in_owner = true
@@ -160,11 +163,12 @@ size_flags_vertical = 3
 
 [node name="NameLabelP4" type="Label" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/P4Info"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(23, 0)
 layout_mode = 2
 size_flags_vertical = 0
 theme = ExtResource("3_gj8wv")
 theme_override_font_sizes/font_size = 4
-text = "Testing"
+text = "Placeholder"
 
 [node name="HealthBarP4" type="ProgressBar" parent="UI/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/P4Info"]
 unique_name_in_owner = true
