@@ -24,8 +24,14 @@ func _ready() -> void:
 	initialize_ui()
 	
 func _process(delta: float) -> void:
+	update_ui()
 	if not players_turn and not enemy_is_attacking:
 		attack_random_player()
+		
+func update_ui() -> void:
+	var health_fields = [%HealthBarP1, %HealthBarP2, %HealthBarP3, %HealthBarP4]
+	for i in range(len(player_characters)):
+		health_fields[i].value = player_characters[i].stats.hp
 		
 func update_active_battler(new_index):
 	var active_team = []
