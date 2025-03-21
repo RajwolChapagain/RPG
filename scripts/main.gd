@@ -13,7 +13,7 @@ func _on_enemy_enemy_encountered_player(enemy: Variant) -> void:
 	var curr_battle_scene = battle_scene.instantiate()
 	curr_battle_scene.player_character_stats = player_character_stats
 	curr_battle_scene.enemy_stats =  enemy_stats
-	curr_battle_scene.active_index = $Party.get_active_member_index()
+	curr_battle_scene.first_attacker_index = $Party.get_active_member_index()
 	curr_battle_scene.battle_ended.connect(on_battle_ended)
 	add_child(curr_battle_scene)
 	

@@ -8,10 +8,12 @@ var battler_enemy = preload("res://scenes/battler_enemy.tscn")
 var player_characters = []
 var enemies = []
 var active_index = 0
+var first_attacker_index = 0
 var players_turn = true
 var enemy_is_attacking = false
 var alive_player_count: int
 var alive_enemy_count: int
+var num_attacked: int = 0
 
 signal battle_ended
 
@@ -49,7 +51,7 @@ func update_active_battler(new_index):
 	active_team[active_index].mark_inactive()
 	
 	if not active_team[new_index].is_alive:
-		if new_index == len(active_team) - 1:
+		if num_attacked == alive_player_count:
 			if players_turn:
 				end_player_turn()
 			else:
@@ -84,6 +86,7 @@ func spawn_players() -> void:
 		
 	connect_player_animation_finished_signal()
 	connect_player_battler_died_signal()
+	active_index = first_attacker_index
 	player_characters[active_index].mark_active()
 
 func spawn_enemies() -> void:
@@ -163,8 +166,9 @@ func update_turn() -> void:
 		update_enemy_turn()
 		
 func update_player_turn() -> void:
-	if active_index == len(player_characters) - 1:
+	if num_attacked == alive_player_count:
 		end_player_turn()
+		num_attacked = 0
 		return
 		
 	update_active_battler( (active_index + 1) % len(player_characters))
@@ -187,8 +191,8 @@ func end_player_turn() -> void:
 func end_enemy_turn() -> void:
 	enemies[active_index].mark_inactive()
 	players_turn = true
-	active_index = 0
-	update_active_battler(0)
+	active_index = first_attacker_index
+	update_active_battler(active_index)
 	enable_attack_button()
 	
 #endregion: turntaking
@@ -210,6 +214,7 @@ func _on_target_select_target_selected(target_index: int) -> void:
 	enable_attack_button()
 	await get_tree().process_frame
 	$TargetSelect.deactivate()
+	num_attacked += 1
 	
 func enable_attack_button() -> void:
 	%AttackButton.disabled = false
