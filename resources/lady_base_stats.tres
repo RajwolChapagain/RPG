@@ -1,7 +1,11 @@
-[gd_resource type="Resource" script_class="BaseStats" load_steps=3 format=3 uid="uid://bgg065a045ww"]
+[gd_resource type="Resource" script_class="BaseStats" load_steps=4 format=3 uid="uid://bgg065a045ww"]
 
-[ext_resource type="Texture2D" uid="uid://bsslqt5koukvh" path="res://assets/sprites/lady_draft.png" id="1_vycqt"]
+[ext_resource type="Texture2D" uid="uid://dvwnmsadk665c" path="res://assets/sprites/josephine_sprite_sheet.png" id="1_vrbv0"]
 [ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="2_b4vgm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jo85b"]
+atlas = ExtResource("1_vrbv0")
+region = Rect2(0, 96, 32, 32)
 
 [resource]
 script = ExtResource("2_b4vgm")
@@ -9,4 +13,4 @@ name = "Lady"
 attack_damage = 20
 max_hp = 20
 hp = 20
-battle_sprite = ExtResource("1_vycqt")
+battle_sprite = SubResource("AtlasTexture_jo85b")
