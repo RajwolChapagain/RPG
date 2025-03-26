@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dybafy3qxap2q"]
+[gd_scene load_steps=25 format=3 uid="uid://dybafy3qxap2q"]
 
 [ext_resource type="PackedScene" uid="uid://cx2lym7krpsie" path="res://scenes/archer.tscn" id="1_dionf"]
 [ext_resource type="Resource" uid="uid://bgg065a045ww" path="res://resources/lady_base_stats.tres" id="2_y8avh"]
@@ -11,6 +11,10 @@ script = ExtResource("3_u02lc")
 sprite = ExtResource("4_u02lc")
 dialogues = Array[String]([])
 metadata/_custom_type_script = "uid://1iltisebf21d"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u02lc"]
+atlas = ExtResource("5_u02lc")
+region = Rect2(0, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_er04f"]
 atlas = ExtResource("5_u02lc")
@@ -78,6 +82,14 @@ region = Rect2(96, 96, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_er04f"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u02lc")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_er04f")
@@ -153,5 +165,3 @@ dialogue_info = SubResource("Resource_ggeg1")
 
 [node name="Sprite2D" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_er04f")
-animation = &"run_up"
-frame_progress = 0.744998

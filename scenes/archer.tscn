@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cx2lym7krpsie"]
+[gd_scene load_steps=29 format=3 uid="uid://cx2lym7krpsie"]
 
 [ext_resource type="Script" uid="uid://co51hx7h8y0x" path="res://scripts/player.gd" id="1_2iv4p"]
 [ext_resource type="Resource" uid="uid://cym67rsdldl6j" path="res://resources/archer_base_stats.tres" id="2_i7o62"]
@@ -17,6 +17,10 @@ metadata/_custom_type_script = "uid://1iltisebf21d"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kcvcf"]
 size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qh5tp"]
+atlas = ExtResource("5_d71b8")
+region = Rect2(0, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mak8i"]
 atlas = ExtResource("5_d71b8")
@@ -84,6 +88,14 @@ region = Rect2(96, 96, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_s538n"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qh5tp")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mak8i")
@@ -164,8 +176,7 @@ shape = SubResource("RectangleShape2D_kcvcf")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_s538n")
-animation = &"run_right"
-frame_progress = 0.399398
+animation = &"idle"
 
 [node name="Pointer" type="Sprite2D" parent="."]
 visible = false
