@@ -133,7 +133,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run_right",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -165,7 +165,7 @@ shape = SubResource("RectangleShape2D_kcvcf")
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_s538n")
 animation = &"run_right"
-frame_progress = 0.0511306
+frame_progress = 0.173998
 
 [node name="Pointer" type="Sprite2D" parent="."]
 visible = false
