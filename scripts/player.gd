@@ -50,12 +50,16 @@ func process_movement_queue() -> void:
 	
 	if direction == Vector2i.RIGHT:
 		$GridMover.move_target_right()
+		$Sprite2D.play("run_right")
 	elif direction == Vector2i.UP:
 		$GridMover.move_target_up()
+		$Sprite2D.play("run_up")
 	elif direction == Vector2i.LEFT:
 		$GridMover.move_target_left()
+		$Sprite2D.play("run_left")
 	elif direction == Vector2i.DOWN:
 		$GridMover.move_target_down()
+		$Sprite2D.play("run_down")
 	else:
 		print("Weird direction encountered. Cannot move:")
 		print("Current grid pos: ", $GridPositionTracker.get_grid_coord(), " | Next grid pos: ", next_grid_pos)
