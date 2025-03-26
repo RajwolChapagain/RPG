@@ -42,3 +42,5 @@ time_to_move_one_grid = 0.2
 
 [node name="GridPositionTracker" type="Node2D" parent="."]
 script = ExtResource("5_8gkgf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
