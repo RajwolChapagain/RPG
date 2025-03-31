@@ -3,6 +3,10 @@ extends Area2D
 @export var damage: int
 var target: Node2D
 
+func _ready():
+	await get_tree().create_timer(1.5).timeout
+	queue_free()
+	
 func set_target(target: Node2D)-> void:
 	self.target = target
 	
