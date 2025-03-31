@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://c280afbxd1cl3"]
+
+[ext_resource type="Texture2D" uid="uid://c6x2w8868dsyh" path="res://assets/sprites/ui/arrow_storm_placeholder.png" id="1_34ju0"]
+[ext_resource type="Script" uid="uid://dq8h3pixugvad" path="res://scripts/arrow_storm.gd" id="1_io0kf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c6we4"]
+radius = 16.0
+
+[node name="ArrowStorm" type="Area2D"]
+script = ExtResource("1_io0kf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_c6we4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_34ju0")
