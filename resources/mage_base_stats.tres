@@ -1,7 +1,14 @@
-[gd_resource type="Resource" script_class="BaseStats" load_steps=3 format=3 uid="uid://d3kyf2naa3duo"]
+[gd_resource type="Resource" script_class="BaseStats" load_steps=5 format=3 uid="uid://d3kyf2naa3duo"]
 
-[ext_resource type="Texture2D" uid="uid://dsjeqsopvs5qh" path="res://assets/sprites/mage_draft.png" id="1_gxl8e"]
+[ext_resource type="Texture2D" uid="uid://fehpqnp6upfh" path="res://assets/sprites/lachlan_sprite_sheet.png" id="1_8se7i"]
 [ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="2_jutst"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eybe3"]
+atlas = ExtResource("1_8se7i")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4tg3"]
+atlas = SubResource("AtlasTexture_eybe3")
 
 [resource]
 script = ExtResource("2_jutst")
@@ -9,4 +16,5 @@ name = "Lachlan"
 attack_damage = 2
 max_hp = 50
 hp = 50
-battle_sprite = ExtResource("1_gxl8e")
+battle_sprite = SubResource("AtlasTexture_f4tg3")
+abilities = Array[PackedScene]([])
