@@ -14,3 +14,4 @@ attack_damage = 20
 max_hp = 20
 hp = 20
 battle_sprite = SubResource("AtlasTexture_jo85b")
+abilities = Array[PackedScene]([])
