@@ -11,3 +11,4 @@ class_name BaseStats
 		hp = clamp(value, 0, max_hp)
 		
 @export var battle_sprite: Texture2D
+@export var abilities: Array[PackedScene]

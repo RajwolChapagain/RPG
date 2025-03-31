@@ -18,6 +18,7 @@ attack_damage = 50
 max_hp = 100
 hp = 100
 battle_sprite = SubResource("CompressedTexture2D_tipki")
+abilities = Array[PackedScene]([])
 
 [node name="Main" type="Node"]
 script = ExtResource("1_2o4jk")
