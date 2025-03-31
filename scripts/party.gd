@@ -3,6 +3,7 @@ extends Node2D
 @export var character_scenes: Array[PackedScene]
 
 var party_members = []
+var can_cycle = true
 
 func _ready() -> void:
 	instantiate_characters_and_add_to_list()
@@ -11,7 +12,8 @@ func _ready() -> void:
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("cycle_party_member"):
-		activate_next_member()
+		if can_cycle:
+			activate_next_member()
 		
 func instantiate_characters_and_add_to_list() -> void:
 	for scene in character_scenes:
