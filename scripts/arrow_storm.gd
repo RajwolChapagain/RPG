@@ -17,7 +17,6 @@ func trigger_ability() -> void:
 	
 	global_position = target.global_position
 
-
 func _on_area_entered(area: Area2D) -> void:
 	if area.has_method("take_damage"):
 		area.take_damage(damage)
