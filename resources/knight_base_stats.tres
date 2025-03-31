@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="BaseStats" load_steps=3 format=3 uid="uid://c3bvbxqpkkgu3"]
+[gd_resource type="Resource" script_class="BaseStats" load_steps=4 format=3 uid="uid://c3bvbxqpkkgu3"]
 
+[ext_resource type="PackedScene" uid="uid://xuk2uwwyu2e7" path="res://scenes/heavy_slam.tscn" id="1_lqqyn"]
 [ext_resource type="Texture2D" uid="uid://b05m1dyypsf7b" path="res://assets/sprites/knight_draft.png" id="1_pev6q"]
 [ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="2_rdlod"]
 
@@ -10,3 +11,4 @@ attack_damage = 10
 max_hp = 150
 hp = 150
 battle_sprite = ExtResource("1_pev6q")
+abilities = Array[PackedScene]([ExtResource("1_lqqyn")])
