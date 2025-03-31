@@ -82,7 +82,7 @@ func spawn_players() -> void:
 		player_character.stats = player_character_stats[i]
 		player_character.position = Vector2($PlayerStart.position.x  + character_spacing * i, $PlayerStart.position.y)
 		player_characters.append(player_character)
-		add_child(player_character)
+		call_deferred("add_child", player_character)
 		
 	connect_player_animation_finished_signal()
 	connect_player_battler_died_signal()
@@ -95,7 +95,7 @@ func spawn_enemies() -> void:
 		enemy.stats = enemy_stats[i]
 		enemy.position = Vector2($EnemyStart.position.x + character_spacing * i, $EnemyStart.position.y)
 		enemies.append(enemy)
-		add_child(enemy)
+		call_deferred("add_child", enemy)
 		
 	connect_enemy_animation_started_signal()
 	connect_enemy_animation_finished_signal()
