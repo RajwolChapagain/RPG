@@ -246,3 +246,9 @@ func end_battle(won: bool) -> void:
 	else:
 		print("Battle lost!")
 	battle_ended.emit()
+
+func _on_abilities_button_button_down() -> void:
+	var ability = player_characters[active_index].stats.abilities.pick_random().instantiate()
+	ability.target = enemies.pick_random()
+	add_child(ability)
+	ability.trigger_ability()

@@ -250,6 +250,7 @@ show_percentage = false
 [node name="TargetSelect" parent="." instance=ExtResource("10_ceooa")]
 
 [connection signal="button_down" from="UI/MarginContainer/HBoxContainer/ButtonsContainer/AttackButton" to="." method="_on_attack_button_button_down"]
+[connection signal="button_down" from="UI/MarginContainer/HBoxContainer/ButtonsContainer/AbilitiesButton" to="." method="_on_abilities_button_button_down"]
 [connection signal="target_selected" from="TargetSelect" to="." method="_on_target_select_target_selected"]
 
 [editable path="DualGrid"]
