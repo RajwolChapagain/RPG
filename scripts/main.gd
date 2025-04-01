@@ -1,9 +1,14 @@
 extends Node
 
 @export var battle_scene: PackedScene
+var battle_ongoing = false
 
 func _on_enemy_enemy_encountered_player(enemy: Variant) -> void:
-	print("Encounter happend")
+	if battle_ongoing:
+		return
+		
+	battle_ongoing = true
+		
 	var player_character_stats : Array[BaseStats] = []
 	for player_character in get_tree().get_nodes_in_group("player_character"):
 		player_character_stats.append(player_character.stats)
@@ -35,6 +40,7 @@ func on_battle_ended() -> void:
 	get_tree().root.get_node("BattleScene").queue_free()
 	remove_dead_entities()
 	enable_player_movement()
+	battle_ongoing = false
 	
 func remove_dead_entities() -> void:
 	remove_dead_players()
