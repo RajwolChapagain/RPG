@@ -5,7 +5,7 @@ extends Node
 @export var enemy_stats : Array[BaseStats]= []
 var battler_player = preload("res://scenes/battler_player.tscn")
 var battler_enemy = preload("res://scenes/battler_enemy.tscn")
-var player_characters = []
+var player_characters: Array[Node2D] = []
 var enemies: Array[Node2D] = []
 var active_index = 0
 var first_attacker_index = 0
