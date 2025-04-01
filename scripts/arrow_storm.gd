@@ -1,4 +1,5 @@
 extends Area2D
+class_name ArrowStorm
 
 @export var damage: int
 var target: Node2D
