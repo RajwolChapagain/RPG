@@ -6,7 +6,7 @@ extends Node
 var battler_player = preload("res://scenes/battler_player.tscn")
 var battler_enemy = preload("res://scenes/battler_enemy.tscn")
 var player_characters = []
-var enemies = []
+var enemies: Array[Node2D] = []
 var active_index = 0
 var first_attacker_index = 0
 var players_turn = true
@@ -249,6 +249,6 @@ func end_battle(won: bool) -> void:
 
 func _on_abilities_button_button_down() -> void:
 	var ability = player_characters[active_index].stats.abilities.pick_random().instantiate()
-	ability.target = enemies.pick_random()
+	ability.set_targets(enemies)
 	add_child(ability)
 	ability.trigger_ability()
