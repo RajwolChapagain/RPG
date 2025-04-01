@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c280afbxd1cl3" path="res://scenes/arrow_storm.tscn" id="1_lk64i"]
 [ext_resource type="Texture2D" uid="uid://b2poeax5dibf4" path="res://assets/sprites/ui/heavy_slam_placeholder.png" id="2_f64lb"]
 
-[node name="ArrowStorm" instance=ExtResource("1_lk64i")]
+[node name="HeavySlam" instance=ExtResource("1_lk64i")]
 damage = 100
 
 [node name="Sprite2D" parent="." index="1"]
