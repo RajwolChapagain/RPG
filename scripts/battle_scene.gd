@@ -249,6 +249,12 @@ func end_battle(won: bool) -> void:
 
 func _on_abilities_button_button_down() -> void:
 	var ability = player_characters[active_index].stats.abilities.pick_random().instantiate()
-	ability.set_targets(enemies)
+	
+	# Only Magda's ability targets player characters
+	if player_characters[active_index].stats.name == "Magda":
+		ability.set_targets(player_characters)
+	else:
+		ability.set_targets(enemies)
+		
 	add_child(ability)
 	ability.trigger_ability()
