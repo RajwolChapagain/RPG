@@ -65,6 +65,7 @@ theme_override_font_sizes/font_size = 4
 text = "ATTACK"
 
 [node name="AbilitiesButton" type="Button" parent="UI/MarginContainer/HBoxContainer/ButtonsContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("3_gj8wv")
 theme_override_font_sizes/font_size = 4

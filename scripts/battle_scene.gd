@@ -222,8 +222,18 @@ func disable_attack_button() -> void:
 	%AttackButton.disabled = true
 	%AttackButton.set_focus_mode(Control.FOCUS_NONE)
 
+func enable_abilities_button() -> void:
+	%AbilitiesButton.disabled = false
+	%AbilitiesButton.set_focus_mode(Control.FOCUS_ALL)
+	%AttackButton.grab_focus()
+
+func disable_abilities_button() -> void:
+	%AbilitiesButton.disabled = true
+	%AbilitiesButton.set_focus_mode(Control.FOCUS_NONE)
+	
 func on_ability_exited_tree() -> void:
 	advance_turn()
+	enable_abilities_button()
 	
 ### Enemy Attacking ###
 
@@ -248,6 +258,7 @@ func end_battle(won: bool) -> void:
 	battle_ended.emit()
 
 func _on_abilities_button_button_down() -> void:
+	disable_abilities_button()
 	var ability = player_characters[active_index].stats.abilities.pick_random().instantiate()
 	
 	# Only Magda's ability targets player characters
