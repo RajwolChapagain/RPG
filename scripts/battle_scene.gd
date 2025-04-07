@@ -222,6 +222,9 @@ func disable_attack_button() -> void:
 	%AttackButton.disabled = true
 	%AttackButton.set_focus_mode(Control.FOCUS_NONE)
 
+func on_ability_exited_tree() -> void:
+	advance_turn()
+	
 ### Enemy Attacking ###
 
 func attack_random_player() -> void:
@@ -253,5 +256,7 @@ func _on_abilities_button_button_down() -> void:
 	else:
 		ability.set_targets(enemies)
 		
+	ability.tree_exited.connect(on_ability_exited_tree)
 	add_child(ability)
 	ability.trigger_ability()
+	num_attacked += 1
