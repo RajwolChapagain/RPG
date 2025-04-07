@@ -59,7 +59,7 @@ func update_active_battler(new_index):
 			return
 		
 		active_index = new_index
-		update_turn()
+		advance_turn()
 		return
 		
 	active_team[new_index].mark_active()
@@ -115,7 +115,7 @@ func connect_enemy_animation_finished_signal() -> void:
 		
 func on_animation_finished(animation: StringName) -> void:
 	if animation == "attack":
-		update_turn()
+		advance_turn()
 		
 		if not players_turn:
 			enemy_is_attacking = false
@@ -160,27 +160,21 @@ func initialize_hp_bar() -> void:
 #endregion initialization
 
 #region: turntaking
-func update_turn() -> void:
+func advance_turn() -> void:
 	if players_turn:
-		update_player_turn()
+		if num_attacked == alive_player_count:
+			end_player_turn()
+			num_attacked = 0
+			return
+			
+		update_active_battler( (active_index + 1) % len(player_characters))
 	else:
-		update_enemy_turn()
-		
-func update_player_turn() -> void:
-	if num_attacked == alive_player_count:
-		end_player_turn()
-		num_attacked = 0
-		return
-		
-	update_active_battler( (active_index + 1) % len(player_characters))
-	
-func update_enemy_turn() -> void:
-	if active_index == len(enemies) - 1:
-		end_enemy_turn()
-		return
-		
-	update_active_battler( (active_index + 1) % len(enemies))
-	
+		if active_index == len(enemies) - 1: # Inconsistency: players turn is checked by num_attacked
+			end_enemy_turn()
+			return
+			
+		update_active_battler( (active_index + 1) % len(enemies))
+
 func end_player_turn() -> void:
 	player_characters[active_index].mark_inactive()
 	players_turn = false
