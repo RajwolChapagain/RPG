@@ -107,7 +107,7 @@ func connect_player_animation_finished_signal() -> void:
 
 func connect_enemy_animation_started_signal() -> void:
 	for enemy in enemies:
-		enemy.get_node("AnimationPlayer").animation_started.connect(on_enemy_attack_animation_started)
+		enemy.get_node("AnimationPlayer").animation_started.connect(on_enemy_animation_started)
 		
 func connect_enemy_animation_finished_signal() -> void:
 	for enemy in enemies:
@@ -120,8 +120,9 @@ func on_animation_finished(animation: StringName) -> void:
 		if not players_turn:
 			enemy_is_attacking = false
 		
-func on_enemy_attack_animation_started(animation: StringName) -> void:
-	enemy_is_attacking = true
+func on_enemy_animation_started(animation: StringName) -> void:
+	if animation == "attack":
+		enemy_is_attacking = true
 	
 func connect_player_battler_died_signal() -> void:
 	for character in player_characters:
