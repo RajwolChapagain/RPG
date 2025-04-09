@@ -165,4 +165,3 @@ dialogue_info = SubResource("Resource_qrr8t")
 
 [node name="Sprite2D" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_urgb1")
-animation = &"run_up"
