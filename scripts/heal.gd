@@ -7,8 +7,8 @@ func _ready():
 	queue_free()
 	
 func trigger_ability() -> void:
-	if targets.is_empty():
-		print("Error: Did you forget to call set_targets()?")
+	if not is_initialized():
+		print("Error: Did you forget to call initalize()?")
 		get_tree().quit(-1)
 		
 	for target in targets:

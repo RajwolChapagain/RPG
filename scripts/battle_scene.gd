@@ -266,9 +266,9 @@ func _on_abilities_button_button_down() -> void:
 	
 	# Only Magda's ability targets player characters
 	if player_characters[active_index].stats.name == "Magda":
-		ability.set_targets(player_characters)
+		ability.initialize(player_characters)
 	else:
-		ability.set_targets(enemies)
+		ability.initialize(enemies)
 		
 	ability.tree_exited.connect(on_ability_exited_tree)
 	add_child(ability)
