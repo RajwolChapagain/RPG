@@ -264,9 +264,16 @@ func _on_abilities_button_button_down() -> void:
 	disable_abilities_button()
 	var ability = player_characters[active_index].stats.abilities.pick_random().instantiate()
 	
+	# REFACTOR: Once skill inheritance is in place, we can no longer use character names 
+	# 			to distinguish abilities. Use the ability name instead
+	
 	# Only Magda's ability targets player characters
 	if player_characters[active_index].stats.name == "Magda":
 		ability.initialize(player_characters)
+	# Josephine's ability requires additional initialization parameters
+	elif player_characters[active_index].stats.name == "Josephine":
+		var picked_enemy_index = randi_range(0, len(enemies) - 1)
+		ability.initialize(active_index, player_characters, picked_enemy_index, enemies)
 	else:
 		ability.initialize(enemies)
 		
