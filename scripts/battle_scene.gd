@@ -223,6 +223,9 @@ func disable_attack_button() -> void:
 	%AttackButton.set_focus_mode(Control.FOCUS_NONE)
 
 func enable_abilities_button() -> void:
+	if get_node_or_null("%AbilitiesButton") == null:
+		return
+		
 	%AbilitiesButton.disabled = false
 	%AbilitiesButton.set_focus_mode(Control.FOCUS_ALL)
 	%AttackButton.grab_focus()
