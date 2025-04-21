@@ -248,7 +248,7 @@ func get_random_alive_player():
 	for character in player_characters:
 		if character.is_alive:
 			alive_players.append(character)
-			
+
 	return alive_players.pick_random()
 	
 #endregion: attacking
@@ -273,7 +273,8 @@ func _on_abilities_button_button_down() -> void:
 	# Josephine's ability requires additional initialization parameters
 	elif player_characters[active_index].stats.name == "Josephine":
 		var picked_enemy_index = randi_range(0, len(enemies) - 1)
-		ability.initialize(active_index, player_characters, picked_enemy_index, enemies)
+		player_characters[active_index].mark_inactive()
+		swap_characters(active_index, picked_enemy_index)
 	else:
 		ability.initialize(enemies)
 		
@@ -281,3 +282,24 @@ func _on_abilities_button_button_down() -> void:
 	add_child(ability)
 	ability.trigger_ability()
 	num_attacked += 1
+
+func swap_characters(player_index: int, enemy_index: int) -> void:
+	var player = player_characters[player_index]
+	var enemy = enemies[enemy_index]
+	
+	enemies[enemy_index] = player
+	player_characters[player_index] = enemy
+	
+	# Swap positions
+	var player_pos = player.global_position
+	var enemy_pos = enemy.global_position
+	player.global_position = enemy_pos
+	enemy.global_position = player_pos
+	
+	player.get_node("AnimationPlayer").animation_finished.disconnect(on_player_animation_finished)
+	enemy.get_node("AnimationPlayer").animation_started.disconnect(on_enemy_animation_started)
+	enemy.get_node("AnimationPlayer").animation_finished.disconnect(on_enemy_animation_finished)
+	
+	player.get_node("AnimationPlayer").animation_started.connect(on_enemy_animation_started)
+	player.get_node("AnimationPlayer").animation_finished.connect(on_enemy_animation_finished)
+	enemy.get_node("AnimationPlayer").animation_finished.connect(on_player_animation_finished)
