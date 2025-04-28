@@ -294,6 +294,23 @@ size_flags_horizontal = 3
 value = 75.0
 show_percentage = false
 
+[node name="ResultAnnouncementLabel" type="Label" parent="UI"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_gj8wv")
+text = "Battle Won!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="target_selected" from="TargetSelect" to="." method="_on_target_select_target_selected"]
 [connection signal="button_down" from="UI/Deck/MarginContainer/HBoxContainer/ButtonsContainer/AttackButton" to="." method="_on_attack_button_button_down"]
 [connection signal="button_down" from="UI/Deck/MarginContainer/HBoxContainer/ButtonsContainer/AbilitiesButton" to="." method="_on_abilities_button_button_down"]
