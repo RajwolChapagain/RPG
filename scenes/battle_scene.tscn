@@ -199,12 +199,6 @@ text = "100/100"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ProgressBar2" type="ProgressBar" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/P1Info"]
-layout_mode = 2
-size_flags_horizontal = 3
-value = 75.0
-show_percentage = false
-
 [node name="P2Info" type="HBoxContainer" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
@@ -240,12 +234,6 @@ theme_override_font_sizes/font_size = 3
 text = "100/100"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="ProgressBar2" type="ProgressBar" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/P2Info"]
-layout_mode = 2
-size_flags_horizontal = 3
-value = 75.0
-show_percentage = false
 
 [node name="P3Info" type="HBoxContainer" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
@@ -283,12 +271,6 @@ text = "100/100"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ProgressBar2" type="ProgressBar" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/P3Info"]
-layout_mode = 2
-size_flags_horizontal = 3
-value = 75.0
-show_percentage = false
-
 [node name="P4Info" type="HBoxContainer" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
@@ -325,11 +307,9 @@ text = "100/100"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ProgressBar2" type="ProgressBar" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/P4Info"]
+[node name="AbilityPointsContainer" type="HFlowContainer" parent="UI/Deck/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-size_flags_horizontal = 3
-value = 75.0
-show_percentage = false
 
 [node name="ResultAnnouncementLabel" type="Label" parent="UI"]
 unique_name_in_owner = true
