@@ -15,6 +15,9 @@ var alive_player_count: int
 var alive_enemy_count: int
 var num_attacked: int = 0
 
+@export var win_text: String = "Battle Won! :)"
+@export var lose_text: String = "Battle Lost! :("
+
 signal battle_ended
 
 func _ready() -> void:
@@ -255,10 +258,11 @@ func get_random_alive_player():
 
 func end_battle(won: bool) -> void:
 	if won:
-		print("Battle won!")
+		%ResultAnnouncementLabel.text = win_text
 	else:
-		print("Battle lost!")
-	battle_ended.emit()
+		%ResultAnnouncementLabel.text = lose_text
+	%ResultAnnouncementLabel.visible = true
+	%ResultAnnouncementLabel/AnimationPlayer.play("fade_in")
 
 func _on_abilities_button_button_down() -> void:
 	disable_abilities_button()
@@ -303,3 +307,8 @@ func swap_characters(player_index: int, enemy_index: int) -> void:
 	player.get_node("AnimationPlayer").animation_started.connect(on_enemy_animation_started)
 	player.get_node("AnimationPlayer").animation_finished.connect(on_enemy_animation_finished)
 	enemy.get_node("AnimationPlayer").animation_finished.connect(on_player_animation_finished)
+
+
+func _on_result_label_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "fade_in":
+		battle_ended.emit()

@@ -356,5 +356,6 @@ libraries = {
 [connection signal="target_selected" from="TargetSelect" to="." method="_on_target_select_target_selected"]
 [connection signal="button_down" from="UI/Deck/MarginContainer/HBoxContainer/ButtonsContainer/AttackButton" to="." method="_on_attack_button_button_down"]
 [connection signal="button_down" from="UI/Deck/MarginContainer/HBoxContainer/ButtonsContainer/AbilitiesButton" to="." method="_on_abilities_button_button_down"]
+[connection signal="animation_finished" from="UI/ResultAnnouncementLabel/AnimationPlayer" to="." method="_on_result_label_animation_finished"]
 
 [editable path="DualGrid"]
