@@ -270,6 +270,8 @@ func _on_abilities_button_button_down() -> void:
 	if %AbilityPointsContainer.points < ability.cost:
 		print("Not enough APs")
 		return
+	else:
+		%AbilityPointsContainer.decrease_points(ability.cost)
 		
 	disable_abilities_button()
 	
