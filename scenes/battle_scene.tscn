@@ -309,6 +309,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="AbilityPointsContainer" parent="UI/Deck/MarginContainer/HBoxContainer" instance=ExtResource("10_0gp0h")]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="ResultAnnouncementLabel" type="Label" parent="UI"]
