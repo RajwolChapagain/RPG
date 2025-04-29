@@ -1,23 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://dcqkqx8i5jvbh"]
+[gd_scene load_steps=3 format=3 uid="uid://dcqkqx8i5jvbh"]
 
+[ext_resource type="Script" uid="uid://bwoaopd3ewrqn" path="res://scripts/ability_points_container.gd" id="1_fdcay"]
 [ext_resource type="PackedScene" uid="uid://cf70uoby2saxw" path="res://scenes/ability_point.tscn" id="1_y8fao"]
 
 [node name="AbilityPointsContainer" type="HFlowContainer"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(100, 40)
 theme_override_constants/h_separation = 20
 theme_override_constants/v_separation = 15
-
-[node name="AbilityPoint" parent="." instance=ExtResource("1_y8fao")]
-layout_mode = 2
-
-[node name="AbilityPoint2" parent="." instance=ExtResource("1_y8fao")]
-layout_mode = 2
-
-[node name="AbilityPoint3" parent="." instance=ExtResource("1_y8fao")]
-layout_mode = 2
-
-[node name="AbilityPoint4" parent="." instance=ExtResource("1_y8fao")]
-layout_mode = 2
-
-[node name="AbilityPoint5" parent="." instance=ExtResource("1_y8fao")]
-layout_mode = 2
+script = ExtResource("1_fdcay")
+ability_point_scene = ExtResource("1_y8fao")
