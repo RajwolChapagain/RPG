@@ -215,6 +215,7 @@ func _on_target_select_target_selected(target_index: int) -> void:
 	await get_tree().process_frame
 	$TargetSelect.deactivate()
 	num_attacked += 1
+	%AbilityPointsContainer.increase_points(1)
 	
 func enable_attack_button() -> void:
 	%AttackButton.disabled = false
