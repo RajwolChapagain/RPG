@@ -265,8 +265,12 @@ func end_battle(won: bool) -> void:
 	%ResultAnnouncementLabel/AnimationPlayer.play("fade_in")
 
 func _on_abilities_button_button_down() -> void:
-	disable_abilities_button()
 	var ability = player_characters[active_index].stats.abilities.pick_random().instantiate()
+	if %AbilityPointsContainer.points < ability.cost:
+		print("Not enough APs")
+		return
+		
+	disable_abilities_button()
 	
 	# REFACTOR: Once skill inheritance is in place, we can no longer use character names 
 	# 			to distinguish abilities. Use the ability name instead
