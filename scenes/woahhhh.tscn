@@ -5,6 +5,7 @@
 
 [node name="Woahhhh" instance=ExtResource("1_kjupo")]
 damage = 20
+cost = 1
 
 [node name="Sprite2D" parent="." index="1"]
 texture = ExtResource("2_wx5s5")

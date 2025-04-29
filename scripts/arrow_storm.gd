@@ -2,6 +2,7 @@ extends Area2D
 class_name ArrowStorm
 
 @export var damage: int
+@export var cost: int
 var targets: Array[Node2D]
 
 func _ready():

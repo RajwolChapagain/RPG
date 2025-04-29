@@ -6,6 +6,7 @@
 
 [node name="Swap" type="Area2D"]
 script = ExtResource("1_7vwfx")
+cost = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_krx2j")
