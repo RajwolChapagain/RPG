@@ -1,7 +1,7 @@
 extends HFlowContainer
 
 @export var max_points: int = 5
-@export var points: int = 2
+@export var points: int = 0
 @export var ability_point_scene: PackedScene = load("res://scenes/ability_point.tscn")
 
 var ability_points = []
