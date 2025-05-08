@@ -1,11 +1,9 @@
-[gd_resource type="Resource" script_class="BaseStats" load_steps=6 format=3 uid="uid://d3kyf2naa3duo"]
+[gd_resource type="Resource" script_class="BaseStats" load_steps=5 format=3 uid="uid://d3kyf2naa3duo"]
 
-[ext_resource type="Texture2D" uid="uid://fehpqnp6upfh" path="res://assets/sprites/lachlan_sprite_sheet.png" id="1_8se7i"]
 [ext_resource type="PackedScene" uid="uid://t07uggyhdyaf" path="res://scenes/woahhhh.tscn" id="1_eybe3"]
 [ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="2_jutst"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eybe3"]
-atlas = ExtResource("1_8se7i")
 region = Rect2(0, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f4tg3"]
