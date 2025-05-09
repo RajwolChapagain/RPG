@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="BaseStats" load_steps=4 format=3 uid="uid://cym67rsdldl6j"]
+[gd_resource type="Resource" script_class="BaseStats" load_steps=5 format=3 uid="uid://cym67rsdldl6j"]
 
 [ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="1_e6gcu"]
 [ext_resource type="PackedScene" uid="uid://c280afbxd1cl3" path="res://scenes/arrow_storm.tscn" id="1_lqhja"]
+[ext_resource type="Texture2D" uid="uid://bkbfad4cbiqgk" path="res://assets/sprites/einar_spritesheet.png" id="2_lqhja"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lqhja"]
+atlas = ExtResource("2_lqhja")
 region = Rect2(0, 96, 32, 32)
 
 [resource]
