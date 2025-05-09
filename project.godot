@@ -17,7 +17,7 @@ config/icon="uid://b05m1dyypsf7b"
 
 [autoload]
 
-DialogueManager="*res://scripts/dialogue_manager.gd"
+DialogueManager="*res://scenes/dialogue_manager.tscn"
 
 [display]
 
