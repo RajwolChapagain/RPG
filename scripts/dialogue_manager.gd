@@ -87,4 +87,11 @@ func start_dialogue() -> void:
 func end_dialogue() -> void:
 	dialogue_ui.visible = false
 	dialogue_ongoing = false
+	
+	# If not done, the previous inactive portraits show up next dialogue
+	# Doesn't seem to need enabling visibility in start_diaologue. Perhaps
+	#	dialogue_ui.visible = true sets all its children to true as well 🤷‍♂️
+	dialogue_ui.get_node("%Portrait1").visible = false
+	dialogue_ui.get_node("%Portrait2").visible = false
+	
 	get_tree().paused = false
