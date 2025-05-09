@@ -36,19 +36,31 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 100
 
-[node name="Portrait1" type="TextureRect" parent="MarginContainer/VBoxContainer/Portraits"]
+[node name="PortraitContainer1" type="Control" parent="MarginContainer/VBoxContainer/Portraits"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Portrait1" type="TextureRect" parent="MarginContainer/VBoxContainer/Portraits/PortraitContainer1"]
 unique_name_in_owner = true
 layout_mode = 2
+offset_right = 95.0
+offset_bottom = 95.0
 size_flags_horizontal = 0
 size_flags_vertical = 3
 texture = ExtResource("4_led2e")
 expand_mode = 2
 stretch_mode = 5
 
-[node name="Portrait2" type="TextureRect" parent="MarginContainer/VBoxContainer/Portraits"]
+[node name="PortraitContainer2" type="Control" parent="MarginContainer/VBoxContainer/Portraits"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Portrait2" type="TextureRect" parent="MarginContainer/VBoxContainer/Portraits/PortraitContainer2"]
 unique_name_in_owner = true
 modulate = Color(0.5, 0.5, 0.5, 1)
 layout_mode = 2
+offset_right = 95.0
+offset_bottom = 95.0
 size_flags_horizontal = 0
 size_flags_vertical = 3
 texture = ExtResource("5_vogiq")
