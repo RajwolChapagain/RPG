@@ -14,10 +14,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_y8f2w")
-dialogues_1 = Array[String](["How's it going, partner?", "", "Okay, okay. Relax. Geez."])
-dialogues_2 = Array[String](["I'm not your partner!", ""])
-sprite_1 = ExtResource("4_led2e")
-sprite_2 = ExtResource("5_vogiq")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
