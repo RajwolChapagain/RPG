@@ -15,6 +15,10 @@ run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="uid://b05m1dyypsf7b"
 
+[autoload]
+
+DialogueManager="*res://scripts/dialogue_manager.gd"
+
 [display]
 
 window/size/viewport_width=320
