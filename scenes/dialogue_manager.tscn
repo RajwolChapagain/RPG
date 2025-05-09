@@ -5,6 +5,7 @@
 [ext_resource type="Resource" uid="uid://bxqs6rgfxmviq" path="res://resources/portrait_database.tres" id="3_61474"]
 
 [node name="DialogueManager" type="Node"]
+process_mode = 3
 script = ExtResource("1_jbixp")
 dialogue_ui_scene = ExtResource("2_smvbx")
 sprite_database = ExtResource("3_61474")

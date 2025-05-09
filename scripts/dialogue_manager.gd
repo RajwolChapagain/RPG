@@ -81,8 +81,10 @@ func get_sprite(name: String) -> Texture2D:
 func start_dialogue() -> void:
 	dialogue_ui.visible = true
 	dialogue_ongoing = true
+	get_tree().paused = true
 	advance_dialogue()
 	
 func end_dialogue() -> void:
 	dialogue_ui.visible = false
 	dialogue_ongoing = false
+	get_tree().paused = false
