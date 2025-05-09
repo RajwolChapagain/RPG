@@ -1,8 +1,8 @@
-L:magda_base,Hello.
-R:lachlan_base,Hi!
-,How are you doing?
-L:magda_base,I'm okay.
-,"How about you, Rachelle?"
-R:rachelle_base,Who me?
-,I'm doing great!
-,Thanks for asking!
+L:magda_base,Hello.,,Comments
+R:lachlan_base,Hi!,,Dialogue starts from the very first line!
+,How are you doing?,,Prefix the portrait you want with an L or an R followed by a colon to set the side
+L:magda_base,I'm okay.,,"If the first column of the row doesn't contain a desired side and portrait, it assumes the last one set"
+,"How about you, Rachelle?",,Everything after the second column is ignored. You can use it to leave comments like these
+R:rachelle_base,Who? Me?,,The dialogue ends when it gets to an empty row
+,I'm doing great!,,
+,Thanks for asking!,,
