@@ -4,7 +4,7 @@
 [ext_resource type="Resource" uid="uid://bgg065a045ww" path="res://resources/lady_base_stats.tres" id="2_y8avh"]
 [ext_resource type="Script" uid="uid://1iltisebf21d" path="res://scripts/resource_scripts/dialoguer.gd" id="3_u02lc"]
 [ext_resource type="Texture2D" uid="uid://cyhqea8xdkv1t" path="res://assets/sprites/ui/lady_portrait_placeholder.png" id="4_u02lc"]
-[ext_resource type="Texture2D" uid="uid://dvwnmsadk665c" path="res://assets/sprites/josephine_sprite_sheet.png" id="5_u02lc"]
+[ext_resource type="Texture2D" uid="uid://culhn7diejs2h" path="res://assets/sprites/josephine_spritesheet.png" id="5_u02lc"]
 
 [sub_resource type="Resource" id="Resource_ggeg1"]
 script = ExtResource("3_u02lc")

@@ -4,7 +4,7 @@
 [ext_resource type="Resource" uid="uid://c3bvbxqpkkgu3" path="res://resources/knight_base_stats.tres" id="2_glhtv"]
 [ext_resource type="Script" uid="uid://1iltisebf21d" path="res://scripts/resource_scripts/dialoguer.gd" id="3_5fsgc"]
 [ext_resource type="Texture2D" uid="uid://en0teytc2egu" path="res://assets/sprites/ui/knight_portrait.png" id="4_5fsgc"]
-[ext_resource type="Texture2D" uid="uid://cgpyw70bqay5u" path="res://assets/sprites/rachelle_sprite_sheet.png" id="5_swm0g"]
+[ext_resource type="Texture2D" uid="uid://boqdnqcd5kshd" path="res://assets/sprites/rachelle_spritesheet.png" id="5_swm0g"]
 
 [sub_resource type="Resource" id="Resource_k2txo"]
 script = ExtResource("3_5fsgc")

@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://dbaog62au36hq" path="res://scripts/grid_mover.gd" id="4_d5x13"]
 [ext_resource type="Texture2D" uid="uid://kbicjjivguhm" path="res://assets/sprites/ui/archer_portrait_placeholder.png" id="4_mak8i"]
 [ext_resource type="Script" uid="uid://bgopu73k5cjvg" path="res://scripts/grid_position_tracker.gd" id="5_8gkgf"]
-[ext_resource type="Texture2D" uid="uid://coa2cvakl04y5" path="res://assets/sprites/einar_sprite_sheet.png" id="5_d71b8"]
+[ext_resource type="Texture2D" uid="uid://bkbfad4cbiqgk" path="res://assets/sprites/einar_spritesheet.png" id="5_d71b8"]
 
 [sub_resource type="Resource" id="Resource_1s68y"]
 script = ExtResource("3_d71b8")
