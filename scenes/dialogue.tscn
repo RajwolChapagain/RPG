@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://dg4kpgvnw0v7l" path="res://assets/sprites/ui/mage_portrait.png" id="5_vogiq"]
 
 [node name="Dialogue" type="Control"]
-process_mode = 2
 z_index = 1
 layout_mode = 3
 anchors_preset = 15
