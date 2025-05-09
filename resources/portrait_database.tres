@@ -7,9 +7,9 @@
 
 [resource]
 script = ExtResource("1_3prys")
-sprite_dictionary = {
+sprite_dictionary = Dictionary[String, Texture2D]({
 "lachlan_base": ExtResource("3_01laf"),
 "magda_base": ExtResource("2_7iddo"),
 "rachelle_base": ExtResource("4_01laf")
-}
+})
 metadata/_custom_type_script = "uid://be6kcyoah1tit"
