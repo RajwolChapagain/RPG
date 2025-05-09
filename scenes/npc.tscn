@@ -1,30 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://cglapshtkljpc"]
+[gd_scene load_steps=4 format=3 uid="uid://cglapshtkljpc"]
 
 [ext_resource type="Script" uid="uid://ctvsvglqf7kaw" path="res://scripts/npc.gd" id="1_5l8ac"]
 [ext_resource type="Texture2D" uid="uid://cgvlltfo5bhnl" path="res://assets/sprites/npc_placeholder.png" id="1_8eveh"]
-[ext_resource type="Script" uid="uid://1iltisebf21d" path="res://scripts/resource_scripts/dialoguer.gd" id="2_4wlns"]
-[ext_resource type="Texture2D" uid="uid://bly3mp21wc72v" path="res://assets/sprites/ui/npc_portrait_placeholder.png" id="3_tl2vt"]
-[ext_resource type="Texture2D" uid="uid://dg4kpgvnw0v7l" path="res://assets/sprites/ui/mage_portrait.png" id="4_4wlns"]
-
-[sub_resource type="Resource" id="Resource_0tygy"]
-script = ExtResource("2_4wlns")
-sprite = ExtResource("3_tl2vt")
-dialogues = Array[String](["DON'T CALL ME THAT!! It offends me.", "", "Mrs. It's Mrs. Steitenbach.", "", "Off with you, you abominable fool!"])
-metadata/_custom_type_script = "uid://1iltisebf21d"
-
-[sub_resource type="Resource" id="Resource_sptji"]
-script = ExtResource("2_4wlns")
-sprite = ExtResource("4_4wlns")
-dialogues = Array[String](["Oh, look! An NPC!!", "", "I'm sorry, Mr...", "", "Pleased to meet you, Mrs. Tightenback.", ""])
-metadata/_custom_type_script = "uid://1iltisebf21d"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2visn"]
 size = Vector2(32, 32)
 
 [node name="NPC" type="Area2D"]
 script = ExtResource("1_5l8ac")
-my_dialogues = SubResource("Resource_0tygy")
-player_dialogues = SubResource("Resource_sptji")
+dialogue_file_path = "uid://dfakxwld0sf4"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_8eveh")
