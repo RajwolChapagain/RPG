@@ -8,12 +8,8 @@ func _ready() -> void:
 	for key in items.keys():
 		add_item_button(key, items[key])
 		
-	var my_item: Item = Item.new()
-	my_item.name = 'hi'
-	add_item(my_item, 2)
-	var new_item: Item = Item.new()
-	new_item.name = 'helo'
-	add_item(new_item, 3)
+	add_item(Item.new(), 1)
+	add_item(Item.new('ds', Item.ItemType.CONSUMABLE, [StatModifier.new()]), 2)
 	
 	
 func add_item(item: Item, count: int) -> void:
