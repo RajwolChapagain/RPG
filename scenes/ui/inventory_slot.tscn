@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://c1jciqiiiuxh5" path="res://scripts/ui/inventory_slot.gd" id="1_kscix"]
 
 [node name="InventorySlot" type="Button"]
-custom_minimum_size = Vector2(60, 10)
+custom_minimum_size = Vector2(60, 8)
 offset_right = 60.0
-offset_bottom = 10.0
+offset_bottom = 8.0
 disabled = true
 icon_alignment = 1
 expand_icon = true

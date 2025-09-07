@@ -1,11 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://djewwmdjwkohh"]
+[gd_scene load_steps=4 format=3 uid="uid://djewwmdjwkohh"]
 
 [ext_resource type="Script" uid="uid://csexm3de8edkj" path="res://scripts/ui/inventory_manager.gd" id="1_v7cwg"]
 [ext_resource type="PackedScene" uid="uid://cpuacag8n4gcn" path="res://scenes/ui/item_button.tscn" id="2_qoais"]
+[ext_resource type="PackedScene" uid="uid://ctvfieofwmqvo" path="res://scenes/ui/character_inventory.tscn" id="3_hw52i"]
 
 [node name="InventoryManager" type="Panel"]
-offset_right = 202.0
-offset_bottom = 119.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -264.0
+offset_bottom = 179.0
+grow_horizontal = 0
 script = ExtResource("1_v7cwg")
 ItemButtonScene = ExtResource("2_qoais")
 
@@ -14,6 +19,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -104.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -23,3 +29,38 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 0
+
+[node name="Panel" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -96.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CharacterInventory" parent="Panel/VBoxContainer" instance=ExtResource("3_hw52i")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CharacterInventory2" parent="Panel/VBoxContainer" instance=ExtResource("3_hw52i")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CharacterInventory3" parent="Panel/VBoxContainer" instance=ExtResource("3_hw52i")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CharacterInventory4" parent="Panel/VBoxContainer" instance=ExtResource("3_hw52i")]
+layout_mode = 2
+size_flags_vertical = 3
