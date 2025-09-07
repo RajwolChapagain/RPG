@@ -6,3 +6,6 @@ class_name Item
 @export var stats: Array[StatModifier]
 	
 enum ItemType { EQUIPPABLE, CONSUMABLE }
+
+func _to_string() -> String:
+	return name
