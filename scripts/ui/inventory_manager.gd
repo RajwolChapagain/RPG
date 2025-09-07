@@ -1,25 +1,20 @@
 extends Panel
 
-@export var items: Dictionary[Item, int]
 @export var ItemButtonScene: PackedScene
 var item_buttons: Array[ItemButton]
 
 func _ready() -> void:
-	for key in items.keys():
-		add_item_button(key, items[key])
-		
-	add_item(Item.new(), 1)
-	add_item(Item.new('ds', Item.ItemType.CONSUMABLE, [StatModifier.new()]), 2)
+	add_item(Item.new())
+	add_item(Item.new("My Item"), 2)
+	add_item(Item.new("Custom Item", Item.ItemType.CONSUMABLE, [StatModifier.new('hp', '+', false, 20.0), StatModifier.new('atk', '-', true, 5.0)]))
+	add_item(Item.new(), 3)
 	
-	
-func add_item(item: Item, count: int) -> void:
-	for key in items.keys():
-		if str(key) == str(item):
-			items[key] += count
-			update_item_button_count(item, items[key])
+func add_item(item: Item, count: int = 1) -> void:
+	for button in item_buttons:
+		if button.get_item_name() == str(item):
+			button.set("count", button.count + count)
 			return
 	
-	items[item] = count
 	add_item_button(item, count)
 	
 func add_item_button(item: Item, count: int) -> void:
@@ -27,8 +22,3 @@ func add_item_button(item: Item, count: int) -> void:
 	item_button.initialize(item, count)
 	%ItemButtonsContainer.add_child(item_button)
 	item_buttons.append(item_button)
-	
-func update_item_button_count(item: Item, new_count: int) -> void:
-	for button in item_buttons:
-		if button.get_item_name() == str(item):
-			button.set("count", new_count)
