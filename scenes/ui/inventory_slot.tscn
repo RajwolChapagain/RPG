@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkaecgm6jt0cp"]
+
+[ext_resource type="Script" uid="uid://c1jciqiiiuxh5" path="res://scripts/ui/inventory_slot.gd" id="1_kscix"]
+
+[node name="InventorySlot" type="Button"]
+custom_minimum_size = Vector2(60, 10)
+offset_right = 60.0
+offset_bottom = 10.0
+disabled = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("1_kscix")

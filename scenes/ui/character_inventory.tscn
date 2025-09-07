@@ -1,0 +1,73 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctvfieofwmqvo"]
+
+[ext_resource type="Script" uid="uid://dpuweogh2t37r" path="res://scripts/ui/character_inventory.gd" id="1_6t0r0"]
+[ext_resource type="Texture2D" uid="uid://j7uvhkpc8y3w" path="res://assets/sprites/ui/pause_menu/frame_placeholder.png" id="2_2oc33"]
+[ext_resource type="Texture2D" uid="uid://ykdf0ync8jll" path="res://assets/sprites/ui/cleric_portrait.png" id="3_niw77"]
+[ext_resource type="PackedScene" uid="uid://bkaecgm6jt0cp" path="res://scenes/ui/inventory_slot.tscn" id="6_5437v"]
+
+[node name="CharacterInventory" type="Control"]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -97.0
+offset_bottom = 45.0
+grow_horizontal = 0
+script = ExtResource("1_6t0r0")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Frame" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_2oc33")
+stretch_mode = 2
+
+[node name="Portrait" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer2/Frame"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 32.0
+grow_vertical = 2
+texture = ExtResource("3_niw77")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "Magda"
+
+[node name="SlotContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+theme_override_constants/separation = 1
+
+[node name="InventorySlot" parent="MarginContainer/HBoxContainer/SlotContainer" instance=ExtResource("6_5437v")]
+layout_mode = 2
+
+[node name="InventorySlot2" parent="MarginContainer/HBoxContainer/SlotContainer" instance=ExtResource("6_5437v")]
+layout_mode = 2
+
+[node name="InventorySlot3" parent="MarginContainer/HBoxContainer/SlotContainer" instance=ExtResource("6_5437v")]
+layout_mode = 2
+
+[node name="InventorySlot4" parent="MarginContainer/HBoxContainer/SlotContainer" instance=ExtResource("6_5437v")]
+layout_mode = 2
