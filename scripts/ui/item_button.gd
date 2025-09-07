@@ -51,15 +51,4 @@ func get_item_name() -> String:
 	return str(item)
 	
 func initialize_stat_label() -> void:
-	var out = ''
-	var num_stats = len(item.stats)
-	for i in range(num_stats):
-		var stat_modifier: StatModifier = item.stats[i]
-		out += stat_modifier.modification
-		out += str(stat_modifier.amount)
-		if stat_modifier.percentage:
-			out += '%'
-		out += ' %s' % stat_modifier.stat_name
-		if i != num_stats - 1:
-			out += ' | '
-	%StatLabel.text = out
+	%StatLabel.text = item.get_stats_as_string()
