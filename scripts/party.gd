@@ -9,6 +9,7 @@ func _ready() -> void:
 	instantiate_characters_and_add_to_list()
 	establish_queue()
 	activate_party_member(0)
+	GameManager.set_party(self)
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("cycle_party_member"):

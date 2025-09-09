@@ -1,8 +1,13 @@
 extends Node
 
+var party
+
 func get_alive_players() -> Array[Player]:
-	if get_node("/root/Node/Party")!= null:
-		return get_node("/root/Node/Party").get_players()
+	if party != null:
+		return party.get_players()
 	else:
-		push_warning('Warning: Game Manager did not find Party scene in the tree. Returning empty array.')
+		push_warning('Warning: Party was not declared in the scene tree. Returning empty array.')
 		return []
+
+func set_party(party) -> void:
+	self.party = party

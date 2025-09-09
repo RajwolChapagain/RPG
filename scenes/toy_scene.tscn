@@ -6,8 +6,5 @@
 [node name="Node" type="Node"]
 
 [node name="Party" parent="." instance=ExtResource("1_7wyb6")]
-unique_name_in_owner = true
 
 [node name="InventoryManager" parent="." instance=ExtResource("2_i7sk5")]
-
-[editable path="Party"]
