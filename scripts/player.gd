@@ -1,4 +1,5 @@
 extends Area2D
+class_name Player
 
 @export var stats: BaseStats
 var is_active = true
@@ -6,6 +7,7 @@ var grid_pos
 var last_grid_pos = grid_pos
 var next_character = null
 var move_queue = []
+var equipped_items: Array[Item]
 	
 signal character_moved(character, old_grid_pos)
 

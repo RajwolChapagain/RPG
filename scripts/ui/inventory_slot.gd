@@ -4,6 +4,8 @@ class_name InventorySlot
 var item: Item
 var active: bool = false
 
+signal item_slot_selected
+
 func activate() -> void:
 	active = true
 	disabled = false
@@ -21,3 +23,7 @@ func equip_item(new_item: Item) -> Item:
 func update_item_info() -> void:
 	text = item.name
 	tooltip_text = item.get_stats_as_string()
+
+func _on_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		item_slot_selected.emit(self)

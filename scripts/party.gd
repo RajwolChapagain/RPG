@@ -2,7 +2,7 @@ extends Node2D
 
 @export var character_scenes: Array[PackedScene]
 
-var party_members = []
+var party_members: Array[Player]
 var can_cycle = true
 
 func _ready() -> void:
@@ -53,7 +53,7 @@ func activate_next_member() -> void:
 	activate_party_member(new_active_index)
 	
 func purge_dead_members() -> void:
-	var new_members = []
+	var new_members: Array[Player] = []
 	for member in party_members:
 		if member.stats.hp == 0:
 			member.queue_free()
@@ -69,3 +69,6 @@ func reestablish_queue() -> void:
 
 	establish_queue()
 	activate_party_member(0)
+
+func get_players() -> Array[Player]:
+	return party_members

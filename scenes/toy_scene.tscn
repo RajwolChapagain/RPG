@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://c71ubdaq0cf3b"]
+
+[ext_resource type="PackedScene" uid="uid://b6pcibljvig3f" path="res://scenes/party.tscn" id="1_7wyb6"]
+[ext_resource type="PackedScene" uid="uid://djewwmdjwkohh" path="res://scenes/ui/inventory_manager.tscn" id="2_i7sk5"]
+
+[node name="Node" type="Node"]
+
+[node name="Party" parent="." instance=ExtResource("1_7wyb6")]
+unique_name_in_owner = true
+
+[node name="InventoryManager" parent="." instance=ExtResource("2_i7sk5")]
+
+[editable path="Party"]

@@ -1,6 +1,6 @@
 extends Control
 
-var activated_slots = 1
+static var activated_slots = 1
 const MAX_SLOTS = 4
 
 func _ready() -> void:
@@ -8,9 +8,12 @@ func _ready() -> void:
 		if i < activated_slots:
 			%SlotContainer.get_child(i).activate()
 
-func initialize(character_name: String, portrait: Texture2D) -> void:
-	%Portrait.texture = portrait
-	%CharacterNameLabel.text = character_name
+func initialize_inventory(character: Player) -> void:
+	%Portrait.texture = character.stats.battle_sprite
+	%CharacterNameLabel.text = character.stats.name
+	
+	for i in range(len(character.equipped_items)):
+		equip_item_to_slot(character.equipped_items[i], i)
 	
 func activate_new_slot() -> void:
 	if activated_slots >= MAX_SLOTS:

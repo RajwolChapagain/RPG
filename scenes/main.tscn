@@ -27,6 +27,7 @@ battle_scene = ExtResource("2_v8u3f")
 [node name="DualGrid" parent="." instance=ExtResource("2_xwdsx")]
 
 [node name="Party" parent="." instance=ExtResource("1_cj7xw")]
+unique_name_in_owner = true
 position = Vector2(32, 32)
 
 [node name="Enemy" parent="." instance=ExtResource("3_0ij44")]
