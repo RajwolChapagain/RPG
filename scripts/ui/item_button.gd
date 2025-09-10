@@ -28,10 +28,6 @@ func _ready() -> void:
 func initialize(item: Item, count: int) -> void:
 	self.item = item
 	self.count = count
-	
-func _on_toggled(toggled_on: bool) -> void:
-	if toggled_on:
-		item_selected.emit(item)
 
 func _on_focus_entered() -> void:
 	show_stats()
@@ -52,3 +48,6 @@ func get_item_name() -> String:
 	
 func initialize_stat_label() -> void:
 	%StatLabel.text = item.get_stats_as_string()
+
+func _on_pressed() -> void:
+	item_selected.emit(item)

@@ -26,6 +26,5 @@ func update_item_info() -> void:
 	text = item.name
 	tooltip_text = item.get_stats_as_string()
 
-func _on_toggled(toggled_on: bool) -> void:
-	if toggled_on:
-		item_slot_selected.emit(slot_index)
+func _on_pressed() -> void:
+	item_slot_selected.emit(slot_index)
