@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=3 uid="uid://des2w3vogbaog"]
+
+[ext_resource type="Script" uid="uid://bja0kvvwntfs4" path="res://scripts/ui/pause_menu.gd" id="1_0lmf7"]
+[ext_resource type="PackedScene" uid="uid://djewwmdjwkohh" path="res://scenes/ui/inventory_manager.tscn" id="1_6tw0m"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0lmf7")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="ButtonsPanel" type="Panel" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/ButtonsPanel"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ContinueButton" type="Button" parent="HBoxContainer/ButtonsPanel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Continue"
+
+[node name="InventoryButton" type="Button" parent="HBoxContainer/ButtonsPanel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Inventory"
+
+[node name="ContentPanel" type="Panel" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="InventoryManager" parent="HBoxContainer/ContentPanel" instance=ExtResource("1_6tw0m")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+anchors_preset = 0
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = 0.0
+offset_right = 229.0
+offset_bottom = 180.0
+size_flags_horizontal = 3
+
+[connection signal="button_down" from="HBoxContainer/ButtonsPanel/VBoxContainer/ContinueButton" to="." method="_on_continue_button_button_down"]
+[connection signal="pressed" from="HBoxContainer/ButtonsPanel/VBoxContainer/InventoryButton" to="." method="_on_inventory_button_pressed"]
