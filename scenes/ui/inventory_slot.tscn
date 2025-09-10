@@ -6,11 +6,10 @@
 custom_minimum_size = Vector2(60, 8)
 offset_right = 60.0
 offset_bottom = 8.0
+theme_override_font_sizes/font_size = 6
 disabled = true
-toggle_mode = true
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("1_kscix")
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]
-[connection signal="toggled" from="." to="." method="_on_toggled"]
