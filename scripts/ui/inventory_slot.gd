@@ -3,12 +3,14 @@ class_name InventorySlot
 
 var item: Item
 var active: bool = false
+var slot_index: int
 
 signal item_slot_selected
 
-func activate() -> void:
+func activate(index: int) -> void:
 	active = true
 	disabled = false
+	slot_index = index
 	
 func equip_item(new_item: Item) -> Item:
 	if not active:
@@ -26,4 +28,4 @@ func update_item_info() -> void:
 
 func _on_toggled(toggled_on: bool) -> void:
 	if toggled_on:
-		item_slot_selected.emit(self)
+		item_slot_selected.emit(slot_index)
