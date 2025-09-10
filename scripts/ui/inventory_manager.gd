@@ -3,6 +3,8 @@ extends Panel
 @export var ItemButtonScene: PackedScene
 var item_buttons: Array[ItemButton]
 var selected_item: Item
+var selected_character_inventory
+var selected_character_inventory_index
 
 func _ready() -> void:
 	add_item(Item.new())
@@ -52,17 +54,41 @@ func on_character_item_slot_selected(character_inventory, index: int) -> void:
 			add_item(old_item)
 		remove_item(selected_item)
 		selected_item = null
+	else:
+		selected_character_inventory = character_inventory
+		selected_character_inventory_index = index
+		%DiscardButton.visible = true
+		for button in item_buttons:
+			button.focus_mode = Control.FOCUS_NONE
 		
 func remove_item(item: Item) -> void:
+	var i = 0
 	for button in item_buttons:
 		if button.get_item_name() == str(item):
 			var new_count = button.count - 1
 			if new_count == 0:
-				remove_button(button)
+				remove_button(button, i)
 			else:
 				button.set("count", new_count)
-				return
-	
-func remove_button(button: ItemButton) -> void:
+			
+			return
+		i += 1
+func remove_button(button: ItemButton, index: int) -> void:
 	button.item = null
+	item_buttons.remove_at(index)
 	%ItemButtonsContainer.remove_child(button)
+
+func _on_discard_button_pressed() -> void:
+	var item = selected_character_inventory.get_item_at_slot(selected_character_inventory_index)
+	add_item(item)
+	selected_character_inventory.remove_item_at_index(selected_character_inventory_index)
+	%DiscardButton.visible = false
+	for button in item_buttons:
+		button.focus_mode = Control.FOCUS_ALL
+	focus_item_button(item)
+		
+func focus_item_button(item: Item) -> void:
+	for button in item_buttons:
+		if button.get_item_name() == str(item):
+			button.grab_focus()
+			return

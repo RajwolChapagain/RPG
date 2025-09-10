@@ -28,3 +28,8 @@ func update_item_info() -> void:
 
 func _on_pressed() -> void:
 	item_slot_selected.emit(slot_index)
+
+func remove_item() -> void:
+	text = ''
+	tooltip_text = ''
+	item = null

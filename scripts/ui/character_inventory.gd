@@ -32,8 +32,14 @@ func activate_new_slot() -> void:
 func equip_item_to_slot(item: Item, index: int) -> Item:
 	return %SlotContainer.get_child(index).equip_item(item)
 
+func get_item_at_slot(index: int) -> Item:
+	return %SlotContainer.get_child(index).item
+	
 func grab_focus_to_first_slot() -> void:
 	%SlotContainer.get_child(0).grab_focus()
 	
 func on_item_slot_selected(index: int) -> void:
 	character_item_slot_selected.emit(self, index)
+
+func remove_item_at_index(index: int) -> void:
+	%SlotContainer.get_child(index).remove_item()
