@@ -30,6 +30,7 @@ func activate_new_slot() -> void:
 	activated_slots += 1
 
 func equip_item_to_slot(item: Item, index: int) -> Item:
+	equipped_items.insert(index, item)
 	return %SlotContainer.get_child(index).equip_item(item)
 
 func get_item_at_slot(index: int) -> Item:

@@ -77,3 +77,28 @@ func set_active(value: bool) -> void:
 		$Pointer.visible = true
 	else:
 		$Pointer.visible = false
+
+func get_modified_stats() -> BaseStats:
+	var modification_amount: BaseStats = get_modification_amount()
+	var modified_stats = BaseStats.new()
+	modified_stats.name = stats.name
+	modified_stats.battle_sprite = stats.battle_sprite
+	modified_stats.attack_damage = stats.attack_damage + modification_amount.attack_damage
+	modified_stats.max_hp = stats.max_hp + modification_amount.max_hp
+	modified_stats.hp = stats.hp + modification_amount.hp
+	modified_stats.abilities = stats.abilities
+	return modified_stats
+	
+func get_modification_amount() -> BaseStats:
+	var modification_amount = BaseStats.new()
+	modification_amount.attack_damage = 0
+	modification_amount.max_hp = 0
+	modification_amount.hp = 0
+	
+	for item: Item in equipped_items:
+		for stat_modifier: StatModifier in item.stats:
+			if stat_modifier.modification == '+':
+				if not stat_modifier.percentage:
+					modification_amount.set(stat_modifier.stat_name, modification_amount.get(stat_modifier.stat_name) + stat_modifier.amount)
+	
+	return modification_amount

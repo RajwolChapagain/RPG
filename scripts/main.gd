@@ -11,8 +11,8 @@ func _on_enemy_enemy_encountered_player(enemy: Variant) -> void:
 		
 	var player_character_stats : Array[BaseStats] = []
 	for player_character in get_tree().get_nodes_in_group("player_character"):
-		player_character_stats.append(player_character.stats)
-		
+		player_character_stats.append(player_character.get_modified_stats())
+
 	var enemy_stats : Array[BaseStats] = []
 	enemy_stats.append(enemy.stats)
 		
