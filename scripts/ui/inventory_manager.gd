@@ -9,7 +9,7 @@ var selected_character_inventory_index
 func _ready() -> void:
 	add_item(Item.new())
 	add_item(Item.new("My Item"), 2)
-	add_item(Item.new("Custom Item", Item.ItemType.CONSUMABLE, [StatModifier.new('max_hp', '+', false, 20.0), StatModifier.new('atk', '-', true, 5.0)]))
+	add_item(Item.new("Custom Item", Item.ItemType.CONSUMABLE, [StatModifier.new('dodge', '+', false, 20), StatModifier.new('atk', '-', true, 5.0)]))
 	add_item(Item.new(), 3)
 	populate_character_inventory()
 	initialize_character_inventory_signals()

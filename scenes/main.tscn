@@ -18,6 +18,10 @@ name = "Goblin"
 attack_damage = 50
 max_hp = 100
 hp = 100
+defence = 0
+crit = 0
+dodge = 0
+accuracy = 0
 battle_sprite = SubResource("CompressedTexture2D_tipki")
 abilities = Array[PackedScene]([])
 

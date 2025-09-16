@@ -11,6 +11,7 @@ func _ready() -> void:
 func attack(target) -> void:
 	$AnimationPlayer.play("attack")
 	target.take_damage(stats.attack_damage)
+	print(stats.dodge)
 	
 func take_damage(damage: int) -> void:
 	stats.hp -= damage

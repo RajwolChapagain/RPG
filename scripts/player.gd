@@ -86,6 +86,10 @@ func get_modified_stats() -> BaseStats:
 	modified_stats.attack_damage = stats.attack_damage + modification_amount.attack_damage
 	modified_stats.max_hp = stats.max_hp + modification_amount.max_hp
 	modified_stats.hp = stats.hp + modification_amount.hp
+	modified_stats.crit = stats.crit + modification_amount.crit
+	modified_stats.accuracy = stats.accuracy + modification_amount.accuracy
+	modified_stats.dodge = stats.dodge + modification_amount.dodge
+	modified_stats.defence = stats.defence + modification_amount.defence
 	modified_stats.abilities = stats.abilities
 	return modified_stats
 	
@@ -100,5 +104,14 @@ func get_modification_amount() -> BaseStats:
 			if stat_modifier.modification == '+':
 				if not stat_modifier.percentage:
 					modification_amount.set(stat_modifier.stat_name, modification_amount.get(stat_modifier.stat_name) + stat_modifier.amount)
+			elif stat_modifier.modification == '-':
+				if not stat_modifier.percentage:
+					modification_amount.set(stat_modifier.stat_name, modification_amount.get(stat_modifier.stat_name) - stat_modifier.amount)
+			elif stat_modifier.modification == '*':
+				if not stat_modifier.percentage:
+					modification_amount.set(stat_modifier.stat_name, modification_amount.get(stat_modifier.stat_name) * stat_modifier.amount)
+			elif stat_modifier.modification == '/':
+				if not stat_modifier.percentage:
+					modification_amount.set(stat_modifier.stat_name, modification_amount.get(stat_modifier.stat_name) / stat_modifier.amount)
 	
 	return modification_amount
