@@ -11,6 +11,7 @@ func activate(index: int) -> void:
 	active = true
 	disabled = false
 	slot_index = index
+	focus_mode = Control.FOCUS_ALL
 	
 func equip_item(new_item: Item) -> Item:
 	if not active:
