@@ -1,6 +1,7 @@
 extends Node
 
 var party
+var inventory_manager
 
 func get_alive_players() -> Array[Player]:
 	if party != null:
@@ -11,3 +12,10 @@ func get_alive_players() -> Array[Player]:
 
 func set_party(party) -> void:
 	self.party = party
+
+func set_inventory_manager(inventory_manager) -> void:
+	self.inventory_manager = inventory_manager
+	
+func increase_available_inventory_slots() -> void:
+	assert(inventory_manager != null)
+	inventory_manager.increase_slots()

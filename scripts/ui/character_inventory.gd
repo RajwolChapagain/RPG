@@ -1,6 +1,7 @@
 extends Control
+class_name CharacterInventory
 
-static var activated_slots = 1
+var activated_slots = 1
 const MAX_SLOTS = 4
 var equipped_items: Array[Item]
 
@@ -8,9 +9,11 @@ signal character_item_slot_selected
 
 func _ready() -> void:
 	for i in range(MAX_SLOTS):
-		if i < activated_slots:
-			%SlotContainer.get_child(i).activate(i)
-			%SlotContainer.get_child(i).item_slot_selected.connect(on_item_slot_selected)
+		if i >= activated_slots:
+			break
+			
+		%SlotContainer.get_child(i).activate(i)
+		%SlotContainer.get_child(i).item_slot_selected.connect(on_item_slot_selected)
 
 func initialize_inventory(character: Player) -> void:
 	%Portrait.texture = character.stats.battle_sprite
@@ -26,10 +29,14 @@ func activate_new_slot() -> void:
 		push_error('Error: Max number of inventory slots already activated for character %s' % %CharacterNameLabel.text)
 		return
 		
-	%SlotContainer.get_child(activated_slots).activate()
+	%SlotContainer.get_child(activated_slots).activate(activated_slots)
+	%SlotContainer.get_child(activated_slots).item_slot_selected.connect(on_item_slot_selected)
 	activated_slots += 1
 
 func equip_item_to_slot(item: Item, index: int) -> Item:
+	while index >= len(equipped_items):
+		equipped_items.append(Item.new())
+		
 	equipped_items.insert(index, item)
 	return %SlotContainer.get_child(index).equip_item(item)
 

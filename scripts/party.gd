@@ -58,6 +58,7 @@ func purge_dead_members() -> void:
 	for member in party_members:
 		if member.stats.hp == 0:
 			member.queue_free()
+			GameManager.increase_available_inventory_slots()
 		else:
 			new_members.append(member)
 

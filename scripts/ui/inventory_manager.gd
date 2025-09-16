@@ -13,6 +13,7 @@ func _ready() -> void:
 	add_item(Item.new(), 3)
 	populate_character_inventory()
 	initialize_character_inventory_signals()
+	GameManager.set_inventory_manager(self)
 	
 func add_item(item: Item, count: int = 1) -> void:
 	for button in item_buttons:
@@ -92,3 +93,7 @@ func focus_item_button(item: Item) -> void:
 		if button.get_item_name() == str(item):
 			button.grab_focus()
 			return
+
+func increase_slots() -> void:
+	for character_inventory in %CharacterInventories.get_children():
+		character_inventory.activate_new_slot()
