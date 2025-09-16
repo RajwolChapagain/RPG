@@ -68,12 +68,13 @@ func update_active_battler(new_index):
 	active_team[new_index].mark_active()
 	active_index = new_index
 	
-func on_player_battler_died():
+func on_player_battler_died(player_name: String) -> void:
+	GameManager.queue_player_for_purging(player_name)
 	alive_player_count -= 1
 	if alive_player_count == 0:
 		end_battle(false)
 	
-func on_enemy_battler_died():
+func on_enemy_battler_died(enemy_name: String) -> void:
 	alive_enemy_count -= 1
 	if alive_enemy_count == 0:
 		end_battle(true)

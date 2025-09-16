@@ -11,7 +11,6 @@ func _ready() -> void:
 func attack(target) -> void:
 	$AnimationPlayer.play("attack")
 	target.take_damage(stats.attack_damage)
-	print(stats.dodge)
 	
 func take_damage(damage: int) -> void:
 	stats.hp -= damage
@@ -31,6 +30,6 @@ func mark_inactive():
 	
 func die():
 	if is_alive:
-		battler_died.emit()
+		battler_died.emit(stats.name)
 		is_alive = false
 		$Sprite2D.self_modulate = Color.DARK_RED

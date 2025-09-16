@@ -19,3 +19,8 @@ func set_inventory_manager(inventory_manager) -> void:
 func increase_available_inventory_slots() -> void:
 	assert(inventory_manager != null)
 	inventory_manager.increase_slots()
+
+func queue_player_for_purging(player_name: String) -> void:
+	for player in party.get_players():
+		if player.stats.name== player_name:
+			player.stats.hp = 0
