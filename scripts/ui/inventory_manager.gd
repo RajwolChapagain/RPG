@@ -56,6 +56,9 @@ func on_character_item_slot_selected(character_inventory, index: int) -> void:
 		remove_item(selected_item)
 		selected_item = null
 	else:
+		if character_inventory.get_item_at_slot(index) == null or str(character_inventory.get_item_at_slot(index)) == '':
+			return
+			
 		selected_character_inventory = character_inventory
 		selected_character_inventory_index = index
 		%DiscardButton.visible = true
