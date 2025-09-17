@@ -112,7 +112,7 @@ func remove_character_inventory_and_crystalize_items(player_name: String, item: 
 func crystalize_inventory(character_inventory: CharacterInventory) -> Item:
 	var essence_item = Item.new(character_inventory.get_character_name() + "'s Essence", Item.ItemType.CONSUMABLE)
 	for item: Item in character_inventory.equipped_items:
-		essence_item.abilities.append(item.abilities)
+		essence_item.abilities.append_array(item.abilities)
 	return essence_item
 
 func combine_items(item1: Item, item2: Item) -> Item:
