@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://di22kpskfdmkw"]
+[gd_scene load_steps=13 format=3 uid="uid://di22kpskfdmkw"]
 
 [ext_resource type="Script" uid="uid://cli8m4dkhd5tk" path="res://scripts/main.gd" id="1_2o4jk"]
 [ext_resource type="PackedScene" uid="uid://b6pcibljvig3f" path="res://scenes/party.tscn" id="1_cj7xw"]
@@ -25,6 +25,22 @@ accuracy = 0
 battle_sprite = SubResource("CompressedTexture2D_tipki")
 abilities = Array[PackedScene]([])
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_85g3d"]
+load_path = "res://.godot/imported/goblin_placeholder.png-24702c0ef7f9d03556ee409ef613b86b.ctex"
+
+[sub_resource type="Resource" id="Resource_choun"]
+script = ExtResource("6_o6xl0")
+name = "Goblin"
+attack_damage = 50
+max_hp = 100
+hp = 100
+defence = 0
+crit = 0
+dodge = 0
+accuracy = 0
+battle_sprite = SubResource("CompressedTexture2D_85g3d")
+abilities = Array[PackedScene]([])
+
 [node name="Main" type="Node"]
 script = ExtResource("1_2o4jk")
 battle_scene = ExtResource("2_v8u3f")
@@ -42,6 +58,10 @@ position = Vector2(222, 48)
 position = Vector2(298, 98)
 stats = SubResource("Resource_85g3d")
 
+[node name="Enemy3" parent="." instance=ExtResource("3_0ij44")]
+position = Vector2(130, 55)
+stats = SubResource("Resource_choun")
+
 [node name="NPC" parent="." instance=ExtResource("6_tefeu")]
 position = Vector2(222, 157)
 
@@ -50,3 +70,4 @@ visible = false
 
 [connection signal="enemy_encountered_player" from="Enemy" to="." method="_on_enemy_enemy_encountered_player"]
 [connection signal="enemy_encountered_player" from="Enemy2" to="." method="_on_enemy_enemy_encountered_player"]
+[connection signal="enemy_encountered_player" from="Enemy3" to="." method="_on_enemy_enemy_encountered_player"]

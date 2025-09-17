@@ -22,5 +22,8 @@ func increase_available_inventory_slots() -> void:
 
 func queue_player_for_purging(player_name: String) -> void:
 	for player in party.get_players():
-		if player.stats.name== player_name:
+		if player.stats.name == player_name:
 			player.stats.hp = 0
+			
+	inventory_manager.remove_character_inventory(player_name)
+	

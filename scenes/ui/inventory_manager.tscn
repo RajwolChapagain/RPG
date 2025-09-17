@@ -60,17 +60,21 @@ grow_vertical = 2
 [node name="CharacterInventory" parent="Panel/CharacterInventories" instance=ExtResource("3_hw52i")]
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_bottom = NodePath("../CharacterInventory2")
 
 [node name="CharacterInventory2" parent="Panel/CharacterInventories" instance=ExtResource("3_hw52i")]
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_bottom = NodePath("../CharacterInventory3")
 
 [node name="CharacterInventory3" parent="Panel/CharacterInventories" instance=ExtResource("3_hw52i")]
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_bottom = NodePath("../CharacterInventory4")
 
 [node name="CharacterInventory4" parent="Panel/CharacterInventories" instance=ExtResource("3_hw52i")]
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_bottom = NodePath("../CharacterInventory")
 
 [connection signal="pressed" from="ScrollContainer/DiscardButton" to="." method="_on_discard_button_pressed"]

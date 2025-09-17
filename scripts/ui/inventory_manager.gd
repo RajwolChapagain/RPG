@@ -100,3 +100,12 @@ func focus_item_button(item: Item) -> void:
 func increase_slots() -> void:
 	for character_inventory in %CharacterInventories.get_children():
 		character_inventory.activate_new_slot()
+
+func remove_character_inventory(player_name: String) -> void:
+	for character_inventory: CharacterInventory in %CharacterInventories.get_children():
+		if character_inventory.get_character_name() == player_name:
+			character_inventory.visible = false
+			add_item(crystalize_inventory(character_inventory))
+			
+func crystalize_inventory(character_inventory: CharacterInventory) -> Item:
+	return Item.new(character_inventory.get_character_name() + "'s Essence", Item.ItemType.CONSUMABLE)

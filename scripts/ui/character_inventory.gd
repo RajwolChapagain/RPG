@@ -51,3 +51,12 @@ func on_item_slot_selected(index: int) -> void:
 
 func remove_item_at_index(index: int) -> void:
 	%SlotContainer.get_child(index).remove_item()
+
+func get_character_name() -> String:
+	return %CharacterNameLabel.text
+
+func get_activated_slot_count() -> int:
+	return activated_slots
+	
+func get_inventory_slot(index: int) -> InventorySlot:
+	return %SlotContainer.get_child(index)
