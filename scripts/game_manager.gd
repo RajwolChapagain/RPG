@@ -24,6 +24,8 @@ func queue_player_for_purging(player_name: String) -> void:
 	for player in party.get_players():
 		if player.stats.name == player_name:
 			player.stats.hp = 0
-			
-	inventory_manager.remove_character_inventory(player_name)
+			inventory_manager.remove_character_inventory_and_crystalize_items(player_name, crystalize_stat(player.stats))
 	
+func crystalize_stat(stats: BaseStats) -> Item:
+	var item = Item.new('Crystalized Stat', Item.ItemType.CONSUMABLE, [], stats.abilities)
+	return item

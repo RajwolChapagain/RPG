@@ -115,7 +115,7 @@ func get_modification_amount() -> BaseStats:
 				if not stat_modifier.percentage:
 					modification_amount.set(stat_modifier.stat_name, modification_amount.get(stat_modifier.stat_name) / stat_modifier.amount)
 					
-			for ability: PackedScene in stat_modifier.abilities:
-				modification_amount.abilities.append(ability)
+		for ability: PackedScene in item.abilities:
+			modification_amount.abilities.append(ability)
 	
 	return modification_amount
