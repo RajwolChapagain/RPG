@@ -1,6 +1,7 @@
 extends Area2D
 class_name ArrowStorm
 
+@export var ability_name: String = 'ArrowStorm'
 @export var damage: int
 @export var cost: int
 var targets: Array[Node2D]
@@ -28,3 +29,6 @@ func is_initialized() -> bool:
 func _on_area_entered(area: Area2D) -> void:
 	if area.has_method("take_damage"):
 		area.take_damage(damage)
+
+func get_ability_name() -> String:
+	return ability_name

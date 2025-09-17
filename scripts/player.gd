@@ -90,7 +90,8 @@ func get_modified_stats() -> BaseStats:
 	modified_stats.accuracy = stats.accuracy + modification_amount.accuracy
 	modified_stats.dodge = stats.dodge + modification_amount.dodge
 	modified_stats.defence = stats.defence + modification_amount.defence
-	modified_stats.abilities = stats.abilities
+	modified_stats.abilities.append_array(stats.abilities)
+	modified_stats.abilities.append_array(modification_amount.abilities)
 	return modified_stats
 	
 func get_modification_amount() -> BaseStats:
@@ -113,5 +114,8 @@ func get_modification_amount() -> BaseStats:
 			elif stat_modifier.modification == '/':
 				if not stat_modifier.percentage:
 					modification_amount.set(stat_modifier.stat_name, modification_amount.get(stat_modifier.stat_name) / stat_modifier.amount)
+					
+			for ability: PackedScene in stat_modifier.abilities:
+				modification_amount.abilities.append(ability)
 	
 	return modification_amount

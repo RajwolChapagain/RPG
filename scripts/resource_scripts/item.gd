@@ -25,6 +25,8 @@ func get_stats_as_string() -> String:
 		if stat_modifier.percentage:
 			out += '%'
 		out += ' %s' % stat_modifier.stat_name
+		for ability: PackedScene in stat_modifier.abilities:
+			out += ' << %s >> ' % str(ability.resource_path)
 		if i != num_stats - 1:
 			out += ' | '
 	
