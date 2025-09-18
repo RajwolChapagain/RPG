@@ -34,8 +34,9 @@ func on_inventory_item_selected(item: Item) -> void:
 	if selected_item.type == Item.ItemType.CONSUMABLE:
 		for character_inventory: CharacterInventory in %CharacterInventories.get_children():
 			character_inventory.enable_consume_button()
-			
-	%CharacterInventories.get_child(0).grab_focus_to_first_slot()
+		%CharacterInventories.get_child(0).grab_focus_to_consume_button()
+	else:
+		%CharacterInventories.get_child(0).grab_focus_to_first_slot()
 
 func populate_character_inventory() -> void:
 	const MAX_CHARACTERS = 4

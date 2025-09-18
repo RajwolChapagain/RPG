@@ -46,6 +46,9 @@ func get_item_at_slot(index: int) -> Item:
 	
 func grab_focus_to_first_slot() -> void:
 	%SlotContainer.get_child(0).grab_focus()
+
+func grab_focus_to_consume_button() -> void:
+	%ConsumeButton.grab_focus()
 	
 func on_item_slot_selected(index: int) -> void:
 	character_item_slot_selected.emit(self, index)
