@@ -7,10 +7,7 @@ var selected_character_inventory
 var selected_character_inventory_index
 
 func _ready() -> void:
-	add_item(Item.new())
-	add_item(Item.new("My Item"), 2)
-	add_item(Item.new("Custom Item", Item.ItemType.CONSUMABLE, [StatModifier.new('dodge', '+', false, 20), StatModifier.new('atk', '-', true, 5.0)]))
-	add_item(Item.new(), 3)
+	add_item(Item.new("Potion of Healing", Item.ItemType.CONSUMABLE, [StatModifier.new('max_hp', '+', true, 20)]))
 	
 	populate_character_inventory()
 	initialize_character_inventory_signals()
@@ -34,6 +31,10 @@ func add_item_button(item: Item, count: int) -> void:
 func on_inventory_item_selected(item: Item) -> void:
 	print("Selected item %s" % item)
 	selected_item = item
+	if selected_item.type == Item.ItemType.CONSUMABLE:
+		for character_inventory: CharacterInventory in %CharacterInventories.get_children():
+			character_inventory.enable_consume_button()
+			
 	%CharacterInventories.get_child(0).grab_focus_to_first_slot()
 
 func populate_character_inventory() -> void:
@@ -48,6 +49,7 @@ func populate_character_inventory() -> void:
 func initialize_character_inventory_signals() -> void:
 	for child in %CharacterInventories.get_children():
 		child.character_item_slot_selected.connect(on_character_item_slot_selected)
+		child.consume_button_pressed.connect(on_consume_button_pressed)
 		
 func on_character_item_slot_selected(character_inventory, index: int) -> void:
 	if selected_item != null:
@@ -92,6 +94,13 @@ func _on_discard_button_pressed() -> void:
 		button.focus_mode = Control.FOCUS_ALL
 	focus_item_button(item)
 		
+func on_consume_button_pressed(character_name: String) -> void:
+	GameManager.make_player_consume_item(character_name, selected_item)
+	remove_item(selected_item)
+	selected_item = null
+	for character_inventory: CharacterInventory in %CharacterInventories.get_children():
+		character_inventory.disable_consume_button()
+	
 func focus_item_button(item: Item) -> void:
 	for button in item_buttons:
 		if button.get_item_name() == str(item):

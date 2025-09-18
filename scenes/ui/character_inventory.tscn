@@ -73,3 +73,10 @@ layout_mode = 2
 
 [node name="InventorySlot4" parent="MarginContainer/HBoxContainer/SlotContainer" instance=ExtResource("6_5437v")]
 layout_mode = 2
+
+[node name="ConsumeButton" type="Button" parent="MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[connection signal="pressed" from="MarginContainer/ConsumeButton" to="." method="_on_consume_button_pressed"]

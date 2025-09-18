@@ -102,20 +102,40 @@ func get_modification_amount() -> BaseStats:
 	
 	for item: Item in equipped_items:
 		for stat_modifier: StatModifier in item.stats:
-			if stat_modifier.modification == '+':
-				if not stat_modifier.percentage:
-					modification_amount.set(stat_modifier.stat_name, modification_amount.get(stat_modifier.stat_name) + stat_modifier.amount)
-			elif stat_modifier.modification == '-':
-				if not stat_modifier.percentage:
-					modification_amount.set(stat_modifier.stat_name, modification_amount.get(stat_modifier.stat_name) - stat_modifier.amount)
-			elif stat_modifier.modification == '*':
-				if not stat_modifier.percentage:
-					modification_amount.set(stat_modifier.stat_name, modification_amount.get(stat_modifier.stat_name) * stat_modifier.amount)
-			elif stat_modifier.modification == '/':
-				if not stat_modifier.percentage:
-					modification_amount.set(stat_modifier.stat_name, modification_amount.get(stat_modifier.stat_name) / stat_modifier.amount)
-					
+			modify_stats(modification_amount, stat_modifier)
+		
 		for ability: PackedScene in item.abilities:
 			modification_amount.abilities.append(ability)
 	
 	return modification_amount
+
+func consume_item(item: Item) -> void:
+	stats.abilities.append_array(item.abilities)
+	
+	for stat_modifier: StatModifier in item.stats:
+		modify_stats(stats, stat_modifier)
+		
+func modify_stats(stats: BaseStats, stat_modifier: StatModifier) -> void:
+	var stat_name: String = stat_modifier.stat_name
+	var new_amount = 0
+	if stat_modifier.modification == '+':
+		if not stat_modifier.percentage:
+			new_amount = stats.get(stat_name) + stat_modifier.amount
+		else:
+			new_amount = stats.get(stat_name) + int(stat_modifier.amount / 100 * stats.get(stat_name))
+	elif stat_modifier.modification == '-':
+		if not stat_modifier.percentage:
+			new_amount = stats.get(stat_name) - stat_modifier.amount
+		else:
+			new_amount = stats.get(stat_name) - int(stat_modifier.amount / 100 * stats.get(stat_name))
+	elif stat_modifier.modification == '*':
+		if not stat_modifier.percentage:
+			new_amount = stats.get(stat_name) * stat_modifier.amount
+		else:
+			new_amount = stats.get(stat_name) * int(stat_modifier.amount / 100 * stats.get(stat_name))
+	elif stat_modifier.modification == '/':
+		if not stat_modifier.percentage:
+			new_amount = stats.get(stat_name) / stat_modifier.amount
+		else:
+			new_amount = stats.get(stat_name) / int(stat_modifier.amount / 100 * stats.get(stat_name))
+	stats.set(stat_name, new_amount)

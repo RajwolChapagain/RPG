@@ -6,6 +6,7 @@ const MAX_SLOTS = 4
 var equipped_items: Array[Item]
 
 signal character_item_slot_selected
+signal consume_button_pressed
 
 func _ready() -> void:
 	for i in range(MAX_SLOTS):
@@ -60,3 +61,12 @@ func get_activated_slot_count() -> int:
 	
 func get_inventory_slot(index: int) -> InventorySlot:
 	return %SlotContainer.get_child(index)
+
+func enable_consume_button() -> void:
+	%ConsumeButton.visible = true
+	
+func disable_consume_button() -> void:
+	%ConsumeButton.visible = false
+
+func _on_consume_button_pressed() -> void:
+	consume_button_pressed.emit(%CharacterNameLabel.text)

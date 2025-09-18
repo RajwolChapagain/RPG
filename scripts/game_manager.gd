@@ -35,3 +35,8 @@ func crystalize_stat(stats: BaseStats) -> Item:
 		item.stats.append(StatModifier.new(stat_name, '+', false, stats.get(stat_name)))
 		
 	return item
+
+func make_player_consume_item(player_name: String, item: Item) -> void:
+	for player: Player in party.get_players():
+		if player.stats.name == player_name:
+			player.consume_item(item)
