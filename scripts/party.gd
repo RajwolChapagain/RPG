@@ -59,7 +59,6 @@ func purge_dead_members() -> void:
 		if member.stats.hp == 0:
 			member.queue_free()
 			GameManager.increase_available_inventory_slots()
-			GameManager.crystalize_stat(member.stats)
 		else:
 			new_members.append(member)
 

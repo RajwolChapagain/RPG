@@ -268,9 +268,6 @@ func end_battle(won: bool) -> void:
 
 func _on_abilities_button_button_down() -> void:
 	var ability = player_characters[active_index].stats.abilities.pick_random().instantiate()
-	for a in player_characters[active_index].stats.abilities:
-		print(a.resource_path)
-	print()
 	if %AbilityPointsContainer.points < ability.cost:
 		print("Not enough APs")
 		return
