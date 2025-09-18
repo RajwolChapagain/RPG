@@ -1,6 +1,9 @@
 extends Button
 class_name ItemButton
 
+@export var equippable_icon: Texture2D
+@export var consumable_icon: Texture2D
+
 @export var item: Item
 @export var count: int:
 	get:
@@ -22,6 +25,7 @@ func _ready() -> void:
 		%NameLabel.text = item.name
 		%CountLabel.text = str(count)
 		initialize_stat_label()
+		initialize_type_indicator()
 	else:
 		push_error("Uninitialized Item Button addded to scene")
 
@@ -49,5 +53,11 @@ func get_item_name() -> String:
 func initialize_stat_label() -> void:
 	%StatLabel.text = item.get_stats_as_string()
 
+func initialize_type_indicator() -> void:
+	if item.type == Item.ItemType.EQUIPPABLE:
+		%TypeIndicator.texture = equippable_icon
+	else:
+		%TypeIndicator.texture = consumable_icon
+		
 func _on_pressed() -> void:
 	item_selected.emit(item)

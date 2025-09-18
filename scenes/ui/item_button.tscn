@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cpuacag8n4gcn"]
+[gd_scene load_steps=5 format=3 uid="uid://cpuacag8n4gcn"]
 
 [ext_resource type="Script" uid="uid://cm3dx8a23abad" path="res://scripts/ui/item_button.gd" id="1_f7n08"]
 [ext_resource type="Theme" uid="uid://5dapp0d0f0x5" path="res://resources/ui.tres" id="1_krm74"]
+[ext_resource type="Texture2D" uid="uid://dj8hjkj3j35ix" path="res://assets/sprites/ui/inventory/equippable_indicator.png" id="3_krm74"]
+[ext_resource type="Texture2D" uid="uid://ct6h7krc0a1f2" path="res://assets/sprites/ui/inventory/consumable_indicator.png" id="4_ysded"]
 
 [node name="ItemButton" type="Button"]
 custom_minimum_size = Vector2(0, 20)
@@ -10,6 +12,8 @@ offset_bottom = 20.0
 size_flags_horizontal = 3
 theme = ExtResource("1_krm74")
 script = ExtResource("1_f7n08")
+equippable_icon = ExtResource("3_krm74")
+consumable_icon = ExtResource("4_ysded")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -25,6 +29,12 @@ layout_mode = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="TypeIndicator" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+expand_mode = 2
+stretch_mode = 3
 
 [node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
