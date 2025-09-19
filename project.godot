@@ -19,6 +19,7 @@ config/icon="uid://b05m1dyypsf7b"
 
 DialogueManager="*res://scenes/dialogue_manager.tscn"
 GameManager="*res://scripts/game_manager.gd"
+ItemDropManager="*res://scenes/item_drop_manager.tscn"
 
 [display]
 

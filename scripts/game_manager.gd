@@ -40,3 +40,8 @@ func make_player_consume_item(player_name: String, item: Item) -> void:
 	for player: Player in party.get_players():
 		if player.stats.name == player_name:
 			player.consume_item(item)
+
+func add_items_to_inventory(items: Array[Item]) -> void:
+	assert(inventory_manager != null)
+	for item in items:
+		inventory_manager.add_item(item)

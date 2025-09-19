@@ -1,0 +1,109 @@
+[gd_scene load_steps=9 format=3 uid="uid://clupgehwixby3"]
+
+[ext_resource type="Script" uid="uid://bflu2ltrrcf3n" path="res://scripts/item_drop_manager.gd" id="1_uacbh"]
+[ext_resource type="Script" uid="uid://due732el6o1b8" path="res://scripts/resource_scripts/item.gd" id="2_a4wni"]
+[ext_resource type="Script" uid="uid://cospd4gauu2qa" path="res://scripts/resource_scripts/stat_modifier.gd" id="3_81kyb"]
+
+[sub_resource type="Resource" id="Resource_tnc5c"]
+script = ExtResource("2_a4wni")
+name = "Common Item"
+type = 0
+stats = Array[ExtResource("3_81kyb")]([])
+abilities = Array[PackedScene]([])
+metadata/_custom_type_script = "uid://due732el6o1b8"
+
+[sub_resource type="Resource" id="Resource_x640a"]
+script = ExtResource("2_a4wni")
+name = "Uncommon Item"
+type = 0
+stats = Array[ExtResource("3_81kyb")]([])
+abilities = Array[PackedScene]([])
+metadata/_custom_type_script = "uid://due732el6o1b8"
+
+[sub_resource type="Resource" id="Resource_rpn2w"]
+script = ExtResource("2_a4wni")
+name = "Rare Item"
+type = 0
+stats = Array[ExtResource("3_81kyb")]([])
+abilities = Array[PackedScene]([])
+metadata/_custom_type_script = "uid://due732el6o1b8"
+
+[sub_resource type="Resource" id="Resource_351bv"]
+script = ExtResource("2_a4wni")
+name = "Legendary Item"
+type = 0
+stats = Array[ExtResource("3_81kyb")]([])
+abilities = Array[PackedScene]([])
+metadata/_custom_type_script = "uid://due732el6o1b8"
+
+[sub_resource type="Resource" id="Resource_rikeb"]
+script = ExtResource("2_a4wni")
+name = "Mythical Item"
+type = 0
+stats = Array[ExtResource("3_81kyb")]([])
+abilities = Array[PackedScene]([])
+metadata/_custom_type_script = "uid://due732el6o1b8"
+
+[node name="ItemDropManager" type="Node"]
+script = ExtResource("1_uacbh")
+common_items = Array[ExtResource("2_a4wni")]([SubResource("Resource_tnc5c")])
+uncommon_items = Array[ExtResource("2_a4wni")]([SubResource("Resource_x640a")])
+rare_items = Array[ExtResource("2_a4wni")]([SubResource("Resource_rpn2w")])
+legendary_items = Array[ExtResource("2_a4wni")]([SubResource("Resource_351bv")])
+mythical_items = Array[ExtResource("2_a4wni")]([SubResource("Resource_rikeb")])
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ItemDropPanel" type="Panel" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.0
+offset_top = -36.0
+offset_right = 49.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/ItemDropPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ItemDropPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/ItemDropPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 5
+text = "Items Obtained:"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/ItemDropPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ItemsContainer" type="VBoxContainer" parent="CanvasLayer/ItemDropPanel/MarginContainer/VBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ConfirmButton" type="Button" parent="CanvasLayer/ItemDropPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 4
+text = "Confirm"
+
+[connection signal="pressed" from="CanvasLayer/ItemDropPanel/MarginContainer/VBoxContainer/ConfirmButton" to="." method="_on_confirm_button_pressed"]

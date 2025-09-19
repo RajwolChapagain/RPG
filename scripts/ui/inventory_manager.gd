@@ -8,6 +8,7 @@ var selected_character_inventory_index
 
 func _ready() -> void:
 	add_item(Item.new("Potion of Healing", Item.ItemType.CONSUMABLE, [StatModifier.new('max_hp', '+', true, 20)]))
+	add_item(Item.new())
 	
 	populate_character_inventory()
 	initialize_character_inventory_signals()
