@@ -10,6 +10,7 @@ var move_queue = []
 var equipped_items: Array[Item]
 	
 signal character_moved(character, old_grid_pos)
+signal enemy_encountered(enemy)
 
 func _process(_delta: float) -> void:
 	take_input()
@@ -139,3 +140,7 @@ func modify_stats(stats: BaseStats, stat_modifier: StatModifier) -> void:
 		else:
 			new_amount = stats.get(stat_name) / int(stat_modifier.amount / 100 * stats.get(stat_name))
 	stats.set(stat_name, new_amount)
+
+func _on_area_entered(area: Area2D) -> void:
+	if area.is_in_group('enemy'):
+		enemy_encountered.emit(area)

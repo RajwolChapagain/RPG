@@ -1,4 +1,5 @@
 extends Node2D
+class_name Party
 
 @export var character_scenes: Array[PackedScene]
 
@@ -9,6 +10,7 @@ func _ready() -> void:
 	instantiate_characters_and_add_to_list()
 	establish_queue()
 	activate_party_member(0)
+	connect_player_signals()
 	GameManager.set_party(self)
 	
 func _input(event: InputEvent) -> void:
@@ -74,3 +76,23 @@ func reestablish_queue() -> void:
 
 func get_players() -> Array[Player]:
 	return party_members
+
+func on_player_encountered_enemy(enemy) -> void:
+	BattleManager.start_battle(self, enemy.get_gang())
+	
+func get_all_player_stats() -> Array[BaseStats]:
+	var stats: Array[BaseStats]
+	for player: Player in party_members:
+		stats.append(player.get_modified_stats())
+	return stats
+
+func connect_player_signals() -> void:
+	for player: Player in party_members:
+		player.enemy_encountered.connect(on_player_encountered_enemy)
+
+func disable_all_player_movement() -> void:
+	for player: Player in party_members:
+		player.set_active(false)
+	
+func disable_cycling() -> void:
+	can_cycle = false

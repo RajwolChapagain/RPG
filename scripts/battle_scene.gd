@@ -20,6 +20,11 @@ var num_attacked: int = 0
 
 signal battle_ended
 
+func initialize_battle(player_stats: Array[BaseStats], enemy_stats: Array[BaseStats], first_attacker_index: int = 0) -> void:
+	self.player_character_stats = player_stats
+	self.enemy_stats = enemy_stats
+	self.first_attacker_index = first_attacker_index
+	
 func _ready() -> void:
 	%AttackButton.grab_focus()
 	spawn_players()
@@ -43,29 +48,12 @@ func update_ui() -> void:
 		var string = str(player_characters[i].stats.hp) + "/" + str(player_characters[i].stats.max_hp)
 		hp_labels[i].text = string
 		
+# Precondition: new_index points to an alive battler
 func update_active_battler(new_index):
-	var active_team = []
-	
 	if players_turn:
-		active_team = player_characters
-	else:
-		active_team = enemies
-		
-	active_team[active_index].mark_inactive()
+		player_characters[active_index].mark_inactive()
+		player_characters[new_index].mark_active()
 	
-	if not active_team[new_index].is_alive:
-		if num_attacked == alive_player_count:
-			if players_turn:
-				end_player_turn()
-			else:
-				end_enemy_turn()
-			return
-		
-		active_index = new_index
-		advance_turn()
-		return
-		
-	active_team[new_index].mark_active()
 	active_index = new_index
 	
 func on_player_battler_died(player_name: String) -> void:
@@ -90,8 +78,7 @@ func spawn_players() -> void:
 		
 	connect_player_animation_finished_signal()
 	connect_player_battler_died_signal()
-	active_index = first_attacker_index
-	player_characters[active_index].mark_active()
+	update_active_battler(first_attacker_index)
 
 func spawn_enemies() -> void:
 	for i in range(len(enemy_stats)):
@@ -172,10 +159,17 @@ func advance_turn() -> void:
 			end_player_turn()
 			num_attacked = 0
 			return
+		
+		var next_player_index = active_index
+		for i in range(len(player_characters)):
+			next_player_index = (next_player_index + 1) % len(player_characters)
+			if player_characters[next_player_index].stats.hp != 0:
+				break
 			
-		update_active_battler( (active_index + 1) % len(player_characters))
+		update_active_battler(next_player_index)
 	else:
 		if active_index == len(enemies) - 1: # Inconsistency: players turn is checked by num_attacked
+											 # Assumes enemies will always attack starting from the first enemy to the left
 			end_enemy_turn()
 			return
 			
@@ -185,15 +179,27 @@ func end_player_turn() -> void:
 	player_characters[active_index].mark_inactive()
 	players_turn = false
 	enemy_is_attacking = false
-	active_index = 0
-	update_active_battler(0)
+	
+	var first_alive_enemy_index = -1
+	for enemy in enemies:
+		if enemy.stats.hp != 0:
+			first_alive_enemy_index += 1
+			break
+		first_alive_enemy_index += 1
+		
+	assert(first_alive_enemy_index != -1)
+	
+	update_active_battler(first_alive_enemy_index)
 	disable_attack_button()
 
 func end_enemy_turn() -> void:
 	enemies[active_index].mark_inactive()
 	players_turn = true
-	active_index = first_attacker_index
-	update_active_battler(active_index)
+	for i in range(len(player_characters)):
+		if player_characters[first_attacker_index].stats.hp != 0:
+			break
+		first_attacker_index = (first_attacker_index + 1) % len(player_characters)
+	update_active_battler(first_attacker_index)
 	enable_attack_button()
 	
 #endregion: turntaking
@@ -206,7 +212,12 @@ func _on_attack_button_button_down() -> void:
 	if not players_turn or $TargetSelect.is_active():
 		return
 
-	$TargetSelect.set_targets(enemies) 
+	var alive_enemies = []
+	for enemy in enemies:
+		if enemy.stats.hp != 0:
+			alive_enemies.append(enemy)
+			
+	$TargetSelect.set_targets(alive_enemies) 
 	$TargetSelect.activate()
 	disable_attack_button()
 
@@ -315,7 +326,6 @@ func swap_characters(player_index: int, enemy_index: int) -> void:
 	player.get_node("AnimationPlayer").animation_started.connect(on_enemy_animation_started)
 	player.get_node("AnimationPlayer").animation_finished.connect(on_enemy_animation_finished)
 	enemy.get_node("AnimationPlayer").animation_finished.connect(on_player_animation_finished)
-
 
 func _on_result_label_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "fade_in":

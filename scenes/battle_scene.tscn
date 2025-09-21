@@ -20,6 +20,10 @@ name = "Goblin"
 attack_damage = 50
 max_hp = 100
 hp = 100
+defence = 0
+crit = 0
+dodge = 0
+accuracy = 0
 battle_sprite = SubResource("CompressedTexture2D_3oc74")
 abilities = Array[PackedScene]([])
 
@@ -32,6 +36,10 @@ name = "Goblin"
 attack_damage = 50
 max_hp = 100
 hp = 100
+defence = 0
+crit = 0
+dodge = 0
+accuracy = 0
 battle_sprite = SubResource("CompressedTexture2D_g72on")
 abilities = Array[PackedScene]([])
 
@@ -44,6 +52,10 @@ name = "Goblin"
 attack_damage = 50
 max_hp = 100
 hp = 100
+defence = 0
+crit = 0
+dodge = 0
+accuracy = 0
 battle_sprite = SubResource("CompressedTexture2D_ti0og")
 abilities = Array[PackedScene]([])
 

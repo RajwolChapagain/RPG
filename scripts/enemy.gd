@@ -1,8 +1,7 @@
 extends Area2D
+class_name Enemy
 
-@export var stats: BaseStats
-signal enemy_encountered_player(enemy)
+@export var gang: Array[BaseStats]
 
-func _on_area_entered(area: Area2D) -> void:
-	if area.is_in_group("player_character"):
-		enemy_encountered_player.emit(self)
+func get_gang() -> Array[BaseStats]:
+	return gang

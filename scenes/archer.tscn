@@ -158,7 +158,6 @@ animations = [{
 }]
 
 [node name="Player" type="Area2D" groups=["player_character"]]
-collision_mask = 0
 script = ExtResource("1_2iv4p")
 stats = ExtResource("2_i7o62")
 
@@ -181,3 +180,5 @@ time_to_move_one_grid = 0.2
 
 [node name="GridPositionTracker" type="Node2D" parent="."]
 script = ExtResource("5_8gkgf")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
