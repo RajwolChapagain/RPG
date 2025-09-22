@@ -78,7 +78,7 @@ func get_players() -> Array[Player]:
 	return party_members
 
 func on_player_encountered_enemy(enemy) -> void:
-	BattleManager.start_battle(self, enemy.get_gang())
+	BattleManager.start_battle(self, enemy)
 	
 func get_all_player_stats() -> Array[BaseStats]:
 	var stats: Array[BaseStats]
@@ -91,8 +91,13 @@ func connect_player_signals() -> void:
 		player.enemy_encountered.connect(on_player_encountered_enemy)
 
 func disable_all_player_movement() -> void:
-	for player: Player in party_members:
-		player.set_active(false)
+	party_members[get_active_member_index()].set_active(false)
 	
 func disable_cycling() -> void:
 	can_cycle = false
+
+func enable_all_player_movement() -> void:
+	party_members[0].set_active(true)
+
+func enable_cycling() -> void:
+	can_cycle = true
