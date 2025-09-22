@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dy5qxs6qxwvwi"]
+[gd_scene load_steps=9 format=3 uid="uid://dy5qxs6qxwvwi"]
 
 [ext_resource type="PackedScene" uid="uid://bitedxhspi8i5" path="res://scenes/dual_grid.tscn" id="1_x42e6"]
 [ext_resource type="PackedScene" uid="uid://ccy0aydyv2sxd" path="res://scenes/enemy.tscn" id="2_6761a"]
@@ -6,6 +6,15 @@
 [ext_resource type="Resource" uid="uid://c46k2b5fxukoi" path="res://resources/goblin_base_stats.tres" id="4_6761a"]
 [ext_resource type="PackedScene" uid="uid://cglapshtkljpc" path="res://scenes/npc.tscn" id="4_oc4kc"]
 [ext_resource type="Resource" uid="uid://bgg065a045ww" path="res://resources/lady_base_stats.tres" id="5_sk5k4"]
+[ext_resource type="Texture2D" uid="uid://onsf4e7pukfl" path="res://assets/sprites/goblin_placeholder.png" id="6_oc4kc"]
+
+[sub_resource type="Resource" id="Resource_s8va5"]
+script = ExtResource("3_sk5k4")
+name = "Goblin"
+attack_damage = 50
+max_hp = 100
+hp = 100
+battle_sprite = ExtResource("6_oc4kc")
 
 [node name="Level1" type="Node"]
 
@@ -17,7 +26,7 @@ gang = Array[ExtResource("3_sk5k4")]([ExtResource("4_6761a")])
 
 [node name="Enemy2" parent="." instance=ExtResource("2_6761a")]
 position = Vector2(298, 98)
-gang = Array[ExtResource("3_sk5k4")]([ExtResource("5_sk5k4"), ExtResource("4_6761a")])
+gang = Array[ExtResource("3_sk5k4")]([ExtResource("5_sk5k4"), SubResource("Resource_s8va5")])
 
 [node name="NPC" parent="." instance=ExtResource("4_oc4kc")]
 position = Vector2(222, 157)
