@@ -12,7 +12,7 @@ var dialogue_ongoing = false
 
 func _ready() -> void:
 	dialogue_ui = dialogue_ui_scene.instantiate()
-	add_child(dialogue_ui)
+	%CanvasLayer.add_child(dialogue_ui)
 	dialogue_ui.visible = false
 	
 func _input(event: InputEvent) -> void:
