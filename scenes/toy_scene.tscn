@@ -1,12 +1,12 @@
 [gd_scene load_steps=4 format=3 uid="uid://c71ubdaq0cf3b"]
 
+[ext_resource type="PackedScene" uid="uid://dy5qxs6qxwvwi" path="res://scenes/levels/level_1.tscn" id="1_7wyb6"]
 [ext_resource type="PackedScene" uid="uid://b6pcibljvig3f" path="res://scenes/party.tscn" id="2_i7sk5"]
-[ext_resource type="PackedScene" uid="uid://cj1sajukjk52m" path="res://scenes/levels/level_3.tscn" id="3_7vpqp"]
 [ext_resource type="PackedScene" uid="uid://des2w3vogbaog" path="res://scenes/ui/pause_menu.tscn" id="3_048qh"]
 
 [node name="Node" type="Node"]
 
-[node name="Level3" parent="." instance=ExtResource("3_7vpqp")]
+[node name="Level1" parent="." instance=ExtResource("1_7wyb6")]
 
 [node name="Party" parent="." instance=ExtResource("2_i7sk5")]
 

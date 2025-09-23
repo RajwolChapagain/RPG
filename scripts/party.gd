@@ -37,6 +37,7 @@ func activate_party_member(index: int) -> void:
 	for i in range(0, len(party_members)):
 		if i == index:
 			party_members[index].set_active(true)
+			%Camera2D.reparent(party_members[index])
 		else:
 			party_members[i].set_active(false)
 	
@@ -91,6 +92,7 @@ func connect_player_signals() -> void:
 		player.enemy_encountered.connect(on_player_encountered_enemy)
 
 func disable_all_player_movement() -> void:
+	%Camera2D.enabled = false
 	party_members[get_active_member_index()].set_active(false)
 	
 func disable_cycling() -> void:
@@ -98,6 +100,7 @@ func disable_cycling() -> void:
 
 func enable_all_player_movement() -> void:
 	party_members[0].set_active(true)
+	%Camera2D.enabled = true
 
 func enable_cycling() -> void:
 	can_cycle = true
