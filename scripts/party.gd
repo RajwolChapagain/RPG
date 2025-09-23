@@ -38,6 +38,7 @@ func activate_party_member(index: int) -> void:
 		if i == index:
 			party_members[index].set_active(true)
 			%Camera2D.reparent(party_members[index])
+			%Camera2D.position = Vector2.ZERO
 		else:
 			party_members[i].set_active(false)
 	
