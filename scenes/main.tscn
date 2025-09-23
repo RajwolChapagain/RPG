@@ -1,34 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://di22kpskfdmkw"]
+[gd_scene load_steps=7 format=3 uid="uid://di22kpskfdmkw"]
 
 [ext_resource type="Script" uid="uid://cli8m4dkhd5tk" path="res://scripts/main.gd" id="1_2o4jk"]
 [ext_resource type="PackedScene" uid="uid://b6pcibljvig3f" path="res://scenes/party.tscn" id="1_cj7xw"]
-[ext_resource type="PackedScene" uid="uid://cdvr88h8f2nsx" path="res://scenes/battle_scene.tscn" id="2_v8u3f"]
-[ext_resource type="PackedScene" uid="uid://bitedxhspi8i5" path="res://scenes/dual_grid.tscn" id="2_xwdsx"]
-[ext_resource type="PackedScene" uid="uid://ccy0aydyv2sxd" path="res://scenes/enemy.tscn" id="3_0ij44"]
-[ext_resource type="PackedScene" uid="uid://cglapshtkljpc" path="res://scenes/npc.tscn" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://dy5qxs6qxwvwi" path="res://scenes/levels/level_1.tscn" id="2_tefeu"]
+[ext_resource type="PackedScene" uid="uid://5dv0uh58ql2b" path="res://scenes/levels/level_2.tscn" id="3_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://cj1sajukjk52m" path="res://scenes/levels/level_3.tscn" id="4_tipki"]
 [ext_resource type="PackedScene" uid="uid://des2w3vogbaog" path="res://scenes/ui/pause_menu.tscn" id="8_tipki"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_2o4jk")
-battle_scene = ExtResource("2_v8u3f")
-
-[node name="DualGrid" parent="." instance=ExtResource("2_xwdsx")]
+levels = Array[PackedScene]([ExtResource("2_tefeu"), ExtResource("3_o6xl0"), ExtResource("4_tipki")])
 
 [node name="Party" parent="." instance=ExtResource("1_cj7xw")]
 unique_name_in_owner = true
-position = Vector2(32, 32)
-
-[node name="Enemy" parent="." instance=ExtResource("3_0ij44")]
-position = Vector2(222, 48)
-
-[node name="Enemy2" parent="." instance=ExtResource("3_0ij44")]
-position = Vector2(298, 98)
-
-[node name="Enemy3" parent="." instance=ExtResource("3_0ij44")]
-position = Vector2(130, 55)
-
-[node name="NPC" parent="." instance=ExtResource("6_tefeu")]
-position = Vector2(222, 157)
+position = Vector2(114, 61)
 
 [node name="PauseMenu" parent="." instance=ExtResource("8_tipki")]
 visible = false

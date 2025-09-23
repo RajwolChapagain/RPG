@@ -22,5 +22,6 @@ position = Vector2(191, 143)
 
 [node name="PartyOriginMarker" type="Marker2D" parent="."]
 unique_name_in_owner = true
+position = Vector2(160, 96)
 
 [editable path="DualGrid"]
