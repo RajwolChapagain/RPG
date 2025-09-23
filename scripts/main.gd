@@ -15,3 +15,7 @@ func load_level(level: int) -> void:
 	add_child(current_level)
 	move_child(current_level, 0)
 	%Party.global_position = current_level.get_node("PartyOriginMarker").global_position
+
+func load_next_level() -> void:
+	current_level_number += 1
+	load_level(current_level_number)
