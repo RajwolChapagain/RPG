@@ -15,5 +15,7 @@ levels = Array[PackedScene]([ExtResource("2_tefeu"), ExtResource("3_o6xl0"), Ext
 unique_name_in_owner = true
 position = Vector2(114, 61)
 
-[node name="PauseMenu" parent="." instance=ExtResource("8_tipki")]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("8_tipki")]
 visible = false
