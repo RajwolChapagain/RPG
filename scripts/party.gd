@@ -105,3 +105,7 @@ func enable_all_player_movement() -> void:
 
 func enable_cycling() -> void:
 	can_cycle = true
+
+func reset_player_positions() -> void:
+	for player in party_members:
+		player.position = Vector2.ZERO

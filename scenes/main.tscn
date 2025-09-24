@@ -13,7 +13,6 @@ levels = Array[PackedScene]([ExtResource("2_tefeu"), ExtResource("3_o6xl0"), Ext
 
 [node name="Party" parent="." instance=ExtResource("1_cj7xw")]
 unique_name_in_owner = true
-position = Vector2(114, 61)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

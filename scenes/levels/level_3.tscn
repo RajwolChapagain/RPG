@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=4 uid="uid://cj1sajukjk52m"]
+[gd_scene load_steps=9 format=4 uid="uid://cj1sajukjk52m"]
 
 [ext_resource type="PackedScene" uid="uid://bitedxhspi8i5" path="res://scenes/dual_grid.tscn" id="1_o8c3j"]
+[ext_resource type="Script" uid="uid://dy8orfdjxmcdv" path="res://scripts/level.gd" id="1_ugcn1"]
 [ext_resource type="PackedScene" uid="uid://ccy0aydyv2sxd" path="res://scenes/enemy.tscn" id="2_44gv1"]
 [ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="3_0qepi"]
 [ext_resource type="Resource" uid="uid://c3bvbxqpkkgu3" path="res://resources/knight_base_stats.tres" id="4_fkk1g"]
@@ -9,6 +10,8 @@
 [ext_resource type="Resource" uid="uid://cym67rsdldl6j" path="res://resources/archer_base_stats.tres" id="6_pimnq"]
 
 [node name="Level3" type="Node"]
+script = ExtResource("1_ugcn1")
+level_number = 3
 
 [node name="DualGrid" parent="." instance=ExtResource("1_o8c3j")]
 
@@ -17,13 +20,14 @@ tile_map_data = PackedByteArray("AAAPAAAAAAABAAAAAAAQAAAAAAABAAAAAAARAAAAAAABAAA
 
 [node name="PartyOriginMarker" type="Marker2D" parent="."]
 unique_name_in_owner = true
+position = Vector2(32, 32)
 
 [node name="Enemy2" parent="." instance=ExtResource("2_44gv1")]
-position = Vector2(252, 139)
+position = Vector2(409, 97)
 gang = Array[ExtResource("3_0qepi")]([ExtResource("4_fkk1g"), ExtResource("5_ugcn1"), ExtResource("6_pimnq")])
 
 [node name="Enemy" parent="." instance=ExtResource("2_44gv1")]
-position = Vector2(251, 41)
+position = Vector2(392, 37)
 gang = Array[ExtResource("3_0qepi")]([ExtResource("4_fmg3e"), ExtResource("4_fmg3e"), ExtResource("4_fmg3e")])
 
 [editable path="DualGrid"]

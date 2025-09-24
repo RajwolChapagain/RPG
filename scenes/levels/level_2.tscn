@@ -1,11 +1,35 @@
-[gd_scene load_steps=5 format=4 uid="uid://5dv0uh58ql2b"]
+[gd_scene load_steps=9 format=4 uid="uid://5dv0uh58ql2b"]
 
 [ext_resource type="PackedScene" uid="uid://bitedxhspi8i5" path="res://scenes/dual_grid.tscn" id="1_j2425"]
+[ext_resource type="Script" uid="uid://dy8orfdjxmcdv" path="res://scripts/level.gd" id="1_l37oo"]
 [ext_resource type="PackedScene" uid="uid://ccy0aydyv2sxd" path="res://scenes/enemy.tscn" id="2_g2h2n"]
 [ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="3_fiq81"]
-[ext_resource type="Resource" uid="uid://c46k2b5fxukoi" path="res://resources/goblin_base_stats.tres" id="4_l37oo"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fiq81"]
+load_path = "res://.godot/imported/goblin_placeholder.png-24702c0ef7f9d03556ee409ef613b86b.ctex"
+
+[sub_resource type="Resource" id="Resource_l37oo"]
+script = ExtResource("3_fiq81")
+name = "Goblin"
+attack_damage = 20
+max_hp = 50
+hp = 100
+battle_sprite = SubResource("CompressedTexture2D_fiq81")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qpwj6"]
+load_path = "res://.godot/imported/goblin_placeholder.png-24702c0ef7f9d03556ee409ef613b86b.ctex"
+
+[sub_resource type="Resource" id="Resource_ibugp"]
+script = ExtResource("3_fiq81")
+name = "Goblin"
+attack_damage = 20
+max_hp = 50
+hp = 100
+battle_sprite = SubResource("CompressedTexture2D_qpwj6")
 
 [node name="Level2" type="Node"]
+script = ExtResource("1_l37oo")
+level_number = 2
 
 [node name="PartyOriginMarker" type="Marker2D" parent="."]
 unique_name_in_owner = true
@@ -17,6 +41,8 @@ tile_map_data = PackedByteArray("AAAPAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAARAAAAAAAAAAA
 
 [node name="Enemy" parent="." instance=ExtResource("2_g2h2n")]
 position = Vector2(275, 89)
-gang = Array[ExtResource("3_fiq81")]([ExtResource("4_l37oo"), ExtResource("4_l37oo")])
+gang = Array[ExtResource("3_fiq81")]([SubResource("Resource_l37oo"), SubResource("Resource_ibugp")])
+
+[connection signal="tree_exiting" from="Enemy" to="." method="_on_enemy_tree_exiting"]
 
 [editable path="DualGrid"]
