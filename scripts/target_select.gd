@@ -34,6 +34,9 @@ func select_previous() -> void:
 	selected = (selected - 1) % len(targets)
 
 func mark_selected(index) -> void:
+	while (index >= len(targets)):
+		index -= 1
+		
 	%Pointer.position.x = targets[index].position.x
 	%Pointer.position.y = targets[index].position.y - pointer_y_offset
 	%Pointer.visible = true

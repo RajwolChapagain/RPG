@@ -172,8 +172,17 @@ func advance_turn() -> void:
 											 # Assumes enemies will always attack starting from the first enemy to the left
 			end_enemy_turn()
 			return
-			
-		update_active_battler( (active_index + 1) % len(enemies))
+		
+		var next_alive_enemy_index = active_index + 1
+		for i in range(next_alive_enemy_index, len(enemies)):
+			if enemies[next_alive_enemy_index].stats.hp != 0:
+				break
+			next_alive_enemy_index += 1
+		
+		if next_alive_enemy_index == len(enemies):
+			end_enemy_turn()
+		else:
+			update_active_battler(next_alive_enemy_index)
 
 func end_player_turn() -> void:
 	player_characters[active_index].mark_inactive()
@@ -256,7 +265,10 @@ func on_ability_exited_tree() -> void:
 	
 ### Enemy Attacking ###
 
+# Precondition: active_index points to an alive enemy
 func attack_random_player() -> void:
+	if enemies[active_index].stats.hp == 0:
+		return
 	enemies[active_index].attack(get_random_alive_player())
 	
 func get_random_alive_player():
