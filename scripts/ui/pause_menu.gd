@@ -22,3 +22,6 @@ func unpause_game() -> void:
 
 func _on_inventory_button_pressed() -> void:
 	%InventoryManager.visible = true
+
+func initialize_inventory() -> void:
+	%InventoryManager.populate_character_inventory()

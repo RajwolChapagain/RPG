@@ -46,4 +46,5 @@ func on_characters_selected(names: Array[String]):
 		character_scenes.append(character_name_to_scene[char_name])
 	party.initialize_character_scenes(character_scenes)
 	add_child(party)
+	%PauseMenu.initialize_inventory()
 	load_next_level()
