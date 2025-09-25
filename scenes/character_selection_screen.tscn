@@ -1,0 +1,124 @@
+[gd_scene load_steps=11 format=3 uid="uid://ccup1rh7u0hg3"]
+
+[ext_resource type="PackedScene" uid="uid://23b01ifqxu4" path="res://scenes/ui/stat_card.tscn" id="1_0oen6"]
+[ext_resource type="Script" uid="uid://dg3cvamqwic2x" path="res://scripts/character_selection_screen.gd" id="1_jmy7a"]
+[ext_resource type="Resource" uid="uid://c3bvbxqpkkgu3" path="res://resources/knight_base_stats.tres" id="2_sf8ac"]
+[ext_resource type="Resource" uid="uid://biubxrgae4cha" path="res://resources/cleric_base_stats.tres" id="3_sf8ac"]
+[ext_resource type="Resource" uid="uid://bgg065a045ww" path="res://resources/lady_base_stats.tres" id="4_wk3ir"]
+[ext_resource type="Resource" uid="uid://d3kyf2naa3duo" path="res://resources/mage_base_stats.tres" id="5_jxuks"]
+[ext_resource type="Resource" uid="uid://cym67rsdldl6j" path="res://resources/archer_base_stats.tres" id="6_jmy7a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jmy7a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jmy7a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yobrv"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[node name="CharacterSelectionScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_jmy7a")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Choose Your Heroes"
+horizontal_alignment = 1
+
+[node name="CountLabel" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "(0/4)"
+horizontal_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 140)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button1" type="Button" parent="VBoxContainer/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxEmpty_jmy7a")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jmy7a")
+theme_override_styles/focus = SubResource("StyleBoxFlat_yobrv")
+toggle_mode = true
+
+[node name="StatCard" parent="VBoxContainer/Buttons/Button1" instance=ExtResource("1_0oen6")]
+layout_mode = 1
+stats = ExtResource("2_sf8ac")
+
+[node name="Button2" type="Button" parent="VBoxContainer/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxEmpty_jmy7a")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jmy7a")
+theme_override_styles/focus = SubResource("StyleBoxFlat_yobrv")
+toggle_mode = true
+
+[node name="StatCard" parent="VBoxContainer/Buttons/Button2" instance=ExtResource("1_0oen6")]
+layout_mode = 1
+stats = ExtResource("3_sf8ac")
+
+[node name="Button3" type="Button" parent="VBoxContainer/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxEmpty_jmy7a")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jmy7a")
+theme_override_styles/focus = SubResource("StyleBoxFlat_yobrv")
+toggle_mode = true
+
+[node name="StatCard" parent="VBoxContainer/Buttons/Button3" instance=ExtResource("1_0oen6")]
+layout_mode = 1
+stats = ExtResource("4_wk3ir")
+
+[node name="Button4" type="Button" parent="VBoxContainer/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxEmpty_jmy7a")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jmy7a")
+theme_override_styles/focus = SubResource("StyleBoxFlat_yobrv")
+toggle_mode = true
+
+[node name="StatCard" parent="VBoxContainer/Buttons/Button4" instance=ExtResource("1_0oen6")]
+layout_mode = 1
+stats = ExtResource("5_jxuks")
+
+[node name="Button5" type="Button" parent="VBoxContainer/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxEmpty_jmy7a")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jmy7a")
+theme_override_styles/focus = SubResource("StyleBoxFlat_yobrv")
+toggle_mode = true
+
+[node name="StatCard" parent="VBoxContainer/Buttons/Button5" instance=ExtResource("1_0oen6")]
+layout_mode = 1
+stats = ExtResource("6_jmy7a")
+
+[connection signal="toggled" from="VBoxContainer/Buttons/Button1" to="." method="_on_button_1_toggled"]
+[connection signal="toggled" from="VBoxContainer/Buttons/Button2" to="." method="_on_button_2_toggled"]
+[connection signal="toggled" from="VBoxContainer/Buttons/Button3" to="." method="_on_button_3_toggled"]
+[connection signal="toggled" from="VBoxContainer/Buttons/Button4" to="." method="_on_button_4_toggled"]
+[connection signal="toggled" from="VBoxContainer/Buttons/Button5" to="." method="_on_button_5_toggled"]

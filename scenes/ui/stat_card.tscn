@@ -4,12 +4,12 @@
 [ext_resource type="Resource" uid="uid://c7g3v2c4yj2kj" path="res://resources/stat_portrait_database.tres" id="3_q7ohx"]
 
 [node name="StatCard" type="Control"]
-custom_minimum_size = Vector2(60, 160)
+custom_minimum_size = Vector2(60, 140)
 layout_mode = 3
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -160.0
+offset_top = -140.0
 offset_right = 60.0
 grow_vertical = 0
 script = ExtResource("1_8egb0")

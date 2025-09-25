@@ -1,18 +1,30 @@
-[gd_scene load_steps=7 format=3 uid="uid://di22kpskfdmkw"]
+[gd_scene load_steps=13 format=3 uid="uid://di22kpskfdmkw"]
 
 [ext_resource type="Script" uid="uid://cli8m4dkhd5tk" path="res://scripts/main.gd" id="1_2o4jk"]
-[ext_resource type="PackedScene" uid="uid://b6pcibljvig3f" path="res://scenes/party.tscn" id="1_cj7xw"]
+[ext_resource type="PackedScene" uid="uid://ccup1rh7u0hg3" path="res://scenes/character_selection_screen.tscn" id="2_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://dy5qxs6qxwvwi" path="res://scenes/levels/level_1.tscn" id="2_tefeu"]
 [ext_resource type="PackedScene" uid="uid://5dv0uh58ql2b" path="res://scenes/levels/level_2.tscn" id="3_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://cj1sajukjk52m" path="res://scenes/levels/level_3.tscn" id="4_tipki"]
+[ext_resource type="PackedScene" uid="uid://b6pcibljvig3f" path="res://scenes/party.tscn" id="6_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://4tpi2115bjdi" path="res://scenes/knight.tscn" id="7_tipki"]
+[ext_resource type="PackedScene" uid="uid://dntk1hqtl8ews" path="res://scenes/cleric.tscn" id="8_choun"]
 [ext_resource type="PackedScene" uid="uid://des2w3vogbaog" path="res://scenes/ui/pause_menu.tscn" id="8_tipki"]
+[ext_resource type="PackedScene" uid="uid://dybafy3qxap2q" path="res://scenes/lady.tscn" id="9_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://btp1ybbdujkbw" path="res://scenes/mage.tscn" id="10_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://cx2lym7krpsie" path="res://scenes/archer.tscn" id="11_eb6dy"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_2o4jk")
+character_selection_screen = ExtResource("2_o6xl0")
 levels = Array[PackedScene]([ExtResource("2_tefeu"), ExtResource("3_o6xl0"), ExtResource("4_tipki")])
-
-[node name="Party" parent="." instance=ExtResource("1_cj7xw")]
-unique_name_in_owner = true
+party_scene = ExtResource("6_o6xl0")
+character_name_to_scene = Dictionary[String, PackedScene]({
+"Einar": ExtResource("11_eb6dy"),
+"Josephine": ExtResource("9_ya4ey"),
+"Lachlan": ExtResource("10_ya4ey"),
+"Magda": ExtResource("8_choun"),
+"Rachelle": ExtResource("7_tipki")
+})
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

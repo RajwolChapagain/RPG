@@ -18,6 +18,9 @@ func _input(event: InputEvent) -> void:
 		if can_cycle:
 			activate_next_member()
 		
+func initialize_character_scenes(scenes: Array[PackedScene]) -> void:
+	character_scenes = scenes
+	
 func instantiate_characters_and_add_to_list() -> void:
 	for scene in character_scenes:
 		var character = scene.instantiate()

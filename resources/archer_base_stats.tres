@@ -10,7 +10,7 @@ region = Rect2(0, 96, 32, 32)
 
 [resource]
 script = ExtResource("1_e6gcu")
-name = "Archer"
+name = "Einar"
 attack_damage = 5
 max_hp = 70
 hp = 70

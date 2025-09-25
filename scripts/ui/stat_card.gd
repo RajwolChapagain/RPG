@@ -1,4 +1,5 @@
 extends Control
+class_name StatCard
 
 @export var stats: BaseStats
 @export var portraits: PortraitDatabase
@@ -28,3 +29,6 @@ func update_stats_ui() -> void:
 			
 		%StatValues.get_child(i).text = label_text
 		i += 1
+		
+func get_character_name() -> String:
+	return stats.name
