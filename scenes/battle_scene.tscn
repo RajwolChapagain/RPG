@@ -20,12 +20,7 @@ name = "Goblin"
 attack_damage = 50
 max_hp = 100
 hp = 100
-defence = 0
-crit = 0
-dodge = 0
-accuracy = 0
 battle_sprite = SubResource("CompressedTexture2D_3oc74")
-abilities = Array[PackedScene]([])
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g72on"]
 load_path = "res://.godot/imported/goblin_placeholder.png-24702c0ef7f9d03556ee409ef613b86b.ctex"
@@ -36,12 +31,7 @@ name = "Goblin"
 attack_damage = 50
 max_hp = 100
 hp = 100
-defence = 0
-crit = 0
-dodge = 0
-accuracy = 0
 battle_sprite = SubResource("CompressedTexture2D_g72on")
-abilities = Array[PackedScene]([])
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ti0og"]
 load_path = "res://.godot/imported/goblin_placeholder.png-24702c0ef7f9d03556ee409ef613b86b.ctex"
@@ -52,12 +42,7 @@ name = "Goblin"
 attack_damage = 50
 max_hp = 100
 hp = 100
-defence = 0
-crit = 0
-dodge = 0
-accuracy = 0
 battle_sprite = SubResource("CompressedTexture2D_ti0og")
-abilities = Array[PackedScene]([])
 
 [sub_resource type="Animation" id="Animation_0gp0h"]
 length = 0.001

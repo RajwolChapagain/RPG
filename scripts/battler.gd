@@ -9,13 +9,17 @@ func _ready() -> void:
 	$Sprite2D.texture = stats.battle_sprite
 	
 func attack(target) -> void:
+	var crit_damage = 30
+	var true_damage = stats.attack_damage
+	if (randf() <= (stats.crit / 100.0)):
+		true_damage += crit_damage
+		
 	$AnimationPlayer.play("attack")
-	target.take_damage(stats.attack_damage)
+	target.take_damage(true_damage)
 	
 func take_damage(damage: int) -> void:
 	var true_damage = clamp(damage - stats.defence, 0, damage)
 	stats.hp -= true_damage
-	
 	stats.hp = clamp(stats.hp, 0, INF)
 	
 	if (stats.hp == 0):
