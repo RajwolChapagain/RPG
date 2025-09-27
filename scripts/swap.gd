@@ -1,5 +1,6 @@
 extends Area2D
 
+@export var ability_name: String = "Swap"
 @export var cost: int
 
 func _ready():

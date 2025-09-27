@@ -1,13 +1,9 @@
-[gd_scene load_steps=20 format=4 uid="uid://cdvr88h8f2nsx"]
+[gd_scene load_steps=16 format=4 uid="uid://cdvr88h8f2nsx"]
 
 [ext_resource type="Script" uid="uid://cj36ljr7yngtl" path="res://scripts/battle_scene.gd" id="1_0yksl"]
 [ext_resource type="PackedScene" uid="uid://bitedxhspi8i5" path="res://scenes/dual_grid.tscn" id="1_6lmhm"]
 [ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="2_xwxfl"]
 [ext_resource type="Theme" uid="uid://5dapp0d0f0x5" path="res://resources/ui.tres" id="3_gj8wv"]
-[ext_resource type="Resource" uid="uid://biubxrgae4cha" path="res://resources/cleric_base_stats.tres" id="4_4cvxg"]
-[ext_resource type="Resource" uid="uid://bgg065a045ww" path="res://resources/lady_base_stats.tres" id="5_3oc74"]
-[ext_resource type="Resource" uid="uid://c3bvbxqpkkgu3" path="res://resources/knight_base_stats.tres" id="5_jwuvd"]
-[ext_resource type="Resource" uid="uid://d3kyf2naa3duo" path="res://resources/mage_base_stats.tres" id="6_2d5uy"]
 [ext_resource type="PackedScene" uid="uid://dcqkqx8i5jvbh" path="res://scenes/ability_points_container.tscn" id="10_0gp0h"]
 [ext_resource type="PackedScene" uid="uid://b2iwifb80auqp" path="res://scenes/target_select.tscn" id="10_ceooa"]
 
@@ -84,7 +80,6 @@ _data = {
 [node name="BattleScene" type="Node"]
 script = ExtResource("1_0yksl")
 character_spacing = 60
-player_character_stats = Array[ExtResource("2_xwxfl")]([ExtResource("4_4cvxg"), ExtResource("5_jwuvd"), ExtResource("5_3oc74"), ExtResource("6_2d5uy")])
 enemy_stats = Array[ExtResource("2_xwxfl")]([SubResource("Resource_0gp0h"), SubResource("Resource_tttxe"), SubResource("Resource_bg0yk")])
 
 [node name="DualGrid" parent="." instance=ExtResource("1_6lmhm")]
@@ -304,6 +299,11 @@ theme_override_font_sizes/font_size = 3
 text = "100/100"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AbilitiesContainer" type="VBoxContainer" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
 
 [node name="AbilityPointsContainer" parent="UI/Deck/MarginContainer/HBoxContainer" instance=ExtResource("10_0gp0h")]
 unique_name_in_owner = true

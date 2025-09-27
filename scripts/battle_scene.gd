@@ -303,10 +303,10 @@ func _on_abilities_button_button_down() -> void:
 	# 			to distinguish abilities. Use the ability name instead
 	
 	# Only Magda's ability targets player characters
-	if player_characters[active_index].stats.name == "Magda":
+	if ability.ability_name == "Heal":
 		ability.initialize(player_characters)
 	# Josephine's ability requires additional initialization parameters
-	elif player_characters[active_index].stats.name == "Josephine":
+	elif ability.ability_name == "Swap":
 		var picked_enemy_index = randi_range(0, len(enemies) - 1)
 		player_characters[active_index].mark_inactive()
 		swap_characters(active_index, picked_enemy_index)

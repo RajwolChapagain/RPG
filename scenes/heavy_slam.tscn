@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b2poeax5dibf4" path="res://assets/sprites/ui/heavy_slam_placeholder.png" id="2_f64lb"]
 
 [node name="HeavySlam" instance=ExtResource("1_lk64i")]
+ability_name = "Heavy Slam"
 damage = 100
 cost = 4
 
