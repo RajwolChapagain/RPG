@@ -35,7 +35,7 @@ func activate_new_slot() -> void:
 	activated_slots += 1
 
 func equip_item_to_slot(item: Item, index: int) -> Item:
-	while index >= len(equipped_items):
+	while index > len(equipped_items):
 		equipped_items.append(Item.new())
 		
 	equipped_items.insert(index, item)
@@ -54,6 +54,7 @@ func on_item_slot_selected(index: int) -> void:
 	character_item_slot_selected.emit(self, index)
 
 func remove_item_at_index(index: int) -> void:
+	equipped_items.remove_at(index)
 	%SlotContainer.get_child(index).remove_item()
 
 func get_character_name() -> String:

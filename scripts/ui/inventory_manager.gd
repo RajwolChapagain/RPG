@@ -78,6 +78,7 @@ func remove_item(item: Item) -> void:
 			
 			return
 		i += 1
+
 func remove_button(button: ItemButton, index: int) -> void:
 	button.item = null
 	item_buttons.remove_at(index)
