@@ -13,7 +13,8 @@ func attack(target) -> void:
 	target.take_damage(stats.attack_damage)
 	
 func take_damage(damage: int) -> void:
-	stats.hp -= damage
+	var true_damage = clamp(damage - stats.defence, 0, damage)
+	stats.hp -= true_damage
 	
 	stats.hp = clamp(stats.hp, 0, INF)
 	

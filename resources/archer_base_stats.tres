@@ -14,5 +14,6 @@ name = "Einar"
 attack_damage = 5
 max_hp = 70
 hp = 70
+defence = 3
 battle_sprite = SubResource("AtlasTexture_lqhja")
 abilities = Array[PackedScene]([ExtResource("1_lqhja")])
