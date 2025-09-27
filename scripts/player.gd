@@ -91,6 +91,7 @@ func get_modified_stats() -> BaseStats:
 	modified_stats.accuracy = stats.accuracy + modification_amount.accuracy
 	modified_stats.dodge = stats.dodge + modification_amount.dodge
 	modified_stats.defence = stats.defence + modification_amount.defence
+	modified_stats.ap_per_attack = stats.ap_per_attack + modification_amount.ap_per_attack
 	modified_stats.abilities.append_array(stats.abilities)
 	modified_stats.abilities.append_array(modification_amount.abilities)
 	return modified_stats
@@ -100,6 +101,7 @@ func get_modification_amount() -> BaseStats:
 	modification_amount.attack_damage = 0
 	modification_amount.max_hp = 0
 	modification_amount.hp = 0
+	modification_amount.ap_per_attack = 0
 	
 	for item: Item in equipped_items:
 		for stat_modifier: StatModifier in item.stats:

@@ -29,7 +29,7 @@ func queue_player_for_purging(player_name: String) -> void:
 	
 func crystalize_stat(stats: BaseStats) -> Item:
 	var item = Item.new("%s's Essence" % stats.name, Item.ItemType.CONSUMABLE, [], stats.abilities)
-	var stat_names = ['attack_damage', 'max_hp', 'dodge', 'accuracy', 'crit', 'defence']
+	var stat_names = ['attack_damage', 'max_hp', 'dodge', 'accuracy', 'crit', 'defence', 'ap_per_attack']
 	
 	for stat_name in stat_names:
 		item.stats.append(StatModifier.new(stat_name, '+', false, stats.get(stat_name)))
