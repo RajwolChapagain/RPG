@@ -7,41 +7,26 @@
 [sub_resource type="Resource" id="Resource_tnc5c"]
 script = ExtResource("2_a4wni")
 name = "Common Item"
-type = 0
-stats = Array[ExtResource("3_81kyb")]([])
-abilities = Array[PackedScene]([])
 metadata/_custom_type_script = "uid://due732el6o1b8"
 
 [sub_resource type="Resource" id="Resource_x640a"]
 script = ExtResource("2_a4wni")
 name = "Uncommon Item"
-type = 0
-stats = Array[ExtResource("3_81kyb")]([])
-abilities = Array[PackedScene]([])
 metadata/_custom_type_script = "uid://due732el6o1b8"
 
 [sub_resource type="Resource" id="Resource_rpn2w"]
 script = ExtResource("2_a4wni")
 name = "Rare Item"
-type = 0
-stats = Array[ExtResource("3_81kyb")]([])
-abilities = Array[PackedScene]([])
 metadata/_custom_type_script = "uid://due732el6o1b8"
 
 [sub_resource type="Resource" id="Resource_351bv"]
 script = ExtResource("2_a4wni")
 name = "Legendary Item"
-type = 0
-stats = Array[ExtResource("3_81kyb")]([])
-abilities = Array[PackedScene]([])
 metadata/_custom_type_script = "uid://due732el6o1b8"
 
 [sub_resource type="Resource" id="Resource_rikeb"]
 script = ExtResource("2_a4wni")
 name = "Mythical Item"
-type = 0
-stats = Array[ExtResource("3_81kyb")]([])
-abilities = Array[PackedScene]([])
 metadata/_custom_type_script = "uid://due732el6o1b8"
 
 [node name="ItemDropManager" type="Node"]
@@ -101,6 +86,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ConfirmButton" type="Button" parent="CanvasLayer/ItemDropPanel/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 4

@@ -33,7 +33,7 @@ func display_items(items: Array[Item]) -> void:
 		item_label.text = items[i].name
 		%ItemsContainer.add_child(item_label)
 	%ItemDropPanel.visible = true
-	%ItemDropPanel.grab_focus()
+	%ConfirmButton.grab_focus()
 	
 func _on_confirm_button_pressed() -> void:
 	%ItemDropPanel.visible = false
