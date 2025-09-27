@@ -15,5 +15,6 @@ attack_damage = 10
 max_hp = 150
 hp = 150
 defence = 5
+dodge = 50
 battle_sprite = SubResource("AtlasTexture_sj368")
 abilities = Array[PackedScene]([ExtResource("1_lqqyn")])

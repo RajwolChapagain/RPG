@@ -13,11 +13,17 @@ func attack(target) -> void:
 	var true_damage = stats.attack_damage
 	if (randf() <= (stats.crit / 100.0)):
 		true_damage += crit_damage
+		print("CRITICAL HIT!!!")
 		
 	$AnimationPlayer.play("attack")
-	target.take_damage(true_damage)
+	target.take_damage(true_damage, stats.accuracy)
 	
-func take_damage(damage: int) -> void:
+func take_damage(damage: int, accuracy: int) -> void:
+	var true_dodge_chance = stats.dodge - accuracy
+	if randf() <= (true_dodge_chance / 100.0):
+		print('DODGED!!!')
+		return
+		
 	var true_damage = clamp(damage - stats.defence, 0, damage)
 	stats.hp -= true_damage
 	stats.hp = clamp(stats.hp, 0, INF)
