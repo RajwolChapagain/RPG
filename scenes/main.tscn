@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://di22kpskfdmkw"]
+[gd_scene load_steps=19 format=3 uid="uid://di22kpskfdmkw"]
 
 [ext_resource type="Script" uid="uid://cli8m4dkhd5tk" path="res://scripts/main.gd" id="1_2o4jk"]
 [ext_resource type="PackedScene" uid="uid://ccup1rh7u0hg3" path="res://scenes/character_selection_screen.tscn" id="2_o6xl0"]
@@ -12,6 +12,12 @@
 [ext_resource type="PackedScene" uid="uid://dybafy3qxap2q" path="res://scenes/lady.tscn" id="9_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://btp1ybbdujkbw" path="res://scenes/mage.tscn" id="10_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://cx2lym7krpsie" path="res://scenes/archer.tscn" id="11_eb6dy"]
+[ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="12_dp3eg"]
+[ext_resource type="Resource" uid="uid://c3bvbxqpkkgu3" path="res://resources/knight_base_stats.tres" id="13_0ld40"]
+[ext_resource type="Resource" uid="uid://biubxrgae4cha" path="res://resources/cleric_base_stats.tres" id="14_gqmmt"]
+[ext_resource type="Resource" uid="uid://bgg065a045ww" path="res://resources/lady_base_stats.tres" id="15_yc10j"]
+[ext_resource type="Resource" uid="uid://d3kyf2naa3duo" path="res://resources/mage_base_stats.tres" id="16_jscy8"]
+[ext_resource type="Resource" uid="uid://cym67rsdldl6j" path="res://resources/archer_base_stats.tres" id="17_pm3ni"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_2o4jk")
@@ -24,6 +30,13 @@ character_name_to_scene = Dictionary[String, PackedScene]({
 "Lachlan": ExtResource("10_ya4ey"),
 "Magda": ExtResource("8_choun"),
 "Rachelle": ExtResource("7_tipki")
+})
+character_name_to_base_stats = Dictionary[String, ExtResource("12_dp3eg")]({
+"Einar": ExtResource("17_pm3ni"),
+"Josephine": ExtResource("15_yc10j"),
+"Lachlan": ExtResource("16_jscy8"),
+"Magda": ExtResource("14_gqmmt"),
+"Rachelle": ExtResource("13_0ld40")
 })
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
