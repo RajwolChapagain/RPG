@@ -27,8 +27,9 @@ func is_initialized() -> bool:
 	return not targets.is_empty()
 	
 func _on_area_entered(area: Area2D) -> void:
+	var ability_accuracy = 100
 	if area.has_method("take_damage"):
-		area.take_damage(damage)
+		area.take_damage(damage, ability_accuracy)
 
 func get_ability_name() -> String:
 	return ability_name
