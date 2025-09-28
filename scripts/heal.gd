@@ -12,4 +12,5 @@ func trigger_ability() -> void:
 		get_tree().quit(-1)
 		
 	for target in targets:
-		target.stats.hp += heal
+		if target.stats.hp != 0:
+			target.stats.hp += heal
