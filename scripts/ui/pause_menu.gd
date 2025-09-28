@@ -36,4 +36,8 @@ func initialize_stats() -> void:
 	for player: Player in GameManager.get_alive_players():
 		%Stats.get_child(i).stats = player.stats
 		i += 1
+	
+	for remaining in range(i, %Stats.get_child_count()): # Hide stat cards of dead players
+		%Stats.get_child(remaining).visible = false
+		
 	%StatsPanel.visible = true

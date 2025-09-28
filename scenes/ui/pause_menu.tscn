@@ -87,8 +87,7 @@ anchor_bottom = 1.0
 offset_top = -140.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/separation = 1
-alignment = 1
+theme_override_constants/separation = 2
 
 [node name="StatCard1" parent="HBoxContainer/ContentPanel/StatsPanel/Stats" instance=ExtResource("4_8uki6")]
 layout_mode = 2

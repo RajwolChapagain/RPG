@@ -7,15 +7,11 @@
 [node name="StatCard" type="Control"]
 custom_minimum_size = Vector2(60, 140)
 layout_mode = 3
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 2
 anchor_top = 1.0
-anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -30.0
 offset_top = -140.0
-offset_right = 30.0
-grow_horizontal = 2
+offset_right = 60.0
 grow_vertical = 0
 script = ExtResource("1_8egb0")
 stats = ExtResource("2_6w24n")
