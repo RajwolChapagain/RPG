@@ -117,46 +117,64 @@ size_flags_horizontal = 3
 theme_override_constants/separation = 0
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/StatValues"]
+custom_minimum_size = Vector2(37, 5)
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 3
+clip_text = true
 
 [node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/StatValues"]
+custom_minimum_size = Vector2(37, 5)
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 3
+clip_text = true
 
 [node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/StatValues"]
+custom_minimum_size = Vector2(37, 5)
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 3
+clip_text = true
 
 [node name="Label4" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/StatValues"]
+custom_minimum_size = Vector2(37, 5)
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 3
+clip_text = true
 
 [node name="Label5" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/StatValues"]
+custom_minimum_size = Vector2(37, 5)
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 3
+clip_text = true
 
 [node name="Label6" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/StatValues"]
+custom_minimum_size = Vector2(37, 5)
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 3
+clip_text = true
 
 [node name="Label7" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/StatValues"]
+custom_minimum_size = Vector2(37, 5)
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 3
+clip_text = true
 
 [node name="Label8" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/StatValues"]
+custom_minimum_size = Vector2(37, 5)
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 3
+clip_text = true
 
 [node name="Label9" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/StatValues"]
+custom_minimum_size = Vector2(37, 5)
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 3
+clip_text = true
