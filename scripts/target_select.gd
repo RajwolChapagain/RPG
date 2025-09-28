@@ -4,6 +4,7 @@ extends Node
 @export var target_indicator: Texture2D
 @export var pointer_y_offset = 25
 @export var active: bool = false
+var current_callable: Callable
 
 var selected: int = 0:
 	get:
@@ -12,14 +13,13 @@ var selected: int = 0:
 		selected = value
 		mark_selected(value)
 
-signal target_selected(target_index)
-	
 func _input(event: InputEvent) -> void:
 	if not active:
 		return
 		
 	if event.is_action_pressed("select_target"):
-		target_selected.emit(selected)
+		current_callable.call(selected)
+		deactivate()
 	
 	if event.is_action_pressed("select_next"):
 		select_next()
@@ -44,9 +44,10 @@ func mark_selected(index) -> void:
 func set_targets(new_targets) -> void:
 	targets = new_targets
 
-func activate() -> void:
+func activate(post_selection_callable: Callable) -> void:
 	assert(len(targets) != 0)
 	active = true
+	current_callable = post_selection_callable
 	mark_selected(selected)
 	
 func deactivate() -> void:

@@ -3,6 +3,7 @@ extends Node
 @export var character_spacing = 30
 @export var player_character_stats : Array[BaseStats]= []
 @export var enemy_stats : Array[BaseStats]= []
+@export var ability_button: PackedScene
 var battler_player = preload("res://scenes/battler_player.tscn")
 var battler_enemy = preload("res://scenes/battler_enemy.tscn")
 var player_characters: Array[Node2D] = []
@@ -221,21 +222,40 @@ func _on_attack_button_button_down() -> void:
 	if not players_turn or $TargetSelect.is_active():
 		return
 
+	%AbilitiesButton.set_pressed(false)
+	
 	var alive_enemies = []
 	for enemy in enemies:
 		if enemy.stats.hp != 0:
 			alive_enemies.append(enemy)
 			
 	$TargetSelect.set_targets(alive_enemies) 
-	$TargetSelect.activate()
+	$TargetSelect.activate(attack_alive_enemy)
 	disable_attack_button()
 
-func _on_target_select_target_selected(target_index: int) -> void:
-	player_characters[active_index].attack(enemies[target_index])
+func attack_alive_enemy(enemy_index: int) -> void:
+	var alive_enemies = []
+	for enemy in enemies:
+		if enemy.stats.hp != 0:
+			alive_enemies.append(enemy)
+			
+	player_characters[active_index].attack(alive_enemies[enemy_index])
 	%AbilityPointsContainer.increase_points(player_characters[active_index].stats.ap_per_attack)
-	enable_attack_button()
 	await get_tree().process_frame
-	$TargetSelect.deactivate()
+	enable_attack_button()
+	num_attacked += 1
+
+func attack_alive_enemy_with_ability(enemy_index: int, ability: Node) -> void:
+	var alive_enemies = []
+	for enemy in enemies:
+		if enemy.stats.hp != 0:
+			alive_enemies.append(enemy)
+			
+	var target_enemies_array: Array[Node2D] = []
+	target_enemies_array.append(alive_enemies[enemy_index])
+	ability.initialize(target_enemies_array)
+	add_child(ability)
+	ability.trigger_ability()
 	num_attacked += 1
 	
 func enable_attack_button() -> void:
@@ -262,6 +282,7 @@ func disable_abilities_button() -> void:
 func on_ability_exited_tree() -> void:
 	advance_turn()
 	enable_abilities_button()
+	enable_attack_button()
 	
 ### Enemy Attacking ###
 
@@ -289,35 +310,66 @@ func end_battle(won: bool) -> void:
 	%ResultAnnouncementLabel.visible = true
 	%ResultAnnouncementLabel/AnimationPlayer.play("fade_in")
 
-func _on_abilities_button_button_down() -> void:
-	var ability = player_characters[active_index].stats.abilities.pick_random().instantiate()
+func _on_abilities_button_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		%PlayerInfos.visible = false
+		create_abilities_list()
+	else:
+		destroy_abilities_list()
+		%PlayerInfos.visible = true
+
+func create_abilities_list() -> void:
+	for ability_scene in player_characters[active_index].stats.abilities:
+		var ability = ability_scene.instantiate()
+		var button = ability_button.instantiate() as AbilityButton
+		button.set_ability(ability)
+		button.ability_selected.connect(on_ability_selected)
+		if ability.cost > %AbilityPointsContainer.points:
+			button.disabled = true
+			
+		%AbilitiesContainer.add_child(button)
+	
+	%AbilitiesContainer.visible = true
+	%AbilitiesContainer.get_child(0).grab_focus()
+	
+func destroy_abilities_list() -> void:
+	%AbilitiesContainer.visible = false
+	while %AbilitiesContainer.get_child_count() != 0:
+		%AbilitiesContainer.remove_child(%AbilitiesContainer.get_child(0))
+	
+func on_ability_selected(ability: Node) -> void:
 	if %AbilityPointsContainer.points < ability.cost:
 		print("Not enough APs")
 		return
 	else:
 		%AbilityPointsContainer.decrease_points(ability.cost)
-		
-	disable_abilities_button()
 	
-	# REFACTOR: Once skill inheritance is in place, we can no longer use character names 
-	# 			to distinguish abilities. Use the ability name instead
-	
-	# Only Magda's ability targets player characters
+	ability.tree_exited.connect(on_ability_exited_tree)
+	%AbilitiesButton.set_pressed(false)
+	%PlayerInfos.visible = true
+	disable_attack_button()
+	# Only Heal ability targets player characters
 	if ability.ability_name == "Heal":
 		ability.initialize(player_characters)
-	# Josephine's ability requires additional initialization parameters
+		ability.trigger_ability()
+		add_child(ability)
+		num_attacked += 1
+	# Swap requires additional initialization parameters
 	elif ability.ability_name == "Swap":
 		var picked_enemy_index = randi_range(0, len(enemies) - 1)
 		player_characters[active_index].mark_inactive()
+		add_child(ability)
 		swap_characters(active_index, picked_enemy_index)
+		num_attacked += 1
 	else:
-		ability.initialize(enemies)
-		
-	ability.tree_exited.connect(on_ability_exited_tree)
-	add_child(ability)
-	ability.trigger_ability()
-	num_attacked += 1
-
+		var alive_enemies = []
+		for enemy in enemies:
+			if enemy.stats.hp != 0:
+				alive_enemies.append(enemy)
+				
+		$TargetSelect.set_targets(alive_enemies) 
+		$TargetSelect.activate(attack_alive_enemy_with_ability.bind(ability))
+	
 func swap_characters(player_index: int, enemy_index: int) -> void:
 	var player = player_characters[player_index]
 	var enemy = enemies[enemy_index]

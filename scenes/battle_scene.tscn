@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=4 uid="uid://cdvr88h8f2nsx"]
+[gd_scene load_steps=17 format=4 uid="uid://cdvr88h8f2nsx"]
 
 [ext_resource type="Script" uid="uid://cj36ljr7yngtl" path="res://scripts/battle_scene.gd" id="1_0yksl"]
 [ext_resource type="PackedScene" uid="uid://bitedxhspi8i5" path="res://scenes/dual_grid.tscn" id="1_6lmhm"]
 [ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="2_xwxfl"]
 [ext_resource type="Theme" uid="uid://5dapp0d0f0x5" path="res://resources/ui.tres" id="3_gj8wv"]
+[ext_resource type="PackedScene" uid="uid://cjs2b082b2lbm" path="res://scenes/ui/ability_button.tscn" id="3_svpld"]
 [ext_resource type="PackedScene" uid="uid://dcqkqx8i5jvbh" path="res://scenes/ability_points_container.tscn" id="10_0gp0h"]
 [ext_resource type="PackedScene" uid="uid://b2iwifb80auqp" path="res://scenes/target_select.tscn" id="10_ceooa"]
 
@@ -81,6 +82,7 @@ _data = {
 script = ExtResource("1_0yksl")
 character_spacing = 60
 enemy_stats = Array[ExtResource("2_xwxfl")]([SubResource("Resource_0gp0h"), SubResource("Resource_tttxe"), SubResource("Resource_bg0yk")])
+ability_button = ExtResource("3_svpld")
 
 [node name="DualGrid" parent="." instance=ExtResource("1_6lmhm")]
 
@@ -145,6 +147,7 @@ unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("3_gj8wv")
 theme_override_font_sizes/font_size = 4
+toggle_mode = true
 text = "ABILITIES"
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/Deck/MarginContainer/HBoxContainer"]
@@ -152,16 +155,17 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer"]
+[node name="PlayerInfos" type="VBoxContainer" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="P1Info" type="HBoxContainer" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="P1Info" type="HBoxContainer" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="NameLabelP1" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/P1Info"]
+[node name="NameLabelP1" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P1Info"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(23, 0)
 layout_mode = 2
@@ -170,14 +174,14 @@ theme = ExtResource("3_gj8wv")
 theme_override_font_sizes/font_size = 4
 text = "Magda"
 
-[node name="HealthBarP1" type="ProgressBar" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/P1Info"]
+[node name="HealthBarP1" type="ProgressBar" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P1Info"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 value = 75.0
 show_percentage = false
 
-[node name="HPLabel1" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/P1Info/HealthBarP1"]
+[node name="HPLabel1" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P1Info/HealthBarP1"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -192,12 +196,12 @@ text = "100/100"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="P2Info" type="HBoxContainer" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="P2Info" type="HBoxContainer" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="NameLabelP2" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/P2Info"]
+[node name="NameLabelP2" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P2Info"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(23, 0)
 layout_mode = 2
@@ -206,14 +210,14 @@ theme = ExtResource("3_gj8wv")
 theme_override_font_sizes/font_size = 4
 text = "Lachlan"
 
-[node name="HealthBarP2" type="ProgressBar" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/P2Info"]
+[node name="HealthBarP2" type="ProgressBar" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P2Info"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 value = 75.0
 show_percentage = false
 
-[node name="HPLabel2" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/P2Info/HealthBarP2"]
+[node name="HPLabel2" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P2Info/HealthBarP2"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -228,12 +232,12 @@ text = "100/100"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="P3Info" type="HBoxContainer" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="P3Info" type="HBoxContainer" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="NameLabelP3" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/P3Info"]
+[node name="NameLabelP3" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P3Info"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(23, 0)
 layout_mode = 2
@@ -242,14 +246,14 @@ theme = ExtResource("3_gj8wv")
 theme_override_font_sizes/font_size = 4
 text = "Rachelle"
 
-[node name="HealthBarP3" type="ProgressBar" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/P3Info"]
+[node name="HealthBarP3" type="ProgressBar" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P3Info"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 value = 75.0
 show_percentage = false
 
-[node name="HPLabel3" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/P3Info/HealthBarP3"]
+[node name="HPLabel3" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P3Info/HealthBarP3"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -264,12 +268,12 @@ text = "100/100"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="P4Info" type="HBoxContainer" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="P4Info" type="HBoxContainer" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="NameLabelP4" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/P4Info"]
+[node name="NameLabelP4" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P4Info"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(23, 0)
 layout_mode = 2
@@ -278,14 +282,14 @@ theme = ExtResource("3_gj8wv")
 theme_override_font_sizes/font_size = 4
 text = "Placeholder"
 
-[node name="HealthBarP4" type="ProgressBar" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/P4Info"]
+[node name="HealthBarP4" type="ProgressBar" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P4Info"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 value = 75.0
 show_percentage = false
 
-[node name="HPLabel4" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/P4Info/HealthBarP4"]
+[node name="HPLabel4" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P4Info/HealthBarP4"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -332,9 +336,8 @@ libraries = {
 &"": SubResource("AnimationLibrary_g72on")
 }
 
-[connection signal="target_selected" from="TargetSelect" to="." method="_on_target_select_target_selected"]
 [connection signal="button_down" from="UI/Deck/MarginContainer/HBoxContainer/ButtonsContainer/AttackButton" to="." method="_on_attack_button_button_down"]
-[connection signal="button_down" from="UI/Deck/MarginContainer/HBoxContainer/ButtonsContainer/AbilitiesButton" to="." method="_on_abilities_button_button_down"]
+[connection signal="toggled" from="UI/Deck/MarginContainer/HBoxContainer/ButtonsContainer/AbilitiesButton" to="." method="_on_abilities_button_toggled"]
 [connection signal="animation_finished" from="UI/ResultAnnouncementLabel/AnimationPlayer" to="." method="_on_result_label_animation_finished"]
 
 [editable path="DualGrid"]

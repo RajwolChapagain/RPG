@@ -63,8 +63,8 @@ func process_movement_queue() -> void:
 		$GridMover.move_target_down()
 		$Sprite2D.play("run_down")
 	else:
-		print("Weird direction encountered. Cannot move:")
-		print("Current grid pos: ", $GridPositionTracker.get_grid_coord(), " | Next grid pos: ", next_grid_pos)
+		# Direction is not in the next tile
+		pass
 
 func check_and_emit_last_pos() -> void:
 	if last_grid_pos != $GridPositionTracker.get_grid_coord():
