@@ -1,8 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://ccup1rh7u0hg3"]
+[gd_scene load_steps=10 format=3 uid="uid://ccup1rh7u0hg3"]
 
 [ext_resource type="PackedScene" uid="uid://23b01ifqxu4" path="res://scenes/ui/stat_card.tscn" id="1_0oen6"]
 [ext_resource type="Script" uid="uid://dg3cvamqwic2x" path="res://scripts/character_selection_screen.gd" id="1_jmy7a"]
-[ext_resource type="Resource" uid="uid://c3bvbxqpkkgu3" path="res://resources/knight_base_stats.tres" id="2_sf8ac"]
 [ext_resource type="Resource" uid="uid://biubxrgae4cha" path="res://resources/cleric_base_stats.tres" id="3_sf8ac"]
 [ext_resource type="Resource" uid="uid://bgg065a045ww" path="res://resources/lady_base_stats.tres" id="4_wk3ir"]
 [ext_resource type="Resource" uid="uid://d3kyf2naa3duo" path="res://resources/mage_base_stats.tres" id="5_jxuks"]
@@ -67,7 +66,6 @@ toggle_mode = true
 
 [node name="StatCard" parent="VBoxContainer/Buttons/Button1" instance=ExtResource("1_0oen6")]
 layout_mode = 1
-stats = ExtResource("2_sf8ac")
 
 [node name="Button2" type="Button" parent="VBoxContainer/Buttons"]
 layout_mode = 2

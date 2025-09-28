@@ -1,10 +1,17 @@
 extends Control
 class_name StatCard
 
-@export var stats: BaseStats
+@export var stats: BaseStats:
+	get:
+		return stats
+	set(value):
+		if value != null:
+			stats = value
+			call_deferred('initialize_ui')
+			
 @export var portraits: PortraitDatabase
 
-func _ready() -> void:
+func initialize_ui() -> void:
 	%Portrait.texture = portraits.get_portrait(stats.name)
 	update_stats_ui()
 	
