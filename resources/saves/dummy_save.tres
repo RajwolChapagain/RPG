@@ -1,0 +1,51 @@
+[gd_resource type="Resource" script_class="SaveInfo" load_steps=13 format=3 uid="uid://c35mx56pngcvh"]
+
+[ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="1_5spaw"]
+[ext_resource type="Resource" uid="uid://bgg065a045ww" path="res://resources/lady_base_stats.tres" id="2_cx66q"]
+[ext_resource type="Script" uid="uid://due732el6o1b8" path="res://scripts/resource_scripts/item.gd" id="2_x7pbc"]
+[ext_resource type="Resource" uid="uid://biubxrgae4cha" path="res://resources/cleric_base_stats.tres" id="3_8qsd0"]
+[ext_resource type="Script" uid="uid://do0o0ostwljec" path="res://scripts/resource_scripts/save_info.gd" id="3_cx66q"]
+[ext_resource type="Script" uid="uid://cospd4gauu2qa" path="res://scripts/resource_scripts/stat_modifier.gd" id="3_x7pbc"]
+[ext_resource type="PackedScene" uid="uid://t07uggyhdyaf" path="res://scenes/woahhhh.tscn" id="4_meo02"]
+
+[sub_resource type="Resource" id="Resource_6uxxu"]
+script = ExtResource("3_x7pbc")
+stat_name = "max_hp"
+modification = "+"
+amount = 37.0
+metadata/_custom_type_script = "uid://cospd4gauu2qa"
+
+[sub_resource type="Resource" id="Resource_6yak6"]
+script = ExtResource("2_x7pbc")
+name = "Potion of HP"
+stats = Array[ExtResource("3_x7pbc")]([SubResource("Resource_6uxxu")])
+abilities = Array[PackedScene]([ExtResource("4_meo02")])
+metadata/_custom_type_script = "uid://due732el6o1b8"
+
+[sub_resource type="Resource" id="Resource_cx66q"]
+script = ExtResource("2_x7pbc")
+metadata/_custom_type_script = "uid://due732el6o1b8"
+
+[sub_resource type="Resource" id="Resource_8qsd0"]
+script = ExtResource("2_x7pbc")
+name = "My Item"
+type = 1
+metadata/_custom_type_script = "uid://due732el6o1b8"
+
+[sub_resource type="Resource" id="Resource_x7pbc"]
+script = ExtResource("2_x7pbc")
+metadata/_custom_type_script = "uid://due732el6o1b8"
+
+[resource]
+script = ExtResource("3_cx66q")
+level_number = 2
+party_member_names = Array[String](["Josephine", "Magda"])
+character_stats = Dictionary[String, ExtResource("1_5spaw")]({
+"Josephine": ExtResource("2_cx66q"),
+"Magda": ExtResource("3_8qsd0")
+})
+equipped_items = Dictionary[String, Array]({
+"Magda": [SubResource("Resource_6yak6")]
+})
+inventory_items = Array[ExtResource("2_x7pbc")]([SubResource("Resource_cx66q"), SubResource("Resource_8qsd0"), SubResource("Resource_x7pbc")])
+metadata/_custom_type_script = "uid://do0o0ostwljec"

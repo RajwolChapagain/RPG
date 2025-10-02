@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Regenerengine"
-run/main_scene="res://scenes/main.tscn"
+run/main_scene="uid://d3xpo03pr8ajw"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="uid://b05m1dyypsf7b"
 
@@ -21,6 +21,7 @@ DialogueManager="*res://scenes/dialogue_manager.tscn"
 GameManager="*res://scripts/game_manager.gd"
 ItemDropManager="*res://scenes/item_drop_manager.tscn"
 BattleManager="*res://scenes/battle_manager.tscn"
+SaveManager="*res://scripts/save_manager.gd"
 
 [display]
 

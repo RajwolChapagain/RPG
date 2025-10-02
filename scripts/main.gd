@@ -40,13 +40,8 @@ func load_character_selection_screen() -> void:
 	add_child(character_selection)
 	character_selection.characters_selected.connect(on_characters_selected)
 	
-func on_characters_selected(names: Array[String]):
-	party = party_scene.instantiate()
-	var character_scenes: Array[PackedScene] = []
-	for char_name in names:
-		character_scenes.append(character_name_to_scene[char_name])
-	party.initialize_character_scenes(character_scenes)
-	add_child(party)
+func on_characters_selected(names: Array[String]) -> void:
+	initialize_party(names)
 	%PauseMenu.initialize_inventory()
 	load_next_level()
 	drop_unselected_player_essence(names)
@@ -55,3 +50,28 @@ func drop_unselected_player_essence(selected_players: Array[String]) -> void:
 	var all_players = ['Rachelle', 'Magda', 'Josephine', 'Lachlan', 'Einar']
 	var missing_player = all_players.filter(func(player_name): return player_name not in selected_players)[0]
 	ItemDropManager.drop_items([GameManager.crystalize_stat(character_name_to_base_stats[missing_player])])
+
+func initialize_party(names: Array[String]) -> void:
+	party = party_scene.instantiate()
+	var character_scenes: Array[PackedScene] = []
+	for char_name in names:
+		character_scenes.append(character_name_to_scene[char_name])
+	party.initialize_character_scenes(character_scenes)
+	add_child(party)
+
+func initialize_inventory(inventory_items: Array[Item]) -> void:
+	GameManager.add_items_to_inventory(inventory_items)
+
+func initialize_character_stats(character_stats: Dictionary[String, BaseStats]) -> void:
+	for player: Player in party.get_players():
+		player.stats = character_stats[player.stats.name]
+
+func initialize_equipped_items(equipped_items: Dictionary[String, Array]) -> void:
+	for player: Player in party.get_players():
+		if player.stats.name not in equipped_items:
+			continue
+		var item_array: Array[Item] = []
+		for item: Item in equipped_items[player.stats.name]:
+			item_array.append(item)
+		player.equipped_items = item_array
+	%PauseMenu.initialize_inventory()

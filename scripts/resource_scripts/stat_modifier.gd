@@ -3,10 +3,10 @@ class_name StatModifier
 
 @export_enum('attack_damage', 'max_hp', 'hp', 'dodge', 'accuracy', 'crit', 'defence') var stat_name: String
 @export_enum('+', '-', '*', '/') var modification: String
-@export var percentage: bool
+@export var percentage: bool = false
 @export var amount: float
 
-func _init(stat_name = 'attack_damage', modification = '+', percentage = true, amount = 10.0) -> void:
+func _init(stat_name = 'attack_damage', modification = '+', percentage = false, amount = 10.0) -> void:
 	self.stat_name = stat_name
 	self.modification = modification
 	self.percentage = percentage

@@ -34,7 +34,7 @@ func _on_visibility_changed() -> void:
 func initialize_stats() -> void:
 	var i = 0
 	for player: Player in GameManager.get_alive_players():
-		%Stats.get_child(i).stats = player.stats
+		%Stats.get_child(i).stats = player.get_modified_stats()
 		i += 1
 	
 	for remaining in range(i, %Stats.get_child_count()): # Hide stat cards of dead players
