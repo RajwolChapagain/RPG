@@ -65,8 +65,6 @@ func initialize_inventory(inventory_items: Array[Item]) -> void:
 
 func initialize_character_stats(character_stats: Dictionary[String, BaseStats]) -> void:
 	for player: Player in party.get_players():
-		if player.stats.name == 'Rachelle':
-			print(character_stats[player.stats.name].max_hp)
 		player.stats = character_stats[player.stats.name]
 
 func initialize_equipped_items(equipped_items: Dictionary[String, Array]) -> void:
@@ -88,3 +86,4 @@ func save_data() -> void:
 		save.equipped_items[player.stats.name] = player.equipped_items
 	save.inventory_items = %PauseMenu.get_inventory_items()
 	SaveManager.save_to_current_slot(save)
+	print("Checkpoint reached! Progress saved to slot ", SaveManager.current_save_slot)
