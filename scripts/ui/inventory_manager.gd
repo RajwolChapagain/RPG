@@ -25,6 +25,12 @@ func add_item_button(item: Item, count: int) -> void:
 	item_buttons.append(item_button)
 	item_button.item_selected.connect(on_inventory_item_selected)
 	
+func get_items() -> Array[Item]:
+	var out: Array[Item] = []
+	for button: ItemButton in item_buttons:
+		out.append(button.item)
+	return out
+	
 func on_inventory_item_selected(item: Item) -> void:
 	print("Selected item %s" % item)
 	selected_item = item

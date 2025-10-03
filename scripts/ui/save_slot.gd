@@ -4,6 +4,9 @@ extends Control
 const SLOT_ID_LABEL_TEMPLATE: String = 'Slot %s'
 @export var save_slot_id: int = 1
 
+signal new_game_button_pressed(save_slot_id)
+signal load_game_button_pressed(save_slot_id)
+
 func _ready() -> void:
 	initialize_slot_id_label()
 	initialize_buttons()
@@ -20,7 +23,19 @@ func initialize_slot_id_label() -> void:
 
 func initialize_buttons() -> void:
 	if SaveManager.slot_contains_data(save_slot_id):
+		%UnsavedItems.visible = false
 		%SavedItems.visible = true
 		# show_saved_info()
 	else:
+		%SavedItems.visible = false
 		%UnsavedItems.visible = true
+
+func _on_new_button_pressed() -> void:
+	new_game_button_pressed.emit(save_slot_id)
+	
+func _on_load_button_pressed() -> void:
+	load_game_button_pressed.emit(save_slot_id)
+	
+func _on_delete_button_pressed() -> void:
+	SaveManager.delete_save(save_slot_id)
+	initialize_buttons()

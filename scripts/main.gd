@@ -34,6 +34,7 @@ func load_next_level() -> void:
 
 func on_level_completed(level_count: int) -> void:
 	load_next_level()
+	save_data()
 
 func load_character_selection_screen() -> void:
 	var character_selection = character_selection_screen.instantiate()
@@ -64,6 +65,8 @@ func initialize_inventory(inventory_items: Array[Item]) -> void:
 
 func initialize_character_stats(character_stats: Dictionary[String, BaseStats]) -> void:
 	for player: Player in party.get_players():
+		if player.stats.name == 'Rachelle':
+			print(character_stats[player.stats.name].max_hp)
 		player.stats = character_stats[player.stats.name]
 
 func initialize_equipped_items(equipped_items: Dictionary[String, Array]) -> void:
@@ -75,3 +78,13 @@ func initialize_equipped_items(equipped_items: Dictionary[String, Array]) -> voi
 			item_array.append(item)
 		player.equipped_items = item_array
 	%PauseMenu.initialize_inventory()
+
+func save_data() -> void:
+	var save: SaveInfo = SaveInfo.new()
+	save.level_number = current_level_number
+	for player: Player in party.get_players():
+		save.party_member_names.append(player.stats.name)
+		save.character_stats[player.stats.name] = player.stats.duplicate(true)
+		save.equipped_items[player.stats.name] = player.equipped_items
+	save.inventory_items = %PauseMenu.get_inventory_items()
+	SaveManager.save_to_current_slot(save)

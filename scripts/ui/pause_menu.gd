@@ -41,3 +41,6 @@ func initialize_stats() -> void:
 		%Stats.get_child(remaining).visible = false
 		
 	%StatsPanel.visible = true
+
+func get_inventory_items() -> Array[Item]:
+	return %InventoryManager.get_items()
