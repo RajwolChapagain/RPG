@@ -273,6 +273,7 @@ func enable_abilities_button() -> void:
 		
 	%AbilitiesButton.disabled = false
 	%AbilitiesButton.set_focus_mode(Control.FOCUS_ALL)
+	%AttackButton.set_focus_mode(Control.FOCUS_ALL)
 	%AttackButton.grab_focus()
 
 func disable_abilities_button() -> void:
