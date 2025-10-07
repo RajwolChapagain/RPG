@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://5dapp0d0f0x5"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://5dapp0d0f0x5"]
 
 [ext_resource type="FontFile" uid="uid://njwfxdw22njt" path="res://assets/fonts/jersey/Jersey10-Regular.ttf" id="1_puq7a"]
 [ext_resource type="FontFile" uid="uid://csleht6u3wrbw" path="res://assets/fonts/minecraft/Minecraft.ttf" id="2_puq7a"]
@@ -27,6 +27,18 @@ corner_radius_top_right = 1
 corner_radius_bottom_right = 1
 corner_radius_bottom_left = 1
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_puq7a"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_puq7a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nr324"]
+bg_color = Color(0.96, 0.68447995, 0.1728, 1)
+
 [resource]
 Button/font_sizes/font_size = 14
 Button/fonts/font = ExtResource("1_puq7a")
@@ -35,5 +47,11 @@ Label/font_sizes/font_size = 12
 Label/fonts/font = ExtResource("2_puq7a")
 ProgressBar/styles/background = SubResource("StyleBoxFlat_wpx7l")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_3tp7c")
+SideButton/base_type = &"Button"
+SideButton/colors/font_color = Color(0, 0, 0, 1)
+SideButton/styles/focus = SubResource("StyleBoxFlat_puq7a")
+SideButton/styles/normal = SubResource("StyleBoxEmpty_puq7a")
+SidePanel/base_type = &"Panel"
+SidePanel/styles/panel = SubResource("StyleBoxFlat_nr324")
 SmallButton/base_type = &"Button"
 SmallButton/font_sizes/font_size = 10
