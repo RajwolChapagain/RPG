@@ -39,3 +39,4 @@ func _on_load_button_pressed() -> void:
 func _on_delete_button_pressed() -> void:
 	SaveManager.delete_save(save_slot_id)
 	initialize_buttons()
+	%NewButton.grab_focus()
