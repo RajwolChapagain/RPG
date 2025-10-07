@@ -1,11 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://cjs2b082b2lbm"]
+[gd_scene load_steps=3 format=3 uid="uid://cjs2b082b2lbm"]
 
+[ext_resource type="Theme" uid="uid://5dapp0d0f0x5" path="res://resources/ui.tres" id="1_771wn"]
 [ext_resource type="Script" uid="uid://dy7wyyram4smn" path="res://scripts/ui/ability_button.gd" id="1_r138x"]
 
 [node name="AbilityButton" type="Button"]
 offset_right = 8.0
 offset_bottom = 8.0
-theme_override_font_sizes/font_size = 4
+theme = ExtResource("1_771wn")
+theme_type_variation = &"SmallButton"
 script = ExtResource("1_r138x")
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -104,6 +104,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_gj8wv")
 
 [node name="Deck" type="Panel" parent="UI"]
 layout_mode = 1
@@ -139,14 +140,14 @@ theme_override_constants/separation = 2
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("3_gj8wv")
-theme_override_font_sizes/font_size = 4
+theme_type_variation = &"SmallButton"
 text = "ATTACK"
 
 [node name="AbilitiesButton" type="Button" parent="UI/Deck/MarginContainer/HBoxContainer/ButtonsContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("3_gj8wv")
-theme_override_font_sizes/font_size = 4
+theme_type_variation = &"SmallButton"
 toggle_mode = true
 text = "ABILITIES"
 

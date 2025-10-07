@@ -1,0 +1,41 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://rb0anhy38lro"
+path="res://.godot/imported/Jersey25-Regular.ttf-647c74b97255c6e1c01c0778af358fd6.fontdata"
+
+[deps]
+
+source_file="res://assets/fonts/jersey/Jersey25-Regular.ttf"
+dest_files=["res://.godot/imported/Jersey25-Regular.ttf-647c74b97255c6e1c01c0778af358fd6.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=true
+disable_embedded_bitmaps=true
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+modulate_color_glyphs=false
+hinting=2
+subpixel_positioning=3
+keep_rounding_remainders=true
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[{
+"chars": [],
+"glyphs": [],
+"name": "New Configuration",
+"size": Vector2i(16, 0)
+}]
+language_support={}
+script_support={}
+opentype_features={}

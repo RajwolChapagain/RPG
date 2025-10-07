@@ -1,4 +1,6 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://5dapp0d0f0x5"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://5dapp0d0f0x5"]
+
+[ext_resource type="FontFile" uid="uid://rb0anhy38lro" path="res://assets/fonts/jersey/Jersey25-Regular.ttf" id="1_pxeie"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r702l"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -25,7 +27,11 @@ corner_radius_bottom_right = 1
 corner_radius_bottom_left = 1
 
 [resource]
+Button/font_sizes/font_size = 14
+Button/fonts/font = ExtResource("1_pxeie")
 Button/styles/focus = SubResource("StyleBoxFlat_r702l")
 Label/font_sizes/font_size = 10
 ProgressBar/styles/background = SubResource("StyleBoxFlat_wpx7l")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_3tp7c")
+SmallButton/base_type = &"Button"
+SmallButton/font_sizes/font_size = 10
