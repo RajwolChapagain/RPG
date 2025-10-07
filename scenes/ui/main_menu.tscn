@@ -38,11 +38,12 @@ theme_override_constants/separation = 0
 alignment = 1
 
 [node name="PlayButton" type="Button" parent="MarginContainer/HBoxContainer/ButtonsPanel/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"SideButton"
 text = "PLAY"
 
-[node name="OptionsButton" type="Button" parent="MarginContainer/HBoxContainer/ButtonsPanel/VBoxContainer"]
+[node name="SettingsButton" type="Button" parent="MarginContainer/HBoxContainer/ButtonsPanel/VBoxContainer"]
 layout_mode = 2
 theme_type_variation = &"SideButton"
 text = "SETTINGS"
@@ -53,12 +54,14 @@ theme_type_variation = &"SideButton"
 text = "QUIT"
 
 [node name="ContentPanel" type="Panel" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 4.0
 
-[node name="SlotsContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/ContentPanel"]
+[node name="PlayPanel" type="HBoxContainer" parent="MarginContainer/HBoxContainer/ContentPanel"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -67,15 +70,36 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="SaveSlot" parent="MarginContainer/HBoxContainer/ContentPanel/SlotsContainer" instance=ExtResource("1_sl1te")]
+[node name="SaveSlot" parent="MarginContainer/HBoxContainer/ContentPanel/PlayPanel" instance=ExtResource("1_sl1te")]
 layout_mode = 2
 
-[node name="SaveSlot2" parent="MarginContainer/HBoxContainer/ContentPanel/SlotsContainer" instance=ExtResource("1_sl1te")]
+[node name="SaveSlot2" parent="MarginContainer/HBoxContainer/ContentPanel/PlayPanel" instance=ExtResource("1_sl1te")]
 layout_mode = 2
 save_slot_id = 2
 
-[node name="SaveSlot3" parent="MarginContainer/HBoxContainer/ContentPanel/SlotsContainer" instance=ExtResource("1_sl1te")]
+[node name="SaveSlot3" parent="MarginContainer/HBoxContainer/ContentPanel/PlayPanel" instance=ExtResource("1_sl1te")]
 layout_mode = 2
 save_slot_id = 3
 
+[node name="SettingsPanel" type="Panel" parent="MarginContainer/HBoxContainer/ContentPanel"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DummyLabel" type="Label" parent="MarginContainer/HBoxContainer/ContentPanel/SettingsPanel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 12.0
+offset_bottom = 24.0
+grow_horizontal = 2
+text = "Settings"
+horizontal_alignment = 1
+
 [connection signal="pressed" from="MarginContainer/HBoxContainer/ButtonsPanel/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/ButtonsPanel/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
