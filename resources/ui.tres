@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://5dapp0d0f0x5"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://5dapp0d0f0x5"]
 
 [ext_resource type="FontFile" uid="uid://csleht6u3wrbw" path="res://assets/fonts/minecraft/Minecraft.ttf" id="2_puq7a"]
 
@@ -37,6 +37,11 @@ expand_margin_bottom = 2.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_puq7a"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pxeie"]
+bg_color = Color(0, 0, 0, 1)
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nr324"]
 bg_color = Color(0.13725491, 0.10980392, 0.13725491, 1)
 
@@ -53,6 +58,7 @@ SideButton/colors/font_color = Color(0.4, 0.4, 0.4, 1)
 SideButton/colors/font_focus_color = Color(1, 1, 1, 1)
 SideButton/styles/focus = SubResource("StyleBoxFlat_puq7a")
 SideButton/styles/normal = SubResource("StyleBoxEmpty_puq7a")
+SideButton/styles/pressed = SubResource("StyleBoxFlat_pxeie")
 SidePanel/base_type = &"Panel"
 SidePanel/styles/panel = SubResource("StyleBoxFlat_nr324")
 SmallButton/base_type = &"Button"
