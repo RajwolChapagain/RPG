@@ -6,17 +6,14 @@ var state: states = states.TITLE:
 		return state
 	set(value):
 		if value == states.TITLE:
-			for panel in %ContentPanel.get_children():
-				panel.visible = false
+			hide_all_content_panels()
 		elif value == states.PLAY:
 			%ContentPanel.visible = true
-			for panel in %ContentPanel.get_children():
-				panel.visible = false
+			hide_all_content_panels()
 			%PlayPanel.visible = true
 		elif value == states.SETTINGS:
 			%ContentPanel.visible = true
-			for panel in %ContentPanel.get_children():
-				panel.visible = false
+			hide_all_content_panels()
 			%SettingsPanel.visible = true
 		state = value
 		
@@ -48,15 +45,28 @@ func load_saved_game(saved_slot_id: int) -> void:
 	main.initialize_equipped_items(save.equipped_items)
 	SaveManager.current_save_slot = saved_slot_id
 	queue_free()
-	
-func _on_play_button_pressed() -> void:
-	if state == states.PLAY:
-		state = states.TITLE
-	else:
-		state = states.PLAY
 
-func _on_settings_button_pressed() -> void:
-	if state == states.SETTINGS:
-		state = states.TITLE
+func _on_play_button_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		untoggle_all_other_buttons(%PlayButton)
+		state = states.PLAY
 	else:
+		state = states.TITLE
+
+func _on_settings_button_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		untoggle_all_other_buttons(%SettingsButton)
 		state = states.SETTINGS
+	else:
+		state = states.TITLE
+
+func hide_all_content_panels() -> void:
+	for panel in %ContentPanel.get_children():
+		panel.visible = false
+
+func untoggle_all_other_buttons(calling_button: Button) -> void:
+	for button: Button in %ButtonsContainer.get_children():
+		if button == calling_button:
+			continue
+			
+		button.button_pressed = false

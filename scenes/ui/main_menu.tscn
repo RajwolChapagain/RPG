@@ -26,7 +26,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"SidePanel"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/ButtonsPanel"]
+[node name="ButtonsContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/ButtonsPanel"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -37,18 +38,21 @@ grow_vertical = 2
 theme_override_constants/separation = 4
 alignment = 1
 
-[node name="PlayButton" type="Button" parent="MarginContainer/HBoxContainer/ButtonsPanel/VBoxContainer"]
+[node name="PlayButton" type="Button" parent="MarginContainer/HBoxContainer/ButtonsPanel/ButtonsContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"SideButton"
+toggle_mode = true
 text = "PLAY"
 
-[node name="SettingsButton" type="Button" parent="MarginContainer/HBoxContainer/ButtonsPanel/VBoxContainer"]
+[node name="SettingsButton" type="Button" parent="MarginContainer/HBoxContainer/ButtonsPanel/ButtonsContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"SideButton"
+toggle_mode = true
 text = "SETTINGS"
 
-[node name="QuitButton" type="Button" parent="MarginContainer/HBoxContainer/ButtonsPanel/VBoxContainer"]
+[node name="QuitButton" type="Button" parent="MarginContainer/HBoxContainer/ButtonsPanel/ButtonsContainer"]
 layout_mode = 2
 theme_type_variation = &"SideButton"
 text = "QUIT"
@@ -101,5 +105,5 @@ grow_horizontal = 2
 text = "Settings"
 horizontal_alignment = 1
 
-[connection signal="pressed" from="MarginContainer/HBoxContainer/ButtonsPanel/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/ButtonsPanel/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="toggled" from="MarginContainer/HBoxContainer/ButtonsPanel/ButtonsContainer/PlayButton" to="." method="_on_play_button_toggled"]
+[connection signal="toggled" from="MarginContainer/HBoxContainer/ButtonsPanel/ButtonsContainer/SettingsButton" to="." method="_on_settings_button_toggled"]
