@@ -14,6 +14,9 @@ corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 anti_aliasing = false
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rb7da"]
+bg_color = Color(0.13725491, 0.10980392, 0.13725491, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wpx7l"]
 corner_radius_top_left = 1
 corner_radius_top_right = 1
@@ -42,15 +45,13 @@ bg_color = Color(0, 0, 0, 1)
 expand_margin_top = 2.0
 expand_margin_bottom = 2.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nr324"]
-bg_color = Color(0.13725491, 0.10980392, 0.13725491, 1)
-
 [resource]
 Button/font_sizes/font_size = 10
 Button/fonts/font = ExtResource("2_puq7a")
 Button/styles/focus = SubResource("StyleBoxFlat_r702l")
 Label/font_sizes/font_size = 12
 Label/fonts/font = ExtResource("2_puq7a")
+Panel/styles/panel = SubResource("StyleBoxFlat_rb7da")
 ProgressBar/styles/background = SubResource("StyleBoxFlat_wpx7l")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_3tp7c")
 SideButton/base_type = &"Button"
@@ -59,7 +60,5 @@ SideButton/colors/font_focus_color = Color(1, 1, 1, 1)
 SideButton/styles/focus = SubResource("StyleBoxFlat_puq7a")
 SideButton/styles/normal = SubResource("StyleBoxEmpty_puq7a")
 SideButton/styles/pressed = SubResource("StyleBoxFlat_pxeie")
-SidePanel/base_type = &"Panel"
-SidePanel/styles/panel = SubResource("StyleBoxFlat_nr324")
 SmallButton/base_type = &"Button"
 SmallButton/font_sizes/font_size = 10
