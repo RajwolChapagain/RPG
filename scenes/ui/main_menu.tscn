@@ -34,7 +34,7 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 0
+theme_override_constants/separation = 4
 alignment = 1
 
 [node name="PlayButton" type="Button" parent="MarginContainer/HBoxContainer/ButtonsPanel/VBoxContainer"]
