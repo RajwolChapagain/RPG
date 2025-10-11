@@ -15,7 +15,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_f6eus")
 script = ExtResource("1_0lmf7")
-MAIN_MENU_SCENE_PATH = "res://scenes/ui/main_menu.tscn"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
