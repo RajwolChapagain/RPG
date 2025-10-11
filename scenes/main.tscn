@@ -44,3 +44,5 @@ character_name_to_base_stats = Dictionary[String, ExtResource("12_muem4")]({
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("8_tipki")]
 unique_name_in_owner = true
 visible = false
+
+[connection signal="main_menu_button_pressed" from="CanvasLayer/PauseMenu" to="." method="_on_pause_menu_main_menu_button_pressed"]

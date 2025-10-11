@@ -1,5 +1,7 @@
 extends Control
 
+signal main_menu_button_pressed
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
 		if not get_tree().paused:
@@ -44,3 +46,7 @@ func initialize_stats() -> void:
 
 func get_inventory_items() -> Array[Item]:
 	return %InventoryManager.get_items()
+
+func _on_main_menu_button_pressed() -> void:
+	unpause_game()
+	main_menu_button_pressed.emit()

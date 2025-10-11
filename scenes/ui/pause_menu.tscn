@@ -15,6 +15,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_f6eus")
 script = ExtResource("1_0lmf7")
+MAIN_MENU_SCENE_PATH = "res://scenes/ui/main_menu.tscn"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -52,6 +53,12 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"SideButton"
 text = "INVENTORY"
+
+[node name="MainMenuButton" type="Button" parent="HBoxContainer/ButtonsPanel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"SideButton"
+text = "MAIN MENU"
 
 [node name="ContentPanel" type="Panel" parent="HBoxContainer"]
 layout_mode = 2
@@ -106,3 +113,4 @@ layout_mode = 2
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="button_down" from="HBoxContainer/ButtonsPanel/VBoxContainer/ContinueButton" to="." method="_on_continue_button_button_down"]
 [connection signal="pressed" from="HBoxContainer/ButtonsPanel/VBoxContainer/InventoryButton" to="." method="_on_inventory_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/ButtonsPanel/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
