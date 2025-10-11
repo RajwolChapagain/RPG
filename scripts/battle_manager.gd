@@ -41,4 +41,5 @@ func remove_dead_players() -> void:
 
 func remove_defeated_enemy() -> void:
 	battling_enemy.queue_free()
+	battling_enemy.enemy_defeated.emit()
 	battling_enemy = null

@@ -43,6 +43,6 @@ tile_map_data = PackedByteArray("AAAPAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAARAAAAAAAAAAA
 position = Vector2(275, 89)
 gang = Array[ExtResource("3_fiq81")]([SubResource("Resource_l37oo"), SubResource("Resource_ibugp")])
 
-[connection signal="tree_exiting" from="Enemy" to="." method="_on_enemy_tree_exiting"]
+[connection signal="enemy_defeated" from="Enemy" to="." method="_on_enemy_enemy_defeated"]
 
 [editable path="DualGrid"]

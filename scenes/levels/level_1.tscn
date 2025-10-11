@@ -26,6 +26,6 @@ position = Vector2(191, 143)
 unique_name_in_owner = true
 position = Vector2(160, 96)
 
-[connection signal="tree_exiting" from="Enemy" to="." method="_on_enemy_tree_exiting"]
+[connection signal="enemy_defeated" from="Enemy" to="." method="_on_enemy_enemy_defeated"]
 
 [editable path="DualGrid"]
