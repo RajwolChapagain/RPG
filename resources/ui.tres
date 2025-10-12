@@ -32,16 +32,10 @@ bg_color = Color(0.4862745, 0.47843137, 0.47843137, 1)
 bg_color = Color(0.13725491, 0.10980392, 0.13725491, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wpx7l"]
-corner_radius_top_left = 1
-corner_radius_top_right = 1
-corner_radius_bottom_right = 1
-corner_radius_bottom_left = 1
+bg_color = Color(0.4862745, 0.47843137, 0.47843137, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3tp7c"]
-corner_radius_top_left = 1
-corner_radius_top_right = 1
-corner_radius_bottom_right = 1
-corner_radius_bottom_left = 1
+bg_color = Color(0.37457052, 0.6863665, 0.35723358, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_puq7a"]
 bg_color = Color(0, 0, 0, 1)
@@ -72,8 +66,18 @@ Button/styles/pressed = SubResource("StyleBoxFlat_qa6oi")
 Label/font_sizes/font_size = 12
 Label/fonts/font = ExtResource("2_puq7a")
 Panel/styles/panel = SubResource("StyleBoxFlat_rb7da")
+ProgressBar/colors/font_color = Color(0.95, 0.95, 0.95, 1)
+ProgressBar/colors/font_outline_color = Color(0, 0, 0, 1)
+ProgressBar/constants/outline_size = 8
+ProgressBar/font_sizes/font_size = 16
+ProgressBar/fonts/font = ExtResource("2_puq7a")
 ProgressBar/styles/background = SubResource("StyleBoxFlat_wpx7l")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_3tp7c")
+ProgressLabel/base_type = &"Label"
+ProgressLabel/colors/font_color = Color(1, 1, 1, 1)
+ProgressLabel/colors/font_outline_color = Color(0, 0, 0, 1)
+ProgressLabel/constants/outline_size = 2
+ProgressLabel/font_sizes/font_size = 6
 SideButton/base_type = &"Button"
 SideButton/colors/font_color = Color(0.4, 0.4, 0.4, 1)
 SideButton/colors/font_focus_color = Color(1, 1, 1, 1)

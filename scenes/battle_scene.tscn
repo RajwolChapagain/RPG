@@ -124,8 +124,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 8
+theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/Deck/MarginContainer"]
 layout_mode = 2
@@ -159,26 +160,28 @@ size_flags_vertical = 3
 [node name="PlayerInfos" type="VBoxContainer" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_vertical = 0
 
 [node name="P1Info" type="HBoxContainer" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+alignment = 1
 
 [node name="NameLabelP1" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P1Info"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(23, 0)
 layout_mode = 2
-size_flags_vertical = 0
+size_flags_vertical = 1
 theme = ExtResource("3_gj8wv")
 theme_override_font_sizes/font_size = 4
 text = "Magda"
+vertical_alignment = 1
 
 [node name="HealthBarP1" type="ProgressBar" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P1Info"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 1
 value = 75.0
 show_percentage = false
 
@@ -191,8 +194,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_gj8wv")
-theme_override_colors/font_color = Color(0.20871, 0.20871, 0.20871, 1)
-theme_override_font_sizes/font_size = 3
+theme_type_variation = &"ProgressLabel"
 text = "100/100"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -201,20 +203,23 @@ vertical_alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+alignment = 1
 
 [node name="NameLabelP2" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P2Info"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(23, 0)
 layout_mode = 2
-size_flags_vertical = 0
+size_flags_vertical = 1
 theme = ExtResource("3_gj8wv")
 theme_override_font_sizes/font_size = 4
 text = "Lachlan"
+vertical_alignment = 1
 
 [node name="HealthBarP2" type="ProgressBar" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P2Info"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 1
 value = 75.0
 show_percentage = false
 
@@ -227,8 +232,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_gj8wv")
-theme_override_colors/font_color = Color(0.20871, 0.20871, 0.20871, 1)
-theme_override_font_sizes/font_size = 3
+theme_type_variation = &"ProgressLabel"
 text = "100/100"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -237,20 +241,23 @@ vertical_alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+alignment = 1
 
 [node name="NameLabelP3" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P3Info"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(23, 0)
 layout_mode = 2
-size_flags_vertical = 0
+size_flags_vertical = 1
 theme = ExtResource("3_gj8wv")
 theme_override_font_sizes/font_size = 4
 text = "Rachelle"
+vertical_alignment = 1
 
 [node name="HealthBarP3" type="ProgressBar" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P3Info"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 1
 value = 75.0
 show_percentage = false
 
@@ -263,8 +270,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_gj8wv")
-theme_override_colors/font_color = Color(0.20871, 0.20871, 0.20871, 1)
-theme_override_font_sizes/font_size = 3
+theme_type_variation = &"ProgressLabel"
 text = "100/100"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -273,20 +279,23 @@ vertical_alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+alignment = 1
 
 [node name="NameLabelP4" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P4Info"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(23, 0)
 layout_mode = 2
-size_flags_vertical = 0
+size_flags_vertical = 1
 theme = ExtResource("3_gj8wv")
 theme_override_font_sizes/font_size = 4
 text = "Placeholder"
+vertical_alignment = 1
 
 [node name="HealthBarP4" type="ProgressBar" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P4Info"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 1
 value = 75.0
 show_percentage = false
 
@@ -299,8 +308,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_gj8wv")
-theme_override_colors/font_color = Color(0.20871, 0.20871, 0.20871, 1)
-theme_override_font_sizes/font_size = 3
+theme_type_variation = &"ProgressLabel"
 text = "100/100"
 horizontal_alignment = 1
 vertical_alignment = 1
