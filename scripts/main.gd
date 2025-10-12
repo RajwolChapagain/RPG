@@ -89,5 +89,8 @@ func save_data() -> void:
 	print("Checkpoint reached! Progress saved to slot ", SaveManager.current_save_slot)
 
 func _on_pause_menu_main_menu_button_pressed() -> void:
+	if BattleManager.active_battle_scene != null:
+		BattleManager.active_battle_scene.queue_free()
+		
 	get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
 	queue_free()
