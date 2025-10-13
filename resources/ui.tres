@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=12 format=3 uid="uid://5dapp0d0f0x5"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://5dapp0d0f0x5"]
 
 [ext_resource type="FontFile" uid="uid://csleht6u3wrbw" path="res://assets/fonts/minecraft/Minecraft.ttf" id="2_puq7a"]
 
@@ -15,13 +15,6 @@ border_width_bottom = 1
 anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nr324"]
-content_margin_left = 2.0
-content_margin_top = 1.0
-content_margin_right = 2.0
-content_margin_bottom = 1.0
-bg_color = Color(0.4862745, 0.47843137, 0.47843137, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qa6oi"]
 content_margin_left = 2.0
 content_margin_top = 1.0
 content_margin_right = 2.0
@@ -48,11 +41,6 @@ expand_margin_bottom = 2.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_puq7a"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pxeie"]
-bg_color = Color(0, 0, 0, 1)
-expand_margin_top = 2.0
-expand_margin_bottom = 2.0
-
 [resource]
 Button/colors/font_color = Color(0, 0, 0, 1)
 Button/colors/font_disabled_color = Color(0.2, 0.19600001, 0.19600001, 1)
@@ -62,7 +50,7 @@ Button/fonts/font = ExtResource("2_puq7a")
 Button/styles/disabled = SubResource("StyleBoxFlat_8yfhb")
 Button/styles/focus = SubResource("StyleBoxFlat_r702l")
 Button/styles/normal = SubResource("StyleBoxFlat_nr324")
-Button/styles/pressed = SubResource("StyleBoxFlat_qa6oi")
+Button/styles/pressed = SubResource("StyleBoxFlat_nr324")
 Label/font_sizes/font_size = 12
 Label/fonts/font = ExtResource("2_puq7a")
 Panel/styles/panel = SubResource("StyleBoxFlat_rb7da")
@@ -83,6 +71,6 @@ SideButton/colors/font_color = Color(0.4, 0.4, 0.4, 1)
 SideButton/colors/font_focus_color = Color(1, 1, 1, 1)
 SideButton/styles/focus = SubResource("StyleBoxFlat_puq7a")
 SideButton/styles/normal = SubResource("StyleBoxEmpty_puq7a")
-SideButton/styles/pressed = SubResource("StyleBoxFlat_pxeie")
+SideButton/styles/pressed = SubResource("StyleBoxEmpty_puq7a")
 SmallButton/base_type = &"Button"
 SmallButton/font_sizes/font_size = 10
