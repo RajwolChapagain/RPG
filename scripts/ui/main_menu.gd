@@ -6,23 +6,41 @@ var state: states = states.TITLE:
 		return state
 	set(value):
 		if value == states.TITLE:
-			hide_all_content_panels()
+			%AnimationPlayer.play('slide_out')
+			for button in %ButtonsContainer.get_children():
+				button.release_focus()
+		elif value == states.MENU:
+			if state == states.TITLE:
+				%AnimationPlayer.play('slide_in')
+				%PromptAnimationPlayer.stop(true)
+				%PromptAnimationPlayer.queue('fade_out')
+			else:
+				%ContentPanel.modulate = Color(%ContentPanel.modulate.r, %ContentPanel.modulate.g, %ContentPanel.modulate.b, 0)
 		elif value == states.PLAY:
-			%ContentPanel.visible = true
+			%ContentPanel.modulate = Color(%ContentPanel.modulate.r, %ContentPanel.modulate.g, %ContentPanel.modulate.b, 1)
 			hide_all_content_panels()
 			%PlayPanel.visible = true
 		elif value == states.SETTINGS:
-			%ContentPanel.visible = true
+			%ContentPanel.modulate = Color(%ContentPanel.modulate.r, %ContentPanel.modulate.g, %ContentPanel.modulate.b, 1)
 			hide_all_content_panels()
 			%SettingsPanel.visible = true
 		state = value
 		
-enum states { TITLE, PLAY, SETTINGS }
+enum states { TITLE, MENU, PLAY, SETTINGS }
 
 func _ready() -> void:
 	connect_save_slot_signals()
-	%PlayButton.grab_focus()
-	
+
+func _input(event: InputEvent) -> void:
+	if event is not InputEventKey:
+		return
+		
+	if state == states.TITLE:
+		state = states.MENU
+	elif state == states.MENU:
+		if event.is_action_released('ui_cancel'):
+			state = states.TITLE
+		
 func connect_save_slot_signals() -> void:
 	for save_slot: SaveSlot in %PlayPanel.get_children():
 		save_slot.load_game_button_pressed.connect(load_saved_game)
@@ -51,14 +69,14 @@ func _on_play_button_toggled(toggled_on: bool) -> void:
 		untoggle_all_other_buttons(%PlayButton)
 		state = states.PLAY
 	else:
-		state = states.TITLE
+		state = states.MENU
 
 func _on_settings_button_toggled(toggled_on: bool) -> void:
 	if toggled_on:
 		untoggle_all_other_buttons(%SettingsButton)
 		state = states.SETTINGS
 	else:
-		state = states.TITLE
+		state = states.MENU
 
 func hide_all_content_panels() -> void:
 	for panel in %ContentPanel.get_children():
@@ -70,3 +88,9 @@ func untoggle_all_other_buttons(calling_button: Button) -> void:
 			continue
 			
 		button.button_pressed = false
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == 'slide_in':
+		%PlayButton.grab_focus()
+	elif anim_name == 'slide_out':
+		%PromptAnimationPlayer.play('blink')

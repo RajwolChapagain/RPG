@@ -1,32 +1,160 @@
-[gd_scene load_steps=5 format=3 uid="uid://d3xpo03pr8ajw"]
+[gd_scene load_steps=15 format=3 uid="uid://d3xpo03pr8ajw"]
 
 [ext_resource type="Script" uid="uid://cpicwjcavoys0" path="res://scripts/ui/main_menu.gd" id="1_fe2o3"]
 [ext_resource type="PackedScene" uid="uid://bn3kv83cw1fcs" path="res://scenes/ui/save_slot.tscn" id="1_sl1te"]
 [ext_resource type="PackedScene" uid="uid://di22kpskfdmkw" path="res://scenes/main.tscn" id="2_1g8jr"]
 [ext_resource type="Theme" uid="uid://5dapp0d0f0x5" path="res://resources/ui.tres" id="3_m1kxf"]
+[ext_resource type="Texture2D" uid="uid://dxv0ckuh1llwr" path="res://assets/sprites/title_screen_placeholder.png" id="5_x2yvf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uhagc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_x2yvf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_x2yvf"]
+resource_name = "slide_in"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.19999999),
+"transitions": PackedFloat32Array(1, 2),
+"update": 0,
+"values": [Vector2(-64, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_uhagc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-64, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_8g5eo"]
+resource_name = "slide_out"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-64, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uhagc"]
+_data = {
+&"RESET": SubResource("Animation_uhagc"),
+&"slide_in": SubResource("Animation_x2yvf"),
+&"slide_out": SubResource("Animation_8g5eo")
+}
+
+[sub_resource type="Animation" id="Animation_btxxm"]
+resource_name = "blink"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9, 1.9333333),
+"transitions": PackedFloat32Array(0.5, -2, 0.5),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wb0q5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_q85j6"]
+resource_name = "fade_out"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q85j6"]
+_data = {
+&"RESET": SubResource("Animation_wb0q5"),
+&"blink": SubResource("Animation_btxxm"),
+&"fade_out": SubResource("Animation_q85j6")
+}
 
 [node name="MainMenu" type="Node"]
 script = ExtResource("1_fe2o3")
 main_scene = ExtResource("2_1g8jr")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(160, 90)
+sprite_frames = SubResource("SpriteFrames_uhagc")
+
+[node name="UI" type="MarginContainer" parent="."]
+unique_name_in_owner = true
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -64.0
+offset_right = -64.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_m1kxf")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="ButtonsPanel" type="Panel" parent="MarginContainer/HBoxContainer"]
+[node name="ButtonsPanel" type="Panel" parent="UI/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"SidePanel"
 
-[node name="ButtonsContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/ButtonsPanel"]
+[node name="ButtonsContainer" type="VBoxContainer" parent="UI/HBoxContainer/ButtonsPanel"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 14
@@ -38,32 +166,33 @@ grow_vertical = 2
 theme_override_constants/separation = 4
 alignment = 1
 
-[node name="PlayButton" type="Button" parent="MarginContainer/HBoxContainer/ButtonsPanel/ButtonsContainer"]
+[node name="PlayButton" type="Button" parent="UI/HBoxContainer/ButtonsPanel/ButtonsContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"SideButton"
 toggle_mode = true
 text = "PLAY"
 
-[node name="SettingsButton" type="Button" parent="MarginContainer/HBoxContainer/ButtonsPanel/ButtonsContainer"]
+[node name="SettingsButton" type="Button" parent="UI/HBoxContainer/ButtonsPanel/ButtonsContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"SideButton"
 toggle_mode = true
 text = "SETTINGS"
 
-[node name="QuitButton" type="Button" parent="MarginContainer/HBoxContainer/ButtonsPanel/ButtonsContainer"]
+[node name="QuitButton" type="Button" parent="UI/HBoxContainer/ButtonsPanel/ButtonsContainer"]
 layout_mode = 2
 theme_type_variation = &"SideButton"
 text = "QUIT"
 
-[node name="ContentPanel" type="Panel" parent="MarginContainer/HBoxContainer"]
+[node name="ContentPanel" type="Panel" parent="UI/HBoxContainer"]
 unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 4.0
 
-[node name="PlayPanel" type="HBoxContainer" parent="MarginContainer/HBoxContainer/ContentPanel"]
+[node name="PlayPanel" type="HBoxContainer" parent="UI/HBoxContainer/ContentPanel"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -74,18 +203,18 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="SaveSlot" parent="MarginContainer/HBoxContainer/ContentPanel/PlayPanel" instance=ExtResource("1_sl1te")]
+[node name="SaveSlot" parent="UI/HBoxContainer/ContentPanel/PlayPanel" instance=ExtResource("1_sl1te")]
 layout_mode = 2
 
-[node name="SaveSlot2" parent="MarginContainer/HBoxContainer/ContentPanel/PlayPanel" instance=ExtResource("1_sl1te")]
+[node name="SaveSlot2" parent="UI/HBoxContainer/ContentPanel/PlayPanel" instance=ExtResource("1_sl1te")]
 layout_mode = 2
 save_slot_id = 2
 
-[node name="SaveSlot3" parent="MarginContainer/HBoxContainer/ContentPanel/PlayPanel" instance=ExtResource("1_sl1te")]
+[node name="SaveSlot3" parent="UI/HBoxContainer/ContentPanel/PlayPanel" instance=ExtResource("1_sl1te")]
 layout_mode = 2
 save_slot_id = 3
 
-[node name="SettingsPanel" type="Panel" parent="MarginContainer/HBoxContainer/ContentPanel"]
+[node name="SettingsPanel" type="Panel" parent="UI/HBoxContainer/ContentPanel"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -95,7 +224,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="DummyLabel" type="Label" parent="MarginContainer/HBoxContainer/ContentPanel/SettingsPanel"]
+[node name="DummyLabel" type="Label" parent="UI/HBoxContainer/ContentPanel/SettingsPanel"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -105,5 +234,37 @@ grow_horizontal = 2
 text = "Settings"
 horizontal_alignment = 1
 
-[connection signal="toggled" from="MarginContainer/HBoxContainer/ButtonsPanel/ButtonsContainer/PlayButton" to="." method="_on_play_button_toggled"]
-[connection signal="toggled" from="MarginContainer/HBoxContainer/ButtonsPanel/ButtonsContainer/SettingsButton" to="." method="_on_settings_button_toggled"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_uhagc")
+}
+
+[node name="Prompt" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+theme = ExtResource("3_m1kxf")
+text = "Press any key to start"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PromptAnimationPlayer" type="AnimationPlayer" parent="Prompt"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_q85j6")
+}
+autoplay = "blink"
+
+[connection signal="toggled" from="UI/HBoxContainer/ButtonsPanel/ButtonsContainer/PlayButton" to="." method="_on_play_button_toggled"]
+[connection signal="toggled" from="UI/HBoxContainer/ButtonsPanel/ButtonsContainer/SettingsButton" to="." method="_on_settings_button_toggled"]
+[connection signal="animation_finished" from="UI/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
