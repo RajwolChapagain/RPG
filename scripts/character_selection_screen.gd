@@ -4,6 +4,7 @@ class_name CharacterSelectionScreen
 var selected_indices = []
 const COUNT_LABEL_FORMAT: String = '(%s/4)'
 signal characters_selected(names)
+@export var character_stats: Array[BaseStats]
 
 func _ready() -> void:
 	%Buttons.get_child(0).grab_focus()
@@ -51,7 +52,26 @@ func _on_button_5_toggled(toggled_on: bool) -> void:
 func finalize_selection() -> void:
 	var character_names: Array[String] = []
 	for index in selected_indices:
-		var stat_card: StatCard = %Buttons.get_child(index).get_child(0)
-		character_names.append(stat_card.get_character_name())
+		character_names.append(character_stats[index].name)
 	characters_selected.emit(character_names)
 	queue_free()
+
+func _on_button_1_focus_entered() -> void:
+	update_stats_card(0)
+
+func _on_button_2_focus_entered() -> void:
+	update_stats_card(1)
+
+func _on_button_3_focus_entered() -> void:
+	update_stats_card(2)
+
+func _on_button_4_focus_entered() -> void:
+	update_stats_card(3)
+
+func _on_button_5_focus_entered() -> void:
+	update_stats_card(4)
+	
+func update_stats_card(index: int) -> void:
+	%StatCard.stats = character_stats[index]
+	%StatCard.initialize_ui()
+	%StatCard.visible = true

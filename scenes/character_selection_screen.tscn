@@ -1,10 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://ccup1rh7u0hg3"]
+[gd_scene load_steps=33 format=3 uid="uid://ccup1rh7u0hg3"]
 
 [ext_resource type="PackedScene" uid="uid://23b01ifqxu4" path="res://scenes/ui/stat_card.tscn" id="1_0oen6"]
 [ext_resource type="Script" uid="uid://dg3cvamqwic2x" path="res://scripts/character_selection_screen.gd" id="1_jmy7a"]
+[ext_resource type="Texture2D" uid="uid://boqdnqcd5kshd" path="res://assets/sprites/rachelle_spritesheet.png" id="2_jxuks"]
+[ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="2_vk8p6"]
+[ext_resource type="Texture2D" uid="uid://dwgfyhp5dlhtf" path="res://assets/sprites/magda_spritesheet.PNG" id="3_jmy7a"]
+[ext_resource type="Resource" uid="uid://c3bvbxqpkkgu3" path="res://resources/knight_base_stats.tres" id="3_pevio"]
 [ext_resource type="Resource" uid="uid://biubxrgae4cha" path="res://resources/cleric_base_stats.tres" id="3_sf8ac"]
 [ext_resource type="Resource" uid="uid://bgg065a045ww" path="res://resources/lady_base_stats.tres" id="4_wk3ir"]
+[ext_resource type="Texture2D" uid="uid://culhn7diejs2h" path="res://assets/sprites/josephine_spritesheet.png" id="4_yobrv"]
+[ext_resource type="Texture2D" uid="uid://b0pokaytcoerh" path="res://assets/sprites/lachlan_spritesheet.png" id="5_7j3kf"]
 [ext_resource type="Resource" uid="uid://d3kyf2naa3duo" path="res://resources/mage_base_stats.tres" id="5_jxuks"]
+[ext_resource type="Texture2D" uid="uid://bkbfad4cbiqgk" path="res://assets/sprites/einar_spritesheet.png" id="6_5uais"]
 [ext_resource type="Resource" uid="uid://cym67rsdldl6j" path="res://resources/archer_base_stats.tres" id="6_jmy7a"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jmy7a"]
@@ -18,6 +25,118 @@ border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_n3180"]
+atlas = ExtResource("2_jxuks")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_heuiu"]
+atlas = ExtResource("2_jxuks")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vk8p6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n3180")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_heuiu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pevio"]
+atlas = ExtResource("3_jmy7a")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o00rg"]
+atlas = ExtResource("3_jmy7a")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rj0se"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pevio")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o00rg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76onp"]
+atlas = ExtResource("4_yobrv")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wonia"]
+atlas = ExtResource("4_yobrv")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gxr2e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76onp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wonia")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ofbe"]
+atlas = ExtResource("5_7j3kf")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7k72v"]
+atlas = ExtResource("5_7j3kf")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7bd6v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ofbe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7k72v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0bhdp"]
+atlas = ExtResource("6_5uais")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gch1u"]
+atlas = ExtResource("6_5uais")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vv42o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0bhdp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gch1u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e4dtk"]
+
 [node name="CharacterSelectionScreen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -28,6 +147,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_jmy7a")
+character_stats = Array[ExtResource("2_vk8p6")]([ExtResource("3_pevio"), ExtResource("3_sf8ac"), ExtResource("4_wk3ir"), ExtResource("5_jxuks"), ExtResource("6_jmy7a")])
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -50,73 +170,131 @@ theme_override_font_sizes/font_size = 12
 text = "(0/4)"
 horizontal_alignment = 1
 
-[node name="Buttons" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Buttons" type="Control" parent="."]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 140)
-layout_mode = 2
-size_flags_vertical = 3
+anchors_preset = 0
+offset_top = 41.0
+offset_right = 320.0
+offset_bottom = 181.0
+size_flags_vertical = 0
 
-[node name="Button1" type="Button" parent="VBoxContainer/Buttons"]
-layout_mode = 2
+[node name="Button1" type="Button" parent="Buttons"]
+layout_mode = 1
+offset_left = 19.0
+offset_top = 17.0
+offset_right = 51.0
+offset_bottom = 49.0
 size_flags_horizontal = 3
 theme_override_styles/normal = SubResource("StyleBoxEmpty_jmy7a")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_jmy7a")
 theme_override_styles/focus = SubResource("StyleBoxFlat_yobrv")
 toggle_mode = true
 
-[node name="StatCard" parent="VBoxContainer/Buttons/Button1" instance=ExtResource("1_0oen6")]
-layout_mode = 1
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Buttons/Button1"]
+position = Vector2(16, 16)
+rotation = -3.0828094
+sprite_frames = SubResource("SpriteFrames_vk8p6")
+autoplay = "default"
+frame_progress = 0.8826908
 
-[node name="Button2" type="Button" parent="VBoxContainer/Buttons"]
-layout_mode = 2
+[node name="Button2" type="Button" parent="Buttons"]
+layout_mode = 1
+offset_left = 75.0
+offset_top = 41.0
+offset_right = 107.0
+offset_bottom = 73.0
 size_flags_horizontal = 3
 theme_override_styles/normal = SubResource("StyleBoxEmpty_jmy7a")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_jmy7a")
 theme_override_styles/focus = SubResource("StyleBoxFlat_yobrv")
 toggle_mode = true
 
-[node name="StatCard" parent="VBoxContainer/Buttons/Button2" instance=ExtResource("1_0oen6")]
-layout_mode = 1
-stats = ExtResource("3_sf8ac")
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Buttons/Button2"]
+position = Vector2(16, 16)
+rotation = -0.625524
+sprite_frames = SubResource("SpriteFrames_rj0se")
+autoplay = "default"
+frame_progress = 0.96960896
 
-[node name="Button3" type="Button" parent="VBoxContainer/Buttons"]
-layout_mode = 2
+[node name="Button3" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 28.0
+offset_right = 144.0
+offset_bottom = 60.0
 size_flags_horizontal = 3
 theme_override_styles/normal = SubResource("StyleBoxEmpty_jmy7a")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_jmy7a")
 theme_override_styles/focus = SubResource("StyleBoxFlat_yobrv")
 toggle_mode = true
 
-[node name="StatCard" parent="VBoxContainer/Buttons/Button3" instance=ExtResource("1_0oen6")]
-layout_mode = 1
-stats = ExtResource("4_wk3ir")
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="Buttons/Button3"]
+position = Vector2(16, 16)
+sprite_frames = SubResource("SpriteFrames_gxr2e")
+autoplay = "default"
+frame_progress = 0.30290684
 
-[node name="Button4" type="Button" parent="VBoxContainer/Buttons"]
-layout_mode = 2
+[node name="Button4" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 151.0
+offset_top = 23.0
+offset_right = 183.0
+offset_bottom = 55.0
 size_flags_horizontal = 3
 theme_override_styles/normal = SubResource("StyleBoxEmpty_jmy7a")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_jmy7a")
 theme_override_styles/focus = SubResource("StyleBoxFlat_yobrv")
 toggle_mode = true
 
-[node name="StatCard" parent="VBoxContainer/Buttons/Button4" instance=ExtResource("1_0oen6")]
-layout_mode = 1
-stats = ExtResource("5_jxuks")
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="Buttons/Button4"]
+position = Vector2(16, 16)
+rotation = 0.7719792
+sprite_frames = SubResource("SpriteFrames_7bd6v")
+autoplay = "default"
+frame_progress = 0.7525487
 
-[node name="Button5" type="Button" parent="VBoxContainer/Buttons"]
-layout_mode = 2
+[node name="Button5" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 158.0
+offset_top = 49.0
+offset_right = 190.0
+offset_bottom = 81.0
 size_flags_horizontal = 3
 theme_override_styles/normal = SubResource("StyleBoxEmpty_jmy7a")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_jmy7a")
 theme_override_styles/focus = SubResource("StyleBoxFlat_yobrv")
 toggle_mode = true
 
-[node name="StatCard" parent="VBoxContainer/Buttons/Button5" instance=ExtResource("1_0oen6")]
-layout_mode = 1
-stats = ExtResource("6_jmy7a")
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="Buttons/Button5"]
+position = Vector2(16, 16)
+rotation = 1.5860636
+sprite_frames = SubResource("SpriteFrames_vv42o")
+autoplay = "default"
+frame_progress = 0.9981469
 
-[connection signal="toggled" from="VBoxContainer/Buttons/Button1" to="." method="_on_button_1_toggled"]
-[connection signal="toggled" from="VBoxContainer/Buttons/Button2" to="." method="_on_button_2_toggled"]
-[connection signal="toggled" from="VBoxContainer/Buttons/Button3" to="." method="_on_button_3_toggled"]
-[connection signal="toggled" from="VBoxContainer/Buttons/Button4" to="." method="_on_button_4_toggled"]
-[connection signal="toggled" from="VBoxContainer/Buttons/Button5" to="." method="_on_button_5_toggled"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_e4dtk")
+
+[node name="StatCard" parent="." instance=ExtResource("1_0oen6")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -60.0
+offset_right = 0.0
+grow_horizontal = 0
+stats = null
+
+[connection signal="focus_entered" from="Buttons/Button1" to="." method="_on_button_1_focus_entered"]
+[connection signal="toggled" from="Buttons/Button1" to="." method="_on_button_1_toggled"]
+[connection signal="focus_entered" from="Buttons/Button2" to="." method="_on_button_2_focus_entered"]
+[connection signal="toggled" from="Buttons/Button2" to="." method="_on_button_2_toggled"]
+[connection signal="focus_entered" from="Buttons/Button3" to="." method="_on_button_3_focus_entered"]
+[connection signal="toggled" from="Buttons/Button3" to="." method="_on_button_3_toggled"]
+[connection signal="focus_entered" from="Buttons/Button4" to="." method="_on_button_4_focus_entered"]
+[connection signal="toggled" from="Buttons/Button4" to="." method="_on_button_4_toggled"]
+[connection signal="focus_entered" from="Buttons/Button5" to="." method="_on_button_5_focus_entered"]
+[connection signal="toggled" from="Buttons/Button5" to="." method="_on_button_5_toggled"]
