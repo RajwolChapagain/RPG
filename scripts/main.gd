@@ -92,5 +92,7 @@ func _on_pause_menu_main_menu_button_pressed() -> void:
 	if BattleManager.active_battle_scene != null:
 		BattleManager.active_battle_scene.queue_free()
 		
-	get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
+	var main_menu = load("res://scenes/ui/main_menu.tscn").instantiate()
+	get_tree().root.add_child(main_menu)
+	main_menu.quick_switch_to_main()
 	queue_free()

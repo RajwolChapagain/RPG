@@ -12,8 +12,8 @@ var state: states = states.TITLE:
 		elif value == states.MENU:
 			if state == states.TITLE:
 				%AnimationPlayer.play('slide_in')
-				%PromptAnimationPlayer.stop(true)
-				%PromptAnimationPlayer.queue('fade_out')
+				%PromptAnimationPlayer.stop()
+				%PromptAnimationPlayer.play('fade_out')
 			else:
 				%ContentPanel.modulate = Color(%ContentPanel.modulate.r, %ContentPanel.modulate.g, %ContentPanel.modulate.b, 0)
 		elif value == states.PLAY:
@@ -94,3 +94,8 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		%PlayButton.grab_focus()
 	elif anim_name == 'slide_out':
 		%PromptAnimationPlayer.play('blink')
+		
+# Intended to be called only by main when coming from pause menu
+func quick_switch_to_main() -> void:
+	%Prompt.visible = false
+	state = states.MENU
