@@ -1,7 +1,8 @@
-[gd_scene load_steps=33 format=3 uid="uid://ccup1rh7u0hg3"]
+[gd_scene load_steps=35 format=3 uid="uid://ccup1rh7u0hg3"]
 
 [ext_resource type="PackedScene" uid="uid://23b01ifqxu4" path="res://scenes/ui/stat_card.tscn" id="1_0oen6"]
 [ext_resource type="Script" uid="uid://dg3cvamqwic2x" path="res://scripts/character_selection_screen.gd" id="1_jmy7a"]
+[ext_resource type="Theme" uid="uid://5dapp0d0f0x5" path="res://resources/ui.tres" id="1_o00rg"]
 [ext_resource type="Texture2D" uid="uid://boqdnqcd5kshd" path="res://assets/sprites/rachelle_spritesheet.png" id="2_jxuks"]
 [ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="2_vk8p6"]
 [ext_resource type="Texture2D" uid="uid://dwgfyhp5dlhtf" path="res://assets/sprites/magda_spritesheet.PNG" id="3_jmy7a"]
@@ -13,6 +14,18 @@
 [ext_resource type="Resource" uid="uid://d3kyf2naa3duo" path="res://resources/mage_base_stats.tres" id="5_jxuks"]
 [ext_resource type="Texture2D" uid="uid://bkbfad4cbiqgk" path="res://assets/sprites/einar_spritesheet.png" id="6_5uais"]
 [ext_resource type="Resource" uid="uid://cym67rsdldl6j" path="res://resources/archer_base_stats.tres" id="6_jmy7a"]
+[ext_resource type="Texture2D" uid="uid://dxv0ckuh1llwr" path="res://assets/sprites/title_screen_placeholder.png" id="13_pevio"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e4dtk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_pevio")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jmy7a"]
 
@@ -135,8 +148,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_e4dtk"]
-
 [node name="CharacterSelectionScreen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -146,16 +157,24 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("1_o00rg")
 script = ExtResource("1_jmy7a")
 character_stats = Array[ExtResource("2_vk8p6")]([ExtResource("3_pevio"), ExtResource("3_sf8ac"), ExtResource("4_wk3ir"), ExtResource("5_jxuks"), ExtResource("6_jmy7a")])
 
+[node name="Background" type="AnimatedSprite2D" parent="."]
+position = Vector2(160, 90)
+sprite_frames = SubResource("SpriteFrames_e4dtk")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -59.0
+offset_top = 10.0
+offset_right = 59.0
+offset_bottom = 38.0
 grow_horizontal = 2
-grow_vertical = 2
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
@@ -196,7 +215,7 @@ position = Vector2(16, 16)
 rotation = -3.0828094
 sprite_frames = SubResource("SpriteFrames_vk8p6")
 autoplay = "default"
-frame_progress = 0.8826908
+frame_progress = 0.3851041
 
 [node name="Button2" type="Button" parent="Buttons"]
 layout_mode = 1
@@ -215,7 +234,7 @@ position = Vector2(16, 16)
 rotation = -0.625524
 sprite_frames = SubResource("SpriteFrames_rj0se")
 autoplay = "default"
-frame_progress = 0.96960896
+frame_progress = 0.47202173
 
 [node name="Button3" type="Button" parent="Buttons"]
 layout_mode = 0
@@ -233,7 +252,7 @@ toggle_mode = true
 position = Vector2(16, 16)
 sprite_frames = SubResource("SpriteFrames_gxr2e")
 autoplay = "default"
-frame_progress = 0.30290684
+frame_progress = 0.80532146
 
 [node name="Button4" type="Button" parent="Buttons"]
 layout_mode = 0
@@ -252,7 +271,7 @@ position = Vector2(16, 16)
 rotation = 0.7719792
 sprite_frames = SubResource("SpriteFrames_7bd6v")
 autoplay = "default"
-frame_progress = 0.7525487
+frame_progress = 0.25496465
 
 [node name="Button5" type="Button" parent="Buttons"]
 layout_mode = 0
@@ -271,10 +290,7 @@ position = Vector2(16, 16)
 rotation = 1.5860636
 sprite_frames = SubResource("SpriteFrames_vv42o")
 autoplay = "default"
-frame_progress = 0.9981469
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_e4dtk")
+frame_progress = 0.50056165
 
 [node name="StatCard" parent="." instance=ExtResource("1_0oen6")]
 unique_name_in_owner = true
