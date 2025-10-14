@@ -1,6 +1,14 @@
-[gd_resource type="Theme" load_steps=10 format=3 uid="uid://5dapp0d0f0x5"]
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://5dapp0d0f0x5"]
 
 [ext_resource type="FontFile" uid="uid://csleht6u3wrbw" path="res://assets/fonts/minecraft/Minecraft.ttf" id="2_puq7a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pxeie"]
+bg_color = Color(0.13725491, 0.10980392, 0.13725491, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.2, 0.19607843, 0.19607843, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8yfhb"]
 bg_color = Color(0.4862745, 0.47843137, 0.47843137, 1)
@@ -42,6 +50,8 @@ expand_margin_bottom = 2.0
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_puq7a"]
 
 [resource]
+BorderedPanel/base_type = &"Panel"
+BorderedPanel/styles/panel = SubResource("StyleBoxFlat_pxeie")
 Button/colors/font_color = Color(0, 0, 0, 1)
 Button/colors/font_disabled_color = Color(0.2, 0.19600001, 0.19600001, 1)
 Button/colors/font_focus_color = Color(1, 1, 1, 1)

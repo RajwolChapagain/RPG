@@ -152,7 +152,7 @@ theme_override_constants/separation = 0
 [node name="ButtonsPanel" type="Panel" parent="UI/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_type_variation = &"SidePanel"
+theme_type_variation = &"BorderedPanel"
 
 [node name="ButtonsContainer" type="VBoxContainer" parent="UI/HBoxContainer/ButtonsPanel"]
 unique_name_in_owner = true
@@ -191,40 +191,43 @@ modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 4.0
+theme_type_variation = &"BorderedPanel"
 
-[node name="PlayPanel" type="HBoxContainer" parent="UI/HBoxContainer/ContentPanel"]
+[node name="PanelsContainer" type="MarginContainer" parent="UI/HBoxContainer/ContentPanel"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 2
+
+[node name="PlayPanel" type="HBoxContainer" parent="UI/HBoxContainer/ContentPanel/PanelsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
 alignment = 1
 
-[node name="SaveSlot" parent="UI/HBoxContainer/ContentPanel/PlayPanel" instance=ExtResource("1_sl1te")]
+[node name="SaveSlot" parent="UI/HBoxContainer/ContentPanel/PanelsContainer/PlayPanel" instance=ExtResource("1_sl1te")]
 layout_mode = 2
 
-[node name="SaveSlot2" parent="UI/HBoxContainer/ContentPanel/PlayPanel" instance=ExtResource("1_sl1te")]
+[node name="SaveSlot2" parent="UI/HBoxContainer/ContentPanel/PanelsContainer/PlayPanel" instance=ExtResource("1_sl1te")]
 layout_mode = 2
 save_slot_id = 2
 
-[node name="SaveSlot3" parent="UI/HBoxContainer/ContentPanel/PlayPanel" instance=ExtResource("1_sl1te")]
+[node name="SaveSlot3" parent="UI/HBoxContainer/ContentPanel/PanelsContainer/PlayPanel" instance=ExtResource("1_sl1te")]
 layout_mode = 2
 save_slot_id = 3
 
-[node name="SettingsPanel" type="Panel" parent="UI/HBoxContainer/ContentPanel"]
+[node name="SettingsPanel" type="Panel" parent="UI/HBoxContainer/ContentPanel/PanelsContainer"]
 unique_name_in_owner = true
 visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 
-[node name="DummyLabel" type="Label" parent="UI/HBoxContainer/ContentPanel/SettingsPanel"]
+[node name="DummyLabel" type="Label" parent="UI/HBoxContainer/ContentPanel/PanelsContainer/SettingsPanel"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0

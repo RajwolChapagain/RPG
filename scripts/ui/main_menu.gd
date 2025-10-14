@@ -79,7 +79,7 @@ func _on_settings_button_toggled(toggled_on: bool) -> void:
 		state = states.MENU
 
 func hide_all_content_panels() -> void:
-	for panel in %ContentPanel.get_children():
+	for panel in %PanelsContainer.get_children():
 		panel.visible = false
 
 func untoggle_all_other_buttons(calling_button: Button) -> void:
