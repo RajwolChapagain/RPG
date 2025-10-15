@@ -7,6 +7,7 @@ signal characters_selected(names)
 @export var character_stats: Array[BaseStats]
 
 func _ready() -> void:
+	await play_shroud_animation()
 	%Buttons.get_child(0).grab_focus()
 
 func select_character(index) -> void:
@@ -75,3 +76,9 @@ func update_stats_card(index: int) -> void:
 	%StatCard.stats = character_stats[index]
 	%StatCard.initialize_ui()
 	%StatCard.visible = true
+
+func play_shroud_animation() -> void:
+	var tween = get_tree().create_tween()
+	tween.tween_property(%Shroud, 'modulate', Color(%Shroud.modulate.r, %Shroud.modulate.g, %Shroud.modulate.b, 0), 2).set_ease(Tween.EaseType.EASE_IN_OUT)
+	await tween.finished
+	await get_tree().create_timer(3).timeout

@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://d3xpo03pr8ajw"]
+[gd_scene load_steps=17 format=3 uid="uid://d3xpo03pr8ajw"]
 
 [ext_resource type="Script" uid="uid://cpicwjcavoys0" path="res://scripts/ui/main_menu.gd" id="1_fe2o3"]
 [ext_resource type="PackedScene" uid="uid://bn3kv83cw1fcs" path="res://scenes/ui/save_slot.tscn" id="1_sl1te"]
 [ext_resource type="PackedScene" uid="uid://di22kpskfdmkw" path="res://scenes/main.tscn" id="2_1g8jr"]
 [ext_resource type="Theme" uid="uid://5dapp0d0f0x5" path="res://resources/ui.tres" id="3_m1kxf"]
+[ext_resource type="Texture2D" uid="uid://doti88i48dtjf" path="res://assets/sprites/shroud.png" id="3_uhagc"]
 [ext_resource type="Texture2D" uid="uid://dxv0ckuh1llwr" path="res://assets/sprites/title_screen_placeholder.png" id="5_x2yvf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_uhagc"]
@@ -16,6 +17,21 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="Animation" id="Animation_uhagc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-64, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_x2yvf"]
 resource_name = "slide_in"
@@ -31,21 +47,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 2),
 "update": 0,
 "values": [Vector2(-64, 0), Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_uhagc"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-64, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_8g5eo"]
@@ -64,11 +65,30 @@ tracks/0/keys = {
 "values": [Vector2(0, 0), Vector2(-64, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_7suek"]
+resource_name = "fade_out"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uhagc"]
 _data = {
 &"RESET": SubResource("Animation_uhagc"),
+&"fade_out": SubResource("Animation_7suek"),
 &"slide_in": SubResource("Animation_x2yvf"),
 &"slide_out": SubResource("Animation_8g5eo")
+}
+
+[sub_resource type="Animation" id="Animation_wb0q5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_btxxm"]
@@ -86,21 +106,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(0.5, -2, 0.5),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_wb0q5"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_q85j6"]
@@ -250,9 +255,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -20.0
+offset_left = -65.0
 offset_top = -23.0
-offset_right = 20.0
+offset_right = 65.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 3
@@ -268,6 +273,12 @@ libraries = {
 &"": SubResource("AnimationLibrary_q85j6")
 }
 autoplay = "blink"
+
+[node name="Shroud" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+position = Vector2(160, 90)
+texture = ExtResource("3_uhagc")
 
 [connection signal="toggled" from="UI/HBoxContainer/ButtonsPanel/ButtonsContainer/PlayButton" to="." method="_on_play_button_toggled"]
 [connection signal="toggled" from="UI/HBoxContainer/ButtonsPanel/ButtonsContainer/SettingsButton" to="." method="_on_settings_button_toggled"]

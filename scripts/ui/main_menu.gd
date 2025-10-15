@@ -47,6 +47,7 @@ func connect_save_slot_signals() -> void:
 		save_slot.new_game_button_pressed.connect(load_new_game)
 		
 func load_new_game(save_slot_id: int) -> void:
+	await play_shroud_animation()
 	var main = main_scene.instantiate()
 	get_tree().root.add_child(main)
 	SaveManager.current_save_slot = save_slot_id
@@ -99,3 +100,9 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 func quick_switch_to_main() -> void:
 	%Prompt.visible = false
 	state = states.MENU
+	
+func play_shroud_animation() -> void:
+	var tween = get_tree().create_tween()
+	tween.tween_property(%Shroud, 'modulate', Color(%Shroud.modulate.r, %Shroud.modulate.g, %Shroud.modulate.b, 1), 0.4).set_ease(Tween.EASE_OUT)
+	await tween.finished
+	await get_tree().create_timer(2).timeout
