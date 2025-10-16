@@ -66,8 +66,8 @@ func finalize_selection() -> void:
 	await play_landing_animation()
 	%SharpRock.play("flow_blood")
 	play_landed_animation()
-	characters_selected.emit(character_names)
 	await play_fade_out_animation()
+	characters_selected.emit(character_names)
 	queue_free()
 
 func _on_button_1_focus_entered() -> void:
