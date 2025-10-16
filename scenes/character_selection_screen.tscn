@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://ccup1rh7u0hg3"]
+[gd_scene load_steps=46 format=3 uid="uid://ccup1rh7u0hg3"]
 
 [ext_resource type="PackedScene" uid="uid://23b01ifqxu4" path="res://scenes/ui/stat_card.tscn" id="1_0oen6"]
 [ext_resource type="Script" uid="uid://dg3cvamqwic2x" path="res://scripts/character_selection_screen.gd" id="1_jmy7a"]
@@ -16,6 +16,8 @@
 [ext_resource type="Resource" uid="uid://cym67rsdldl6j" path="res://resources/archer_base_stats.tres" id="6_jmy7a"]
 [ext_resource type="Texture2D" uid="uid://dxv0ckuh1llwr" path="res://assets/sprites/title_screen_placeholder.png" id="13_pevio"]
 [ext_resource type="Texture2D" uid="uid://doti88i48dtjf" path="res://assets/sprites/shroud.png" id="16_rj0se"]
+[ext_resource type="Texture2D" uid="uid://dn1yjjsnjl1er" path="res://assets/sprites/landing_backround.png" id="17_76onp"]
+[ext_resource type="Texture2D" uid="uid://d4imwuis4yrhi" path="res://assets/sprites/sharp_rock_spritesheet.png" id="18_wonia"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e4dtk"]
 animations = [{
@@ -179,12 +181,84 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(101, 10)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(160, 90)]
+}
+
+[sub_resource type="Animation" id="Animation_wonia"]
+resource_name = "label_slide_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(101, 10), Vector2(101, -36)]
+}
+
+[sub_resource type="Animation" id="Animation_gxr2e"]
+resource_name = "camera_follow"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.8000001, 1.9, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(160, 90), Vector2(160, 270), Vector2(160, 320), Vector2(160, 270)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wonia"]
 _data = {
 &"RESET": SubResource("Animation_76onp"),
-&"label_slide_in": SubResource("Animation_rj0se")
+&"camera_follow": SubResource("Animation_gxr2e"),
+&"label_slide_in": SubResource("Animation_rj0se"),
+&"label_slide_out": SubResource("Animation_wonia")
 }
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxr2e"]
+atlas = ExtResource("18_wonia")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vv42o"]
+atlas = ExtResource("18_wonia")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7ofbe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxr2e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vv42o")
+}],
+"loop": false,
+"name": &"flow_blood",
+"speed": 5.0
+}]
 
 [node name="CharacterSelectionScreen" type="Control"]
 layout_mode = 3
@@ -199,6 +273,10 @@ theme = ExtResource("1_o00rg")
 script = ExtResource("1_jmy7a")
 character_stats = Array[ExtResource("2_vk8p6")]([ExtResource("3_pevio"), ExtResource("3_sf8ac"), ExtResource("4_wk3ir"), ExtResource("5_jxuks"), ExtResource("6_jmy7a")])
 
+[node name="LandingBackground" type="Sprite2D" parent="."]
+position = Vector2(160, 270)
+texture = ExtResource("17_76onp")
+
 [node name="Background" type="AnimatedSprite2D" parent="."]
 position = Vector2(160, 90)
 sprite_frames = SubResource("SpriteFrames_e4dtk")
@@ -211,7 +289,7 @@ anchor_right = 0.5
 offset_left = -59.0
 offset_top = 10.0
 offset_right = 59.0
-offset_bottom = 38.0
+offset_bottom = 38.00001
 grow_horizontal = 2
 
 [node name="Label" type="Label" parent="VBoxContainer"]
@@ -348,10 +426,41 @@ position = Vector2(160, 90)
 texture = ExtResource("16_rj0se")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_wonia")
 }
 autoplay = "label_slide_in"
+
+[node name="FinalPositionMarkers" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Marker2D" type="Marker2D" parent="FinalPositionMarkers"]
+position = Vector2(35, 352)
+
+[node name="Marker2D2" type="Marker2D" parent="FinalPositionMarkers"]
+position = Vector2(91, 352)
+
+[node name="Marker2D3" type="Marker2D" parent="FinalPositionMarkers"]
+position = Vector2(144, 352)
+
+[node name="Marker2D4" type="Marker2D" parent="FinalPositionMarkers"]
+position = Vector2(183, 352)
+
+[node name="Marker2D5" type="Marker2D" parent="FinalPositionMarkers"]
+position = Vector2(219, 352)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(160, 90)
+position_smoothing_enabled = true
+
+[node name="SharpRock" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(35, 344)
+sprite_frames = SubResource("SpriteFrames_7ofbe")
+animation = &"flow_blood"
+autoplay = "default"
+frame_progress = 1.0
 
 [connection signal="focus_entered" from="Buttons/Button1" to="." method="_on_button_1_focus_entered"]
 [connection signal="toggled" from="Buttons/Button1" to="." method="_on_button_1_toggled"]
