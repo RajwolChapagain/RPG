@@ -65,8 +65,10 @@ func finalize_selection() -> void:
 	%AnimationPlayer.play("camera_follow")
 	await play_landing_animation()
 	%SharpRock.play("flow_blood")
+	play_landed_animation()
 	characters_selected.emit(character_names)
-	#queue_free()
+	await play_fade_out_animation()
+	queue_free()
 
 func _on_button_1_focus_entered() -> void:
 	update_stats_card(0)
@@ -120,6 +122,20 @@ func play_landing_animation() -> void:
 		i += 1
 	await tween.finished
 	
+func play_landed_animation() -> void:
+	for button in %Buttons.get_children():
+		var animated_sprite: AnimatedSprite2D = button.get_child(0)
+		animated_sprite.play('landed')
+		
 func place_rock() -> void:
 	var unselected_index = range(5).filter(func (x): return x not in selected_indices)[0]
 	%SharpRock.global_position = %FinalPositionMarkers.get_child(unselected_index).global_position - Vector2(0, 8)
+	%Buttons.get_child(unselected_index).top_level = true
+	%SharpRock.top_level = true
+
+func play_fade_out_animation() -> void:
+	%Shroud.global_position = %Camera2D.offset
+	var tween = get_tree().create_tween()
+	tween.tween_property(%Shroud, 'modulate', Color(%Shroud.modulate.r, %Shroud.modulate.g, %Shroud.modulate.b, 1), 2).set_ease(Tween.EaseType.EASE_IN)
+	await tween.finished
+	await get_tree().create_timer(3).timeout

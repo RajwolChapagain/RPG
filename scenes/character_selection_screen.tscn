@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://ccup1rh7u0hg3"]
+[gd_scene load_steps=51 format=3 uid="uid://ccup1rh7u0hg3"]
 
 [ext_resource type="PackedScene" uid="uid://23b01ifqxu4" path="res://scenes/ui/stat_card.tscn" id="1_0oen6"]
 [ext_resource type="Script" uid="uid://dg3cvamqwic2x" path="res://scripts/character_selection_screen.gd" id="1_jmy7a"]
@@ -49,6 +49,10 @@ region = Rect2(0, 64, 32, 32)
 atlas = ExtResource("2_jxuks")
 region = Rect2(64, 64, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_7bd6v"]
+atlas = ExtResource("2_jxuks")
+region = Rect2(96, 64, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_vk8p6"]
 animations = [{
 "frames": [{
@@ -61,6 +65,14 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7bd6v")
+}],
+"loop": false,
+"name": &"landed",
+"speed": 5.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pevio"]
@@ -70,6 +82,10 @@ region = Rect2(0, 64, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_o00rg"]
 atlas = ExtResource("3_jmy7a")
 region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4dtk"]
+atlas = ExtResource("3_jmy7a")
+region = Rect2(96, 64, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rj0se"]
 animations = [{
@@ -83,6 +99,14 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e4dtk")
+}],
+"loop": false,
+"name": &"landed",
+"speed": 5.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_76onp"]
@@ -92,6 +116,10 @@ region = Rect2(0, 64, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_wonia"]
 atlas = ExtResource("4_yobrv")
 region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dan2s"]
+atlas = ExtResource("4_yobrv")
+region = Rect2(96, 64, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gxr2e"]
 animations = [{
@@ -105,6 +133,14 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dan2s")
+}],
+"loop": false,
+"name": &"landed",
+"speed": 5.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7ofbe"]
@@ -114,6 +150,10 @@ region = Rect2(0, 64, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_7k72v"]
 atlas = ExtResource("5_7j3kf")
 region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvds4"]
+atlas = ExtResource("5_7j3kf")
+region = Rect2(96, 64, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7bd6v"]
 animations = [{
@@ -127,6 +167,14 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yvds4")
+}],
+"loop": false,
+"name": &"landed",
+"speed": 5.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0bhdp"]
@@ -136,6 +184,10 @@ region = Rect2(0, 64, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_gch1u"]
 atlas = ExtResource("6_5uais")
 region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0gdya"]
+atlas = ExtResource("6_5uais")
+region = Rect2(96, 64, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vv42o"]
 animations = [{
@@ -148,6 +200,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0gdya")
+}],
+"loop": false,
+"name": &"landed",
 "speed": 5.0
 }]
 
@@ -330,8 +390,8 @@ toggle_mode = true
 position = Vector2(16, 16)
 rotation = -3.0828094
 sprite_frames = SubResource("SpriteFrames_vk8p6")
+animation = &"landed"
 autoplay = "default"
-frame_progress = 0.3851041
 
 [node name="Button2" type="Button" parent="Buttons"]
 layout_mode = 1
@@ -349,8 +409,8 @@ toggle_mode = true
 position = Vector2(16, 16)
 rotation = -0.625524
 sprite_frames = SubResource("SpriteFrames_rj0se")
+animation = &"landed"
 autoplay = "default"
-frame_progress = 0.47202173
 
 [node name="Button3" type="Button" parent="Buttons"]
 layout_mode = 0
@@ -367,8 +427,8 @@ toggle_mode = true
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="Buttons/Button3"]
 position = Vector2(16, 16)
 sprite_frames = SubResource("SpriteFrames_gxr2e")
+animation = &"landed"
 autoplay = "default"
-frame_progress = 0.80532146
 
 [node name="Button4" type="Button" parent="Buttons"]
 layout_mode = 0
@@ -386,8 +446,8 @@ toggle_mode = true
 position = Vector2(16, 16)
 rotation = 0.7719792
 sprite_frames = SubResource("SpriteFrames_7bd6v")
+animation = &"landed"
 autoplay = "default"
-frame_progress = 0.25496465
 
 [node name="Button5" type="Button" parent="Buttons"]
 layout_mode = 0
@@ -405,8 +465,8 @@ toggle_mode = true
 position = Vector2(16, 16)
 rotation = 1.5860636
 sprite_frames = SubResource("SpriteFrames_vv42o")
+animation = &"landed"
 autoplay = "default"
-frame_progress = 0.50056165
 
 [node name="StatCard" parent="." instance=ExtResource("1_0oen6")]
 unique_name_in_owner = true
@@ -451,6 +511,7 @@ position = Vector2(183, 352)
 position = Vector2(219, 352)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+unique_name_in_owner = true
 offset = Vector2(160, 90)
 position_smoothing_enabled = true
 
