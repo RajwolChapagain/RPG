@@ -2,7 +2,7 @@ extends Control
 class_name CharacterSelectionScreen
 
 var selected_indices = []
-const COUNT_LABEL_FORMAT: String = '(%s/4)'
+const COUNT_LABEL_FORMAT: String = '[%s/4]'
 signal characters_selected(names)
 @export var character_stats: Array[BaseStats]
 
