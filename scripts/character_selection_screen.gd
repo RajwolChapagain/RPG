@@ -130,7 +130,7 @@ func play_landed_animation() -> void:
 func place_rock() -> void:
 	var unselected_index = range(5).filter(func (x): return x not in selected_indices)[0]
 	%SharpRock.global_position = %FinalPositionMarkers.get_child(unselected_index).global_position - Vector2(0, 8)
-	%Buttons.get_child(unselected_index).top_level = true
+	%Buttons.get_child(unselected_index).get_child(0).z_index = 2
 	%SharpRock.top_level = true
 
 func play_fade_out_animation() -> void:

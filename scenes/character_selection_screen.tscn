@@ -211,22 +211,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Animation" id="Animation_rj0se"]
-resource_name = "label_slide_in"
-length = 4.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("VBoxContainer:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 4),
-"transitions": PackedFloat32Array(0.5, 1),
-"update": 0,
-"values": [Vector2(101, -112), Vector2(101, 10)]
-}
-
 [sub_resource type="Animation" id="Animation_76onp"]
 length = 0.001
 tracks/0/type = "value"
@@ -254,21 +238,6 @@ tracks/1/keys = {
 "values": [Vector2(160, 90)]
 }
 
-[sub_resource type="Animation" id="Animation_wonia"]
-resource_name = "label_slide_out"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("VBoxContainer:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.5, 1),
-"update": 0,
-"values": [Vector2(101, 10), Vector2(101, -36)]
-}
-
 [sub_resource type="Animation" id="Animation_gxr2e"]
 resource_name = "camera_follow"
 length = 2.0
@@ -283,6 +252,37 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(160, 90), Vector2(160, 270), Vector2(160, 320), Vector2(160, 270)]
+}
+
+[sub_resource type="Animation" id="Animation_rj0se"]
+resource_name = "label_slide_in"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(101, -112), Vector2(101, 10)]
+}
+
+[sub_resource type="Animation" id="Animation_wonia"]
+resource_name = "label_slide_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(101, 10), Vector2(101, -36)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wonia"]
@@ -496,19 +496,19 @@ autoplay = "label_slide_in"
 unique_name_in_owner = true
 
 [node name="Marker2D" type="Marker2D" parent="FinalPositionMarkers"]
-position = Vector2(35, 352)
+position = Vector2(67, 321)
 
 [node name="Marker2D2" type="Marker2D" parent="FinalPositionMarkers"]
-position = Vector2(91, 352)
+position = Vector2(110, 296)
 
 [node name="Marker2D3" type="Marker2D" parent="FinalPositionMarkers"]
-position = Vector2(144, 352)
+position = Vector2(131, 341)
 
 [node name="Marker2D4" type="Marker2D" parent="FinalPositionMarkers"]
-position = Vector2(183, 352)
+position = Vector2(158, 296)
 
 [node name="Marker2D5" type="Marker2D" parent="FinalPositionMarkers"]
-position = Vector2(219, 352)
+position = Vector2(190, 321)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 unique_name_in_owner = true
@@ -517,6 +517,7 @@ position_smoothing_enabled = true
 
 [node name="SharpRock" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
+z_index = 3
 position = Vector2(35, 344)
 sprite_frames = SubResource("SpriteFrames_7ofbe")
 animation = &"flow_blood"
