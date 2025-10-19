@@ -482,7 +482,6 @@ stats = null
 
 [node name="Shroud" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-visible = false
 position = Vector2(160, 90)
 texture = ExtResource("16_rj0se")
 
