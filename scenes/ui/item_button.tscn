@@ -6,11 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://ct6h7krc0a1f2" path="res://assets/sprites/ui/inventory/consumable_indicator.png" id="4_ysded"]
 
 [node name="ItemButton" type="Button"]
-custom_minimum_size = Vector2(0, 20)
+custom_minimum_size = Vector2(0, 16)
 offset_right = 165.0
-offset_bottom = 20.0
+offset_bottom = 16.0
 size_flags_horizontal = 3
 theme = ExtResource("1_krm74")
+theme_type_variation = &"ItemButton"
 script = ExtResource("1_f7n08")
 equippable_icon = ExtResource("3_krm74")
 consumable_icon = ExtResource("4_ysded")
@@ -26,29 +27,41 @@ grow_vertical = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_right = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="TypeIndicator" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="TypeIndicator" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 expand_mode = 2
 stretch_mode = 3
 
-[node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+theme_override_font_sizes/font_size = 8
+vertical_alignment = 1
 
-[node name="CountLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="CountLabel" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 

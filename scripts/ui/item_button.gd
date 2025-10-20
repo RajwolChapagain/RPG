@@ -34,10 +34,12 @@ func initialize(item: Item, count: int) -> void:
 	self.count = count
 
 func _on_focus_entered() -> void:
-	show_stats()
+	#show_stats()
+	pass
 
 func _on_focus_exited() -> void:
-	hide_stats()
+	#hide_stats()
+	pass
 	
 func show_stats() -> void:
 	%StatLabel.visible = true
