@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3puc22lnabx6"]
+
+[ext_resource type="Theme" uid="uid://5dapp0d0f0x5" path="res://resources/ui.tres" id="1_i8wtb"]
+[ext_resource type="Script" uid="uid://cst62a2c03scy" path="res://scripts/ui/item_stats_panel.gd" id="2_nmq06"]
+
+[node name="ItemStatsPanel" type="Control"]
+top_level = true
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("1_i8wtb")
+theme_type_variation = &"BorderedPanel"
+script = ExtResource("2_nmq06")
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 1
+offset_right = 120.0
+offset_bottom = 12.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 8
+autowrap_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = -4
+theme_override_constants/margin_top = -4
+theme_override_constants/margin_right = -4
+theme_override_constants/margin_bottom = -4
+
+[node name="Panel" type="Panel" parent="Label/MarginContainer"]
+show_behind_parent = true
+layout_mode = 2
+theme_type_variation = &"BorderedPanel"

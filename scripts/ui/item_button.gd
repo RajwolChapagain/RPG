@@ -1,6 +1,8 @@
 extends Button
 class_name ItemButton
 
+@export var stats_panel_offset: Vector2 = Vector2(60, 15)
+
 @export var equippable_icon: Texture2D
 @export var consumable_icon: Texture2D
 
@@ -15,8 +17,8 @@ class_name ItemButton
 			count = value
 			%CountLabel.text = str(count)
 
-@onready var stat_text_height: float = 20
-@onready var original_size = size
+@export var item_stats_panel_scene: PackedScene
+var item_stats_panel: ItemStatsPanel
 
 signal item_selected
 
@@ -24,7 +26,6 @@ func _ready() -> void:
 	if item != null:
 		%NameLabel.text = item.name
 		%CountLabel.text = str(count)
-		initialize_stat_label()
 		initialize_type_indicator()
 	else:
 		push_error("Uninitialized Item Button addded to scene")
@@ -34,26 +35,26 @@ func initialize(item: Item, count: int) -> void:
 	self.count = count
 
 func _on_focus_entered() -> void:
-	#show_stats()
-	pass
+	show_stats()
 
 func _on_focus_exited() -> void:
-	#hide_stats()
-	pass
+	hide_stats()
 	
 func show_stats() -> void:
-	%StatLabel.visible = true
-	set_custom_minimum_size(Vector2(get_minimum_size().x, get_minimum_size().y + stat_text_height))
+	if item_stats_panel == null:
+		item_stats_panel = item_stats_panel_scene.instantiate()
+		item_stats_panel.current_item = item
+		item_stats_panel.global_position = global_position + stats_panel_offset
+		add_child(item_stats_panel)
+	else:
+		item_stats_panel.global_position = global_position + stats_panel_offset
+		item_stats_panel.visible = true
 	
 func hide_stats() -> void:
-	%StatLabel.visible = false
-	set_custom_minimum_size(Vector2(original_size.x, original_size.y))
+	item_stats_panel.visible = false
 
 func get_item_name() -> String:
 	return str(item)
-	
-func initialize_stat_label() -> void:
-	%StatLabel.text = item.get_stats_as_string()
 
 func initialize_type_indicator() -> void:
 	if item.type == Item.ItemType.EQUIPPABLE:
