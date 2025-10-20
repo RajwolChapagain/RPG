@@ -5,7 +5,8 @@ extends Node
 @export var rare_items: Array[Item]
 @export var legendary_items: Array[Item]
 @export var mythical_items: Array[Item]
-	
+@export var item_button_scene: PackedScene
+
 func drop_items(items: Array[Item]) -> void:
 	GameManager.add_items_to_inventory(items)
 	display_items(items)
@@ -29,9 +30,10 @@ func drop_random_items(rarity_modifier: float = 0.0, item_count: int = 1) -> voi
 
 func display_items(items: Array[Item]) -> void:
 	for i in range(len(items)):
-		var item_label = Label.new()
-		item_label.text = items[i].name
-		%ItemsContainer.add_child(item_label)
+		var item_button: ItemButton = item_button_scene.instantiate()
+		item_button.initialize(items[i], 1)
+		%ItemsContainer.add_child(item_button)
+		
 	%ItemDropPanel.visible = true
 	%ConfirmButton.grab_focus()
 	
