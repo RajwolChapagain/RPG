@@ -3,15 +3,15 @@
 [ext_resource type="Script" uid="uid://be6kcyoah1tit" path="res://scripts/resource_scripts/portrait_database.gd" id="1_trh0s"]
 [ext_resource type="Texture2D" uid="uid://en0teytc2egu" path="res://assets/sprites/ui/knight_portrait.png" id="2_jscrr"]
 [ext_resource type="Texture2D" uid="uid://ykdf0ync8jll" path="res://assets/sprites/ui/cleric_portrait.png" id="3_isgnb"]
+[ext_resource type="Texture2D" uid="uid://bg2fwew48se0h" path="res://assets/sprites/ui/josephine_portrait.PNG" id="3_jscrr"]
 [ext_resource type="Texture2D" uid="uid://dg4kpgvnw0v7l" path="res://assets/sprites/ui/mage_portrait.png" id="4_wosm0"]
-[ext_resource type="Texture2D" uid="uid://cyhqea8xdkv1t" path="res://assets/sprites/ui/lady_portrait_placeholder.png" id="5_r8l88"]
 [ext_resource type="Texture2D" uid="uid://kbicjjivguhm" path="res://assets/sprites/ui/archer_portrait_placeholder.png" id="6_5m5pu"]
 
 [resource]
 script = ExtResource("1_trh0s")
 sprite_dictionary = Dictionary[String, Texture2D]({
 "Einar": ExtResource("6_5m5pu"),
-"Josephine": ExtResource("5_r8l88"),
+"Josephine": ExtResource("3_jscrr"),
 "Lachlan": ExtResource("4_wosm0"),
 "Magda": ExtResource("3_isgnb"),
 "Rachelle": ExtResource("2_jscrr")
