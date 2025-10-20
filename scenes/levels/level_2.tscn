@@ -1,12 +1,10 @@
-[gd_scene load_steps=9 format=4 uid="uid://5dv0uh58ql2b"]
+[gd_scene load_steps=8 format=4 uid="uid://5dv0uh58ql2b"]
 
 [ext_resource type="PackedScene" uid="uid://bitedxhspi8i5" path="res://scenes/dual_grid.tscn" id="1_j2425"]
 [ext_resource type="Script" uid="uid://dy8orfdjxmcdv" path="res://scripts/level.gd" id="1_l37oo"]
 [ext_resource type="PackedScene" uid="uid://ccy0aydyv2sxd" path="res://scenes/enemy.tscn" id="2_g2h2n"]
 [ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="3_fiq81"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fiq81"]
-load_path = "res://.godot/imported/goblin_placeholder.png-24702c0ef7f9d03556ee409ef613b86b.ctex"
+[ext_resource type="Texture2D" uid="uid://db5o8hv0puo2c" path="res://assets/sprites/monsters/smallmonster2.PNG" id="5_l37oo"]
 
 [sub_resource type="Resource" id="Resource_l37oo"]
 script = ExtResource("3_fiq81")
@@ -14,10 +12,7 @@ name = "Goblin"
 attack_damage = 40
 max_hp = 80
 hp = 100
-battle_sprite = SubResource("CompressedTexture2D_fiq81")
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qpwj6"]
-load_path = "res://.godot/imported/goblin_placeholder.png-24702c0ef7f9d03556ee409ef613b86b.ctex"
+battle_sprite = ExtResource("5_l37oo")
 
 [sub_resource type="Resource" id="Resource_ibugp"]
 script = ExtResource("3_fiq81")
@@ -25,7 +20,7 @@ name = "Goblin"
 attack_damage = 30
 max_hp = 200
 hp = 200
-battle_sprite = SubResource("CompressedTexture2D_qpwj6")
+battle_sprite = ExtResource("5_l37oo")
 
 [node name="Level2" type="Node"]
 script = ExtResource("1_l37oo")

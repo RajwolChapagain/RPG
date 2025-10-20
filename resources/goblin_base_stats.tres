@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="BaseStats" load_steps=3 format=3 uid="uid://c46k2b5fxukoi"]
 
-[ext_resource type="Texture2D" uid="uid://onsf4e7pukfl" path="res://assets/sprites/goblin_placeholder.png" id="1_2gk5n"]
+[ext_resource type="Texture2D" uid="uid://c7b6aq23nha7x" path="res://assets/sprites/monsters/smallmonster1.PNG" id="1_blw5i"]
 [ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="1_by2lk"]
 
 [resource]
@@ -10,4 +10,4 @@ attack_damage = 10
 max_hp = 100
 hp = 100
 dodge = 70
-battle_sprite = ExtResource("1_2gk5n")
+battle_sprite = ExtResource("1_blw5i")
