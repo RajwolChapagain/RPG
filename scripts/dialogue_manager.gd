@@ -2,6 +2,7 @@ extends Node
 
 @export var dialogue_ui_scene: PackedScene
 @export var sprite_database: PortraitDatabase
+@export_file("*.csv") var dialogue_file_path: String
 
 enum SIDE { LEFT, RIGHT }
 var dialogue_file = null
@@ -9,8 +10,10 @@ var last_side = SIDE.LEFT
 var last_sprite_name = ""
 var dialogue_ui = null
 var dialogue_ongoing = false
+var current_dialogue_line_number: int = 0
 
 func _ready() -> void:
+	dialogue_file = FileAccess.open(dialogue_file_path, FileAccess.READ)
 	dialogue_ui = dialogue_ui_scene.instantiate()
 	%CanvasLayer.add_child(dialogue_ui)
 	dialogue_ui.visible = false
@@ -19,23 +22,21 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("advance_dialogue"):
 		advance_dialogue()
 		
-func load_dialogue(file_path: String) -> void:
-	if not FileAccess.file_exists(file_path):
-		printerr("File %s does not exist!" % file_path)
-		return
-	
-	dialogue_file = FileAccess.open(file_path, FileAccess.READ)
+func load_dialogue(dialogue_start_line_number: int) -> void:
+	current_dialogue_line_number = 0
+	while current_dialogue_line_number < dialogue_start_line_number - 1: # Positions cursor right above the starting line
+		dialogue_file.get_csv_line()
+		current_dialogue_line_number += 1
+		
 	start_dialogue()
 
 func advance_dialogue() -> void:
 	if not dialogue_ongoing:
 		return
-		
-	if dialogue_file == null:
-		printerr("dialogue_file is null! Set dialogue_file to a valid value before invoking me.")
-		return
-		
+
+	
 	var line = dialogue_file.get_csv_line()
+	current_dialogue_line_number += 1
 	
 	if line.size() == 1:
 		end_dialogue()

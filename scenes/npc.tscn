@@ -8,7 +8,7 @@ size = Vector2(32, 32)
 
 [node name="NPC" type="Area2D"]
 script = ExtResource("1_5l8ac")
-dialogue_file_path = "uid://bnxt3xqmmj8ls"
+dialogue_start_line_number = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_8eveh")
