@@ -1,8 +1,10 @@
 L:magda_base,Hello.,,Comments
-R:lachlan_base,Hi!,,Dialogue starts from the very first line!
+R:lachlan_base,Hi!,,
 ,How are you doing?,,Prefix the portrait you want with an L or an R followed by a colon to set the side
 L:magda_base,I'm okay.,,"If the first column of the row doesn't contain a desired side and portrait, it assumes the last one set"
 ,"How about you, Rachelle?",,Everything after the second column is ignored. You can use it to leave comments like these
 R:rachelle_base,Who? Me?,,The dialogue ends when it gets to an empty row
 ,I'm doing great!,,
-,Thanks for asking!,,
+,Thanks for asking!,,X = End of dialogue (Must be placed in column A)
+X,,,
+L:magda_base,*!!!,,

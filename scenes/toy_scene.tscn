@@ -18,4 +18,3 @@ visible = false
 
 [node name="NPC" parent="." instance=ExtResource("4_7vpqp")]
 position = Vector2(186, 107)
-dialogue_start_line_number = 4

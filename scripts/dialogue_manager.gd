@@ -24,6 +24,7 @@ func _input(event: InputEvent) -> void:
 		
 func load_dialogue(dialogue_start_line_number: int) -> void:
 	current_dialogue_line_number = 0
+	# Potentially slow implementation. Profile for performance issues if ever slow
 	while current_dialogue_line_number < dialogue_start_line_number - 1: # Positions cursor right above the starting line
 		dialogue_file.get_csv_line()
 		current_dialogue_line_number += 1
@@ -38,7 +39,7 @@ func advance_dialogue() -> void:
 	var line = dialogue_file.get_csv_line()
 	current_dialogue_line_number += 1
 	
-	if line.size() == 1:
+	if line[0] == 'x' or line[0] == 'X':
 		end_dialogue()
 		return
 		
