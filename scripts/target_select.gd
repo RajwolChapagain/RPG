@@ -34,9 +34,6 @@ func select_previous() -> void:
 	selected = (selected - 1) % len(targets)
 
 func mark_selected(index) -> void:
-	while (index >= len(targets)):
-		index -= 1
-		
 	%Pointer.position.x = targets[index].position.x
 	%Pointer.position.y = targets[index].position.y - pointer_y_offset
 	%Pointer.visible = true
@@ -48,7 +45,11 @@ func activate(post_selection_callable: Callable) -> void:
 	assert(len(targets) != 0)
 	active = true
 	current_callable = post_selection_callable
-	mark_selected(selected)
+	if selected >= len(targets):
+		while (selected >= len(targets)):
+			selected -= 1
+	else:
+		mark_selected(selected)
 	
 func deactivate() -> void:
 	active = false
