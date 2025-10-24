@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://hqlhygr4xwpx"]
+[gd_scene load_steps=28 format=3 uid="uid://hqlhygr4xwpx"]
 
 [ext_resource type="Script" uid="uid://gr353ga32m08" path="res://scripts/battler.gd" id="1_1v4t1"]
 [ext_resource type="Texture2D" uid="uid://bvh0dl870ttbp" path="res://assets/sprites/pointer.png" id="2_foo5t"]
@@ -58,26 +58,50 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("DamageLabel:position")
+tracks/4/path = NodePath("Sprite2D:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-20, -11.5)]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Sprite2D:modulate")
+tracks/5/path = NodePath("DamageLabel:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Vector2(-9, -6)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("DodgedLabel:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("DodgedLabel:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-34.5, -11.5)]
 }
 
 [sub_resource type="Animation" id="Animation_oys1h"]
@@ -133,7 +157,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(0.25, 1),
 "update": 0,
-"values": [Vector2(-20, -11.5), Vector2(-20, -30)]
+"values": [Vector2(-9, -6), Vector2(-9, -25)]
 }
 
 [sub_resource type="Animation" id="Animation_dtvjg"]
@@ -168,12 +192,41 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_csexs"]
+resource_name = "dodged"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DodgedLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(0.25, 0.5, 4),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DodgedLabel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Vector2(-34.5, -11.5), Vector2(-34.5, -25)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fmb78"]
 _data = {
 &"RESET": SubResource("Animation_iakmq"),
 &"attack": SubResource("Animation_oys1h"),
 &"damaged": SubResource("Animation_kl8h0"),
 &"die": SubResource("Animation_at1d5"),
+&"dodged": SubResource("Animation_csexs"),
 &"flash_white": SubResource("Animation_dtvjg")
 }
 
@@ -185,8 +238,13 @@ radius = 16.0
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_csexs"]
 animation = &"flash_white"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_di6md"]
+animation = &"dodged"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8ciys"]
 animation = &"damaged"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_3o8jg"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_at1d5"]
 animation = &"RESET"
@@ -226,19 +284,23 @@ graph_offset = Vector2(157, 22)
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_qt5w3"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_at1d5"]
-graph_offset = Vector2(-292.9892, 114.42511)
+graph_offset = Vector2(-118.329285, 111.27066)
 nodes/output/position = Vector2(880, 220)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_di6md")
-nodes/StateMachine/position = Vector2(160, 120)
+nodes/StateMachine/position = Vector2(0, 100)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_8ciys")
 nodes/Animation/position = Vector2(160, 440)
 "nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_csexs")
-"nodes/Animation 2/position" = Vector2(180, 640)
+"nodes/Animation 2/position" = Vector2(160, 620)
 nodes/Add2/node = SubResource("AnimationNodeAdd2_at1d5")
 nodes/Add2/position = Vector2(420, 400)
 nodes/TakeDamage/node = SubResource("AnimationNodeOneShot_qt5w3")
 nodes/TakeDamage/position = Vector2(640, 200)
-node_connections = [&"output", 0, &"TakeDamage", &"Add2", 0, &"Animation", &"Add2", 1, &"Animation 2", &"TakeDamage", 0, &"StateMachine", &"TakeDamage", 1, &"Add2"]
+"nodes/Animation 3/node" = SubResource("AnimationNodeAnimation_di6md")
+"nodes/Animation 3/position" = Vector2(260, 280)
+nodes/Dodge/node = SubResource("AnimationNodeOneShot_3o8jg")
+nodes/Dodge/position = Vector2(440, 120)
+node_connections = [&"output", 0, &"TakeDamage", &"Add2", 0, &"Animation", &"Add2", 1, &"Animation 2", &"TakeDamage", 0, &"Dodge", &"TakeDamage", 1, &"Add2", &"Dodge", 0, &"StateMachine", &"Dodge", 1, &"Animation 3"]
 
 [node name="Battler" type="Area2D"]
 script = ExtResource("1_1v4t1")
@@ -268,21 +330,21 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
+offset_left = -9.0
+offset_top = -6.0
+offset_right = 9.0
+offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_at1d5")
 theme_type_variation = &"ProgressLabel"
-theme_override_colors/font_color = Color(0.5464087, 3.85046e-07, 2.4065375e-07, 1)
+theme_override_colors/font_color = Color(0.68, 0, 0.01133316, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 6
 theme_override_font_sizes/font_size = 12
 text = "-30"
 horizontal_alignment = 1
-vertical_alignment = 1
+vertical_alignment = 2
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 unique_name_in_owner = true
@@ -295,5 +357,31 @@ parameters/Add2/add_amount = 1.0
 parameters/TakeDamage/active = false
 parameters/TakeDamage/internal_active = false
 parameters/TakeDamage/request = 0
+parameters/Dodge/active = false
+parameters/Dodge/internal_active = false
+parameters/Dodge/request = 0
+
+[node name="DodgedLabel" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.5
+offset_top = -11.5
+offset_right = 34.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_at1d5")
+theme_type_variation = &"ProgressLabel"
+theme_override_colors/font_color = Color(0.66575336, 0.74, 0.4218, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 12
+text = "DODGED"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]

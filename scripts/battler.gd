@@ -21,7 +21,7 @@ func attack(target) -> void:
 func take_damage(damage: int, accuracy: int) -> void:
 	var true_dodge_chance = stats.dodge - accuracy
 	if randf() <= (true_dodge_chance / 100.0):
-		print('DODGED!!!')
+		%AnimationTree["parameters/Dodge/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
 		return
 		
 	var true_damage = clamp(damage - stats.defence, 0, damage)
