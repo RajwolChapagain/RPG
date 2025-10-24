@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://hqlhygr4xwpx"]
+[gd_scene load_steps=34 format=3 uid="uid://hqlhygr4xwpx"]
 
 [ext_resource type="Script" uid="uid://gr353ga32m08" path="res://scripts/battler.gd" id="1_1v4t1"]
 [ext_resource type="Texture2D" uid="uid://bvh0dl870ttbp" path="res://assets/sprites/pointer.png" id="2_foo5t"]
@@ -126,6 +126,30 @@ tracks/9/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(-34.5, -25)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("CriticalMissLabel:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("CriticalMissLabel:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-49.5, -11.5)]
 }
 
 [sub_resource type="Animation" id="Animation_oys1h"]
@@ -269,7 +293,35 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(0.25, 1),
 "update": 0,
-"values": [Vector2(-34.5, -11.5), Vector2(-34.5, -25)]
+"values": [Vector2(-46, -11.5), Vector2(-46, -25)]
+}
+
+[sub_resource type="Animation" id="Animation_qt5w3"]
+resource_name = "critical_miss"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CriticalMissLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(0.25, 4, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CriticalMissLabel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(0.25, 4),
+"update": 0,
+"values": [Vector2(-49.5, -11.5), Vector2(-49.5, -25)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fmb78"]
@@ -277,6 +329,7 @@ _data = {
 &"RESET": SubResource("Animation_iakmq"),
 &"attack": SubResource("Animation_oys1h"),
 &"critical_hit": SubResource("Animation_8ciys"),
+&"critical_miss": SubResource("Animation_qt5w3"),
 &"damaged": SubResource("Animation_kl8h0"),
 &"die": SubResource("Animation_at1d5"),
 &"dodged": SubResource("Animation_csexs"),
@@ -297,10 +350,15 @@ animation = &"dodged"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3o8jg"]
 animation = &"critical_hit"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_85bts"]
+animation = &"critical_miss"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8ciys"]
 animation = &"damaged"
 
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_85bts"]
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_ckif6"]
 
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_3o8jg"]
 
@@ -342,27 +400,31 @@ graph_offset = Vector2(157, 22)
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_qt5w3"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_at1d5"]
-graph_offset = Vector2(-251.48495, -169.2671)
-nodes/output/position = Vector2(980, 120)
+graph_offset = Vector2(-412.22894, 187.53055)
+nodes/output/position = Vector2(1040, 340)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_di6md")
-nodes/StateMachine/position = Vector2(-240, 40)
+nodes/StateMachine/position = Vector2(-200, 1800)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_8ciys")
 nodes/Animation/position = Vector2(-200, 500)
 "nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_csexs")
-"nodes/Animation 2/position" = Vector2(-80, 680)
+"nodes/Animation 2/position" = Vector2(-200, 760)
 nodes/Add2/node = SubResource("AnimationNodeAdd2_at1d5")
-nodes/Add2/position = Vector2(120, 560)
+nodes/Add2/position = Vector2(100, 460)
 nodes/TakeDamage/node = SubResource("AnimationNodeOneShot_qt5w3")
-nodes/TakeDamage/position = Vector2(360, 100)
+nodes/TakeDamage/position = Vector2(340, 400)
 "nodes/Animation 3/node" = SubResource("AnimationNodeAnimation_di6md")
-"nodes/Animation 3/position" = Vector2(-140, 320)
+"nodes/Animation 3/position" = Vector2(-200, 1020)
 nodes/Dodge/node = SubResource("AnimationNodeOneShot_3o8jg")
-nodes/Dodge/position = Vector2(160, 180)
+nodes/Dodge/position = Vector2(100, 960)
 "nodes/Animation 4/node" = SubResource("AnimationNodeAnimation_3o8jg")
-"nodes/Animation 4/position" = Vector2(520, 160)
+"nodes/Animation 4/position" = Vector2(-200, 1280)
 nodes/CriticalHit/node = SubResource("AnimationNodeOneShot_85bts")
-nodes/CriticalHit/position = Vector2(700, -20)
-node_connections = [&"output", 0, &"CriticalHit", &"Add2", 0, &"Animation", &"Add2", 1, &"Animation 2", &"TakeDamage", 0, &"Dodge", &"TakeDamage", 1, &"Add2", &"Dodge", 0, &"StateMachine", &"Dodge", 1, &"Animation 3", &"CriticalHit", 0, &"TakeDamage", &"CriticalHit", 1, &"Animation 4"]
+nodes/CriticalHit/position = Vector2(580, 380)
+"nodes/Animation 5/node" = SubResource("AnimationNodeAnimation_85bts")
+"nodes/Animation 5/position" = Vector2(-200, 1540)
+nodes/CriticalMiss/node = SubResource("AnimationNodeOneShot_ckif6")
+nodes/CriticalMiss/position = Vector2(800, 340)
+node_connections = [&"output", 0, &"CriticalMiss", &"Add2", 0, &"Animation", &"Add2", 1, &"Animation 2", &"TakeDamage", 0, &"Dodge", &"TakeDamage", 1, &"Add2", &"Dodge", 0, &"StateMachine", &"Dodge", 1, &"Animation 3", &"CriticalHit", 0, &"TakeDamage", &"CriticalHit", 1, &"Animation 4", &"CriticalMiss", 0, &"CriticalHit", &"CriticalMiss", 1, &"Animation 5"]
 
 [node name="Battler" type="Area2D"]
 script = ExtResource("1_1v4t1")
@@ -425,6 +487,9 @@ parameters/Dodge/request = 0
 parameters/CriticalHit/active = false
 parameters/CriticalHit/internal_active = false
 parameters/CriticalHit/request = 0
+parameters/CriticalMiss/active = false
+parameters/CriticalMiss/internal_active = false
+parameters/CriticalMiss/request = 0
 
 [node name="DodgedLabel" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -450,6 +515,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CriticalHitLabel" type="Label" parent="."]
+unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
 anchors_preset = 8
 anchor_left = 0.5
@@ -458,7 +524,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -34.5
 offset_top = -25.0
-offset_right = 34.5
+offset_right = 57.5
 offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -468,7 +534,31 @@ theme_override_colors/font_color = Color(0, 0.84440076, 0.25305548, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 6
 theme_override_font_sizes/font_size = 12
-text = "Critical Hit!!!"
+text = "CRITICAL HIT!!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CriticalMissLabel" type="Label" parent="."]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.5
+offset_top = -11.5
+offset_right = 49.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_at1d5")
+theme_type_variation = &"ProgressLabel"
+theme_override_colors/font_color = Color(0.6666667, 0.7411765, 0.42352942, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 12
+text = "CRITICAL MISS!!!"
 horizontal_alignment = 1
 vertical_alignment = 1
 

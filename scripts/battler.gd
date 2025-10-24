@@ -20,13 +20,18 @@ func attack(target) -> void:
 	target.take_damage(true_damage, stats.accuracy, critting)
 	
 func take_damage(damage: int, accuracy: int, critting: bool = false) -> void:
-	if critting:
-		%AnimationTree['parameters/CriticalHit/request'] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
+
 
 	var true_dodge_chance = stats.dodge - accuracy
 	if randf() <= (true_dodge_chance / 100.0):
-		%AnimationTree["parameters/Dodge/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
+		if critting:
+			%AnimationTree["parameters/CriticalMiss/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
+		else:
+			%AnimationTree["parameters/Dodge/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
 		return
+
+	if critting:
+		%AnimationTree['parameters/CriticalHit/request'] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
 		
 	var true_damage = clamp(damage - stats.defence, 0, damage)
 	stats.hp -= true_damage
