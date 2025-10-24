@@ -15,7 +15,7 @@ func attack(target) -> void:
 		true_damage += crit_damage
 		print("CRITICAL HIT!!!")
 		
-	$AnimationPlayer.play("attack")
+	%AnimationTree.set('parameters/StateMachine/conditions/attacking', true) 
 	target.take_damage(true_damage, stats.accuracy)
 	
 func take_damage(damage: int, accuracy: int) -> void:
@@ -27,11 +27,11 @@ func take_damage(damage: int, accuracy: int) -> void:
 	var true_damage = clamp(damage - stats.defence, 0, damage)
 	stats.hp -= true_damage
 	stats.hp = clamp(stats.hp, 0, INF)
+	%DamageLabel.text = str(-true_damage)
+	%AnimationTree["parameters/TakeDamage/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
 	
 	if (stats.hp == 0):
 		die()
-	else:
-		$AnimationPlayer.play("flash_white")
 
 func mark_active():
 	$Pointer.visible = true
@@ -43,4 +43,8 @@ func die():
 	if is_alive:
 		battler_died.emit(stats.name)
 		is_alive = false
-		$Sprite2D.self_modulate = Color.DARK_RED
+		%AnimationTree["parameters/StateMachine/conditions/dead"] = true
+
+func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "attack":
+		%AnimationTree.set('parameters/StateMachine/conditions/attacking', false)

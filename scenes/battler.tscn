@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://hqlhygr4xwpx"]
+[gd_scene load_steps=25 format=3 uid="uid://hqlhygr4xwpx"]
 
 [ext_resource type="Script" uid="uid://gr353ga32m08" path="res://scripts/battler.gd" id="1_1v4t1"]
 [ext_resource type="Texture2D" uid="uid://bvh0dl870ttbp" path="res://assets/sprites/pointer.png" id="2_foo5t"]
 [ext_resource type="Texture2D" uid="uid://c3ga2aubvh5j8" path="res://assets/sprites/archer_draft.png" id="2_fyfas"]
+[ext_resource type="Theme" uid="uid://5dapp0d0f0x5" path="res://resources/ui.tres" id="4_at1d5"]
 
 [sub_resource type="Animation" id="Animation_iakmq"]
 length = 0.001
@@ -42,6 +43,42 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DamageLabel:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DamageLabel:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-20, -11.5)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite2D:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_oys1h"]
 resource_name = "attack"
@@ -54,7 +91,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
+"transitions": PackedFloat32Array(0.5, 2, 1),
 "update": 0,
 "values": [0.0, 0.785398, 0.0]
 }
@@ -66,14 +103,42 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
+"transitions": PackedFloat32Array(0.5, 2, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_kl8h0"]
+resource_name = "damaged"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DamageLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(0.25, 4, 0.5),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DamageLabel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Vector2(-20, -11.5), Vector2(-20, -30)]
+}
+
 [sub_resource type="Animation" id="Animation_dtvjg"]
 resource_name = "flash_white"
-length = 0.3
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -81,21 +146,99 @@ tracks/0/path = NodePath("Sprite2D:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.166667, 0.3),
-"transitions": PackedFloat32Array(1, 2, 1),
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(0.25, 4, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(100, 100, 100, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_at1d5"]
+resource_name = "die"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fmb78"]
 _data = {
 &"RESET": SubResource("Animation_iakmq"),
 &"attack": SubResource("Animation_oys1h"),
+&"damaged": SubResource("Animation_kl8h0"),
+&"die": SubResource("Animation_at1d5"),
 &"flash_white": SubResource("Animation_dtvjg")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_juhay"]
 radius = 16.0
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_at1d5"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_csexs"]
+animation = &"flash_white"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8ciys"]
+animation = &"damaged"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_at1d5"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kl8h0"]
+animation = &"attack"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qt5w3"]
+animation = &"die"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_csexs"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_at1d5"]
+advance_mode = 2
+advance_condition = &"attacking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kl8h0"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_di6md"]
+advance_mode = 2
+advance_condition = &"dead"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_di6md"]
+states/RESET/node = SubResource("AnimationNodeAnimation_at1d5")
+states/RESET/position = Vector2(457, 85)
+states/Start/position = Vector2(320, 85)
+states/attack/node = SubResource("AnimationNodeAnimation_kl8h0")
+states/attack/position = Vector2(457, 187)
+states/die/node = SubResource("AnimationNodeAnimation_qt5w3")
+states/die/position = Vector2(590, 90)
+transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_csexs"), "RESET", "attack", SubResource("AnimationNodeStateMachineTransition_at1d5"), "attack", "RESET", SubResource("AnimationNodeStateMachineTransition_kl8h0"), "RESET", "die", SubResource("AnimationNodeStateMachineTransition_di6md")]
+graph_offset = Vector2(157, 22)
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_qt5w3"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_at1d5"]
+graph_offset = Vector2(-292.9892, 114.42511)
+nodes/output/position = Vector2(880, 220)
+nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_di6md")
+nodes/StateMachine/position = Vector2(160, 120)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_8ciys")
+nodes/Animation/position = Vector2(160, 440)
+"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_csexs")
+"nodes/Animation 2/position" = Vector2(180, 640)
+nodes/Add2/node = SubResource("AnimationNodeAdd2_at1d5")
+nodes/Add2/position = Vector2(420, 400)
+nodes/TakeDamage/node = SubResource("AnimationNodeOneShot_qt5w3")
+nodes/TakeDamage/position = Vector2(640, 200)
+node_connections = [&"output", 0, &"TakeDamage", &"Add2", 0, &"Animation", &"Add2", 1, &"Animation 2", &"TakeDamage", 0, &"StateMachine", &"TakeDamage", 1, &"Add2"]
 
 [node name="Battler" type="Area2D"]
 script = ExtResource("1_1v4t1")
@@ -109,9 +252,48 @@ position = Vector2(0, -20)
 texture = ExtResource("2_foo5t")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_fmb78")
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_juhay")
+
+[node name="DamageLabel" type="Label" parent="."]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_at1d5")
+theme_type_variation = &"ProgressLabel"
+theme_override_colors/font_color = Color(0.5464087, 3.85046e-07, 2.4065375e-07, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 12
+text = "-30"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+unique_name_in_owner = true
+root_node = NodePath("%AnimationTree/..")
+tree_root = SubResource("AnimationNodeBlendTree_at1d5")
+anim_player = NodePath("../AnimationPlayer")
+parameters/StateMachine/conditions/attacking = false
+parameters/StateMachine/conditions/dead = false
+parameters/Add2/add_amount = 1.0
+parameters/TakeDamage/active = false
+parameters/TakeDamage/internal_active = false
+parameters/TakeDamage/request = 0
+
+[connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]

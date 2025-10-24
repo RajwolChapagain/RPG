@@ -36,8 +36,6 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	update_ui()
-	if not players_turn and not enemy_is_attacking:
-		attack_random_player()
 		
 func update_ui() -> void:
 	var health_fields = [%HealthBarP1, %HealthBarP2, %HealthBarP3, %HealthBarP4]
@@ -68,7 +66,7 @@ func on_enemy_battler_died(enemy_name: String) -> void:
 	if alive_enemy_count == 0:
 		end_battle(true)
 	
-#region: initialization
+#region initialization
 func spawn_players() -> void:
 	for i in range(len(player_character_stats)):
 		var player_character = battler_player.instantiate()
@@ -95,15 +93,15 @@ func spawn_enemies() -> void:
 	
 func connect_player_animation_finished_signal() -> void:
 	for character in player_characters:
-		character.get_node("AnimationPlayer").animation_finished.connect(on_player_animation_finished)
+		character.get_node("AnimationTree").animation_finished.connect(on_player_animation_finished)
 
 func connect_enemy_animation_started_signal() -> void:
 	for enemy in enemies:
-		enemy.get_node("AnimationPlayer").animation_started.connect(on_enemy_animation_started)
+		enemy.get_node("AnimationTree").animation_started.connect(on_enemy_animation_started)
 		
 func connect_enemy_animation_finished_signal() -> void:
 	for enemy in enemies:
-		enemy.get_node("AnimationPlayer").animation_finished.connect(on_enemy_animation_finished)
+		enemy.get_node("AnimationTree").animation_finished.connect(on_enemy_animation_finished)
 		
 func on_player_animation_finished(animation: StringName) -> void:
 	if animation == "attack":
@@ -153,7 +151,7 @@ func initialize_hp_bar() -> void:
 	
 #endregion initialization
 
-#region: turntaking
+#region turntaking
 func advance_turn() -> void:
 	if players_turn:
 		if num_attacked == alive_player_count:
@@ -184,6 +182,7 @@ func advance_turn() -> void:
 			end_enemy_turn()
 		else:
 			update_active_battler(next_alive_enemy_index)
+		attack_random_player()
 
 func end_player_turn() -> void:
 	player_characters[active_index].mark_inactive()
@@ -201,6 +200,7 @@ func end_player_turn() -> void:
 	
 	update_active_battler(first_alive_enemy_index)
 	disable_attack_button()
+	attack_random_player()
 
 func end_enemy_turn() -> void:
 	enemies[active_index].mark_inactive()
@@ -212,9 +212,9 @@ func end_enemy_turn() -> void:
 	update_active_battler(first_attacker_index)
 	enable_attack_button()
 	
-#endregion: turntaking
+#endregion turntaking
 
-#region: attacking
+#region attacking
 
 ### Player Attacking ###
 
@@ -301,7 +301,7 @@ func get_random_alive_player():
 
 	return alive_players.pick_random()
 	
-#endregion: attacking
+#endregion attacking
 
 func end_battle(won: bool) -> void:
 	if won:
