@@ -11,14 +11,18 @@ func _ready() -> void:
 func attack(target) -> void:
 	var crit_damage = 30
 	var true_damage = stats.attack_damage
+	var critting = false
 	if (randf() <= (stats.crit / 100.0)):
 		true_damage += crit_damage
-		print("CRITICAL HIT!!!")
+		critting = true
 		
 	%AnimationTree.set('parameters/StateMachine/conditions/attacking', true) 
-	target.take_damage(true_damage, stats.accuracy)
+	target.take_damage(true_damage, stats.accuracy, critting)
 	
-func take_damage(damage: int, accuracy: int) -> void:
+func take_damage(damage: int, accuracy: int, critting: bool = false) -> void:
+	if critting:
+		%AnimationTree['parameters/CriticalHit/request'] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
+
 	var true_dodge_chance = stats.dodge - accuracy
 	if randf() <= (true_dodge_chance / 100.0):
 		%AnimationTree["parameters/Dodge/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
