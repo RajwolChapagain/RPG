@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://ccup1rh7u0hg3"]
+[gd_scene load_steps=51 format=4 uid="uid://ccup1rh7u0hg3"]
 
 [ext_resource type="PackedScene" uid="uid://23b01ifqxu4" path="res://scenes/ui/stat_card.tscn" id="1_0oen6"]
 [ext_resource type="Script" uid="uid://dg3cvamqwic2x" path="res://scripts/character_selection_screen.gd" id="1_jmy7a"]
@@ -14,9 +14,9 @@
 [ext_resource type="Resource" uid="uid://d3kyf2naa3duo" path="res://resources/mage_base_stats.tres" id="5_jxuks"]
 [ext_resource type="Texture2D" uid="uid://bkbfad4cbiqgk" path="res://assets/sprites/einar_spritesheet.png" id="6_5uais"]
 [ext_resource type="Resource" uid="uid://cym67rsdldl6j" path="res://resources/archer_base_stats.tres" id="6_jmy7a"]
+[ext_resource type="PackedScene" uid="uid://bitedxhspi8i5" path="res://scenes/dual_grid.tscn" id="9_gxr2e"]
 [ext_resource type="Texture2D" uid="uid://dxv0ckuh1llwr" path="res://assets/sprites/title_screen_placeholder.png" id="13_pevio"]
 [ext_resource type="Texture2D" uid="uid://doti88i48dtjf" path="res://assets/sprites/shroud.png" id="16_rj0se"]
-[ext_resource type="Texture2D" uid="uid://dn1yjjsnjl1er" path="res://assets/sprites/landing_backround.png" id="17_76onp"]
 [ext_resource type="Texture2D" uid="uid://d4imwuis4yrhi" path="res://assets/sprites/sharp_rock_spritesheet.png" id="18_wonia"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e4dtk"]
@@ -333,9 +333,10 @@ theme = ExtResource("1_o00rg")
 script = ExtResource("1_jmy7a")
 character_stats = Array[ExtResource("2_vk8p6")]([ExtResource("3_pevio"), ExtResource("3_sf8ac"), ExtResource("4_wk3ir"), ExtResource("5_jxuks"), ExtResource("6_jmy7a")])
 
-[node name="LandingBackground" type="Sprite2D" parent="."]
-position = Vector2(160, 270)
-texture = ExtResource("17_76onp")
+[node name="DualGrid" parent="." instance=ExtResource("9_gxr2e")]
+
+[node name="WorldGrid" parent="DualGrid" index="0"]
+tile_map_data = PackedByteArray("AAAAAAYAAAAAAAAAAAABAAYAAAAAAAAAAAACAAYAAAAAAAAAAAADAAYAAAAAAAAAAAAEAAYAAAAAAAAAAAAFAAYAAAAAAAAAAAAGAAYAAAAAAAAAAAAHAAYAAAAAAAAAAAAIAAYAAAAAAAAAAAAJAAYAAAAAAAAAAAAAAAcAAAABAAAAAAABAAcAAAABAAAAAAACAAcAAAABAAAAAAADAAcAAAABAAAAAAAEAAcAAAABAAAAAAAFAAcAAAABAAAAAAAGAAcAAAABAAAAAAAHAAcAAAABAAAAAAAIAAcAAAAAAAAAAAAJAAcAAAAAAAAAAAAAAAgAAAABAAAAAAABAAgAAAABAAAAAAACAAgAAAABAAAAAAADAAgAAAABAAAAAAAEAAgAAAABAAAAAAAFAAgAAAABAAAAAAAGAAgAAAABAAAAAAAHAAgAAAABAAAAAAAIAAgAAAAAAAAAAAAJAAgAAAAAAAAAAAAAAAkAAAABAAAAAAABAAkAAAABAAAAAAACAAkAAAABAAAAAAADAAkAAAABAAAAAAAEAAkAAAABAAAAAAAFAAkAAAABAAAAAAAGAAkAAAABAAAAAAAHAAkAAAABAAAAAAAIAAkAAAAAAAAAAAAJAAkAAAAAAAAAAAAAAAoAAAABAAAAAAABAAoAAAABAAAAAAACAAoAAAABAAAAAAADAAoAAAABAAAAAAAEAAoAAAABAAAAAAAFAAoAAAABAAAAAAAGAAoAAAABAAAAAAAHAAoAAAABAAAAAAAIAAoAAAAAAAAAAAAJAAoAAAAAAAAAAAAAAAsAAAABAAAAAAABAAsAAAABAAAAAAACAAsAAAABAAAAAAADAAsAAAABAAAAAAAEAAsAAAABAAAAAAAFAAsAAAABAAAAAAAGAAsAAAABAAAAAAAHAAsAAAABAAAAAAAIAAsAAAAAAAAAAAAJAAsAAAAAAAAAAAAAAAUAAAAAAAAAAAABAAUAAAAAAAAAAAACAAUAAAAAAAAAAAADAAUAAAAAAAAAAAAEAAUAAAAAAAAAAAAFAAUAAAAAAAAAAAAGAAUAAAAAAAAAAAAHAAUAAAAAAAAAAAAIAAUAAAAAAAAAAAAJAAUAAAAAAAAAAAD//wUAAAAAAAAAAAD//wYAAAAAAAAAAAD//wcAAAAAAAAAAAD//wgAAAAAAAAAAAD//wkAAAAAAAAAAAD//woAAAAAAAAAAAD//wsAAAAAAAAAAAD+/wsAAAAAAAAAAAD+/woAAAAAAAAAAAD+/wkAAAAAAAAAAAD+/wgAAAAAAAAAAAD+/wcAAAAAAAAAAAD+/wYAAAAAAAAAAAD+/wUAAAAAAAAAAAD+/wQAAAAAAAAAAAD//wQAAAAAAAAAAAAAAAQAAAAAAAAAAAABAAQAAAAAAAAAAAACAAQAAAAAAAAAAAADAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAAGAAQAAAAAAAAAAAAHAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAJAAQAAAAAAAAAAAA=")
 
 [node name="Background" type="AnimatedSprite2D" parent="."]
 position = Vector2(160, 90)
@@ -534,3 +535,5 @@ frame_progress = 1.0
 [connection signal="toggled" from="Buttons/Button4" to="." method="_on_button_4_toggled"]
 [connection signal="focus_entered" from="Buttons/Button5" to="." method="_on_button_5_focus_entered"]
 [connection signal="toggled" from="Buttons/Button5" to="." method="_on_button_5_toggled"]
+
+[editable path="DualGrid"]
