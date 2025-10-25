@@ -20,9 +20,6 @@ func load_level(level: int) -> void:
 	if level == 0:
 		load_character_selection_screen()
 		return
-	elif level == 1:
-		ItemDropManager.drop_random_items(0, 3)
-		ItemDropManager.drop_items([Item.new("Bajra", Item.ItemType.CONSUMABLE, [StatModifier.new('crit', '+', true, 10)])])
 		
 	current_level = levels[level - 1].instantiate()
 	party.global_position = current_level.get_node("PartyOriginMarker").global_position
