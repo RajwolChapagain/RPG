@@ -45,3 +45,6 @@ func add_items_to_inventory(items: Array[Item]) -> void:
 	assert(inventory_manager != null)
 	for item in items:
 		inventory_manager.add_item(item)
+		
+func is_alive(player_name: String) -> bool:
+	return player_name.to_lower() in get_alive_players().map(func (player): return player.stats.name.to_lower())

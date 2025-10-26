@@ -1,4 +1,4 @@
-L:magda_base,Hello.,,Comments
+L:magda_base/rachelle_base,Hello.,,Comments
 R:lachlan_base,Hi!,,
 ,How are you doing?,,Prefix the portrait you want with an L or an R followed by a colon to set the side
 L:magda_base,I'm okay.,,"If the first column of the row doesn't contain a desired side and portrait, it assumes the last one set"
