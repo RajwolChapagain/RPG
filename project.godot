@@ -87,6 +87,10 @@ pause={
 ]
 }
 
+[internationalization]
+
+rendering/root_node_auto_translate=false
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

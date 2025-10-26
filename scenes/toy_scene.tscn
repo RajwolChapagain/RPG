@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c71ubdaq0cf3b"]
+[gd_scene load_steps=9 format=3 uid="uid://c71ubdaq0cf3b"]
 
 [ext_resource type="Script" uid="uid://borbh1uoqw6ht" path="res://scripts/toy_scene.gd" id="1_048qh"]
 [ext_resource type="PackedScene" uid="uid://b6pcibljvig3f" path="res://scenes/party.tscn" id="2_i7sk5"]
@@ -6,13 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://4tpi2115bjdi" path="res://scenes/knight.tscn" id="3_tfdas"]
 [ext_resource type="PackedScene" uid="uid://dybafy3qxap2q" path="res://scenes/lady.tscn" id="4_1jwir"]
 [ext_resource type="PackedScene" uid="uid://cglapshtkljpc" path="res://scenes/npc.tscn" id="4_7vpqp"]
-[ext_resource type="PackedScene" uid="uid://btp1ybbdujkbw" path="res://scenes/mage.tscn" id="5_iih7b"]
+[ext_resource type="PackedScene" uid="uid://cx2lym7krpsie" path="res://scenes/archer.tscn" id="5_1jwir"]
+[ext_resource type="PackedScene" uid="uid://dntk1hqtl8ews" path="res://scenes/cleric.tscn" id="6_iih7b"]
 
 [node name="Node" type="Node"]
 script = ExtResource("1_048qh")
 
 [node name="Party" parent="." instance=ExtResource("2_i7sk5")]
-character_scenes = Array[PackedScene]([ExtResource("3_tfdas"), ExtResource("4_1jwir"), ExtResource("5_iih7b")])
+character_scenes = Array[PackedScene]([ExtResource("3_tfdas"), ExtResource("5_1jwir"), ExtResource("6_iih7b"), ExtResource("4_1jwir")])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -22,3 +23,4 @@ visible = false
 
 [node name="NPC" parent="." instance=ExtResource("4_7vpqp")]
 position = Vector2(186, 107)
+dialogue_file_path = "uid://d0i7nsdahgbgs"

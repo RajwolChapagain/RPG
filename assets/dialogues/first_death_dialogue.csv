@@ -1,0 +1,8 @@
+:set_wildcard :get_random_dead_hero_name,
+L:rachelle_base/magda_base,*! *!!
+,NOOO!!!
+L:lachlan_base/josephine_base,*… This can’t… I…
+:if_dead_go_to Josephine 7,
+L:josephine_base,I knew this wasn’t a good idea.
+L:rachelle_base/magda_base,I will not forgive this godforsaken hellhole!
+X,

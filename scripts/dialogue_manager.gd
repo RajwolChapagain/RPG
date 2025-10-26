@@ -10,6 +10,7 @@ var last_sprite_name = ""
 var dialogue_ui = null
 var dialogue_ongoing = false
 var current_dialogue_line_number: int = 0
+var wildcard: String = 'WILDCARD'
 
 func _ready() -> void:
 	dialogue_ui = dialogue_ui_scene.instantiate()
@@ -20,7 +21,7 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("advance_dialogue"):
 		advance_dialogue()
 		
-func load_dialogue(dialogue_file_path: String, dialogue_start_line_number: int) -> void:
+func load_dialogue(dialogue_file_path: String, dialogue_start_line_number: int = 1) -> void:
 	dialogue_file = FileAccess.open(dialogue_file_path, FileAccess.READ)
 	current_dialogue_line_number = 0
 	
@@ -41,6 +42,12 @@ func advance_dialogue() -> void:
 	if line[0] == 'x' or line[0] == 'X':
 		end_dialogue()
 		return
+	
+	if not line[0].is_empty():
+		if line[0][0] == ':':
+			handle_function_call(line[0])
+			advance_dialogue()
+			return
 		
 	var side = get_side(line)
 	var dialogue = get_dialogue(line)
@@ -80,7 +87,8 @@ func get_sprite_name(line: PackedStringArray) -> String:
 	return last_sprite_name
 
 func get_dialogue(line: PackedStringArray) -> String:
-	return line[1]
+	var out = line[1].replace('*', wildcard)
+	return out
 	
 func get_sprite(name: String) -> Texture2D:
 	if sprite_database.get_portrait(name) == null:
@@ -109,3 +117,40 @@ func end_dialogue() -> void:
 	dialogue_ui.get_node("%Portrait2").visible = false
 	
 	get_tree().paused = false
+
+# Expects: line to be a string starting with a : followed by a function name
+func handle_function_call(line: String) -> void:
+	var items = line.split(' ')
+	
+	for i in range(len(items) - 1, -1, -1):
+		var item = items[i]
+		if item.begins_with(':'): # If it is a function name
+			var function_name = item.substr(1, len(item) - 1)
+			var return_value = Callable(self, function_name).bindv(items.slice(i + 1, len(items))).call()
+			if return_value != null: # This should only ever be null for the first function in the line
+				items[i] = return_value
+				
+			while i < len(items) - 1:
+				items.remove_at(len(items) - 1)
+				
+	
+#region CSV-Callable Functions
+func set_wildcard(new_wildcard: String) -> void:
+	wildcard = new_wildcard
+	
+func get_random_dead_hero_name() -> String:
+	var all_player_names = ['Rachelle', 'Magda', 'Josephine', 'Lachlan', 'Einar']
+	return all_player_names.filter(func (player_name): return player_name not in GameManager.get_alive_players().map(func (player): return player.stats.name)).pick_random()
+	
+# line_number is String because we read everything as String from the CSV file
+func if_dead_go_to(player_name: String, line_number: String) -> void:
+	if player_name not in GameManager.get_alive_players().map(func(player): return player.stats.name):
+		go_to(line_number)
+
+# line_number is String because we read everything as String from the CSV file
+func go_to(line_number: String) -> void:
+	while current_dialogue_line_number < int(line_number) - 1: # Positions cursor right above the starting line
+		dialogue_file.get_csv_line()
+		current_dialogue_line_number += 1
+	
+#endregion
