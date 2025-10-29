@@ -11,6 +11,7 @@ var dialogue_ui = null
 var dialogue_ongoing = false
 var current_dialogue_line_number: int = 0
 var wildcard: String = 'WILDCARD'
+var current_invoking_entity = null
 
 signal dialogue_finished
 
@@ -23,14 +24,16 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("advance_dialogue"):
 		advance_dialogue()
 		
-func load_dialogue(dialogue_file_path: String, dialogue_start_line_number: int = 1) -> void:
+func load_dialogue(dialogue_file_path: String, dialogue_start_line_number: int = 1, invoking_entity=null) -> void:
 	dialogue_file = FileAccess.open(dialogue_file_path, FileAccess.READ)
+	current_invoking_entity = invoking_entity
 	current_dialogue_line_number = 0
 	
 	# Potentially slow implementation. Profile for performance issues if ever slow
 	while current_dialogue_line_number < dialogue_start_line_number - 1: # Positions cursor right above the starting line
 		dialogue_file.get_csv_line()
 		current_dialogue_line_number += 1
+		
 		
 	start_dialogue()
 
@@ -40,7 +43,6 @@ func advance_dialogue() -> void:
 
 	var line = dialogue_file.get_csv_line()
 	current_dialogue_line_number += 1
-	
 	if line[0] == 'x' or line[0] == 'X':
 		end_dialogue()
 		return
@@ -120,6 +122,9 @@ func end_dialogue() -> void:
 	
 	get_tree().paused = false
 	dialogue_finished.emit()
+	if current_invoking_entity != null:
+		if current_invoking_entity.has_method('start_interaction_cooldown_timer'):
+			current_invoking_entity.start_interaction_cooldown_timer()
 
 # Expects: line to be a string starting with a : followed by a function name
 func handle_function_call(line: String) -> void:
@@ -155,5 +160,12 @@ func go_to(line_number: String) -> void:
 	while current_dialogue_line_number < int(line_number) - 1: # Positions cursor right above the starting line
 		dialogue_file.get_csv_line()
 		current_dialogue_line_number += 1
+
+func get_pause_button_as_string() -> String:
+	return InputMap.action_get_events("pause")[0].as_text()
 	
+func set_next_interaction_line(line_number: String) -> void:
+	assert(current_invoking_entity != null, "Tried to set next interaction line on a null invoking entity")
+	current_invoking_entity.dialogue_start_line_number = int(line_number)
+
 #endregion
