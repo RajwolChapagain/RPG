@@ -12,6 +12,8 @@ var dialogue_ongoing = false
 var current_dialogue_line_number: int = 0
 var wildcard: String = 'WILDCARD'
 
+signal dialogue_finished
+
 func _ready() -> void:
 	dialogue_ui = dialogue_ui_scene.instantiate()
 	%CanvasLayer.add_child(dialogue_ui)
@@ -117,6 +119,7 @@ func end_dialogue() -> void:
 	dialogue_ui.get_node("%Portrait2").visible = false
 	
 	get_tree().paused = false
+	dialogue_finished.emit()
 
 # Expects: line to be a string starting with a : followed by a function name
 func handle_function_call(line: String) -> void:

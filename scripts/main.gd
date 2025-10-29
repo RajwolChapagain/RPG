@@ -46,6 +46,7 @@ func on_characters_selected(names: Array[String]) -> void:
 	%PauseMenu.initialize_inventory()
 	load_next_level()
 	DialogueManager.load_dialogue('res://assets/dialogues/first_death_dialogue.csv')
+	await DialogueManager.dialogue_finished
 	drop_unselected_player_essence(names)
 	
 func drop_unselected_player_essence(selected_players: Array[String]) -> void:

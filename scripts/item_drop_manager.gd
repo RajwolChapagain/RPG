@@ -33,9 +33,10 @@ func display_items(items: Array[Item]) -> void:
 		var item_button: ItemButton = item_button_scene.instantiate()
 		item_button.initialize(items[i], 1)
 		%ItemsContainer.add_child(item_button)
+		if i == 0:
+			item_button.grab_focus()
 		
 	%ItemDropPanel.visible = true
-	%ConfirmButton.grab_focus()
 	
 func _on_confirm_button_pressed() -> void:
 	%ItemDropPanel.visible = false
