@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://clupgehwixby3"]
+[gd_scene load_steps=12 format=3 uid="uid://clupgehwixby3"]
 
 [ext_resource type="Script" uid="uid://bflu2ltrrcf3n" path="res://scripts/item_drop_manager.gd" id="1_uacbh"]
 [ext_resource type="Script" uid="uid://due732el6o1b8" path="res://scripts/resource_scripts/item.gd" id="2_a4wni"]
 [ext_resource type="Script" uid="uid://cospd4gauu2qa" path="res://scripts/resource_scripts/stat_modifier.gd" id="3_81kyb"]
 [ext_resource type="Theme" uid="uid://5dapp0d0f0x5" path="res://resources/ui.tres" id="4_81kyb"]
 [ext_resource type="PackedScene" uid="uid://cpuacag8n4gcn" path="res://scenes/ui/item_button.tscn" id="4_tnc5c"]
+[ext_resource type="Resource" uid="uid://bn060h478bhmi" path="res://resources/item_database.tres" id="5_x640a"]
 
 [sub_resource type="Resource" id="Resource_tnc5c"]
 script = ExtResource("2_a4wni")
@@ -39,6 +40,7 @@ rare_items = Array[ExtResource("2_a4wni")]([SubResource("Resource_rpn2w")])
 legendary_items = Array[ExtResource("2_a4wni")]([SubResource("Resource_351bv")])
 mythical_items = Array[ExtResource("2_a4wni")]([SubResource("Resource_rikeb")])
 item_button_scene = ExtResource("4_tnc5c")
+item_database = ExtResource("5_x640a")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

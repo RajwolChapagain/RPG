@@ -168,4 +168,7 @@ func set_next_interaction_line(line_number: String) -> void:
 	assert(current_invoking_entity != null, "Tried to set next interaction line on a null invoking entity")
 	current_invoking_entity.dialogue_start_line_number = int(line_number)
 
+func drop_item(item_name: String) -> void:
+	ItemDropManager.drop_item_by_name(item_name)
+	
 #endregion

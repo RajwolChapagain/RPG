@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="ItemDatabase" load_steps=6 format=3 uid="uid://bn060h478bhmi"]
+
+[ext_resource type="Script" uid="uid://due732el6o1b8" path="res://scripts/resource_scripts/item.gd" id="1_cpbqj"]
+[ext_resource type="Script" uid="uid://cospd4gauu2qa" path="res://scripts/resource_scripts/stat_modifier.gd" id="2_p0lm3"]
+[ext_resource type="Script" uid="uid://ct1qv2e8ykaqy" path="res://scripts/resource_scripts/item_database.gd" id="2_pwgtt"]
+
+[sub_resource type="Resource" id="Resource_we8vp"]
+script = ExtResource("2_p0lm3")
+stat_name = "hp"
+modification = "+"
+amount = 50.0
+metadata/_custom_type_script = "uid://cospd4gauu2qa"
+
+[sub_resource type="Resource" id="Resource_s2qsk"]
+script = ExtResource("1_cpbqj")
+name = "Potion of Healing"
+type = 1
+stats = Array[ExtResource("2_p0lm3")]([SubResource("Resource_we8vp")])
+metadata/_custom_type_script = "uid://due732el6o1b8"
+
+[resource]
+script = ExtResource("2_pwgtt")
+item_dictionary = Dictionary[String, ExtResource("1_cpbqj")]({
+"potion_of_healing": SubResource("Resource_s2qsk")
+})
+metadata/_custom_type_script = "uid://ct1qv2e8ykaqy"

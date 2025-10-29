@@ -1,0 +1,21 @@
+L:tutorial_npc_base,New comers!
+,You’ve met old Doloris huh. I can tell from your despirited looks.
+R:einar_base/lachlan_base,That and we lost one of our friends.
+L:tutorial_npc_base,"Oh no. The beasts have claimed one of your own, huh?"
+L:rachelle_base/magda_base,Beasts??
+,Our friend died from falling on a sharp rock. We know of no beasts.
+L:tutorial_npc_base,"Well, you will."
+,"This place is teeming with them, some degenerate essence collectors, others animals who happened to ingest essences."
+,"Wait, are you here to harvest essences as well?"
+R:rachelle_base/magda_base,"God, no. We fell into this pit while on our way to the royal court."
+,We’re mercenaries summoned by the King to deal with some threat to the kingdom in the overworld.
+L:tutorial_npc_base,Poor you. You’re now trapped in a place where even your souls can’t escape.
+,"But ever since you arrived, I’ve sensed something I haven’t ever from this contraption."
+R:lachlan_base/einar_base,What do you sense?
+L:tutorial_npc_base,Fear. The engine is frightful for the first time.
+,I hear its shrieks and rumbles from deep beneath.
+R:lachlan_base/einar_base,I hear nothing.
+L:tutorial_npc_base,"Well, maybe you all will be the ones to fulfill the prophecy."
+,"I have faith in you. Here, take this. This will help you in your endeavor."
+:drop_item potion_of_healing,
+X,

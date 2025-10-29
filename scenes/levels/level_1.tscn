@@ -22,6 +22,10 @@ gang = Array[ExtResource("3_sk5k4")]([ExtResource("4_6761a")])
 [node name="NPC" parent="." instance=ExtResource("4_oc4kc")]
 position = Vector2(44, 305)
 
+[node name="NPC2" parent="." instance=ExtResource("4_oc4kc")]
+position = Vector2(218, 412)
+dialogue_file_path = "res://assets/dialogues/item_drop_tutorial.csv"
+
 [node name="PartyOriginMarker" type="Marker2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(160, 96)

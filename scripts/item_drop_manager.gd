@@ -6,7 +6,12 @@ extends Node
 @export var legendary_items: Array[Item]
 @export var mythical_items: Array[Item]
 @export var item_button_scene: PackedScene
+@export var item_database: ItemDatabase
 
+func drop_item_by_name(item_name: String) -> void:
+	assert(item_database.has_item(item_name))
+	drop_items([item_database.get_item(item_name)])
+	
 func drop_items(items: Array[Item]) -> void:
 	GameManager.add_items_to_inventory(items)
 	display_items(items)
