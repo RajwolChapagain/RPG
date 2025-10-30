@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_by2lk")
 name = "Goblin"
-attack_damage = 10
+attack_damage = 30
 max_hp = 100
 hp = 100
 crit = 10

@@ -55,13 +55,12 @@ func update_active_battler(new_index):
 	
 	active_index = new_index
 	
-func on_player_battler_died(player_name: String) -> void:
-	GameManager.queue_player_for_purging(player_name)
+func on_player_battler_died(_player_name: String) -> void:
 	alive_player_count -= 1
 	if alive_player_count == 0:
 		end_battle(false)
 	
-func on_enemy_battler_died(enemy_name: String) -> void:
+func on_enemy_battler_died(_enemy_name: String) -> void:
 	alive_enemy_count -= 1
 	if alive_enemy_count == 0:
 		end_battle(true)
@@ -394,4 +393,4 @@ func swap_characters(player_index: int, enemy_index: int) -> void:
 
 func _on_result_label_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "fade_in":
-		battle_ended.emit()
+		battle_ended.emit(player_character_stats)

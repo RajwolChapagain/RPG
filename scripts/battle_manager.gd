@@ -27,8 +27,9 @@ func thaw_party() -> void:
 	battling_party.enable_all_player_movement()
 	battling_party.enable_cycling()
 	
-func on_battle_ended() -> void:
+func on_battle_ended(player_character_stats: Array[BaseStats]) -> void:
 	active_battle_scene.queue_free()
+	set_player_hps_post_battle(player_character_stats)
 	remove_dead_entities()
 	thaw_party()
 
@@ -45,3 +46,9 @@ func remove_defeated_enemy() -> void:
 	ItemDropManager.drop_items(battling_enemy.dropped_items)
 	battling_enemy.enemy_defeated.emit()
 	battling_enemy = null
+
+func set_player_hps_post_battle(post_battle_stats: Array[BaseStats]) -> void:
+	for stats: BaseStats in post_battle_stats:
+		for player: Player in battling_party.get_players():
+			if player.stats.name == stats.name:
+				player.stats.hp = stats.hp

@@ -19,13 +19,6 @@ func set_inventory_manager(inventory_manager) -> void:
 func increase_available_inventory_slots() -> void:
 	assert(inventory_manager != null)
 	inventory_manager.increase_slots()
-
-func queue_player_for_purging(player_name: String) -> void:
-	for player in party.get_players():
-		if player.stats.name == player_name:
-			player.stats.hp = 0
-			inventory_manager.remove_character_inventory(player_name)
-			inventory_manager.add_item(crystalize_stat(player.get_modified_stats()))
 	
 func crystalize_stat(stats: BaseStats) -> Item:
 	var item = Item.new("%s's Essence" % stats.name, Item.ItemType.CONSUMABLE, [], stats.abilities)
@@ -48,3 +41,11 @@ func add_items_to_inventory(items: Array[Item]) -> void:
 		
 func is_alive(player_name: String) -> bool:
 	return player_name.to_lower() in get_alive_players().map(func (player): return player.stats.name.to_lower())
+
+func remove_character_inventory(player_name: String) -> void:
+	inventory_manager.remove_character_inventory(player_name)
+	
+func drop_player_essence(player_stats: BaseStats) -> void:
+	var items: Array[Item] = []
+	items.append(crystalize_stat(player_stats))
+	ItemDropManager.drop_items(items)
