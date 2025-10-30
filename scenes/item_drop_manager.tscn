@@ -3,29 +3,13 @@
 [ext_resource type="Script" uid="uid://bflu2ltrrcf3n" path="res://scripts/item_drop_manager.gd" id="1_uacbh"]
 [ext_resource type="Script" uid="uid://due732el6o1b8" path="res://scripts/resource_scripts/item.gd" id="2_a4wni"]
 [ext_resource type="Script" uid="uid://cospd4gauu2qa" path="res://scripts/resource_scripts/stat_modifier.gd" id="3_81kyb"]
+[ext_resource type="Resource" uid="uid://cbtqlydrjooxl" path="res://resources/items/potion_of_healing.tres" id="3_rpn2w"]
 [ext_resource type="Theme" uid="uid://5dapp0d0f0x5" path="res://resources/ui.tres" id="4_81kyb"]
+[ext_resource type="Resource" uid="uid://b2wy6qk2i7dnk" path="res://resources/items/bajra.tres" id="4_351bv"]
 [ext_resource type="PackedScene" uid="uid://cpuacag8n4gcn" path="res://scenes/ui/item_button.tscn" id="4_tnc5c"]
+[ext_resource type="Resource" uid="uid://d04dcksevwiue" path="res://resources/items/fruit_of_life.tres" id="5_rikeb"]
 [ext_resource type="Resource" uid="uid://bn060h478bhmi" path="res://resources/item_database.tres" id="5_x640a"]
-
-[sub_resource type="Resource" id="Resource_tnc5c"]
-script = ExtResource("2_a4wni")
-name = "Common Item"
-metadata/_custom_type_script = "uid://due732el6o1b8"
-
-[sub_resource type="Resource" id="Resource_x640a"]
-script = ExtResource("2_a4wni")
-name = "Uncommon Item"
-metadata/_custom_type_script = "uid://due732el6o1b8"
-
-[sub_resource type="Resource" id="Resource_rpn2w"]
-script = ExtResource("2_a4wni")
-name = "Rare Item"
-metadata/_custom_type_script = "uid://due732el6o1b8"
-
-[sub_resource type="Resource" id="Resource_351bv"]
-script = ExtResource("2_a4wni")
-name = "Legendary Item"
-metadata/_custom_type_script = "uid://due732el6o1b8"
+[ext_resource type="Resource" uid="uid://bin2fs1gqdd6w" path="res://resources/items/doloris's_necklace.tres" id="6_u5da0"]
 
 [sub_resource type="Resource" id="Resource_rikeb"]
 script = ExtResource("2_a4wni")
@@ -34,10 +18,10 @@ metadata/_custom_type_script = "uid://due732el6o1b8"
 
 [node name="ItemDropManager" type="Node"]
 script = ExtResource("1_uacbh")
-common_items = Array[ExtResource("2_a4wni")]([SubResource("Resource_tnc5c")])
-uncommon_items = Array[ExtResource("2_a4wni")]([SubResource("Resource_x640a")])
-rare_items = Array[ExtResource("2_a4wni")]([SubResource("Resource_rpn2w")])
-legendary_items = Array[ExtResource("2_a4wni")]([SubResource("Resource_351bv")])
+common_items = Array[ExtResource("2_a4wni")]([ExtResource("3_rpn2w")])
+uncommon_items = Array[ExtResource("2_a4wni")]([ExtResource("4_351bv")])
+rare_items = Array[ExtResource("2_a4wni")]([ExtResource("5_rikeb")])
+legendary_items = Array[ExtResource("2_a4wni")]([ExtResource("6_u5da0")])
 mythical_items = Array[ExtResource("2_a4wni")]([SubResource("Resource_rikeb")])
 item_button_scene = ExtResource("4_tnc5c")
 item_database = ExtResource("5_x640a")

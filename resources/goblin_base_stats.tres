@@ -9,5 +9,6 @@ name = "Goblin"
 attack_damage = 10
 max_hp = 100
 hp = 100
+crit = 10
 dodge = 70
 battle_sprite = ExtResource("1_blw5i")

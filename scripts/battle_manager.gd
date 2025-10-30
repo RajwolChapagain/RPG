@@ -41,5 +41,7 @@ func remove_dead_players() -> void:
 
 func remove_defeated_enemy() -> void:
 	battling_enemy.queue_free()
+	ItemDropManager.drop_random_items(battling_enemy.random_dropped_item_rarity_modifier, battling_enemy.random_drop_item_count)
+	ItemDropManager.drop_items(battling_enemy.dropped_items)
 	battling_enemy.enemy_defeated.emit()
 	battling_enemy = null

@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://bin2fs1gqdd6w"]
+
+[ext_resource type="Script" uid="uid://due732el6o1b8" path="res://scripts/resource_scripts/item.gd" id="1_osym8"]
+[ext_resource type="Script" uid="uid://cospd4gauu2qa" path="res://scripts/resource_scripts/stat_modifier.gd" id="2_fidh2"]
+
+[sub_resource type="Resource" id="Resource_osym8"]
+script = ExtResource("2_fidh2")
+stat_name = "max_hp"
+modification = "*"
+amount = 2.0
+metadata/_custom_type_script = "uid://cospd4gauu2qa"
+
+[sub_resource type="Resource" id="Resource_fidh2"]
+script = ExtResource("2_fidh2")
+stat_name = "attack_damage"
+modification = "-"
+percentage = true
+amount = 50.0
+metadata/_custom_type_script = "uid://cospd4gauu2qa"
+
+[resource]
+script = ExtResource("1_osym8")
+name = "Doloris's Necklace"
+stats = Array[ExtResource("2_fidh2")]([SubResource("Resource_osym8"), SubResource("Resource_fidh2")])
+metadata/_custom_type_script = "uid://due732el6o1b8"
