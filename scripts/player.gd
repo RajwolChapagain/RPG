@@ -101,12 +101,57 @@ func get_modification_amount() -> BaseStats:
 	modification_amount.attack_damage = 0
 	modification_amount.max_hp = 0
 	modification_amount.hp = 0
+	modification_amount.crit = 0
+	modification_amount.accuracy = 0
+	modification_amount.dodge = 0
+	modification_amount.defence = 0
 	modification_amount.ap_per_attack = 0
 	
 	for item: Item in equipped_items:
 		for stat_modifier: StatModifier in item.stats:
-			modify_stats(modification_amount, stat_modifier)
-		
+			var stat_name: String = stat_modifier.stat_name
+			var new_amount = 0
+			if stat_modifier.modification == '+':
+				if not stat_modifier.percentage:
+					new_amount = modification_amount.get(stat_name) + stat_modifier.amount
+				else:
+					new_amount = modification_amount.get(stat_name) + int(stat_modifier.amount / 100 * stats.get(stat_name))
+			elif stat_modifier.modification == '-':
+				if not stat_modifier.percentage:
+					new_amount = modification_amount.get(stat_name) - stat_modifier.amount
+				else:
+					new_amount = modification_amount.get(stat_name) - int(stat_modifier.amount / 100 * stats.get(stat_name))
+			elif stat_modifier.modification == '*':
+				if not stat_modifier.percentage:
+					new_amount = modification_amount.get(stat_name) + stats.get(stat_name) * (stat_modifier.amount - 1) # Multiplied by n-1 because this is not the final modified amount but the amount to be added to the base
+				else:
+					# Again, we subtract by the initial stat value because we'll add this again in the caller get_modified_stats
+					# Ex: If stats.get(stat_name) = 100, stat_modifier.amount = 10, then
+					# 		new_amount = 0 + ( int(10 / 100 * 100) * 100 - 100)
+					#		new_amount = 0 + ( 10 * 100 - 100)
+					#		new_amount = 0 + 900
+					new_amount = modification_amount.get(stat_name) + (int(stat_modifier.amount / 100 * stats.get(stat_name)) * stats.get(stat_name) - stats.get(stat_name))
+			elif stat_modifier.modification == '/':
+				if not stat_modifier.percentage:
+					# Ex: If stats.get(stat_name) = 100, stat_modifier.amount = 4, then
+					# 		new_amount = 0 - (100 - (100 / 4))
+					# 		new_amount = 0 - (100 - (100 / 4))
+					# 		new_amount = 0 - (100 - 25)
+					#		new_amount = 0 - 75
+					#		new_amount = -75
+					new_amount = modification_amount.get(stat_name) - (stats.get(stat_name) -  (stats.get(stat_name) / stat_modifier.amount) )
+				else:
+					# Here, we take an example of when we want to divide a stat by 10% of 100
+					# Ex: If stats.get(stat_name) = 100, stat_modifier.amount = 10, then
+					# 			new_amount = 0 - ( 100 - ( 100 / int(10 / 100 * 100)) )
+					# 			new_amount = 0 - ( 100 - ( 100 / 10) )
+					# 			new_amount = 0 - ( 100 - 10 )
+					# 			new_amount = 0 - 90
+					#			new_amount = -90
+					new_amount = modification_amount.get(stat_name) - ( stats.get(stat_name) - (stats.get(stat_name) / int(stat_modifier.amount / 100 * stats.get(stat_name))) ) 
+					
+			modification_amount.set(stat_name, new_amount)
+			
 		for ability: PackedScene in item.abilities:
 			modification_amount.abilities.append(ability)
 	
@@ -116,9 +161,9 @@ func consume_item(item: Item) -> void:
 	stats.abilities.append_array(item.abilities)
 	
 	for stat_modifier: StatModifier in item.stats:
-		modify_stats(stats, stat_modifier)
+		modify_base_stats(stat_modifier)
 		
-func modify_stats(stats: BaseStats, stat_modifier: StatModifier) -> void:
+func modify_base_stats(stat_modifier: StatModifier) -> void:
 	var stat_name: String = stat_modifier.stat_name
 	var new_amount = 0
 	if stat_modifier.modification == '+':
