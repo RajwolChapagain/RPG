@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="BaseStats" load_steps=5 format=3 uid="uid://bgg065a045ww"]
 
-[ext_resource type="PackedScene" uid="uid://q3f0ksgss4sa" path="res://scenes/swap.tscn" id="1_jo85b"]
+[ext_resource type="PackedScene" uid="uid://bhvoapkx570c4" path="res://scenes/abilities/enemy_stat_viewer.tscn" id="1_jo85b"]
 [ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="2_b4vgm"]
 [ext_resource type="Texture2D" uid="uid://culhn7diejs2h" path="res://assets/sprites/josephine_spritesheet.png" id="2_jo85b"]
 

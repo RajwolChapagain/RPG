@@ -249,12 +249,17 @@ func attack_alive_enemy_with_ability(enemy_index: int, ability: Node) -> void:
 	for enemy in enemies:
 		if enemy.stats.hp != 0:
 			alive_enemies.append(enemy)
-			
-	var target_enemies_array: Array[Node2D] = []
-	target_enemies_array.append(alive_enemies[enemy_index])
-	ability.initialize(target_enemies_array)
-	add_child(ability)
-	ability.trigger_ability()
+	
+	if ability.ability_name == 'Clairvoyance':
+		ability.show_stats(alive_enemies[enemy_index].stats)
+		add_child(ability)
+	else:
+		var target_enemies_array: Array[Node2D] = []
+		target_enemies_array.append(alive_enemies[enemy_index])
+		ability.initialize(target_enemies_array)
+		add_child(ability)
+		ability.trigger_ability()
+		
 	num_attacked += 1
 	
 func enable_attack_button() -> void:
@@ -349,17 +354,10 @@ func on_ability_selected(ability: Node) -> void:
 	%PlayerInfos.visible = true
 	disable_attack_button()
 	# Only Heal ability targets player characters
-	if ability.ability_name == "Heal":
+	if ability.ability_name == 'Heal':
 		ability.initialize(player_characters)
 		ability.trigger_ability()
 		add_child(ability)
-		num_attacked += 1
-	# Swap requires additional initialization parameters
-	elif ability.ability_name == "Swap":
-		var picked_enemy_index = randi_range(0, len(enemies) - 1)
-		player_characters[active_index].mark_inactive()
-		add_child(ability)
-		swap_characters(active_index, picked_enemy_index)
 		num_attacked += 1
 	else:
 		var alive_enemies = []

@@ -53,7 +53,6 @@ func drop_unselected_player_essence(selected_players: Array[String]) -> void:
 	var all_players = ['Rachelle', 'Magda', 'Josephine', 'Lachlan', 'Einar']
 	var missing_player = all_players.filter(func(player_name): return player_name not in selected_players)[0]
 	GameManager.drop_player_essence(character_name_to_base_stats[missing_player])
-	#ItemDropManager.drop_items([GameManager.crystalize_stat(character_name_to_base_stats[missing_player])])
 
 func initialize_party(names: Array[String]) -> void:
 	party = party_scene.instantiate()
