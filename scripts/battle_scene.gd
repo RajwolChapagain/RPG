@@ -35,16 +35,24 @@ func _ready() -> void:
 	initialize_ui()
 	
 func _process(delta: float) -> void:
-	update_ui()
+	update_ui(delta)
 		
-func update_ui() -> void:
+func update_ui(delta) -> void:
+	var hp_bar_speed = 100
+	var epsilon = 1
 	var health_fields = [%HealthBarP1, %HealthBarP2, %HealthBarP3, %HealthBarP4]
 	for i in range(len(player_characters)):
-		health_fields[i].value = player_characters[i].stats.hp
-		
+		if abs(health_fields[i].value - player_characters[i].stats.hp) > epsilon:
+			if health_fields[i].value < player_characters[i].stats.hp:
+				health_fields[i].value += delta * hp_bar_speed
+			else:
+				health_fields[i].value -= delta * hp_bar_speed
+		else:
+			health_fields[i].value = player_characters[i].stats.hp
+				
 	var hp_labels = [%HPLabel1, %HPLabel2, %HPLabel3, %HPLabel4]
 	for i in range(len(player_characters)):
-		var string = str(player_characters[i].stats.hp) + "/" + str(player_characters[i].stats.max_hp)
+		var string = str(int(health_fields[i].value)) + "/" + str(player_characters[i].stats.max_hp)
 		hp_labels[i].text = string
 		
 # Precondition: new_index points to an alive battler
