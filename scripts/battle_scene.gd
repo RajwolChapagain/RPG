@@ -330,7 +330,7 @@ func create_abilities_list() -> void:
 		button.set_ability(ability)
 		button.ability_selected.connect(on_ability_selected)
 		if ability.cost > %AbilityPointsContainer.points:
-			button.disabled = true
+			button.disable_button()
 			
 		%AbilitiesContainer.add_child(button)
 	
