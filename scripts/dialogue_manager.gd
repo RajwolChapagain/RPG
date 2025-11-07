@@ -69,7 +69,8 @@ func advance_dialogue() -> void:
 		set_dialogue = dialogue_ui.set_right_dialogue
 		
 	last_dialogue_line = dialogue
-	set_dialogue.call(sprite, dialogue)
+	var character_name = get_player_name_from_sprite_name(get_sprite_name(line))
+	set_dialogue.call(sprite, character_name, dialogue)
 	
 func get_side(line: PackedStringArray) -> SIDE:
 	if not line[0].is_empty():
@@ -100,15 +101,15 @@ func get_dialogue(line: PackedStringArray) -> String:
 	var out = line[1].replace('*', wildcard)
 	return out
 	
-func get_sprite(name: String) -> Texture2D:
-	if sprite_database.get_portrait(name) == null:
-		printerr("Received null from portrait database! Verify that %s is a valid key in %s" % [name, sprite_database.resource_path])
+func get_sprite(character_name: String) -> Texture2D:
+	if sprite_database.get_portrait(character_name) == null:
+		printerr("Received null from portrait database! Verify that %s is a valid key in %s" % [character_name, sprite_database.resource_path])
 		return null
 	
-	return sprite_database.get_portrait(name)
+	return sprite_database.get_portrait(character_name)
 
 func get_player_name_from_sprite_name(sprite_name: String) -> String:
-	return sprite_name.split('_')[0]
+	return sprite_name.split('_')[0].capitalize()
 	
 func start_dialogue() -> void:
 	dialogue_ui.visible = true
