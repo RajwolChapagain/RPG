@@ -27,10 +27,12 @@ func update_stats_ui() -> void:
 		elif stat_name == 'abilities':
 			var j = 0
 			for ability in stats.abilities:
-				label_text += ability.resource_path
+				var temp_ability = ability.instantiate()
+				label_text += temp_ability.ability_name
 				if j != len(stats.abilities) - 1:
 					label_text += ', '
 				j += 1
+				temp_ability.queue_free()
 		else:
 			label_text = str(stats.get(stat_name))
 			
