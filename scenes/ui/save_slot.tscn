@@ -25,7 +25,6 @@ offset_left = -40.0
 offset_right = 40.0
 grow_horizontal = 2
 grow_vertical = 2
-alignment = 1
 
 [node name="SlotIDLabel" type="Label" parent="VBoxContainer"]
 unique_name_in_owner = true

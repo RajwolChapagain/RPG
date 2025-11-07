@@ -42,7 +42,7 @@ func _input(event: InputEvent) -> void:
 			state = states.TITLE
 		
 func connect_save_slot_signals() -> void:
-	for save_slot: SaveSlot in %PlayPanel.get_children():
+	for save_slot: SaveSlot in %SaveSlotsContainer.get_children():
 		save_slot.load_game_button_pressed.connect(load_saved_game)
 		save_slot.new_game_button_pressed.connect(load_new_game)
 		
