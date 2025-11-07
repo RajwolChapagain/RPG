@@ -1,5 +1,7 @@
 extends Control
 
+var unraveling_line: bool = false
+
 #region: Left
 func set_left_dialogue(sprite:Texture2D, text: String) -> void:
 	load_left_sprite(sprite)
@@ -49,4 +51,16 @@ func brighten_right_sprite() -> void:
 #endregion
 
 func set_dialogue_text(text: String) -> void:
-	%DialogueLabel.text = text
+	if not unraveling_line:
+		unraveling_line = true
+		%DialogueLabel.text = ''
+		for char in text:
+			if !unraveling_line:
+				break
+			await get_tree().physics_frame
+			%DialogueLabel.text += char
+	else:
+		unraveling_line = false
+		await get_tree().physics_frame
+		%DialogueLabel.text = text
+		

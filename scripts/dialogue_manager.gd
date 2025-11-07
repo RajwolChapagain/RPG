@@ -12,6 +12,7 @@ var dialogue_ongoing = false
 var current_dialogue_line_number: int = 0
 var wildcard: String = 'WILDCARD'
 var current_invoking_entity = null
+var last_dialogue_line = ''
 
 signal dialogue_finished
 
@@ -41,6 +42,10 @@ func advance_dialogue() -> void:
 	if not dialogue_ongoing:
 		return
 
+	if dialogue_ui.unraveling_line:
+		dialogue_ui.set_dialogue_text(last_dialogue_line)
+		return
+		
 	var line = dialogue_file.get_csv_line()
 	current_dialogue_line_number += 1
 	if line[0] == 'x' or line[0] == 'X':
@@ -63,6 +68,7 @@ func advance_dialogue() -> void:
 	else:
 		set_dialogue = dialogue_ui.set_right_dialogue
 		
+	last_dialogue_line = dialogue
 	set_dialogue.call(sprite, dialogue)
 	
 func get_side(line: PackedStringArray) -> SIDE:
