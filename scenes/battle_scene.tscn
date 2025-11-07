@@ -18,7 +18,7 @@ load_path = "res://.godot/imported/goblin_placeholder.png-24702c0ef7f9d03556ee40
 [sub_resource type="Resource" id="Resource_0gp0h"]
 script = ExtResource("2_xwxfl")
 name = "Goblin"
-attack_damage = 50
+attack_damage = 200
 max_hp = 100
 hp = 100
 battle_sprite = SubResource("CompressedTexture2D_3oc74")

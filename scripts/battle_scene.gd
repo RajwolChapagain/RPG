@@ -58,10 +58,18 @@ func update_ui(delta) -> void:
 # Precondition: new_index points to an alive battler
 func update_active_battler(new_index):
 	if players_turn:
-		player_characters[active_index].mark_inactive()
-		player_characters[new_index].mark_active()
-	
+		if new_index != first_attacker_index:
+			make_player_inactive(player_characters[active_index])
+			
+		make_player_active(player_characters[new_index])
+	else:
+		if active_index < len(enemies):
+			slide_battler(enemies[active_index], Vector2.UP)
+			
+		slide_battler(enemies[new_index], Vector2.DOWN)
+		
 	active_index = new_index
+
 	
 func on_player_battler_died(_player_name: String) -> void:
 	alive_player_count -= 1
@@ -192,7 +200,7 @@ func advance_turn() -> void:
 		attack_random_player()
 
 func end_player_turn() -> void:
-	player_characters[active_index].mark_inactive()
+	make_player_inactive(player_characters[active_index])
 	players_turn = false
 	enemy_is_attacking = false
 	
@@ -210,7 +218,8 @@ func end_player_turn() -> void:
 	attack_random_player()
 
 func end_enemy_turn() -> void:
-	enemies[active_index].mark_inactive()
+	slide_battler(enemies[active_index], Vector2.UP)
+
 	players_turn = true
 	for i in range(len(player_characters)):
 		if player_characters[first_attacker_index].stats.hp != 0:
@@ -400,3 +409,16 @@ func swap_characters(player_index: int, enemy_index: int) -> void:
 func _on_result_label_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "fade_in":
 		battle_ended.emit(player_character_stats)
+
+func make_player_active(player) -> void:
+	player.mark_active()
+	slide_battler(player, Vector2.UP)
+	
+func make_player_inactive(player) -> void:
+	player.mark_inactive()
+	slide_battler(player, Vector2.DOWN)
+
+func slide_battler(battler, direction) -> void:
+	var slide_distance = 15
+	var tween = get_tree().create_tween()
+	tween.tween_property(battler, 'position', battler.position + (direction * slide_distance), 0.1 )
