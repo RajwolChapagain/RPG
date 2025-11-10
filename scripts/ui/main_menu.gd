@@ -60,6 +60,7 @@ func load_saved_game(saved_slot_id: int) -> void:
 	get_tree().root.add_child(main)
 	main.initialize_party(save.party_member_names)
 	main.initialize_character_stats(save.character_stats)
+	main.activate_item_slots(5 - len(save.party_member_names))
 	main.initialize_inventory(save.inventory_items)
 	main.initialize_equipped_items(save.equipped_items)
 	SaveManager.current_save_slot = saved_slot_id

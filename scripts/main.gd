@@ -32,7 +32,7 @@ func load_next_level() -> void:
 	current_level_number += 1
 	load_level(current_level_number)
 
-func on_level_completed(level_count: int) -> void:
+func on_level_completed(_level_count: int) -> void:
 	load_next_level()
 	save_data()
 
@@ -65,6 +65,10 @@ func initialize_party(names: Array[String]) -> void:
 func initialize_inventory(inventory_items: Array[Item]) -> void:
 	GameManager.add_items_to_inventory(inventory_items)
 
+func activate_item_slots(count: int) -> void:
+	for i in range(count-1):
+		GameManager.increase_available_inventory_slots()
+	
 func initialize_character_stats(character_stats: Dictionary[String, BaseStats]) -> void:
 	for player: Player in party.get_players():
 		player.stats = character_stats[player.stats.name]

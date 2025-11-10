@@ -10,11 +10,11 @@ func get_alive_players() -> Array[Player]:
 		push_warning('Warning: Party was not declared in the scene tree. Returning empty array.')
 		return []
 
-func set_party(party) -> void:
-	self.party = party
+func set_party(new_party) -> void:
+	self.party = new_party
 
-func set_inventory_manager(inventory_manager) -> void:
-	self.inventory_manager = inventory_manager
+func set_inventory_manager(new_inventory_manager) -> void:
+	self.inventory_manager = new_inventory_manager
 	
 func increase_available_inventory_slots() -> void:
 	assert(inventory_manager != null)
