@@ -126,6 +126,8 @@ func end_dialogue() -> void:
 	#	dialogue_ui.visible = true sets all its children to true as well 🤷‍♂️
 	dialogue_ui.get_node("%Portrait1").visible = false
 	dialogue_ui.get_node("%Portrait2").visible = false
+	dialogue_ui.get_node("%LeftTab").visible = false
+	dialogue_ui.get_node("%RightTab").visible = false
 	
 	get_tree().paused = false
 	dialogue_finished.emit()

@@ -11,6 +11,7 @@ func set_left_dialogue(sprite:Texture2D, character_name: String, text: String) -
 	dim_right_sprite()
 	dim_right_name_label()
 	enable_left_sprite()
+	enable_left_tab()
 	set_dialogue_text(text)
 	
 func load_left_sprite(sprite: Texture2D) -> void:
@@ -22,6 +23,9 @@ func load_left_character_name(character_name: String) -> void:
 func enable_left_sprite() -> void:
 	%Portrait1.visible = true
 
+func enable_left_tab() -> void:
+	%LeftTab.visible = true
+	
 func disable_left_sprite() -> void:
 	%Portrait1.visible = false
 	
@@ -48,6 +52,7 @@ func set_right_dialogue(sprite:Texture2D, character_name: String, text: String) 
 	dim_left_sprite()
 	dim_left_name_label()
 	enable_right_sprite()
+	enable_right_tab()
 	set_dialogue_text(text)
 	
 func load_right_sprite(sprite: Texture2D) -> void:
@@ -59,6 +64,9 @@ func load_right_character_name(character_name: String) -> void:
 func enable_right_sprite() -> void:
 	%Portrait2.visible = true
 
+func enable_right_tab() -> void:
+	%RightTab.visible = true
+	
 func disable_right_sprite() -> void:
 	%Portrait2.visible = false
 
