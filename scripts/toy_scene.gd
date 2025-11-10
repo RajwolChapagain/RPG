@@ -5,6 +5,5 @@ func _ready() -> void:
 	%PauseMenu.initialize_inventory()
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("advance_dialogue"):
-		GameManager.get_alive_players().pick_random().stats.hp = 0
-		$Party.purge_dead_members()
+	if event.is_action_pressed("ui_accept"):
+		EffectsManager.shake_camera(15, 1)

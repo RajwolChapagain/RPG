@@ -350,6 +350,10 @@ libraries = {
 &"": SubResource("AnimationLibrary_g72on")
 }
 
+[node name="BattleCam" type="Camera2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(160, 90)
+
 [connection signal="button_down" from="UI/Deck/MarginContainer/HBoxContainer/ButtonsContainer/AttackButton" to="." method="_on_attack_button_button_down"]
 [connection signal="toggled" from="UI/Deck/MarginContainer/HBoxContainer/ButtonsContainer/AbilitiesButton" to="." method="_on_abilities_button_toggled"]
 [connection signal="animation_finished" from="UI/ResultAnnouncementLabel/AnimationPlayer" to="." method="_on_result_label_animation_finished"]

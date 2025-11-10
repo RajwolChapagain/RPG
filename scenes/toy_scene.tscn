@@ -27,3 +27,5 @@ visible = false
 
 [node name="NPC" parent="." instance=ExtResource("4_7vpqp")]
 position = Vector2(40, 58)
+
+[editable path="Party"]

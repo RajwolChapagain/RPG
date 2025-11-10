@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxjcciyo53llp"]
+
+[sub_resource type="GDScript" id="GDScript_kiom3"]
+script/source = "extends Node
+"
+
+[node name="EffectsManager" type="Node"]
+script = SubResource("GDScript_kiom3")

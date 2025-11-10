@@ -15,6 +15,8 @@ var enemy_is_attacking = false
 var alive_player_count: int
 var alive_enemy_count: int
 var num_attacked: int = 0
+var camera_shaking := false
+var camera_shake_time_left: float = 0.0
 
 @export var win_text: String = "Battle Won! :)"
 @export var lose_text: String = "Battle Lost! :("
@@ -260,6 +262,7 @@ func attack_alive_enemy(enemy_index: int) -> void:
 	await get_tree().process_frame
 	enable_attack_button()
 	num_attacked += 1
+	shake_camera(1, 0.2)
 
 func attack_alive_enemy_with_ability(enemy_index: int, ability: Node) -> void:
 	var alive_enemies = []
@@ -276,6 +279,7 @@ func attack_alive_enemy_with_ability(enemy_index: int, ability: Node) -> void:
 		ability.initialize(target_enemies_array)
 		add_child(ability)
 		ability.trigger_ability()
+		shake_camera(2, 1)
 		
 	num_attacked += 1
 	
@@ -313,6 +317,7 @@ func attack_random_player() -> void:
 	if enemies[active_index].stats.hp == 0:
 		return
 	enemies[active_index].attack(get_random_alive_player())
+	shake_camera(0.8, 0.15)
 	
 func get_random_alive_player():
 	var alive_players = []
@@ -384,27 +389,6 @@ func on_ability_selected(ability: Node) -> void:
 				
 		$TargetSelect.set_targets(alive_enemies) 
 		$TargetSelect.activate(attack_alive_enemy_with_ability.bind(ability))
-	
-func swap_characters(player_index: int, enemy_index: int) -> void:
-	var player = player_characters[player_index]
-	var enemy = enemies[enemy_index]
-	
-	enemies[enemy_index] = player
-	player_characters[player_index] = enemy
-	
-	# Swap positions
-	var player_pos = player.global_position
-	var enemy_pos = enemy.global_position
-	player.global_position = enemy_pos
-	enemy.global_position = player_pos
-	
-	player.get_node("AnimationPlayer").animation_finished.disconnect(on_player_animation_finished)
-	enemy.get_node("AnimationPlayer").animation_started.disconnect(on_enemy_animation_started)
-	enemy.get_node("AnimationPlayer").animation_finished.disconnect(on_enemy_animation_finished)
-	
-	player.get_node("AnimationPlayer").animation_started.connect(on_enemy_animation_started)
-	player.get_node("AnimationPlayer").animation_finished.connect(on_enemy_animation_finished)
-	enemy.get_node("AnimationPlayer").animation_finished.connect(on_player_animation_finished)
 
 func _on_result_label_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "fade_in":
@@ -422,3 +406,20 @@ func slide_battler(battler, direction) -> void:
 	var slide_distance = 15
 	var tween = get_tree().create_tween()
 	tween.tween_property(battler, 'position', battler.position + (direction * slide_distance), 0.1 )
+
+func shake_camera(magnitude: float, duration: float) -> void:
+	if camera_shaking:
+		camera_shake_time_left += duration
+		return 
+		
+	camera_shaking = true
+	camera_shake_time_left += duration
+	var original_pos = %BattleCam.global_position
+	while camera_shake_time_left >= 0:
+		%BattleCam.global_position = original_pos + Vector2(randf_range(-magnitude, magnitude), randf_range(-magnitude, magnitude))
+		await get_tree().process_frame
+		camera_shake_time_left -= get_process_delta_time()
+	
+	%BattleCam.global_position = original_pos
+	camera_shake_time_left = 0.0
+	camera_shaking = false
