@@ -86,7 +86,7 @@ func spawn_players() -> void:
 	for i in range(len(player_character_stats)):
 		var player_character = battler_player.instantiate()
 		player_character.stats = player_character_stats[i]
-		player_character.position = Vector2($PlayerStart.position.x  + character_spacing * i, $PlayerStart.position.y)
+		player_character.position = Vector2($PlayerStart.position.x +  ( -(len(player_character_stats) - 1) * int(character_spacing / 2.0)) + i * character_spacing , $PlayerStart.position.y)
 		player_characters.append(player_character)
 		call_deferred("add_child", player_character)
 		
@@ -98,7 +98,7 @@ func spawn_enemies() -> void:
 	for i in range(len(enemy_stats)):
 		var enemy = battler_enemy.instantiate()
 		enemy.stats = enemy_stats[i]
-		enemy.position = Vector2($EnemyStart.position.x + character_spacing * i, $EnemyStart.position.y)
+		enemy.position = Vector2($EnemyStart.position.x + ( -(len(enemy_stats) - 1) * int(character_spacing / 2.0)) + i * character_spacing, $EnemyStart.position.y)
 		enemies.append(enemy)
 		call_deferred("add_child", enemy)
 		
