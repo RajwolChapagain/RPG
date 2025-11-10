@@ -5,7 +5,7 @@ class_name GridPositionTracker
 @onready var grid_coord: Vector2i = global_position / grid_size
 @onready var position_last_frame: Vector2 = global_position
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if global_position.x > position_last_frame.x || global_position.y > position_last_frame.y:
 		set_grid_coord(ceil(global_position / grid_size))
 	else:

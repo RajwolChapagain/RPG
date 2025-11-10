@@ -8,11 +8,11 @@ class_name Item
 
 enum ItemType { EQUIPPABLE, CONSUMABLE }
 
-func _init(name = "Default Item", type = ItemType.EQUIPPABLE, stats: Array[StatModifier] = [], abilities: Array[PackedScene] = []) -> void:
-	self.name = name
-	self.type = type
-	self.stats = stats
-	self.abilities = abilities
+func _init(new_name = "Default Item", new_type = ItemType.EQUIPPABLE, new_stats: Array[StatModifier] = [], new_abilities: Array[PackedScene] = []) -> void:
+	self.name = new_name
+	self.type = new_type
+	self.stats = new_stats
+	self.abilities = new_abilities
 	
 func _to_string() -> String:
 	return name

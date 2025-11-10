@@ -21,10 +21,10 @@ var num_attacked: int = 0
 
 signal battle_ended
 
-func initialize_battle(player_stats: Array[BaseStats], enemy_stats: Array[BaseStats], first_attacker_index: int = 0) -> void:
-	self.player_character_stats = player_stats
-	self.enemy_stats = enemy_stats
-	self.first_attacker_index = first_attacker_index
+func initialize_battle(init_player_stats: Array[BaseStats], init_enemy_stats: Array[BaseStats], init_first_attacker_index: int = 0) -> void:
+	self.player_character_stats = init_player_stats
+	self.enemy_stats = init_enemy_stats
+	self.first_attacker_index = init_first_attacker_index
 	
 func _ready() -> void:
 	%AttackButton.grab_focus()

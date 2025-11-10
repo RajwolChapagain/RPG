@@ -30,9 +30,9 @@ func _ready() -> void:
 	else:
 		push_error("Uninitialized Item Button addded to scene")
 
-func initialize(item: Item, count: int) -> void:
-	self.item = item
-	self.count = count
+func initialize(init_item: Item, init_count: int) -> void:
+	self.item = init_item
+	self.count = init_count
 
 func _on_focus_entered() -> void:
 	show_stats()

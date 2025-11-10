@@ -10,8 +10,8 @@ func _ready():
 	await get_tree().create_timer(1.5).timeout
 	queue_free()
 	
-func initialize(targets: Array[Node2D])-> void:
-	self.targets = targets
+func initialize(init_targets: Array[Node2D])-> void:
+	self.targets = init_targets
 	
 func trigger_ability() -> void:
 	if not is_initialized():

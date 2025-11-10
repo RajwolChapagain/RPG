@@ -6,8 +6,8 @@ class_name StatModifier
 @export var percentage: bool = false
 @export var amount: float
 
-func _init(stat_name = 'attack_damage', modification = '+', percentage = false, amount = 10.0) -> void:
-	self.stat_name = stat_name
-	self.modification = modification
-	self.percentage = percentage
-	self.amount = amount
+func _init(new_stat_name = 'attack_damage', new_modification = '+', new_percentage = false, new_amount = 10.0) -> void:
+	self.stat_name = new_stat_name
+	self.modification = new_modification
+	self.percentage = new_percentage
+	self.amount = new_amount
