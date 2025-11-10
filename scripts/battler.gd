@@ -7,6 +7,7 @@ signal battler_died
 
 func _ready() -> void:
 	$Sprite2D.texture = stats.battle_sprite
+	set_hit_particle_color()
 	
 func attack(target) -> void:
 	var crit_damage = 30
@@ -20,8 +21,6 @@ func attack(target) -> void:
 	target.take_damage(true_damage, stats.accuracy, critting)
 	
 func take_damage(damage: int, accuracy: int, critting: bool = false) -> void:
-
-
 	var true_dodge_chance = stats.dodge - accuracy
 	if randf() <= (true_dodge_chance / 100.0):
 		if critting:
@@ -41,6 +40,8 @@ func take_damage(damage: int, accuracy: int, critting: bool = false) -> void:
 	
 	if (stats.hp == 0):
 		die()
+	
+	%HitParticles.emitting = true
 
 func mark_active():
 	$Pointer.visible = true
@@ -57,3 +58,19 @@ func die():
 func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "attack":
 		%AnimationTree.set('parameters/StateMachine/conditions/attacking', false)
+
+func set_hit_particle_color() -> void:
+	var sum_color = Color(0, 0, 0, 0)
+	var num_pixels = 0
+	var image = $Sprite2D.texture.get_image()
+	for i in image.get_width():
+		for j in image.get_height():
+			var pixel = image.get_pixel(i,j)
+			if pixel.a != 0:
+				sum_color.r += pixel.r
+				sum_color.g += pixel.g
+				sum_color.b += pixel.b
+				num_pixels += 1
+	
+	var avg_color = Color(sum_color.r / num_pixels, sum_color.g / num_pixels, sum_color.b / num_pixels, 1)
+	%HitParticles.modulate = avg_color

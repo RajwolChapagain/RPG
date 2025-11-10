@@ -12,7 +12,6 @@ func _ready() -> void:
 	activate_party_member(0)
 	connect_player_signals()
 	GameManager.set_party(self)
-	EffectsManager.set_camera(%Camera2D)
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("cycle_party_member"):
