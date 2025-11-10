@@ -54,4 +54,4 @@ func _on_inventory_button_toggled(toggled_on: bool) -> void:
 		%StatsPanel.visible = false
 	else:
 		%InventoryManager.visible = false
-		%StatsPanel.visible = true
+		initialize_stats()
