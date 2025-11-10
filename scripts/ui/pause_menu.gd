@@ -22,10 +22,6 @@ func unpause_game() -> void:
 	get_tree().paused = false
 	%InventoryManager.visible = false
 
-func _on_inventory_button_pressed() -> void:
-	%InventoryManager.visible = true
-	%StatsPanel.visible = false
-
 func initialize_inventory() -> void:
 	%InventoryManager.populate_character_inventory()
 
@@ -50,3 +46,12 @@ func get_inventory_items() -> Array[Item]:
 func _on_main_menu_button_pressed() -> void:
 	unpause_game()
 	main_menu_button_pressed.emit()
+
+
+func _on_inventory_button_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		%InventoryManager.visible = true
+		%StatsPanel.visible = false
+	else:
+		%InventoryManager.visible = false
+		%StatsPanel.visible = true
