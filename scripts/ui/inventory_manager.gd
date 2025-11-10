@@ -121,4 +121,4 @@ func increase_slots() -> void:
 func remove_character_inventory(player_name: String) -> void:
 	for character_inventory: CharacterInventory in %CharacterInventories.get_children():
 		if character_inventory.get_character_name() == player_name:
-			character_inventory.visible = false
+			character_inventory.queue_free()
