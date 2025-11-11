@@ -5,6 +5,7 @@ class_name Party
 
 var party_members: Array[Player]
 var can_cycle = true
+var active_member_index_before_freezing: int = -1
 
 func _ready() -> void:
 	instantiate_characters_and_add_to_list()
@@ -99,13 +100,14 @@ func connect_player_signals() -> void:
 
 func disable_all_player_movement() -> void:
 	%Camera2D.enabled = false
-	party_members[get_active_member_index()].set_active(false)
+	active_member_index_before_freezing = get_active_member_index()
+	party_members[active_member_index_before_freezing].set_active(false)
 	
 func disable_cycling() -> void:
 	can_cycle = false
 
 func enable_all_player_movement() -> void:
-	party_members[0].set_active(true)
+	party_members[active_member_index_before_freezing].set_active(true)
 	%Camera2D.enabled = true
 
 func enable_cycling() -> void:
@@ -114,3 +116,7 @@ func enable_cycling() -> void:
 func reset_player_positions() -> void:
 	for player in party_members:
 		player.position = Vector2.ZERO
+
+func regroup_party() -> void:
+	for member in party_members:
+		member.global_position = party_members[active_member_index_before_freezing].global_position

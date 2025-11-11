@@ -32,6 +32,7 @@ func on_battle_ended(player_character_stats: Array[BaseStats]) -> void:
 	set_player_hps_post_battle(player_character_stats)
 	remove_dead_entities()
 	thaw_party()
+	battling_party.regroup_party()
 
 func remove_dead_entities() -> void:
 	remove_dead_players()
