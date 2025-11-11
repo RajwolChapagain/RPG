@@ -65,10 +65,10 @@ func update_active_battler(new_index):
 			
 		make_player_active(player_characters[new_index])
 	else:
-		if active_index < len(enemies):
+		if active_index < len(enemies) and enemies[active_index].stats.hp != 0:
 			slide_battler(enemies[active_index], Vector2.UP)
-			
-		slide_battler(enemies[new_index], Vector2.DOWN)
+		if enemies[new_index].stats.hp != 0:
+			slide_battler(enemies[new_index], Vector2.DOWN)
 		
 	active_index = new_index
 
