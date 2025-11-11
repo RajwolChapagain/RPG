@@ -17,6 +17,7 @@ var alive_enemy_count: int
 var num_attacked: int = 0
 var camera_shaking := false
 var camera_shake_time_left: float = 0.0
+var battle_ongoing: bool = true
 
 @export var win_text: String = "Battle Won! :)"
 @export var lose_text: String = "Battle Lost! :("
@@ -62,8 +63,9 @@ func update_active_battler(new_index):
 	if players_turn:
 		if new_index != first_attacker_index:
 			make_player_inactive(player_characters[active_index])
-			
-		make_player_active(player_characters[new_index])
+		
+		if battle_ongoing:
+			make_player_active(player_characters[new_index])
 	else:
 		if active_index < len(enemies) and enemies[active_index].stats.hp != 0:
 			if enemies[active_index].position.y != $EnemyStart.position.y:
@@ -287,6 +289,8 @@ func attack_alive_enemy_with_ability(enemy_index: int, ability: Node) -> void:
 func enable_attack_button() -> void:
 	%AttackButton.disabled = false
 	%AttackButton.set_focus_mode(Control.FOCUS_ALL)
+	if not battle_ongoing:
+		return
 	%AttackButton.grab_focus()
 	
 func disable_attack_button() -> void:
@@ -331,6 +335,7 @@ func get_random_alive_player():
 #endregion attacking
 
 func end_battle(won: bool) -> void:
+	battle_ongoing = false
 	if won:
 		%ResultAnnouncementLabel.text = win_text
 	else:
