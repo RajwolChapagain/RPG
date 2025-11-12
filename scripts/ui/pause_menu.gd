@@ -20,6 +20,7 @@ func pause_game() -> void:
 func unpause_game() -> void:
 	visible = false
 	get_tree().paused = false
+	%InventoryButton.button_pressed = false
 	%InventoryManager.visible = false
 
 func initialize_inventory() -> void:
