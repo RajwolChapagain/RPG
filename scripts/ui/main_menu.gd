@@ -30,6 +30,7 @@ enum states { TITLE, MENU, PLAY, SETTINGS }
 
 func _ready() -> void:
 	connect_save_slot_signals()
+	MusicManager.play_music('title')
 
 func _input(event: InputEvent) -> void:
 	if event is not InputEventKey:
