@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bn3kv83cw1fcs"]
+[gd_scene load_steps=4 format=3 uid="uid://bn3kv83cw1fcs"]
 
 [ext_resource type="Theme" uid="uid://5dapp0d0f0x5" path="res://resources/ui.tres" id="1_l5iig"]
 [ext_resource type="Script" uid="uid://bg2k8f7ua2l7l" path="res://scripts/ui/save_slot.gd" id="1_tk20w"]
+[ext_resource type="Script" uid="uid://cojsnc1kdvshg" path="res://scripts/button_sound.gd" id="3_aqeku"]
 
 [node name="SaveSlot" type="Control"]
 layout_mode = 3
@@ -56,6 +57,10 @@ layout_mode = 2
 theme_type_variation = &"SmallButton"
 text = "New Game"
 
+[node name="ButtonSound" type="Node" parent="VBoxContainer/Items/UnsavedItems/NewButton"]
+script = ExtResource("3_aqeku")
+metadata/_custom_type_script = "uid://cojsnc1kdvshg"
+
 [node name="Placeholder" type="Label" parent="VBoxContainer/Items/UnsavedItems"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 4
@@ -74,9 +79,17 @@ alignment = 1
 layout_mode = 2
 text = "Load"
 
+[node name="ButtonSound" type="Node" parent="VBoxContainer/Items/SavedItems/HBoxContainer/LoadButton"]
+script = ExtResource("3_aqeku")
+metadata/_custom_type_script = "uid://cojsnc1kdvshg"
+
 [node name="DeleteButton" type="Button" parent="VBoxContainer/Items/SavedItems/HBoxContainer"]
 layout_mode = 2
 text = "Delete"
+
+[node name="ButtonSound" type="Node" parent="VBoxContainer/Items/SavedItems/HBoxContainer/DeleteButton"]
+script = ExtResource("3_aqeku")
+metadata/_custom_type_script = "uid://cojsnc1kdvshg"
 
 [node name="SavedDate" type="Label" parent="VBoxContainer/Items/SavedItems"]
 layout_mode = 2

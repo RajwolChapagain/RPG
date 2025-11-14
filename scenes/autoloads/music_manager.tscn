@@ -11,5 +11,6 @@ music_dict = Dictionary[StringName, AudioStreamWAV]({
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
+process_mode = 3
 
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

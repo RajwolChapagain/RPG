@@ -23,6 +23,7 @@ ItemDropManager="*res://scenes/item_drop_manager.tscn"
 BattleManager="*res://scenes/battle_manager.tscn"
 SaveManager="*res://scripts/save_manager.gd"
 MusicManager="*res://scenes/autoloads/music_manager.tscn"
+UisfxManager="*res://scenes/autoloads/uisfx_manager.tscn"
 
 [display]
 

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxqny0gx4gwdm"]
+
+[ext_resource type="Script" uid="uid://df18isj8bkkad" path="res://scripts/autoloads/uisfx_manager.gd" id="1_qbarg"]
+[ext_resource type="AudioStream" uid="uid://nf3hiy82k22h" path="res://assets/sfx/ui/ui_focus.wav" id="2_2m1gg"]
+
+[node name="UISFXManager" type="Node"]
+process_mode = 3
+script = ExtResource("1_qbarg")
+ui_sfx_dict = Dictionary[StringName, AudioStreamWAV]({
+&"focus": ExtResource("2_2m1gg")
+})
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
