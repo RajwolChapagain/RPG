@@ -1,11 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvcd3tjdl6go0"]
+[gd_scene load_steps=5 format=3 uid="uid://cvcd3tjdl6go0"]
 
 [ext_resource type="Script" uid="uid://ll80milrptpr" path="res://scripts/autoloads/music_manager.gd" id="1_6jbwf"]
 [ext_resource type="AudioStream" uid="uid://cjrudqf2hbndu" path="res://assets/music/title.wav" id="2_u4hoh"]
+[ext_resource type="AudioStream" uid="uid://baut7nb8ai3xt" path="res://assets/music/level1.wav" id="3_vqpxq"]
+[ext_resource type="AudioStream" uid="uid://doakml2m22iqj" path="res://assets/music/battle.wav" id="4_wqf1e"]
 
 [node name="MusicManager" type="Node"]
 script = ExtResource("1_6jbwf")
 music_dict = Dictionary[StringName, AudioStreamWAV]({
+&"battle": ExtResource("4_wqf1e"),
+&"level1": ExtResource("3_vqpxq"),
 &"title": ExtResource("2_u4hoh")
 })
 

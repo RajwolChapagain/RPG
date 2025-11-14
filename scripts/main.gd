@@ -20,6 +20,8 @@ func load_level(level: int) -> void:
 	if level == 0:
 		load_character_selection_screen()
 		return
+	elif level == 1:
+		MusicManager.play_music('level1')
 		
 	current_level = levels[level - 1].instantiate()
 	party.global_position = current_level.get_node("PartyOriginMarker").global_position

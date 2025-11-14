@@ -4,6 +4,8 @@ extends Node
 var active_battle_scene: Node
 var battling_party: Party
 var battling_enemy: Enemy
+var pre_battle_music_stream: AudioStreamWAV
+var pre_battle_music_timestamp: float
 
 func start_battle(party: Party, enemy: Enemy) -> void:
 	battling_enemy = enemy
@@ -18,6 +20,11 @@ func start_battle(party: Party, enemy: Enemy) -> void:
 	active_battle_scene.battle_ended.connect(on_battle_ended)
 	get_tree().root.add_child(active_battle_scene)
 	freeze_party()
+	
+	pre_battle_music_stream = MusicManager.get_current_music_title()
+	pre_battle_music_timestamp = MusicManager.get_current_music_timestamp()
+	MusicManager.fade_music_out(0.8)
+	MusicManager.play_music('battle')
 
 func freeze_party() -> void:
 	battling_party.disable_all_player_movement()
@@ -33,6 +40,8 @@ func on_battle_ended(player_character_stats: Array[BaseStats]) -> void:
 	remove_dead_entities()
 	thaw_party()
 	battling_party.regroup_party()
+	MusicManager.play_audio_stream(pre_battle_music_stream)
+	MusicManager.seek_stream(pre_battle_music_timestamp)
 
 func remove_dead_entities() -> void:
 	remove_dead_players()
