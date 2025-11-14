@@ -30,6 +30,8 @@ enum states { TITLE, MENU, PLAY, SETTINGS }
 
 func _ready() -> void:
 	connect_save_slot_signals()
+	MusicManager.fade_music_out(0.8)
+	await get_tree().create_timer(3.0).timeout
 	MusicManager.play_music('title')
 
 func _input(event: InputEvent) -> void:
