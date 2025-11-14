@@ -40,7 +40,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_3oc74"]
 resource_name = "fade_in"
-length = 3.5
+length = 6.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -66,6 +66,8 @@ character_spacing = 60
 player_character_stats = Array[ExtResource("2_xwxfl")]([ExtResource("3_g72on"), ExtResource("4_tttxe"), ExtResource("5_ti0og"), ExtResource("6_bg0yk")])
 enemy_stats = Array[ExtResource("2_xwxfl")]([SubResource("Resource_bg0yk")])
 ability_button = ExtResource("3_svpld")
+win_text = null
+lose_text = null
 
 [node name="DualGrid" parent="." instance=ExtResource("1_6lmhm")]
 

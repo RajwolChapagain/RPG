@@ -337,6 +337,7 @@ func get_random_alive_player():
 func end_battle(won: bool) -> void:
 	battle_ongoing = false
 	if won:
+		MusicManager.play_music('victory', false)
 		%ResultAnnouncementLabel.text = win_text
 	else:
 		%ResultAnnouncementLabel.text = lose_text
