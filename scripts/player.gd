@@ -8,15 +8,33 @@ var last_grid_pos = grid_pos
 var next_character = null
 var move_queue = []
 var equipped_items: Array[Item]
-	
+const OBSTACLE_RAYCAST_LENGTH: float = 32.0
+
 signal character_moved(character, old_grid_pos)
 signal enemy_encountered(enemy)
 
 func _process(_delta: float) -> void:
-	take_input()
+	if not is_colliding():
+		take_input()
 	process_movement_queue()
 	check_and_emit_last_pos()
-	
+
+func is_colliding() -> bool:
+	if Input.is_action_pressed("move_right"):
+		%ObstacleRayCast.target_position = Vector2(OBSTACLE_RAYCAST_LENGTH, 0)
+	elif Input.is_action_pressed("move_up"):
+		%ObstacleRayCast.target_position = Vector2(0, -OBSTACLE_RAYCAST_LENGTH)
+	elif Input.is_action_pressed("move_left"):
+		%ObstacleRayCast.target_position = Vector2(-OBSTACLE_RAYCAST_LENGTH, 0)
+	elif Input.is_action_pressed("move_down"):
+		%ObstacleRayCast.target_position = Vector2(0, OBSTACLE_RAYCAST_LENGTH)
+		
+	%ObstacleRayCast.force_raycast_update()
+	if %ObstacleRayCast.is_colliding():
+		return true
+	else:
+		return false
+		
 func take_input() -> void:
 	if $GridMover.is_moving:
 		return
