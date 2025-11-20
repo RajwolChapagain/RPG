@@ -16,7 +16,6 @@ func _on_pressed() -> void:
 
 func disable_button() -> void:
 	disabled = true
-	focus_mode = Control.FOCUS_NONE
 	%APIcon.texture = dectivated_ap_icon
 	%NameLabel.add_theme_color_override("font_color", Color.DIM_GRAY)
 	%CostLabel.add_theme_color_override("font_color", Color.DIM_GRAY)
