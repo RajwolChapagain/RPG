@@ -148,8 +148,9 @@ layout_mode = 2
 
 [node name="P1Info" type="HBoxContainer" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(137, 7)
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_vertical = 4
 alignment = 1
 
 [node name="NameLabelP1" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P1Info"]
@@ -186,8 +187,9 @@ vertical_alignment = 1
 
 [node name="P2Info" type="HBoxContainer" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(137, 7)
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_vertical = 4
 alignment = 1
 
 [node name="NameLabelP2" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P2Info"]
@@ -224,8 +226,9 @@ vertical_alignment = 1
 
 [node name="P3Info" type="HBoxContainer" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(137, 7)
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_vertical = 4
 alignment = 1
 
 [node name="NameLabelP3" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P3Info"]
@@ -262,8 +265,9 @@ vertical_alignment = 1
 
 [node name="P4Info" type="HBoxContainer" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(137, 7)
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_vertical = 4
 alignment = 1
 
 [node name="NameLabelP4" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P4Info"]
