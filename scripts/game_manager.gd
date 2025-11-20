@@ -53,4 +53,7 @@ func drop_player_essence(player_stats: BaseStats) -> void:
 func enable_party_camera_smoothing() -> void:
 	assert(party != null)
 	party.enable_camera_smoothing()
-	
+
+func disable_party_camera_smoothing() -> void:
+	assert(party != null)
+	party.disable_camera_smoothing()

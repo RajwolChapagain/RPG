@@ -52,3 +52,4 @@ func _on_confirm_button_pressed() -> void:
 	while %ItemsContainer.get_child_count() != 0:
 		%ItemsContainer.remove_child(%ItemsContainer.get_child(0))
 	get_tree().paused = false
+	GameManager.enable_party_camera_smoothing()

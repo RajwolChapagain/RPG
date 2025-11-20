@@ -20,8 +20,8 @@ func load_level(level: int) -> void:
 		load_character_selection_screen()
 		return
 	elif level == 1:
-		party.disable_camera_smoothing() # So that camera snaps into position before 
-										 # 		DialogueManger freezes the game at the start of level 1
+		GameManager.disable_party_camera_smoothing() # So that camera snaps into position before 
+											 		 # 		DialogueManger freezes the game at the start of level 1
 		
 	current_level = levels[level - 1].instantiate()
 	current_level.initialize_party_position(party)

@@ -400,6 +400,8 @@ func on_ability_selected(ability: Node) -> void:
 func _on_result_label_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "fade_in":
 		battle_ended.emit(player_character_stats)
+		%BattleCam.enabled = false
+		GameManager.disable_party_camera_smoothing()
 
 func make_player_active(player) -> void:
 	player.mark_active()
