@@ -9,5 +9,7 @@ script = ExtResource("1_048qh")
 
 [node name="Party" parent="." instance=ExtResource("2_i7sk5")]
 
-[node name="PauseMenu" parent="." instance=ExtResource("3_048qh")]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("3_048qh")]
 visible = false

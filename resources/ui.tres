@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=17 format=3 uid="uid://5dapp0d0f0x5"]
+[gd_resource type="Theme" load_steps=20 format=3 uid="uid://5dapp0d0f0x5"]
 
 [ext_resource type="FontFile" uid="uid://csleht6u3wrbw" path="res://assets/fonts/minecraft/Minecraft.ttf" id="2_puq7a"]
 
@@ -84,6 +84,12 @@ border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0.4862745, 0.47843137, 0.47843137, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dmovp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s73pj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gvpvx"]
+
 [resource]
 BorderedPanel/base_type = &"Panel"
 BorderedPanel/styles/panel = SubResource("StyleBoxFlat_pxeie")
@@ -132,3 +138,6 @@ TranslucentPanel/styles/panel = SubResource("StyleBoxFlat_71464")
 TransparentButton/base_type = &"Button"
 TransparentButton/styles/focus = SubResource("StyleBoxFlat_hsrkt")
 TransparentButton/styles/normal = SubResource("StyleBoxFlat_wja67")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_dmovp")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_s73pj")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_gvpvx")
