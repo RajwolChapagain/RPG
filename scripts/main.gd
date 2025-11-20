@@ -5,9 +5,8 @@ extends Node
 @export var levels: Array[PackedScene]
 @export var party_scene: PackedScene
 @export var character_name_to_scene: Dictionary[String, PackedScene]
-@export var character_name_to_base_stats: Dictionary[String, BaseStats]
 
-var current_level: Node = null
+var current_level: Level = null
 var party: Party = null
 
 func _ready() -> void:
@@ -21,11 +20,11 @@ func load_level(level: int) -> void:
 		load_character_selection_screen()
 		return
 	elif level == 1:
-		MusicManager.play_music('level1')
+		party.disable_camera_smoothing() # So that camera snaps into position before 
+										 # 		DialogueManger freezes the game at the start of level 1
 		
 	current_level = levels[level - 1].instantiate()
-	party.global_position = current_level.get_node("PartyOriginMarker").global_position
-	party.reset_player_positions()
+	current_level.initialize_party_position(party)
 	add_child(current_level)
 	move_child(current_level, 0)
 	current_level.level_completed.connect(on_level_completed)
@@ -47,14 +46,6 @@ func on_characters_selected(names: Array[String]) -> void:
 	initialize_party(names)
 	%PauseMenu.initialize_inventory()
 	load_next_level()
-	DialogueManager.load_dialogue('res://assets/dialogues/first_death_dialogue.csv')
-	await DialogueManager.dialogue_finished
-	drop_unselected_player_essence(names)
-	
-func drop_unselected_player_essence(selected_players: Array[String]) -> void:
-	var all_players = ['Rachelle', 'Magda', 'Josephine', 'Lachlan', 'Einar']
-	var missing_player = all_players.filter(func(player_name): return player_name not in selected_players)[0]
-	GameManager.drop_player_essence(character_name_to_base_stats[missing_player])
 
 func initialize_party(names: Array[String]) -> void:
 	party = party_scene.instantiate()

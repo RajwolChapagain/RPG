@@ -6,6 +6,7 @@ class_name Party
 var party_members: Array[Player]
 var can_cycle = true
 var active_member_index_before_freezing: int = -1
+var camera_position_smoothing_speed: float
 
 func _ready() -> void:
 	instantiate_characters_and_add_to_list()
@@ -13,6 +14,7 @@ func _ready() -> void:
 	activate_party_member(0)
 	connect_player_signals()
 	GameManager.set_party(self)
+	camera_position_smoothing_speed = %Camera2D.position_smoothing_speed
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("cycle_party_member"):
@@ -120,3 +122,11 @@ func reset_player_positions() -> void:
 func regroup_party() -> void:
 	for member in party_members:
 		member.global_position = party_members[active_member_index_before_freezing].global_position
+
+func disable_camera_smoothing() -> void:
+	%Camera2D.position_smoothing_enabled = false
+
+func enable_camera_smoothing() -> void:
+	%Camera2D.position_smoothing_enabled = true
+	%Camera2D.position_smoothing_speed = camera_position_smoothing_speed
+	

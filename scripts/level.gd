@@ -1,10 +1,9 @@
-extends Node
+@abstract class_name Level extends Node
+
 @export var level_number: int = 1
 
 signal level_completed(level_number)
 
-func on_level_completed() -> void:
-	level_completed.emit(level_number)
-
-func _on_enemy_enemy_defeated() -> void:
-	on_level_completed()
+func initialize_party_position(party: Party) -> void:
+	party.global_position = get_node("PartyOriginMarker").global_position
+	party.reset_player_positions()

@@ -1,4 +1,4 @@
 extends Node
 
 func _ready() -> void:
-	ItemDropManager.drop_random_items(0, 5)
+	$Level1.initialize_party_position($Party)

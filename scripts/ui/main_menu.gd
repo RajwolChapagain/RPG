@@ -31,7 +31,8 @@ enum states { TITLE, MENU, PLAY, SETTINGS }
 func _ready() -> void:
 	connect_save_slot_signals()
 	MusicManager.fade_music_out(0.8)
-	await get_tree().create_timer(3.0).timeout
+
+func _on_title_music_delay_timer_timeout() -> void:
 	MusicManager.play_music('title')
 
 func _input(event: InputEvent) -> void:
@@ -50,6 +51,7 @@ func connect_save_slot_signals() -> void:
 		save_slot.new_game_button_pressed.connect(load_new_game)
 		
 func load_new_game(save_slot_id: int) -> void:
+	%TitleMusicDelayTimer.stop()
 	MusicManager.fade_music_out(0.8)
 	await play_shroud_animation()
 	var main = main_scene.instantiate()

@@ -49,3 +49,8 @@ func drop_player_essence(player_stats: BaseStats) -> void:
 	var items: Array[Item] = []
 	items.append(crystalize_stat(player_stats))
 	ItemDropManager.drop_items(items)
+
+func enable_party_camera_smoothing() -> void:
+	assert(party != null)
+	party.enable_camera_smoothing()
+	

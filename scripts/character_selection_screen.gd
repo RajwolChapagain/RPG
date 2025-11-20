@@ -139,3 +139,4 @@ func play_fade_out_animation() -> void:
 	tween.tween_property(%Shroud, 'modulate', Color(%Shroud.modulate.r, %Shroud.modulate.g, %Shroud.modulate.b, 1), 2).set_ease(Tween.EaseType.EASE_IN)
 	await tween.finished
 	await get_tree().create_timer(3).timeout
+	%Camera2D.enabled = false

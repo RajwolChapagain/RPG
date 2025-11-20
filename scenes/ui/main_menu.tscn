@@ -313,6 +313,13 @@ modulate = Color(1, 1, 1, 0)
 position = Vector2(160, 90)
 texture = ExtResource("3_uhagc")
 
+[node name="TitleMusicDelayTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 3.0
+one_shot = true
+autostart = true
+
 [connection signal="toggled" from="UI/HBoxContainer/ButtonsPanel/ButtonsContainer/PlayButton" to="." method="_on_play_button_toggled"]
 [connection signal="toggled" from="UI/HBoxContainer/ButtonsPanel/ButtonsContainer/SettingsButton" to="." method="_on_settings_button_toggled"]
 [connection signal="animation_finished" from="UI/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="TitleMusicDelayTimer" to="." method="_on_title_music_delay_timer_timeout"]
