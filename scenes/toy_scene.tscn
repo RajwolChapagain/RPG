@@ -1,89 +1,10 @@
-[gd_scene load_steps=6 format=4 uid="uid://c71ubdaq0cf3b"]
+[gd_scene load_steps=3 format=3 uid="uid://c71ubdaq0cf3b"]
 
 [ext_resource type="Script" uid="uid://borbh1uoqw6ht" path="res://scripts/toy_scene.gd" id="1_048qh"]
-[ext_resource type="Texture2D" uid="uid://cjakmnucw2q6t" path="res://icon.svg" id="3_048qh"]
 [ext_resource type="PackedScene" uid="uid://cx2lym7krpsie" path="res://scenes/archer.tscn" id="5_1jwir"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7vpqp"]
-texture = ExtResource("3_048qh")
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-6:0/0 = 0
-7:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-5:1/0 = 0
-6:1/0 = 0
-6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-7:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-4:2/0 = 0
-5:2/0 = 0
-6:2/0 = 0
-7:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-4:3/0 = 0
-5:3/0 = 0
-6:3/0 = 0
-7:3/0 = 0
-0:4/0 = 0
-1:4/0 = 0
-2:4/0 = 0
-3:4/0 = 0
-4:4/0 = 0
-5:4/0 = 0
-6:4/0 = 0
-7:4/0 = 0
-0:5/0 = 0
-1:5/0 = 0
-2:5/0 = 0
-3:5/0 = 0
-4:5/0 = 0
-5:5/0 = 0
-6:5/0 = 0
-7:5/0 = 0
-0:6/0 = 0
-1:6/0 = 0
-2:6/0 = 0
-3:6/0 = 0
-4:6/0 = 0
-5:6/0 = 0
-6:6/0 = 0
-7:6/0 = 0
-0:7/0 = 0
-1:7/0 = 0
-2:7/0 = 0
-3:7/0 = 0
-4:7/0 = 0
-5:7/0 = 0
-6:7/0 = 0
-7:7/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_i7sk5"]
-physics_layer_0/collision_layer = 2147483648
-physics_layer_0/collision_mask = 0
-sources/2 = SubResource("TileSetAtlasSource_7vpqp")
 
 [node name="Node" type="Node"]
 script = ExtResource("1_048qh")
 
 [node name="Player" parent="." instance=ExtResource("5_1jwir")]
 position = Vector2(160, 96)
-
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
-position = Vector2(160, 96)
-tile_map_data = PackedByteArray("AAAGAP7/AgAGAAEAAAAGAP//AgAGAAEAAAAGAAAAAgAGAAEAAAAGAAEAAgAGAAEAAAAFAAEAAgAGAAEAAAAEAAEAAgAGAAEAAAADAAEAAgAGAAEAAAACAAEAAgAGAAEAAAACAAIAAgAGAAEAAAADAAIAAgAGAAEAAAABAAMAAgAGAAEAAAABAAQAAgAGAAEAAAAAAAQAAgAGAAEAAAD//wQAAgAGAAEAAAD+/wQAAgAGAAEAAAD9/wQAAgAGAAEAAAD9/wMAAgAGAAEAAAD8/wMAAgAGAAEAAAD7/wMAAgAGAAEAAAD7/wIAAgAGAAEAAAD7/wEAAgAGAAEAAAD7/wAAAgAGAAEAAAD7////AgAGAAEAAAD6////AgAGAAEAAAD6//7/AgAGAAEAAAD6//3/AgAGAAEAAAD7//3/AgAGAAEAAAD8//3/AgAGAAEAAAD8//z/AgAGAAEAAAD9//z/AgAGAAEAAAD9//v/AgAGAAEAAAD+//v/AgAGAAEAAAD///v/AgAGAAEAAAAAAPv/AgAGAAEAAAABAPv/AgAGAAEAAAACAPv/AgAGAAEAAAADAPv/AgAGAAEAAAAEAPv/AgAGAAEAAAAFAPv/AgAGAAEAAAAGAPv/AgAGAAEAAAAGAPz/AgAGAAEAAAAHAPz/AgAGAAEAAAAHAP3/AgAGAAEAAAAGAP3/AgAGAAEAAAA=")
-tile_set = SubResource("TileSet_i7sk5")
