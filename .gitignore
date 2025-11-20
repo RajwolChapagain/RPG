@@ -3,3 +3,5 @@
 export.cfg
 export_presets.cfg
 resources/saves
+scenes/toy_scene.tscn
+scripts/toy_scene.gd
