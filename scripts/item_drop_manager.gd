@@ -15,6 +15,7 @@ func drop_item_by_name(item_name: String) -> void:
 func drop_items(items: Array[Item]) -> void:
 	GameManager.add_items_to_inventory(items)
 	display_items(items)
+	get_tree().paused = true
 	
 func drop_random_items(rarity_modifier: float = 0.0, item_count: int = 1) -> void:
 	var items: Array[Item] = []
@@ -47,3 +48,4 @@ func _on_confirm_button_pressed() -> void:
 	%ItemDropPanel.visible = false
 	while %ItemsContainer.get_child_count() != 0:
 		%ItemsContainer.remove_child(%ItemsContainer.get_child(0))
+	get_tree().paused = false

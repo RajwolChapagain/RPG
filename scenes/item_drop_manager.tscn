@@ -17,6 +17,7 @@ name = "Mythical Item"
 metadata/_custom_type_script = "uid://due732el6o1b8"
 
 [node name="ItemDropManager" type="Node"]
+process_mode = 3
 script = ExtResource("1_uacbh")
 common_items = Array[ExtResource("2_a4wni")]([ExtResource("3_rpn2w")])
 uncommon_items = Array[ExtResource("2_a4wni")]([ExtResource("4_351bv")])
