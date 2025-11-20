@@ -15,6 +15,9 @@ func drop_item_by_name(item_name: String) -> void:
 func drop_items(items: Array[Item]) -> void:
 	GameManager.add_items_to_inventory(items)
 	display_items(items)
+	call_deferred('pause_game')
+
+func pause_game() -> void:
 	get_tree().paused = true
 	
 func drop_random_items(rarity_modifier: float = 0.0, item_count: int = 1) -> void:
