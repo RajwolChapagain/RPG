@@ -24,8 +24,8 @@ func load_level(level: int) -> void:
 											 		 # 		DialogueManger freezes the game at the start of level 1
 		
 	current_level = levels[level - 1].instantiate()
-	current_level.initialize_party_position(party)
 	add_child(current_level)
+	current_level.initialize_party_position(party)
 	move_child(current_level, 0)
 	current_level.level_completed.connect(on_level_completed)
 

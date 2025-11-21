@@ -14,3 +14,6 @@ func drop_unselected_player_essence() -> void:
 	var all_players = ['Rachelle', 'Magda', 'Josephine', 'Lachlan', 'Einar']
 	var missing_player = all_players.filter(func(player_name): return player_name not in selected_players)[0]
 	GameManager.drop_player_essence(character_name_to_base_stats[missing_player])
+
+func _on_boss_enemy_enemy_defeated() -> void:
+	level_completed.emit(level_number)

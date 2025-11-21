@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=4 uid="uid://cj1sajukjk52m"]
 
+[ext_resource type="Script" uid="uid://dhc0wh8yeig00" path="res://scripts/levels/level3.gd" id="1_fkk1g"]
 [ext_resource type="PackedScene" uid="uid://bitedxhspi8i5" path="res://scenes/dual_grid.tscn" id="1_o8c3j"]
-[ext_resource type="Script" uid="uid://dy8orfdjxmcdv" path="res://scripts/level.gd" id="1_ugcn1"]
 [ext_resource type="PackedScene" uid="uid://ccy0aydyv2sxd" path="res://scenes/enemy.tscn" id="2_44gv1"]
 [ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="3_0qepi"]
 [ext_resource type="Resource" uid="uid://c3bvbxqpkkgu3" path="res://resources/knight_base_stats.tres" id="4_fkk1g"]
@@ -42,8 +42,7 @@ hp = 100
 battle_sprite = SubResource("CompressedTexture2D_n6eey")
 
 [node name="Level3" type="Node"]
-script = ExtResource("1_ugcn1")
-level_number = 3
+script = ExtResource("1_fkk1g")
 
 [node name="DualGrid" parent="." instance=ExtResource("1_o8c3j")]
 
