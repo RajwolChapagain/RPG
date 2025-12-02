@@ -260,12 +260,14 @@ func attack_alive_enemy(enemy_index: int) -> void:
 		if enemy.stats.hp != 0:
 			alive_enemies.append(enemy)
 			
-	player_characters[active_index].attack(alive_enemies[enemy_index])
-	%AbilityPointsContainer.increase_points(player_characters[active_index].stats.ap_per_attack)
+	var is_enemy_hit = player_characters[active_index].attack(alive_enemies[enemy_index])
+	if is_enemy_hit:
+		%AbilityPointsContainer.increase_points(player_characters[active_index].stats.ap_per_attack)
+		shake_camera(1, 0.2)
+		
 	await get_tree().process_frame
 	enable_attack_button()
 	num_attacked += 1
-	shake_camera(1, 0.2)
 
 func attack_alive_enemy_with_ability(enemy_index: int, ability: Node) -> void:
 	var alive_enemies = []
@@ -321,8 +323,9 @@ func on_ability_exited_tree() -> void:
 func attack_random_player() -> void:
 	if enemies[active_index].stats.hp == 0:
 		return
-	enemies[active_index].attack(get_random_alive_player())
-	shake_camera(0.8, 0.15)
+	var is_player_hit = enemies[active_index].attack(get_random_alive_player())
+	if is_player_hit:
+		shake_camera(0.8, 0.15)
 	
 func get_random_alive_player():
 	var alive_players = []

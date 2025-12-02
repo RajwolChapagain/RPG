@@ -9,7 +9,8 @@ func _ready() -> void:
 	$Sprite2D.texture = stats.battle_sprite
 	set_hit_particle_color()
 	
-func attack(target) -> void:
+# Returns true if attack hit, false if missed
+func attack(target) -> bool:
 	var crit_damage = 30
 	var true_damage = stats.attack_damage
 	var critting = false
@@ -18,19 +19,21 @@ func attack(target) -> void:
 		critting = true
 		
 	%AnimationTree.set('parameters/StateMachine/conditions/attacking', true) 
-	target.take_damage(true_damage, stats.accuracy, critting)
+	return target.take_damage(true_damage, stats.accuracy, critting)
 	
-func take_damage(damage: int, accuracy: int, critting: bool = false) -> void:
+# Returns true if damage was taken, false if attack missed
+func take_damage(damage: int, accuracy: int, critting: bool = false) -> bool:
 	var true_dodge_chance = stats.dodge - accuracy
 	if randf() <= (true_dodge_chance / 100.0):
 		if critting:
 			%AnimationTree["parameters/CriticalMiss/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
 		else:
 			%AnimationTree["parameters/Dodge/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
-		return
+		return false
 
 	if critting:
 		%AnimationTree['parameters/CriticalHit/request'] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
+	
 		
 	var true_damage = clamp(damage - stats.defence, 0, damage)
 	stats.hp -= true_damage
@@ -42,6 +45,7 @@ func take_damage(damage: int, accuracy: int, critting: bool = false) -> void:
 		die()
 	
 	%HitParticles.emitting = true
+	return true
 
 func mark_active():
 	$Pointer.visible = true

@@ -21,6 +21,7 @@ name = "Goblin"
 attack_damage = 50
 max_hp = 100
 hp = 100
+dodge = 50
 battle_sprite = SubResource("CompressedTexture2D_ti0og")
 
 [sub_resource type="Animation" id="Animation_0gp0h"]
@@ -66,8 +67,6 @@ character_spacing = 60
 player_character_stats = Array[ExtResource("2_xwxfl")]([ExtResource("3_g72on"), ExtResource("4_tttxe"), ExtResource("5_ti0og"), ExtResource("6_bg0yk")])
 enemy_stats = Array[ExtResource("2_xwxfl")]([SubResource("Resource_bg0yk")])
 ability_button = ExtResource("3_svpld")
-win_text = null
-lose_text = null
 
 [node name="DualGrid" parent="." instance=ExtResource("1_6lmhm")]
 
