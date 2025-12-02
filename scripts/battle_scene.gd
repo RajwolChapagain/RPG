@@ -4,6 +4,7 @@ extends Node
 @export var player_character_stats : Array[BaseStats]= []
 @export var enemy_stats : Array[BaseStats]= []
 @export var ability_button: PackedScene
+@export var MAIN_MENU_SCENE: PackedScene
 var battler_player = preload("res://scenes/battler_player.tscn")
 var battler_enemy = preload("res://scenes/battler_enemy.tscn")
 var player_characters: Array[Node2D] = []
@@ -18,6 +19,7 @@ var num_attacked: int = 0
 var camera_shaking := false
 var camera_shake_time_left: float = 0.0
 var battle_ongoing: bool = true
+var battle_won: bool = false
 
 @export var win_text: String = "Battle Won! :)"
 @export var lose_text: String = "Battle Lost! :("
@@ -76,10 +78,26 @@ func update_active_battler(new_index):
 	active_index = new_index
 
 	
-func on_player_battler_died(_player_name: String) -> void:
+func on_player_battler_died(player_name: String) -> void:
 	alive_player_count -= 1
-	if alive_player_count == 0:
-		end_battle(false)
+	if player_name == 'Magda':
+		var rachelle_is_dead = true
+		
+		for player_character_stat in player_character_stats:
+			if player_character_stat.name == 'Rachelle' and player_character_stat.hp > 0:
+				rachelle_is_dead = false
+				
+		if rachelle_is_dead:
+			end_battle(false)
+	elif player_name == 'Rachelle':
+		var magda_is_dead = true
+		
+		for player_character_stat in player_character_stats:
+			if player_character_stat.name == 'Magda' and player_character_stat.hp > 0:
+				magda_is_dead = false
+				
+		if magda_is_dead:
+			end_battle(false)
 	
 func on_enemy_battler_died(_enemy_name: String) -> void:
 	alive_enemy_count -= 1
@@ -321,6 +339,10 @@ func on_ability_exited_tree() -> void:
 
 # Precondition: active_index points to an alive enemy
 func attack_random_player() -> void:
+	# Check to prevent attacking after primary player characters have died
+	if not battle_ongoing:
+		return
+		
 	if enemies[active_index].stats.hp == 0:
 		return
 	var is_player_hit = enemies[active_index].attack(get_random_alive_player())
@@ -342,6 +364,7 @@ func end_battle(won: bool) -> void:
 	if won:
 		MusicManager.play_music('victory', false)
 		%ResultAnnouncementLabel.text = win_text
+		battle_won = true
 	else:
 		%ResultAnnouncementLabel.text = lose_text
 	%ResultAnnouncementLabel.visible = true
@@ -402,7 +425,7 @@ func on_ability_selected(ability: Node) -> void:
 
 func _on_result_label_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "fade_in":
-		battle_ended.emit(player_character_stats)
+		battle_ended.emit(player_character_stats, battle_won)
 		%BattleCam.enabled = false
 		GameManager.disable_party_camera_smoothing()
 

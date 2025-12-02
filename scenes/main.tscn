@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://btp1ybbdujkbw" path="res://scenes/mage.tscn" id="10_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://cx2lym7krpsie" path="res://scenes/archer.tscn" id="11_eb6dy"]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" groups=["main"]]
 script = ExtResource("1_2o4jk")
 character_selection_screen = ExtResource("2_o6xl0")
 levels = Array[PackedScene]([ExtResource("2_tefeu"), ExtResource("3_o6xl0"), ExtResource("4_tipki")])

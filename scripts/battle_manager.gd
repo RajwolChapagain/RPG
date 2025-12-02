@@ -1,6 +1,7 @@
 extends Node
 
 @export var battle_scene: PackedScene
+@export var MAIN_MENU_SCENE: PackedScene
 var active_battle_scene: Node
 var battling_party: Party
 var battling_enemy: Enemy
@@ -34,14 +35,18 @@ func thaw_party() -> void:
 	battling_party.enable_all_player_movement()
 	battling_party.enable_cycling()
 	
-func on_battle_ended(player_character_stats: Array[BaseStats]) -> void:
+func on_battle_ended(player_character_stats: Array[BaseStats], battle_won: bool) -> void:
 	active_battle_scene.queue_free()
-	set_player_hps_post_battle(player_character_stats)
-	remove_dead_entities()
-	thaw_party()
-	battling_party.regroup_party()
-	MusicManager.play_audio_stream(pre_battle_music_stream)
-	MusicManager.seek_stream(pre_battle_music_timestamp)
+	if battle_won:
+		set_player_hps_post_battle(player_character_stats)
+		remove_dead_entities()
+		thaw_party()
+		battling_party.regroup_party()
+		MusicManager.play_audio_stream(pre_battle_music_stream)
+		MusicManager.seek_stream(pre_battle_music_timestamp)
+	else:
+		get_tree().call_group('main', 'queue_free')
+		get_tree().change_scene_to_packed(MAIN_MENU_SCENE)
 
 func remove_dead_entities() -> void:
 	remove_dead_players()
