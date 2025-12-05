@@ -1,6 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://d0rp7rw1dxv20"]
+[gd_scene load_steps=6 format=3 uid="uid://d0rp7rw1dxv20"]
 
 [ext_resource type="Texture2D" uid="uid://cdc2tadeewakq" path="res://assets/sprites/world/wall_sprite.png" id="1_085sl"]
+[ext_resource type="Texture2D" uid="uid://bmn84twkm7vve" path="res://assets/sprites/world/cave_tile.png" id="1_iygck"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_je1q3"]
+texture = ExtResource("1_iygck")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_085sl"]
 texture = ExtResource("1_085sl")
@@ -13,6 +26,7 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 2147483648
 physics_layer_0/collision_mask = 0
 sources/1 = SubResource("TileSetAtlasSource_085sl")
+sources/0 = SubResource("TileSetAtlasSource_je1q3")
 
 [node name="WallTileMap" type="TileMapLayer"]
 tile_set = SubResource("TileSet_0djgy")
