@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dra6mrrj61t35"]
 
-[ext_resource type="Resource" uid="uid://c46k2b5fxukoi" path="res://resources/goblin_base_stats.tres" id="2_6puew"]
+[ext_resource type="Resource" uid="uid://c46k2b5fxukoi" path="res://resources/enemy_stats/small_monster_stats.tres" id="2_6puew"]
 [ext_resource type="PackedScene" uid="uid://hqlhygr4xwpx" path="res://scenes/battler.tscn" id="2_l2s84"]
 [ext_resource type="Texture2D" uid="uid://onsf4e7pukfl" path="res://assets/sprites/goblin_placeholder.png" id="2_mxkh7"]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7b6aq23nha7x"
-path="res://.godot/imported/smallmonster1.PNG-f97d379213edc444207ddc02366f1a54.ctex"
+uid="uid://bmn84twkm7vve"
+path="res://.godot/imported/cave_tile.png-87d4969d61e8e75eeeb965993aca1f87.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/monsters/smallmonster1.PNG"
-dest_files=["res://.godot/imported/smallmonster1.PNG-f97d379213edc444207ddc02366f1a54.ctex"]
+source_file="res://assets/sprites/world/cave_tile.png"
+dest_files=["res://.godot/imported/cave_tile.png-87d4969d61e8e75eeeb965993aca1f87.ctex"]
 
 [params]
 

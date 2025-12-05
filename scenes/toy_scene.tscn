@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="5_7xx35"]
 [ext_resource type="PackedScene" uid="uid://dybafy3qxap2q" path="res://scenes/lady.tscn" id="5_mvcrx"]
 [ext_resource type="PackedScene" uid="uid://btp1ybbdujkbw" path="res://scenes/mage.tscn" id="6_f1r70"]
-[ext_resource type="Resource" uid="uid://c46k2b5fxukoi" path="res://resources/goblin_base_stats.tres" id="6_tfdas"]
+[ext_resource type="Resource" uid="uid://c46k2b5fxukoi" path="res://resources/enemy_stats/small_monster_stats.tres" id="6_tfdas"]
 [ext_resource type="PackedScene" uid="uid://4tpi2115bjdi" path="res://scenes/knight.tscn" id="7_mvcrx"]
 
 [node name="Node" type="Node"]

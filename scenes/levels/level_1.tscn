@@ -1,11 +1,10 @@
-[gd_scene load_steps=28 format=4 uid="uid://dy5qxs6qxwvwi"]
+[gd_scene load_steps=26 format=4 uid="uid://dy5qxs6qxwvwi"]
 
 [ext_resource type="Script" uid="uid://b1fvsmwksdmq2" path="res://scripts/levels/level1.gd" id="1_qxy0u"]
 [ext_resource type="PackedScene" uid="uid://bitedxhspi8i5" path="res://scenes/dual_grid.tscn" id="1_x42e6"]
 [ext_resource type="PackedScene" uid="uid://ccy0aydyv2sxd" path="res://scenes/enemy.tscn" id="2_6761a"]
 [ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="3_sk5k4"]
 [ext_resource type="Resource" uid="uid://c3bvbxqpkkgu3" path="res://resources/knight_base_stats.tres" id="3_wtwp4"]
-[ext_resource type="Resource" uid="uid://c46k2b5fxukoi" path="res://resources/goblin_base_stats.tres" id="4_6761a"]
 [ext_resource type="Resource" uid="uid://biubxrgae4cha" path="res://resources/cleric_base_stats.tres" id="4_iwr0g"]
 [ext_resource type="PackedScene" uid="uid://cglapshtkljpc" path="res://scenes/npc.tscn" id="4_oc4kc"]
 [ext_resource type="Resource" uid="uid://bgg065a045ww" path="res://resources/lady_base_stats.tres" id="5_bahl2"]
@@ -15,89 +14,95 @@
 [ext_resource type="Resource" uid="uid://cym67rsdldl6j" path="res://resources/archer_base_stats.tres" id="7_v6ha0"]
 [ext_resource type="Resource" uid="uid://bin2fs1gqdd6w" path="res://resources/items/doloris's_necklace.tres" id="8_dga24"]
 [ext_resource type="PackedScene" uid="uid://d0rp7rw1dxv20" path="res://scenes/wall_tile_map.tscn" id="10_qxy0u"]
+[ext_resource type="Texture2D" uid="uid://bitm1sjjpfpsu" path="res://assets/sprites/monsters/smallmonster1.webp" id="11_bahl2"]
+[ext_resource type="Texture2D" uid="uid://dqpa8dgwo21vc" path="res://assets/sprites/monsters/catapace.webp" id="12_np2pn"]
+[ext_resource type="Texture2D" uid="uid://ctu601yhl7h7c" path="res://assets/sprites/monsters/coyostrel.png" id="14_bahl2"]
+[ext_resource type="Texture2D" uid="uid://onsf4e7pukfl" path="res://assets/sprites/goblin_placeholder.png" id="16_np2pn"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sk5k4"]
-load_path = "res://.godot/imported/smallmonster1.PNG-f97d379213edc444207ddc02366f1a54.ctex"
-
-[sub_resource type="Resource" id="Resource_oc4kc"]
+[sub_resource type="Resource" id="Resource_iwr0g"]
 script = ExtResource("3_sk5k4")
-name = "Goblin"
+name = "Winged Capybara"
 attack_damage = 10
 max_hp = 100
 hp = 100
-defence = 5
-dodge = 30
-battle_sprite = SubResource("CompressedTexture2D_sk5k4")
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_s8va5"]
-load_path = "res://.godot/imported/smallmonster1.PNG-f97d379213edc444207ddc02366f1a54.ctex"
-
-[sub_resource type="Resource" id="Resource_dga24"]
-script = ExtResource("3_sk5k4")
-name = "Goblin"
-attack_damage = 30
-max_hp = 40
-hp = 40
+crit = 10
 dodge = 10
-battle_sprite = SubResource("CompressedTexture2D_s8va5")
+accuracy = 10
+battle_sprite = ExtResource("11_bahl2")
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_oc4kc"]
-load_path = "res://.godot/imported/smallmonster1.PNG-f97d379213edc444207ddc02366f1a54.ctex"
-
-[sub_resource type="Resource" id="Resource_s8va5"]
+[sub_resource type="Resource" id="Resource_v6ha0"]
 script = ExtResource("3_sk5k4")
-name = "Goblin"
+name = "Winged Capybara"
 attack_damage = 10
 max_hp = 100
 hp = 100
-crit = 30
-dodge = 30
-accuracy = 30
-battle_sprite = SubResource("CompressedTexture2D_oc4kc")
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dga24"]
-load_path = "res://.godot/imported/smallmonster1.PNG-f97d379213edc444207ddc02366f1a54.ctex"
-
-[sub_resource type="Resource" id="Resource_qxy0u"]
-script = ExtResource("3_sk5k4")
-name = "Goblin"
-attack_damage = 20
-max_hp = 80
-hp = 80
-defence = 10
-dodge = 90
+crit = 10
+dodge = 10
 accuracy = 10
-battle_sprite = SubResource("CompressedTexture2D_dga24")
+battle_sprite = ExtResource("11_bahl2")
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_excbq"]
-load_path = "res://.godot/imported/smallmonster1.PNG-f97d379213edc444207ddc02366f1a54.ctex"
-
-[sub_resource type="Resource" id="Resource_iav0o"]
+[sub_resource type="Resource" id="Resource_gmpev"]
 script = ExtResource("3_sk5k4")
-name = "Goblin"
-attack_damage = 5
+name = "Catapace"
+attack_damage = 30
+max_hp = 130
+hp = 130
+defence = 15
+crit = 15
+dodge = 20
+accuracy = 20
+battle_sprite = ExtResource("12_np2pn")
+metadata/_custom_type_script = "uid://dbtdwrocpsv30"
+
+[sub_resource type="Resource" id="Resource_mkypq"]
+script = ExtResource("3_sk5k4")
+name = "Winged Capybara"
+attack_damage = 10
+max_hp = 100
+hp = 100
+crit = 10
+dodge = 10
+accuracy = 10
+battle_sprite = ExtResource("11_bahl2")
+
+[sub_resource type="Resource" id="Resource_np2pn"]
+script = ExtResource("3_sk5k4")
+name = "Catapace"
+attack_damage = 30
+max_hp = 130
+hp = 130
+defence = 15
+crit = 15
+dodge = 20
+accuracy = 20
+battle_sprite = ExtResource("12_np2pn")
+metadata/_custom_type_script = "uid://dbtdwrocpsv30"
+
+[sub_resource type="Resource" id="Resource_ndtll"]
+script = ExtResource("3_sk5k4")
+name = "Coyostrel"
+attack_damage = 20
+max_hp = 150
+hp = 150
+defence = 5
+crit = 15
+dodge = 30
+accuracy = 40
+battle_sprite = ExtResource("14_bahl2")
+metadata/_custom_type_script = "uid://dbtdwrocpsv30"
+
+[sub_resource type="Resource" id="Resource_7h2jl"]
+script = ExtResource("3_sk5k4")
+name = "Snake"
+attack_damage = 50
 max_hp = 200
 hp = 200
 defence = 20
-crit = 5
-dodge = 5
-accuracy = 5
-battle_sprite = SubResource("CompressedTexture2D_excbq")
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qxy0u"]
-load_path = "res://.godot/imported/smallmonster1.PNG-f97d379213edc444207ddc02366f1a54.ctex"
-
-[sub_resource type="Resource" id="Resource_excbq"]
-script = ExtResource("3_sk5k4")
-name = "Goblin"
-attack_damage = 30
-max_hp = 250
-hp = 250
-defence = 10
 crit = 10
-dodge = 30
-accuracy = 40
-battle_sprite = SubResource("CompressedTexture2D_qxy0u")
+dodge = 15
+accuracy = 10
+battle_sprite = ExtResource("16_np2pn")
+metadata/_custom_type_script = "uid://dbtdwrocpsv30"
 
 [node name="Level1" type="Node"]
 script = ExtResource("1_qxy0u")
@@ -118,24 +123,24 @@ tile_map_data = PackedByteArray("AAATAAEAAAAAAAAAAAATAAIAAAAAAAAAAAATAAMAAAAAAAA
 
 [node name="Enemy" parent="." instance=ExtResource("2_6761a")]
 position = Vector2(780, 126)
-gang = Array[ExtResource("3_sk5k4")]([ExtResource("4_6761a")])
+gang = Array[ExtResource("3_sk5k4")]([SubResource("Resource_iwr0g")])
 random_drop_item_count = 2
 
 [node name="Enemy2" parent="." instance=ExtResource("2_6761a")]
 position = Vector2(967, 22)
-gang = Array[ExtResource("3_sk5k4")]([SubResource("Resource_oc4kc"), SubResource("Resource_dga24")])
+gang = Array[ExtResource("3_sk5k4")]([SubResource("Resource_v6ha0"), SubResource("Resource_gmpev"), SubResource("Resource_mkypq")])
 dropped_items = Array[ExtResource("6_s8va5")]([ExtResource("7_dga24")])
 
 [node name="Enemy3" parent="." instance=ExtResource("2_6761a")]
 position = Vector2(999, 239)
-gang = Array[ExtResource("3_sk5k4")]([SubResource("Resource_s8va5"), SubResource("Resource_qxy0u"), SubResource("Resource_iav0o")])
+gang = Array[ExtResource("3_sk5k4")]([SubResource("Resource_np2pn"), SubResource("Resource_ndtll")])
 dropped_items = Array[ExtResource("6_s8va5")]([ExtResource("8_dga24")])
 random_drop_item_count = 2
 random_dropped_item_rarity_modifier = 10.0
 
 [node name="BossEnemy" parent="." instance=ExtResource("2_6761a")]
 position = Vector2(1140, 145)
-gang = Array[ExtResource("3_sk5k4")]([SubResource("Resource_excbq")])
+gang = Array[ExtResource("3_sk5k4")]([SubResource("Resource_7h2jl")])
 random_drop_item_count = 5
 
 [node name="NPC" parent="." instance=ExtResource("4_oc4kc")]
@@ -153,7 +158,7 @@ position = Vector2(160, 96)
 position = Vector2(16, 16)
 tile_map_data = PackedByteArray("AAAAAAAAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAMAAQAAAAAAAAAAAAQAAQAAAAAAAAAAAAUAAQAAAAAAAAAAAAYAAQAAAAAAAAABAAAAAQAAAAAAAAABAAYAAQAAAAAAAAACAAAAAQAAAAAAAAACAAYAAQAAAAAAAAADAAAAAQAAAAAAAAADAAYAAQAAAAAAAAAEAAAAAQAAAAAAAAAEAAYAAQAAAAAAAAAFAAAAAQAAAAAAAAAFAAYAAQAAAAAAAAAGAAAAAQAAAAAAAAAGAAYAAQAAAAAAAAAHAAAAAQAAAAAAAAAHAAYAAQAAAAAAAAAIAAEAAQAAAAAAAAAIAAUAAQAAAAAAAAAJAAEAAQAAAAAAAAAJAAUAAQAAAAAAAAAKAAEAAQAAAAAAAAAKAAUAAQAAAAAAAAALAAEAAQAAAAAAAAALAAUAAQAAAAAAAAAMAAEAAQAAAAAAAAANAAEAAQAAAAAAAAAOAAEAAQAAAAAAAAAOAAUAAQAAAAAAAAAPAAEAAQAAAAAAAAAPAAUAAQAAAAAAAAAQAAEAAQAAAAAAAAAQAAUAAQAAAAAAAAARAAEAAQAAAAAAAAARAAUAAQAAAAAAAAASAAEAAQAAAAAAAAASAAUAAQAAAAAAAAATAAEAAQAAAAAAAAATAAUAAQAAAAAAAAAUAAEAAQAAAAAAAAAUAAUAAQAAAAAAAAAVAAEAAQAAAAAAAAAVAAUAAQAAAAAAAAAWAAEAAQAAAAAAAAAWAAUAAQAAAAAAAAALAAYAAQAAAAAAAAALAAcAAQAAAAAAAAALAAgAAQAAAAAAAAAMAAgAAQAAAAAAAAANAAgAAQAAAAAAAAAOAAYAAQAAAAAAAAAOAAcAAQAAAAAAAAAOAAgAAQAAAAAAAAAXAP7/AQAAAAAAAAAXAP//AQAAAAAAAAAXAAAAAQAAAAAAAAAXAAEAAQAAAAAAAAAXAAUAAQAAAAAAAAAXAAYAAQAAAAAAAAAXAAcAAQAAAAAAAAAXAAgAAQAAAAAAAAAYAAgAAQAAAAAAAAAZAAgAAQAAAAAAAAAaAAgAAQAAAAAAAAAbAAgAAQAAAAAAAAAcAP7/AQAAAAAAAAAcAAgAAQAAAAAAAAAdAP7/AQAAAAAAAAAdAAgAAQAAAAAAAAAeAP7/AQAAAAAAAAAeAAgAAQAAAAAAAAAfAP7/AQAAAAAAAAAfAAgAAQAAAAAAAAAgAP7/AQAAAAAAAAAgAAgAAQAAAAAAAAAhAP7/AQAAAAAAAAAhAAgAAQAAAAAAAAAiAP7/AQAAAAAAAAAiAP//AQAAAAAAAAAiAAAAAQAAAAAAAAAiAAEAAQAAAAAAAAAiAAIAAQAAAAAAAAAiAAYAAQAAAAAAAAAiAAcAAQAAAAAAAAAiAAgAAQAAAAAAAAAjAAIAAQAAAAAAAAAkAAIAAQAAAAAAAAAkAAMAAQAAAAAAAAAkAAQAAQAAAAAAAAAkAAUAAQAAAAAAAAAHAAEAAQAAAAAAAAAHAAUAAQAAAAAAAAAYAP7/AQAAAAAAAAAZAP7/AQAAAAAAAAAaAP7/AQAAAAAAAAAbAP7/AQAAAAAAAAAiAAUAAQAAAAAAAAAjAAUAAQAAAAAAAAA=")
 
-[connection signal="enemy_defeated" from="BossEnemy" to="." method="_on_enemy_enemy_defeated"]
 [connection signal="enemy_defeated" from="BossEnemy" to="." method="_on_boss_enemy_enemy_defeated"]
+[connection signal="enemy_defeated" from="BossEnemy" to="." method="_on_enemy_enemy_defeated"]
 
 [editable path="DualGrid"]

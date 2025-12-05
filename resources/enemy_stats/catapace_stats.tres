@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="BaseStats" load_steps=3 format=3 uid="uid://504xnrcw2ros"]
+
+[ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="1_j7ob1"]
+[ext_resource type="Texture2D" uid="uid://dqpa8dgwo21vc" path="res://assets/sprites/monsters/catapace.webp" id="1_m0mvr"]
+
+[resource]
+script = ExtResource("1_j7ob1")
+name = "Catapace"
+attack_damage = 30
+max_hp = 130
+hp = 130
+defence = 15
+crit = 15
+dodge = 20
+accuracy = 20
+battle_sprite = ExtResource("1_m0mvr")
+metadata/_custom_type_script = "uid://dbtdwrocpsv30"

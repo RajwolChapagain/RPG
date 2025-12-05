@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="BaseStats" load_steps=3 format=3 uid="uid://do77x272klmh8"]
+
+[ext_resource type="Texture2D" uid="uid://ctu601yhl7h7c" path="res://assets/sprites/monsters/coyostrel.png" id="1_n4ted"]
+[ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="1_ubxfp"]
+
+[resource]
+script = ExtResource("1_ubxfp")
+name = "Coyostrel"
+attack_damage = 20
+max_hp = 150
+hp = 150
+defence = 5
+crit = 15
+dodge = 30
+accuracy = 40
+battle_sprite = ExtResource("1_n4ted")
+metadata/_custom_type_script = "uid://dbtdwrocpsv30"
