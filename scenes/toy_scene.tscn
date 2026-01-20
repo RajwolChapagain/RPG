@@ -1,30 +1,22 @@
-[gd_scene load_steps=11 format=3 uid="uid://c71ubdaq0cf3b"]
+[gd_scene load_steps=8 format=3 uid="uid://c71ubdaq0cf3b"]
 
 [ext_resource type="Script" uid="uid://borbh1uoqw6ht" path="res://scripts/toy_scene.gd" id="1_048qh"]
 [ext_resource type="PackedScene" uid="uid://b6pcibljvig3f" path="res://scenes/party.tscn" id="2_i7sk5"]
 [ext_resource type="PackedScene" uid="uid://des2w3vogbaog" path="res://scenes/ui/pause_menu.tscn" id="3_048qh"]
-[ext_resource type="PackedScene" uid="uid://bitedxhspi8i5" path="res://scenes/dual_grid.tscn" id="4_7vpqp"]
-[ext_resource type="PackedScene" uid="uid://ccy0aydyv2sxd" path="res://scenes/enemy.tscn" id="4_jvvpo"]
-[ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="5_7xx35"]
 [ext_resource type="PackedScene" uid="uid://dybafy3qxap2q" path="res://scenes/lady.tscn" id="5_mvcrx"]
 [ext_resource type="PackedScene" uid="uid://btp1ybbdujkbw" path="res://scenes/mage.tscn" id="6_f1r70"]
-[ext_resource type="Resource" uid="uid://c46k2b5fxukoi" path="res://resources/enemy_stats/small_monster_stats.tres" id="6_tfdas"]
 [ext_resource type="PackedScene" uid="uid://4tpi2115bjdi" path="res://scenes/knight.tscn" id="7_mvcrx"]
+[ext_resource type="PackedScene" uid="uid://dy5qxs6qxwvwi" path="res://scenes/levels/level_1.tscn" id="7_tfdas"]
 
 [node name="Node" type="Node"]
 script = ExtResource("1_048qh")
 
-[node name="DualGrid" parent="." instance=ExtResource("4_7vpqp")]
-
 [node name="Party" parent="." instance=ExtResource("2_i7sk5")]
 character_scenes = Array[PackedScene]([ExtResource("5_mvcrx"), ExtResource("6_f1r70"), ExtResource("7_mvcrx")])
-
-[node name="Enemy" parent="." instance=ExtResource("4_jvvpo")]
-position = Vector2(59, 62)
-gang = Array[ExtResource("5_7xx35")]([ExtResource("6_tfdas"), ExtResource("6_tfdas"), ExtResource("6_tfdas")])
-random_drop_item_count = 0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("3_048qh")]
 visible = false
+
+[node name="Level1" parent="." instance=ExtResource("7_tfdas")]
