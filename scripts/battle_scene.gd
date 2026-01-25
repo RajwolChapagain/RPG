@@ -7,8 +7,8 @@ extends Node
 @export var MAIN_MENU_SCENE: PackedScene
 var battler_player = preload("res://scenes/battler_player.tscn")
 var battler_enemy = preload("res://scenes/battler_enemy.tscn")
-var player_characters: Array[Node2D] = []
-var enemies: Array[Node2D] = []
+var player_characters: Array[Battler] = []
+var enemies: Array[Battler] = []
 var active_index = 0
 var first_attacker_index = 0
 var players_turn = true
@@ -191,10 +191,14 @@ func initialize_hp_bar() -> void:
 
 #region turntaking
 func advance_turn() -> void:
+	# Tick effects down for all battlers
+	for battler: Battler in (player_characters + enemies):
+		battler.TICK_EFFECTS_DOWN()
+		
+	num_attacked += 1
 	if players_turn:
 		if num_attacked == alive_player_count:
 			end_player_turn()
-			num_attacked = 0
 			return
 		
 		var next_player_index = active_index
@@ -205,24 +209,23 @@ func advance_turn() -> void:
 			
 		update_active_battler(next_player_index)
 	else:
-		if active_index == len(enemies) - 1: # Inconsistency: players turn is checked by num_attacked
-											 # Assumes enemies will always attack starting from the first enemy to the left
+		if num_attacked == alive_enemy_count:
 			end_enemy_turn()
 			return
 		
 		var next_alive_enemy_index = active_index + 1
 		for i in range(next_alive_enemy_index, len(enemies)):
-			if enemies[next_alive_enemy_index].stats.hp != 0:
+			if enemies[next_alive_enemy_index].is_alive:
 				break
 			next_alive_enemy_index += 1
 		
-		if next_alive_enemy_index == len(enemies):
-			end_enemy_turn()
-		else:
-			update_active_battler(next_alive_enemy_index)
-		attack_random_player()
-
+		update_active_battler(next_alive_enemy_index)
+		call_deferred('attack_random_player') # Call deferred so that if more code is added to advance_turn after
+											  # this else statement in the future, advance_turn finishes
+											  # execution before attack_random_player is called
+	
 func end_player_turn() -> void:
+	num_attacked = 0
 	make_player_inactive(player_characters[active_index])
 	players_turn = false
 	enemy_is_attacking = false
@@ -241,6 +244,7 @@ func end_player_turn() -> void:
 	attack_random_player()
 
 func end_enemy_turn() -> void:
+	num_attacked = 0
 	slide_battler(enemies[active_index], Vector2.UP)
 
 	players_turn = true
@@ -258,53 +262,26 @@ func end_enemy_turn() -> void:
 ### Player Attacking ###
 
 func _on_attack_button_button_down() -> void:
-	if not players_turn or $TargetSelect.is_active():
+	if not players_turn or $TargetSelect.IS_ACTIVE():
 		return
 
 	%AbilitiesButton.set_pressed(false)
-	
-	var alive_enemies = []
-	for enemy in enemies:
-		if enemy.stats.hp != 0:
-			alive_enemies.append(enemy)
-			
-	$TargetSelect.set_targets(alive_enemies) 
-	$TargetSelect.activate(attack_alive_enemy)
+
+	$TargetSelect.SET_TARGETS(get_alive_enemies()) 
+	$TargetSelect.ACTIVATE(attack_enemy)
 	disable_attack_button()
 
-func attack_alive_enemy(enemy_index: int) -> void:
-	var alive_enemies = []
-	for enemy in enemies:
-		if enemy.stats.hp != 0:
-			alive_enemies.append(enemy)
-			
-	var is_enemy_hit = player_characters[active_index].attack(alive_enemies[enemy_index])
+func attack_enemy(enemy) -> void:
+	var is_enemy_hit = player_characters[active_index].attack(enemy)
 	if is_enemy_hit:
 		%AbilityPointsContainer.increase_points(player_characters[active_index].stats.ap_per_attack)
 		shake_camera(1, 0.2)
 		
+	for battler: Battler in get_resonant_battlers():
+		player_characters[active_index].attack(battler)
+		
 	await get_tree().process_frame
 	enable_attack_button()
-	num_attacked += 1
-
-func attack_alive_enemy_with_ability(enemy_index: int, ability: Node) -> void:
-	var alive_enemies = []
-	for enemy in enemies:
-		if enemy.stats.hp != 0:
-			alive_enemies.append(enemy)
-	
-	if ability.ability_name == 'Clairvoyance':
-		ability.show_stats(alive_enemies[enemy_index].stats)
-		add_child(ability)
-	else:
-		var target_enemies_array: Array[Node2D] = []
-		target_enemies_array.append(alive_enemies[enemy_index])
-		ability.initialize(target_enemies_array)
-		add_child(ability)
-		ability.trigger_ability()
-		shake_camera(2, 1)
-		
-	num_attacked += 1
 	
 func enable_attack_button() -> void:
 	%AttackButton.disabled = false
@@ -330,7 +307,7 @@ func disable_abilities_button() -> void:
 	%AbilitiesButton.disabled = true
 	%AbilitiesButton.set_focus_mode(Control.FOCUS_NONE)
 	
-func on_ability_exited_tree() -> void:
+func on_ability_finished_execution() -> void:
 	advance_turn()
 	enable_abilities_button()
 	enable_attack_button()
@@ -343,20 +320,16 @@ func attack_random_player() -> void:
 	if not battle_ongoing:
 		return
 		
-	if enemies[active_index].stats.hp == 0:
+	if not enemies[active_index].is_alive:
 		return
-	var is_player_hit = enemies[active_index].attack(get_random_alive_player())
+		
+	var is_player_hit = enemies[active_index].attack(get_alive_players().pick_random())
 	if is_player_hit:
 		shake_camera(0.8, 0.15)
 	
-func get_random_alive_player():
-	var alive_players = []
-	for character in player_characters:
-		if character.is_alive:
-			alive_players.append(character)
-
-	return alive_players.pick_random()
-	
+	for battler: Battler in get_resonant_battlers():
+		enemies[active_index].attack(battler)
+		
 #endregion attacking
 
 func end_battle(won: bool) -> void:
@@ -380,8 +353,8 @@ func _on_abilities_button_toggled(toggled_on: bool) -> void:
 
 func create_abilities_list() -> void:
 	for ability_scene in player_characters[active_index].stats.abilities:
-		var ability = ability_scene.instantiate()
-		var button = ability_button.instantiate() as AbilityButton
+		var ability: Ability = ability_scene.instantiate()
+		var button: AbilityButton = ability_button.instantiate()
 		button.set_ability(ability)
 		button.ability_selected.connect(on_ability_selected)
 		if ability.cost > %AbilityPointsContainer.points:
@@ -397,31 +370,33 @@ func destroy_abilities_list() -> void:
 	while %AbilitiesContainer.get_child_count() != 0:
 		%AbilitiesContainer.remove_child(%AbilitiesContainer.get_child(0))
 	
-func on_ability_selected(ability: Node) -> void:
+func on_ability_selected(ability: Ability) -> void:
 	if %AbilityPointsContainer.points < ability.cost:
 		print("Not enough APs")
 		return
 	else:
 		%AbilityPointsContainer.decrease_points(ability.cost)
 	
-	ability.tree_exited.connect(on_ability_exited_tree)
+	ability.ability_finished_execution.connect(on_ability_finished_execution)
 	%AbilitiesButton.set_pressed(false)
 	%PlayerInfos.visible = true
 	disable_attack_button()
-	# Only Heal ability targets player characters
-	if ability.ability_name == 'Heal':
-		ability.initialize(player_characters)
-		ability.trigger_ability()
-		add_child(ability)
-		num_attacked += 1
-	else:
-		var alive_enemies = []
-		for enemy in enemies:
-			if enemy.stats.hp != 0:
-				alive_enemies.append(enemy)
-				
-		$TargetSelect.set_targets(alive_enemies) 
-		$TargetSelect.activate(attack_alive_enemy_with_ability.bind(ability))
+	
+	$TargetSelect.SET_TARGETS(get_alive_enemies() + get_alive_players()) 
+	$TargetSelect.ACTIVATE(execute_ability_on_target.bind(ability))
+
+func execute_ability_on_target(target: Battler, ability: Ability) -> void:
+	add_child(ability)
+	var resonant_battlers = get_resonant_battlers() # Need to get resonant battlers before executing ability
+													# because otherwise, resonant status effect gets applied
+													# twice
+	ability.execute(player_characters[active_index], target)
+	
+	# Check for resonance on resonant battlers
+	for battler: Battler in resonant_battlers:
+		var copied_ability: Ability = ability.duplicate()
+		add_child(copied_ability)
+		copied_ability.execute(player_characters[active_index], battler)
 
 func _on_result_label_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "fade_in":
@@ -458,3 +433,34 @@ func shake_camera(magnitude: float, duration: float) -> void:
 	%BattleCam.global_position = original_pos
 	camera_shake_time_left = 0.0
 	camera_shaking = false
+
+#region helpers
+func get_alive_enemies() -> Array[Battler]:
+	var alive_enemies: Array[Battler] = []
+	for enemy: Battler in enemies:
+		if enemy.is_alive:
+			alive_enemies.append(enemy)
+			
+	return alive_enemies
+
+func get_alive_players() -> Array[Battler]:
+	var alive_players: Array[Battler] = []
+	for player: Battler in player_characters:
+		if player.is_alive:
+			alive_players.append(player)
+	
+	return alive_players
+
+func get_resonant_battlers() -> Array[Battler]:
+	var resonant_battlers: Array[Battler] = []
+	for battler: Battler in (player_characters + enemies):
+		if not battler.is_alive:
+			continue
+		for effect: StatusEffect in battler.status_effects:
+			if effect.effect_name == 'Resonant':
+				resonant_battlers.append(battler)
+				break # No need to check further effects for this battler
+	
+	return resonant_battlers
+	
+#endregion helpers

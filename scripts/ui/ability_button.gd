@@ -1,12 +1,11 @@
-extends Button
-class_name AbilityButton
+class_name AbilityButton extends Button
 
 @export var dectivated_ap_icon: Texture2D
 
-var ability: Node = null
+var ability: Ability = null
 signal ability_selected(ability)
 	
-func set_ability(new_ability: Node) -> void:
+func set_ability(new_ability: Ability) -> void:
 	ability = new_ability
 	%NameLabel.text = ability.ability_name
 	%CostLabel.text =  str(ability.cost)

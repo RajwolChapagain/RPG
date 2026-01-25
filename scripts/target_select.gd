@@ -13,12 +13,30 @@ var selected: int = 0:
 		selected = value
 		mark_selected(value)
 
+#region Externally-called functions
+func SET_TARGETS(new_targets) -> void:
+	targets = new_targets
+
+func ACTIVATE(post_selection_callable: Callable) -> void:
+	assert(len(targets) != 0)
+	active = true
+	current_callable = post_selection_callable
+	# Because we remember the last selected index for convenience, we need to
+	# ensure that index is still within bounds as the target size may have
+	# shrunk since last time due to deaths
+	selected = clamp(selected, 0, len(targets) - 1)
+	mark_selected(selected)
+
+func IS_ACTIVE() -> bool:
+	return active
+#endregion
+
 func _input(event: InputEvent) -> void:
 	if not active:
 		return
 		
 	if event.is_action_pressed("select_target"):
-		current_callable.call(selected)
+		current_callable.call(targets[selected])
 		deactivate()
 	
 	if event.is_action_pressed("select_next"):
@@ -38,22 +56,6 @@ func mark_selected(index) -> void:
 	%Pointer.position.y = targets[index].position.y - pointer_y_offset
 	%Pointer.visible = true
 
-func set_targets(new_targets) -> void:
-	targets = new_targets
-
-func activate(post_selection_callable: Callable) -> void:
-	assert(len(targets) != 0)
-	active = true
-	current_callable = post_selection_callable
-	if selected >= len(targets):
-		while (selected >= len(targets)):
-			selected -= 1
-	else:
-		mark_selected(selected)
-	
 func deactivate() -> void:
 	active = false
 	%Pointer.visible = false
-
-func is_active() -> bool:
-	return active

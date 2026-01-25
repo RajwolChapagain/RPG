@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="BaseStats" load_steps=5 format=3 uid="uid://d3kyf2naa3duo"]
+
+[ext_resource type="Texture2D" uid="uid://b0pokaytcoerh" path="res://assets/sprites/lachlan_spritesheet.png" id="1_5si2c"]
+[ext_resource type="PackedScene" uid="uid://7oyb46fq8cjd" path="res://scenes/abilities/echo.tscn" id="1_u61pl"]
+[ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="2_u61pl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8se7i"]
+atlas = ExtResource("1_5si2c")
+region = Rect2(0, 96, 32, 32)
+
+[resource]
+script = ExtResource("2_u61pl")
+name = "Lachlan"
+attack_damage = 20
+max_hp = 50
+hp = 50
+defence = 3
+crit = 50
+battle_sprite = SubResource("AtlasTexture_8se7i")
+abilities = Array[PackedScene]([ExtResource("1_u61pl")])

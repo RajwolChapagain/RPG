@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://ca7wts2h1dfa6"]
+
+[ext_resource type="Script" uid="uid://mmkgkc4yoclx" path="res://scripts/abilities/heal.gd" id="1_x12ah"]
+
+[sub_resource type="Gradient" id="Gradient_x12ah"]
+offsets = PackedFloat32Array(0.61777776, 1)
+colors = PackedColorArray(0.3882353, 0.81960785, 0.40784314, 1, 1, 1, 1, 0)
+
+[node name="Heal" type="Node"]
+script = ExtResource("1_x12ah")
+heal = 40
+ability_name = "Heal"
+cost = 2
+
+[node name="HealParticles" type="CPUParticles2D" parent="."]
+unique_name_in_owner = true
+z_index = 1
+emitting = false
+amount = 16
+lifetime = 0.8
+one_shot = true
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(20, 5)
+direction = Vector2(0, -1)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 30.0
+initial_velocity_max = 40.0
+scale_amount_max = 1.5
+color_ramp = SubResource("Gradient_x12ah")

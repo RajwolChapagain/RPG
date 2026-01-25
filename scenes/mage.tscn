@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=3 uid="uid://btp1ybbdujkbw"]
 
 [ext_resource type="PackedScene" uid="uid://cx2lym7krpsie" path="res://scenes/archer.tscn" id="1_05b0j"]
-[ext_resource type="Resource" uid="uid://d3kyf2naa3duo" path="res://resources/mage_base_stats.tres" id="2_1l2s7"]
+[ext_resource type="Resource" uid="uid://d3kyf2naa3duo" path="res://resources/player_stats/mage_base_stats.tres" id="2_1l2s7"]
 [ext_resource type="Texture2D" uid="uid://b0pokaytcoerh" path="res://assets/sprites/lachlan_spritesheet.png" id="5_nc4w5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p0roq"]

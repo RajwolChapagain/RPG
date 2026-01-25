@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=3 uid="uid://dntk1hqtl8ews"]
 
 [ext_resource type="PackedScene" uid="uid://cx2lym7krpsie" path="res://scenes/archer.tscn" id="1_20ynq"]
-[ext_resource type="Resource" uid="uid://biubxrgae4cha" path="res://resources/cleric_base_stats.tres" id="2_ms6yq"]
+[ext_resource type="Resource" uid="uid://biubxrgae4cha" path="res://resources/player_stats/cleric_base_stats.tres" id="2_ms6yq"]
 [ext_resource type="Texture2D" uid="uid://dwgfyhp5dlhtf" path="res://assets/sprites/magda_spritesheet.PNG" id="5_j4aii"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_phxlh"]

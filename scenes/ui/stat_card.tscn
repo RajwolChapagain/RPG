@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://23b01ifqxu4"]
 
 [ext_resource type="Script" uid="uid://bqwdyr3hw1ism" path="res://scripts/ui/stat_card.gd" id="1_8egb0"]
-[ext_resource type="Resource" uid="uid://c3bvbxqpkkgu3" path="res://resources/knight_base_stats.tres" id="2_6w24n"]
+[ext_resource type="Resource" uid="uid://c3bvbxqpkkgu3" path="res://resources/player_stats/knight_base_stats.tres" id="2_6w24n"]
 [ext_resource type="Resource" uid="uid://c7g3v2c4yj2kj" path="res://resources/stat_portrait_database.tres" id="3_q7ohx"]
 
 [node name="StatCard" type="Control"]

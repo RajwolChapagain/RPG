@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="BaseStats" load_steps=5 format=3 uid="uid://c3bvbxqpkkgu3"]
+
+[ext_resource type="PackedScene" uid="uid://c3x4ifbvswv3p" path="res://scenes/abilities/heavy_slam.tscn" id="1_j4cxy"]
+[ext_resource type="Texture2D" uid="uid://boqdnqcd5kshd" path="res://assets/sprites/rachelle_spritesheet.png" id="2_6rdet"]
+[ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="3_jwdny"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sj368"]
+atlas = ExtResource("2_6rdet")
+region = Rect2(0, 96, 32, 32)
+
+[resource]
+script = ExtResource("3_jwdny")
+name = "Rachelle"
+attack_damage = 10
+max_hp = 150
+hp = 150
+defence = 5
+dodge = 50
+battle_sprite = SubResource("AtlasTexture_sj368")
+abilities = Array[PackedScene]([ExtResource("1_j4cxy")])
