@@ -24,6 +24,9 @@ func attack(target) -> bool:
 	
 # Returns true if damage was taken, false if attack missed
 func take_damage(damage: int, accuracy: int, critting: bool = false) -> bool:
+	if not is_alive:
+		return false
+		
 	var true_dodge_chance = stats.dodge - accuracy
 	if randf() <= (true_dodge_chance / 100.0):
 		if critting:
