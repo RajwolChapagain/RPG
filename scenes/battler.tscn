@@ -1,7 +1,7 @@
 [gd_scene load_steps=39 format=3 uid="uid://hqlhygr4xwpx"]
 
 [ext_resource type="Script" uid="uid://gr353ga32m08" path="res://scripts/battler.gd" id="1_1v4t1"]
-[ext_resource type="Resource" uid="uid://cym67rsdldl6j" path="res://resources/archer_base_stats.tres" id="2_csexs"]
+[ext_resource type="Resource" uid="uid://cym67rsdldl6j" path="res://resources/player_stats/archer_base_stats.tres" id="2_csexs"]
 [ext_resource type="Texture2D" uid="uid://bvh0dl870ttbp" path="res://assets/sprites/pointer.png" id="2_foo5t"]
 [ext_resource type="Texture2D" uid="uid://c3ga2aubvh5j8" path="res://assets/sprites/archer_draft.png" id="2_fyfas"]
 [ext_resource type="Theme" uid="uid://5dapp0d0f0x5" path="res://resources/ui.tres" id="4_at1d5"]

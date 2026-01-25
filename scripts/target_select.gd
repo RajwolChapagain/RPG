@@ -18,7 +18,7 @@ func _input(event: InputEvent) -> void:
 		return
 		
 	if event.is_action_pressed("select_target"):
-		current_callable.call(selected)
+		current_callable.call(targets[selected])
 		deactivate()
 	
 	if event.is_action_pressed("select_next"):

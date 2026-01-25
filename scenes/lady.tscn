@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=3 uid="uid://dybafy3qxap2q"]
 
 [ext_resource type="PackedScene" uid="uid://cx2lym7krpsie" path="res://scenes/archer.tscn" id="1_dionf"]
-[ext_resource type="Resource" uid="uid://bgg065a045ww" path="res://resources/lady_base_stats.tres" id="2_y8avh"]
+[ext_resource type="Resource" uid="uid://bgg065a045ww" path="res://resources/player_stats/lady_base_stats.tres" id="2_y8avh"]
 [ext_resource type="Texture2D" uid="uid://culhn7diejs2h" path="res://assets/sprites/josephine_spritesheet.png" id="5_u02lc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u02lc"]

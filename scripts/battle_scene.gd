@@ -269,41 +269,17 @@ func _on_attack_button_button_down() -> void:
 			alive_enemies.append(enemy)
 			
 	$TargetSelect.set_targets(alive_enemies) 
-	$TargetSelect.activate(attack_alive_enemy)
+	$TargetSelect.activate(attack_enemy)
 	disable_attack_button()
 
-func attack_alive_enemy(enemy_index: int) -> void:
-	var alive_enemies = []
-	for enemy in enemies:
-		if enemy.stats.hp != 0:
-			alive_enemies.append(enemy)
-			
-	var is_enemy_hit = player_characters[active_index].attack(alive_enemies[enemy_index])
+func attack_enemy(enemy) -> void:
+	var is_enemy_hit = player_characters[active_index].attack(enemy)
 	if is_enemy_hit:
 		%AbilityPointsContainer.increase_points(player_characters[active_index].stats.ap_per_attack)
 		shake_camera(1, 0.2)
 		
 	await get_tree().process_frame
 	enable_attack_button()
-	num_attacked += 1
-
-func attack_alive_enemy_with_ability(enemy_index: int, ability: Node) -> void:
-	var alive_enemies = []
-	for enemy in enemies:
-		if enemy.stats.hp != 0:
-			alive_enemies.append(enemy)
-	
-	if ability.ability_name == 'Clairvoyance':
-		ability.show_stats(alive_enemies[enemy_index].stats)
-		add_child(ability)
-	else:
-		var target_enemies_array: Array[Node2D] = []
-		target_enemies_array.append(alive_enemies[enemy_index])
-		ability.initialize(target_enemies_array)
-		add_child(ability)
-		ability.trigger_ability()
-		shake_camera(2, 1)
-		
 	num_attacked += 1
 	
 func enable_attack_button() -> void:
@@ -330,7 +306,7 @@ func disable_abilities_button() -> void:
 	%AbilitiesButton.disabled = true
 	%AbilitiesButton.set_focus_mode(Control.FOCUS_NONE)
 	
-func on_ability_exited_tree() -> void:
+func on_ability_finished_execution() -> void:
 	advance_turn()
 	enable_abilities_button()
 	enable_attack_button()
@@ -380,8 +356,8 @@ func _on_abilities_button_toggled(toggled_on: bool) -> void:
 
 func create_abilities_list() -> void:
 	for ability_scene in player_characters[active_index].stats.abilities:
-		var ability = ability_scene.instantiate()
-		var button = ability_button.instantiate() as AbilityButton
+		var ability: Ability = ability_scene.instantiate()
+		var button: AbilityButton = ability_button.instantiate()
 		button.set_ability(ability)
 		button.ability_selected.connect(on_ability_selected)
 		if ability.cost > %AbilityPointsContainer.points:
@@ -397,32 +373,31 @@ func destroy_abilities_list() -> void:
 	while %AbilitiesContainer.get_child_count() != 0:
 		%AbilitiesContainer.remove_child(%AbilitiesContainer.get_child(0))
 	
-func on_ability_selected(ability: Node) -> void:
+func on_ability_selected(ability: Ability) -> void:
 	if %AbilityPointsContainer.points < ability.cost:
 		print("Not enough APs")
 		return
 	else:
 		%AbilityPointsContainer.decrease_points(ability.cost)
 	
-	ability.tree_exited.connect(on_ability_exited_tree)
+	ability.ability_finished_execution.connect(on_ability_finished_execution)
 	%AbilitiesButton.set_pressed(false)
 	%PlayerInfos.visible = true
 	disable_attack_button()
-	# Only Heal ability targets player characters
-	if ability.ability_name == 'Heal':
-		ability.initialize(player_characters)
-		ability.trigger_ability()
-		add_child(ability)
-		num_attacked += 1
-	else:
-		var alive_enemies = []
-		for enemy in enemies:
-			if enemy.stats.hp != 0:
-				alive_enemies.append(enemy)
-				
-		$TargetSelect.set_targets(alive_enemies) 
-		$TargetSelect.activate(attack_alive_enemy_with_ability.bind(ability))
+	
+	var alive_enemies = []
+	for enemy in enemies:
+		if enemy.stats.hp != 0:
+			alive_enemies.append(enemy)
+			
+	$TargetSelect.set_targets(alive_enemies) 
+	$TargetSelect.activate(execute_ability_on_target.bind(ability))
 
+func execute_ability_on_target(target: Battler, ability: Ability) -> void:
+	add_child(ability)
+	ability.execute(player_characters[active_index], target)
+	num_attacked += 1
+	
 func _on_result_label_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "fade_in":
 		battle_ended.emit(player_character_stats, battle_won)

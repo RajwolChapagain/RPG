@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=3 uid="uid://4tpi2115bjdi"]
 
 [ext_resource type="PackedScene" uid="uid://cx2lym7krpsie" path="res://scenes/archer.tscn" id="1_pcsol"]
-[ext_resource type="Resource" uid="uid://c3bvbxqpkkgu3" path="res://resources/knight_base_stats.tres" id="2_glhtv"]
+[ext_resource type="Resource" uid="uid://c3bvbxqpkkgu3" path="res://resources/player_stats/knight_base_stats.tres" id="2_glhtv"]
 [ext_resource type="Texture2D" uid="uid://boqdnqcd5kshd" path="res://assets/sprites/rachelle_spritesheet.png" id="5_swm0g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mvyd6"]

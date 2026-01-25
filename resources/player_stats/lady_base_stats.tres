@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="BaseStats" load_steps=5 format=3 uid="uid://bgg065a045ww"]
+
+[ext_resource type="PackedScene" uid="uid://bhvoapkx570c4" path="res://scenes/abilities/clairvoyance.tscn" id="1_cwu5v"]
+[ext_resource type="Texture2D" uid="uid://culhn7diejs2h" path="res://assets/sprites/josephine_spritesheet.png" id="2_dfcuj"]
+[ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="3_wu3wq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jo85b"]
+atlas = ExtResource("2_dfcuj")
+region = Rect2(0, 96, 32, 32)
+
+[resource]
+script = ExtResource("3_wu3wq")
+name = "Josephine"
+attack_damage = 20
+max_hp = 200
+hp = 200
+battle_sprite = SubResource("AtlasTexture_jo85b")
+abilities = Array[PackedScene]([ExtResource("1_cwu5v")])

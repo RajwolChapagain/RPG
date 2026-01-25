@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://yubue2j1d5dh"]
 
 [ext_resource type="PackedScene" uid="uid://hqlhygr4xwpx" path="res://scenes/battler.tscn" id="1_8u3t1"]
-[ext_resource type="Resource" uid="uid://cym67rsdldl6j" path="res://resources/archer_base_stats.tres" id="2_t50s5"]
+[ext_resource type="Resource" uid="uid://cym67rsdldl6j" path="res://resources/player_stats/archer_base_stats.tres" id="2_t50s5"]
 
 [node name="BattlerPlayer" instance=ExtResource("1_8u3t1")]
 stats = ExtResource("2_t50s5")
