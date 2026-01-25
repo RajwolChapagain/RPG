@@ -1,4 +1,4 @@
-class_name  HeavySlam extends Ability
+class_name HeavySlam extends Ability
 
 @export var damage: int
 

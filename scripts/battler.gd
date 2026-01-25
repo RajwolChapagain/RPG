@@ -2,6 +2,9 @@ class_name Battler
 extends Area2D
 
 @export var stats: BaseStats
+var status_effects: Array[StatusEffect] = []
+var effects_pending_application: Array[StatusEffect] = []
+
 var is_alive = true
 
 signal battler_died
@@ -51,6 +54,45 @@ func take_damage(damage: int, accuracy: int, critting: bool = false) -> bool:
 	%HitParticles.emitting = true
 	return true
 
+func APPLY_EFFECT(effect: StatusEffect) -> void:
+	# Check for effect re-application
+	for existing_effect: StatusEffect in status_effects:
+		if existing_effect.effect_name == effect.effect_name:
+			existing_effect.duration_in_ticks += effect.duration_in_ticks
+			return
+	
+	effects_pending_application.append(effect)
+	var effect_label: Label = Label.new()
+	effect_label.text = effect.effect_name.to_upper()
+	effect_label.theme_type_variation = 'ProgressLabel'
+	effect_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	%StatusEffectLabels.add_child(effect_label)
+	
+func TICK_EFFECTS_DOWN() -> void:
+	var depleted_effect_indices = []
+	var i = 0
+	for effect: StatusEffect in status_effects:
+		effect.duration_in_ticks -= 1
+		if effect.duration_in_ticks == 0:
+			depleted_effect_indices.append(i)
+		i += 1
+	
+	for index in depleted_effect_indices:
+		for label: Label in %StatusEffectLabels.get_children():
+			if label.text.to_upper() == status_effects[index].effect_name.to_upper():
+				label.queue_free()
+				
+		status_effects.remove_at(index)
+		
+	apply_pending_effects()
+
+# Need to create and apply a pending effects queue like this because otherwise,
+# the effect gets ticked down immediately after it gets applied
+func apply_pending_effects() -> void:
+	for effect: StatusEffect in effects_pending_application:
+		status_effects.append(effect)
+	effects_pending_application.clear()
+	
 func mark_active():
 	$Pointer.visible = true
 	
@@ -62,6 +104,7 @@ func die():
 		battler_died.emit(stats.name)
 		is_alive = false
 		%AnimationTree["parameters/StateMachine/conditions/dead"] = true
+		%StatusEffectLabels.visible = false
 
 func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "attack":

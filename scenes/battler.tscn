@@ -402,6 +402,7 @@ graph_offset = Vector2(157, 22)
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_qt5w3"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_at1d5"]
+graph_offset = Vector2(-215.85852, 1511.6595)
 nodes/output/position = Vector2(1040, 340)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_di6md")
 nodes/StateMachine/position = Vector2(-200, 1800)
@@ -590,5 +591,21 @@ one_shot = true
 explosiveness = 1.0
 randomness = 1.0
 process_material = SubResource("ParticleProcessMaterial_csexs")
+
+[node name="StatusEffectLabels" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -47.0
+offset_right = 38.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_at1d5")
+alignment = 2
 
 [connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]
