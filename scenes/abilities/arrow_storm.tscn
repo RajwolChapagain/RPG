@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://c280afbxd1cl3"]
+
+[ext_resource type="Script" uid="uid://cki3ldg155cvm" path="res://scripts/abilities/arrow_storm.gd" id="1_51rgh"]
+[ext_resource type="Texture2D" uid="uid://devyuuaysel55" path="res://assets/sprites/abilities/arrow_storm.png" id="2_ksgxq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_io0kf"]
+atlas = ExtResource("2_ksgxq")
+region = Rect2(0, 0, 120, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7op0b"]
+atlas = ExtResource("2_ksgxq")
+region = Rect2(0, 0, 120, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6prty"]
+atlas = ExtResource("2_ksgxq")
+region = Rect2(0, 0, 120, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7op0b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_io0kf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7op0b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6prty")
+}],
+"loop": false,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_io0kf"]
+size = Vector2(120, 30)
+
+[node name="Node" type="Node"]
+script = ExtResource("1_51rgh")
+max_damage = 50
+ability_name = "Arrow Storm"
+cost = 2
+
+[node name="ArrowStorm" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ArrowStorm"]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_7op0b")
+frame = 2
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArrowStorm"]
+shape = SubResource("RectangleShape2D_io0kf")
+
+[connection signal="area_entered" from="ArrowStorm" to="." method="_on_arrow_storm_area_entered"]
+[connection signal="area_entered" from="ArrowStorm" to="ArrowStorm" method="_on_area_entered"]
+[connection signal="animation_finished" from="ArrowStorm/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

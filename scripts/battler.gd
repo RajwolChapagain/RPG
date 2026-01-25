@@ -1,3 +1,4 @@
+class_name Battler
 extends Area2D
 
 @export var stats: BaseStats
