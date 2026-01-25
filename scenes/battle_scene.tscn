@@ -57,7 +57,7 @@ _data = {
 script = ExtResource("1_0yksl")
 character_spacing = 60
 player_character_stats = Array[ExtResource("2_xwxfl")]([ExtResource("5_ti0og"), ExtResource("5_tttxe"), ExtResource("4_tttxe"), ExtResource("6_ti0og")])
-enemy_stats = Array[ExtResource("2_xwxfl")]([ExtResource("9_05s0e"), ExtResource("8_3xrod"), ExtResource("7_yt3ua")])
+enemy_stats = Array[ExtResource("2_xwxfl")]([ExtResource("7_yt3ua"), ExtResource("8_3xrod"), ExtResource("9_05s0e")])
 ability_button = ExtResource("3_svpld")
 MAIN_MENU_SCENE = ExtResource("8_tttxe")
 

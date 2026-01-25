@@ -7,8 +7,8 @@ extends Node
 @export var MAIN_MENU_SCENE: PackedScene
 var battler_player = preload("res://scenes/battler_player.tscn")
 var battler_enemy = preload("res://scenes/battler_enemy.tscn")
-var player_characters: Array[Node2D] = []
-var enemies: Array[Node2D] = []
+var player_characters: Array[Battler] = []
+var enemies: Array[Battler] = []
 var active_index = 0
 var first_attacker_index = 0
 var players_turn = true
@@ -258,18 +258,13 @@ func end_enemy_turn() -> void:
 ### Player Attacking ###
 
 func _on_attack_button_button_down() -> void:
-	if not players_turn or $TargetSelect.is_active():
+	if not players_turn or $TargetSelect.IS_ACTIVE():
 		return
 
 	%AbilitiesButton.set_pressed(false)
-	
-	var alive_enemies = []
-	for enemy in enemies:
-		if enemy.stats.hp != 0:
-			alive_enemies.append(enemy)
-			
-	$TargetSelect.set_targets(alive_enemies) 
-	$TargetSelect.activate(attack_enemy)
+
+	$TargetSelect.SET_TARGETS(get_alive_enemies()) 
+	$TargetSelect.ACTIVATE(attack_enemy)
 	disable_attack_button()
 
 func attack_enemy(enemy) -> void:
@@ -319,19 +314,12 @@ func attack_random_player() -> void:
 	if not battle_ongoing:
 		return
 		
-	if enemies[active_index].stats.hp == 0:
+	if not enemies[active_index].is_alive:
 		return
-	var is_player_hit = enemies[active_index].attack(get_random_alive_player())
+		
+	var is_player_hit = enemies[active_index].attack(get_alive_players().pick_random())
 	if is_player_hit:
 		shake_camera(0.8, 0.15)
-	
-func get_random_alive_player():
-	var alive_players = []
-	for character in player_characters:
-		if character.is_alive:
-			alive_players.append(character)
-
-	return alive_players.pick_random()
 	
 #endregion attacking
 
@@ -385,13 +373,8 @@ func on_ability_selected(ability: Ability) -> void:
 	%PlayerInfos.visible = true
 	disable_attack_button()
 	
-	var alive_enemies = []
-	for enemy in enemies:
-		if enemy.stats.hp != 0:
-			alive_enemies.append(enemy)
-			
-	$TargetSelect.set_targets(alive_enemies) 
-	$TargetSelect.activate(execute_ability_on_target.bind(ability))
+	$TargetSelect.SET_TARGETS(get_alive_enemies() + get_alive_players()) 
+	$TargetSelect.ACTIVATE(execute_ability_on_target.bind(ability))
 
 func execute_ability_on_target(target: Battler, ability: Ability) -> void:
 	add_child(ability)
@@ -433,3 +416,21 @@ func shake_camera(magnitude: float, duration: float) -> void:
 	%BattleCam.global_position = original_pos
 	camera_shake_time_left = 0.0
 	camera_shaking = false
+
+#region helpers
+func get_alive_enemies() -> Array[Battler]:
+	var alive_enemies: Array[Battler] = []
+	for enemy: Battler in enemies:
+		if enemy.is_alive:
+			alive_enemies.append(enemy)
+			
+	return alive_enemies
+
+func get_alive_players() -> Array[Battler]:
+	var alive_players: Array[Battler] = []
+	for player: Battler in player_characters:
+		if player.is_alive:
+			alive_players.append(player)
+	
+	return alive_players
+#endregion helpers
