@@ -30,6 +30,10 @@ func take_damage(damage: int, accuracy: int, critting: bool = false) -> bool:
 	if not is_alive:
 		return false
 		
+	# 0 accuracy doesn't necessarily mean that it will always miss because if say stats.dodge = 20,
+	# true_dodge_chance = 20 - 0 = 20
+	# So, there's a 20 percent chance that the hit will miss. But 80 that it will hit
+	# This also means, if dodge < accuracy, it will never miss
 	var true_dodge_chance = stats.dodge - accuracy
 	if randf() <= (true_dodge_chance / 100.0):
 		if critting:
