@@ -12,7 +12,6 @@ var enemies: Array[Battler] = []
 var active_index = 0
 var first_attacker_index = 0
 var players_turn = true
-var enemy_is_attacking = false
 var alive_player_count: int
 var alive_enemy_count: int
 var num_attacked: int = 0
@@ -69,10 +68,10 @@ func update_active_battler(new_index):
 		if battle_ongoing:
 			make_player_active(player_characters[new_index])
 	else:
-		if active_index < len(enemies) and enemies[active_index].stats.hp != 0:
+		if active_index < len(enemies) and enemies[active_index].is_alive:
 			if enemies[active_index].position.y != $EnemyStart.position.y:
 				slide_battler(enemies[active_index], Vector2.UP)
-		if enemies[new_index].stats.hp != 0:
+		if enemies[new_index].is_alive:
 			slide_battler(enemies[new_index], Vector2.DOWN)
 		
 	active_index = new_index
@@ -148,12 +147,11 @@ func on_player_animation_finished(animation: StringName) -> void:
 func on_enemy_animation_finished(animation: StringName) -> void:
 	if animation == "attack":
 		advance_turn()
-		enemy_is_attacking = false
 		
 func on_enemy_animation_started(animation: StringName) -> void:
 	if animation == "attack":
-		enemy_is_attacking = true
-	
+		pass
+		
 func connect_player_battler_died_signal() -> void:
 	for character in player_characters:
 		character.battler_died.connect(on_player_battler_died)
@@ -228,11 +226,10 @@ func end_player_turn() -> void:
 	num_attacked = 0
 	make_player_inactive(player_characters[active_index])
 	players_turn = false
-	enemy_is_attacking = false
 	
 	var first_alive_enemy_index = -1
 	for enemy in enemies:
-		if enemy.stats.hp != 0:
+		if enemy.is_alive:
 			first_alive_enemy_index += 1
 			break
 		first_alive_enemy_index += 1
@@ -415,7 +412,7 @@ func make_player_inactive(player) -> void:
 func slide_battler(battler, direction) -> void:
 	var slide_distance = 15
 	var tween = get_tree().create_tween()
-	tween.tween_property(battler, 'position', battler.position + (direction * slide_distance), 0.1 )
+	tween.tween_property(battler, 'position', battler.position + (direction * slide_distance), 0.1)
 
 func shake_camera(magnitude: float, duration: float) -> void:
 	if camera_shaking:
