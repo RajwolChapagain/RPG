@@ -1,5 +1,4 @@
-extends Area2D
-class_name Player
+class_name Player extends Area2D
 
 @export var stats: BaseStats
 var is_active = true
