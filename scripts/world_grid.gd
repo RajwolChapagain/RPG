@@ -1,3 +1,4 @@
+@tool
 extends TileMapLayer
 
 @export var grass_placeholder_atlas_coord: Vector2i
@@ -28,7 +29,13 @@ enum TileType { None, Grass, Dirt }
 func _ready() -> void:
 	for coord: Vector2i in get_used_cells():
 		set_display_tile(coord)
-		
+
+func _process(_delta: float) -> void:
+	if Engine.is_editor_hint():
+		remove_deleted_display_tiles()
+		for coord: Vector2i in get_used_cells():
+			set_display_tile(coord)
+			
 func set_tile(coords: Vector2i, atlas_coords: Vector2i) -> void:
 	set_cell(coords, 0, atlas_coords, 0)
 	set_display_tile(coords)
@@ -37,7 +44,15 @@ func set_display_tile(pos: Vector2i) -> void:
 	for neighbor in NEIGHBORS:
 		var new_pos = pos + neighbor
 		%DisplayGrid.set_cell(new_pos, 2, calculate_display_tile(new_pos))
-
+	
+func remove_deleted_display_tiles() -> void:
+	var used_world_cells = get_used_cells()
+	for coord: Vector2i in %DisplayGrid.get_used_cells():
+		for neighbor: Vector2i in NEIGHBORS:
+			var world_neighbor_pos = coord - neighbor
+			if world_neighbor_pos not in used_world_cells:
+				%DisplayGrid.erase_cell(coord)
+		
 func calculate_display_tile(coords: Vector2i) -> Vector2i:
 	var bot_right = get_world_tile(coords - NEIGHBORS[0])
 	var bot_left = get_world_tile(coords - NEIGHBORS[1])
