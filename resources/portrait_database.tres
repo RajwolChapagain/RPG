@@ -1,17 +1,17 @@
 [gd_resource type="Resource" script_class="PortraitDatabase" load_steps=8 format=3 uid="uid://bxqs6rgfxmviq"]
 
 [ext_resource type="Script" uid="uid://be6kcyoah1tit" path="res://scripts/resource_scripts/portrait_database.gd" id="1_3prys"]
+[ext_resource type="Texture2D" uid="uid://c3yio6yjcrv44" path="res://assets/sprites/ui/archer_portrait.png" id="2_0nsdn"]
 [ext_resource type="Texture2D" uid="uid://ykdf0ync8jll" path="res://assets/sprites/ui/cleric_portrait.png" id="2_7iddo"]
 [ext_resource type="Texture2D" uid="uid://dg4kpgvnw0v7l" path="res://assets/sprites/ui/mage_portrait.png" id="3_01laf"]
 [ext_resource type="Texture2D" uid="uid://en0teytc2egu" path="res://assets/sprites/ui/knight_portrait.png" id="4_01laf"]
 [ext_resource type="Texture2D" uid="uid://bg2fwew48se0h" path="res://assets/sprites/ui/josephine_portrait.PNG" id="5_8h2he"]
 [ext_resource type="Texture2D" uid="uid://bly3mp21wc72v" path="res://assets/sprites/ui/npc_portrait_placeholder.png" id="6_ktx4e"]
-[ext_resource type="Texture2D" uid="uid://kbicjjivguhm" path="res://assets/sprites/ui/archer_portrait_placeholder.png" id="7_0nsdn"]
 
 [resource]
 script = ExtResource("1_3prys")
 sprite_dictionary = Dictionary[String, Texture2D]({
-"einar_base": ExtResource("7_0nsdn"),
+"einar_base": ExtResource("2_0nsdn"),
 "josephine_base": ExtResource("5_8h2he"),
 "lachlan_base": ExtResource("3_01laf"),
 "magda_base": ExtResource("2_7iddo"),
