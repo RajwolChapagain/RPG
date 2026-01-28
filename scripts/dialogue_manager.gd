@@ -22,6 +22,8 @@ func _ready() -> void:
 	dialogue_ui.visible = false
 	
 func _input(event: InputEvent) -> void:
+	if event.is_action_pressed('skip_dialogue'):
+		end_dialogue()
 	if event.is_action_pressed("advance_dialogue"):
 		advance_dialogue()
 		
@@ -150,7 +152,7 @@ func handle_function_call(line: String) -> void:
 			while i < len(items) - 1:
 				items.remove_at(len(items) - 1)
 				
-	
+
 #region CSV-Callable Functions
 func set_wildcard(new_wildcard: String) -> void:
 	wildcard = new_wildcard

@@ -41,6 +41,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	update_ui(delta)
 		
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed('skip_battle'):
+		end_battle(true)
+		
 func update_ui(delta) -> void:
 	var hp_bar_speed = 100
 	var epsilon = 1
