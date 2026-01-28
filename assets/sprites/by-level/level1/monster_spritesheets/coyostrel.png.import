@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bd25fklcm6g43"
-path="res://.godot/imported/winged_capybara.png-913efbc218f8ebf155e2918939534144.ctex"
+uid="uid://7q2pbxgwud01"
+path="res://.godot/imported/coyostrel.png-2f4dac03e92d477d69ec330df3552322.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/by-level/level1/winged_capybara.png"
-dest_files=["res://.godot/imported/winged_capybara.png-913efbc218f8ebf155e2918939534144.ctex"]
+source_file="res://assets/sprites/by-level/level1/monster_spritesheets/coyostrel.png"
+dest_files=["res://.godot/imported/coyostrel.png-2f4dac03e92d477d69ec330df3552322.ctex"]
 
 [params]
 

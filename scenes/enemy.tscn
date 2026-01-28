@@ -1,7 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://ccy0aydyv2sxd"]
+[gd_scene load_steps=6 format=3 uid="uid://ccy0aydyv2sxd"]
 
 [ext_resource type="Script" uid="uid://drochfksobdgv" path="res://scripts/enemy.gd" id="1_6ihyw"]
-[ext_resource type="Texture2D" uid="uid://onsf4e7pukfl" path="res://assets/sprites/goblin_placeholder.png" id="1_dwlsm"]
+[ext_resource type="Texture2D" uid="uid://c8lk4f51jnrt3" path="res://assets/sprites/by-level/level1/monster_spritesheets/crunk.png" id="2_md0e3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ra3w"]
+atlas = ExtResource("2_md0e3")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5uy6h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ra3w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqqey"]
 size = Vector2(32, 32)
@@ -9,8 +24,8 @@ size = Vector2(32, 32)
 [node name="Enemy" type="Area2D" groups=["enemy"]]
 script = ExtResource("1_6ihyw")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_dwlsm")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_5uy6h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_hqqey")

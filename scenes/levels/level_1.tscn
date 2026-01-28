@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://dy5qxs6qxwvwi"]
+[gd_scene load_steps=39 format=4 uid="uid://dy5qxs6qxwvwi"]
 
 [ext_resource type="Script" uid="uid://b1fvsmwksdmq2" path="res://scripts/levels/level1.gd" id="1_qxy0u"]
 [ext_resource type="PackedScene" uid="uid://bitedxhspi8i5" path="res://scenes/dual_grid.tscn" id="1_x42e6"]
@@ -13,12 +13,16 @@
 [ext_resource type="Resource" uid="uid://b2wy6qk2i7dnk" path="res://resources/items/bajra.tres" id="7_dga24"]
 [ext_resource type="Resource" uid="uid://cym67rsdldl6j" path="res://resources/player_stats/archer_base_stats.tres" id="7_v6ha0"]
 [ext_resource type="Resource" uid="uid://bin2fs1gqdd6w" path="res://resources/items/doloris's_necklace.tres" id="8_dga24"]
-[ext_resource type="Texture2D" uid="uid://bd25fklcm6g43" path="res://assets/sprites/by-level/level1/winged_capybara.png" id="10_np2pn"]
+[ext_resource type="Texture2D" uid="uid://bd25fklcm6g43" path="res://assets/sprites/battle_sprites/crunk.png" id="10_np2pn"]
 [ext_resource type="PackedScene" uid="uid://d0rp7rw1dxv20" path="res://scenes/wall_tile_map.tscn" id="10_qxy0u"]
-[ext_resource type="Texture2D" uid="uid://dqpa8dgwo21vc" path="res://assets/sprites/by-level/level1/catapace.webp" id="12_np2pn"]
-[ext_resource type="Texture2D" uid="uid://ctu601yhl7h7c" path="res://assets/sprites/by-level/level1/coyostrel.png" id="14_bahl2"]
+[ext_resource type="Texture2D" uid="uid://c8lk4f51jnrt3" path="res://assets/sprites/by-level/level1/monster_spritesheets/crunk.png" id="11_gmpev"]
+[ext_resource type="Texture2D" uid="uid://dqpa8dgwo21vc" path="res://assets/sprites/battle_sprites/catapace.webp" id="12_np2pn"]
+[ext_resource type="Texture2D" uid="uid://ctu601yhl7h7c" path="res://assets/sprites/battle_sprites/coyostrel.png" id="14_bahl2"]
+[ext_resource type="Texture2D" uid="uid://bvw1286yqj7s6" path="res://assets/sprites/by-level/level1/monster_spritesheets/catapace.png" id="15_mkypq"]
 [ext_resource type="Resource" uid="uid://dnkesy0umn1g6" path="res://resources/enemy_stats/nahas.tres" id="16_np2pn"]
+[ext_resource type="Texture2D" uid="uid://7q2pbxgwud01" path="res://assets/sprites/by-level/level1/monster_spritesheets/coyostrel.png" id="18_ndtll"]
 [ext_resource type="Texture2D" uid="uid://dad2codb80kys" path="res://assets/sprites/by-level/level1/npc2.png" id="18_v6ha0"]
+[ext_resource type="Texture2D" uid="uid://be552pwkiglm1" path="res://assets/sprites/battle_sprites/nahas.png" id="20_7h2jl"]
 
 [sub_resource type="Resource" id="Resource_mqh5v"]
 script = ExtResource("3_sk5k4")
@@ -30,6 +34,21 @@ crit = 10
 dodge = 10
 accuracy = 10
 battle_sprite = ExtResource("10_np2pn")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mkypq"]
+atlas = ExtResource("11_gmpev")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ndtll"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mkypq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="Resource" id="Resource_v6ha0"]
 script = ExtResource("3_sk5k4")
@@ -66,6 +85,21 @@ dodge = 10
 accuracy = 10
 battle_sprite = ExtResource("10_np2pn")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndtll"]
+atlas = ExtResource("15_mkypq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7h2jl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ndtll")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="Resource" id="Resource_ndtll"]
 script = ExtResource("3_sk5k4")
 name = "Catapace"
@@ -92,6 +126,39 @@ accuracy = 40
 battle_sprite = ExtResource("14_bahl2")
 metadata/_custom_type_script = "uid://dbtdwrocpsv30"
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_7h2jl"]
+atlas = ExtResource("18_ndtll")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mqh5v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7h2jl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqh5v"]
+atlas = ExtResource("20_7h2jl")
+region = Rect2(0, 0, 128, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7o3do"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqh5v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o7j4k"]
+size = Vector2(118, 56)
+
 [node name="Level1" type="Node"]
 script = ExtResource("1_qxy0u")
 character_name_to_base_stats = Dictionary[String, ExtResource("3_sk5k4")]({
@@ -115,10 +182,17 @@ position = Vector2(25, 310)
 gang = Array[ExtResource("3_sk5k4")]([SubResource("Resource_mqh5v")])
 random_drop_item_count = 2
 
+[node name="Sprite2D" parent="WingedCapybara" index="0"]
+sprite_frames = SubResource("SpriteFrames_ndtll")
+frame_progress = 0.21037602
+
 [node name="Catapace" parent="." instance=ExtResource("2_6761a")]
 position = Vector2(119, 448)
 gang = Array[ExtResource("3_sk5k4")]([SubResource("Resource_v6ha0"), SubResource("Resource_gmpev"), SubResource("Resource_mkypq")])
 dropped_items = Array[ExtResource("6_s8va5")]([ExtResource("7_dga24")])
+
+[node name="Sprite2D" parent="Catapace" index="0"]
+sprite_frames = SubResource("SpriteFrames_7h2jl")
 
 [node name="Coyostrel" parent="." instance=ExtResource("2_6761a")]
 position = Vector2(408, 246)
@@ -127,10 +201,19 @@ dropped_items = Array[ExtResource("6_s8va5")]([ExtResource("8_dga24")])
 random_drop_item_count = 2
 random_dropped_item_rarity_modifier = 10.0
 
+[node name="Sprite2D" parent="Coyostrel" index="0"]
+sprite_frames = SubResource("SpriteFrames_mqh5v")
+
 [node name="Nahas" parent="." instance=ExtResource("2_6761a")]
-position = Vector2(445, 25)
+position = Vector2(431, 25)
 gang = Array[ExtResource("3_sk5k4")]([ExtResource("16_np2pn")])
 random_drop_item_count = 5
+
+[node name="Sprite2D" parent="Nahas" index="0"]
+sprite_frames = SubResource("SpriteFrames_7o3do")
+
+[node name="CollisionShape2D" parent="Nahas" index="1"]
+shape = SubResource("RectangleShape2D_o7j4k")
 
 [node name="NPC" parent="." instance=ExtResource("4_oc4kc")]
 position = Vector2(125, 218)
@@ -153,4 +236,8 @@ tile_map_data = PackedByteArray("AAAJAP3/AAABAAAAAAAJAP7/AAABAAAAAAAJAP//AAABAAA
 [connection signal="enemy_defeated" from="Nahas" to="." method="_on_enemy_enemy_defeated"]
 
 [editable path="DualGrid"]
+[editable path="WingedCapybara"]
+[editable path="Catapace"]
+[editable path="Coyostrel"]
+[editable path="Nahas"]
 [editable path="NPC2"]

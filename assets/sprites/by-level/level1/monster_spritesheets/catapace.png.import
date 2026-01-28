@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqpa8dgwo21vc"
-path="res://.godot/imported/catapace.webp-680a82d246c5c07e8bc6e1f720bc765a.ctex"
+uid="uid://bvw1286yqj7s6"
+path="res://.godot/imported/catapace.png-39354f20570dc905f590c12c43ffe352.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/by-level/level1/catapace.webp"
-dest_files=["res://.godot/imported/catapace.webp-680a82d246c5c07e8bc6e1f720bc765a.ctex"]
+source_file="res://assets/sprites/by-level/level1/monster_spritesheets/catapace.png"
+dest_files=["res://.godot/imported/catapace.png-39354f20570dc905f590c12c43ffe352.ctex"]
 
 [params]
 

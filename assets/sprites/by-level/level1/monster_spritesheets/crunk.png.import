@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://be552pwkiglm1"
-path="res://.godot/imported/nahas.png-fd68f887b796a6fcbefcf281a907bf50.ctex"
+uid="uid://c8lk4f51jnrt3"
+path="res://.godot/imported/crunk.png-0fd156174b807cdb9dacbfd3d6077d5f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/by-level/level1/nahas.png"
-dest_files=["res://.godot/imported/nahas.png-fd68f887b796a6fcbefcf281a907bf50.ctex"]
+source_file="res://assets/sprites/by-level/level1/monster_spritesheets/crunk.png"
+dest_files=["res://.godot/imported/crunk.png-0fd156174b807cdb9dacbfd3d6077d5f.ctex"]
 
 [params]
 

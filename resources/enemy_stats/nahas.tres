@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="BaseStats" load_steps=3 format=3 uid="uid://dnkesy0umn1g6"]
 
-[ext_resource type="Texture2D" uid="uid://be552pwkiglm1" path="res://assets/sprites/by-level/level1/nahas.png" id="1_htfhe"]
+[ext_resource type="Texture2D" uid="uid://be552pwkiglm1" path="res://assets/sprites/battle_sprites/nahas.png" id="1_htfhe"]
 [ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="2_c35sd"]
 
 [resource]

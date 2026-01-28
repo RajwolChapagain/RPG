@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="BaseStats" load_steps=3 format=3 uid="uid://504xnrcw2ros"]
 
 [ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="1_j7ob1"]
-[ext_resource type="Texture2D" uid="uid://dqpa8dgwo21vc" path="res://assets/sprites/by-level/level1/catapace.webp" id="1_m0mvr"]
+[ext_resource type="Texture2D" uid="uid://dqpa8dgwo21vc" path="res://assets/sprites/battle_sprites/catapace.webp" id="1_m0mvr"]
 
 [resource]
 script = ExtResource("1_j7ob1")
