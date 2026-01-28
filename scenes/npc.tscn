@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cglapshtkljpc"]
 
 [ext_resource type="Script" uid="uid://ctvsvglqf7kaw" path="res://scripts/npc.gd" id="1_5l8ac"]
-[ext_resource type="Texture2D" uid="uid://cgvlltfo5bhnl" path="res://assets/sprites/npc_placeholder.png" id="1_8eveh"]
+[ext_resource type="Texture2D" uid="uid://c50m2e4d2sm0x" path="res://assets/sprites/by-level/level1/npc.png" id="2_abqhh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2visn"]
 size = Vector2(32, 32)
@@ -12,7 +12,7 @@ dialogue_file_path = "res://assets/dialogues/item_equip_tutorial.csv"
 dialogue_start_line_number = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_8eveh")
+texture = ExtResource("2_abqhh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_2visn")
