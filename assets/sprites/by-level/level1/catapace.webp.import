@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bitm1sjjpfpsu"
-path="res://.godot/imported/smallmonster1.webp-53b3edbaceb969c86980a3f8e71b99f3.ctex"
+uid="uid://dqpa8dgwo21vc"
+path="res://.godot/imported/catapace.webp-680a82d246c5c07e8bc6e1f720bc765a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/monsters/smallmonster1.webp"
-dest_files=["res://.godot/imported/smallmonster1.webp-53b3edbaceb969c86980a3f8e71b99f3.ctex"]
+source_file="res://assets/sprites/by-level/level1/catapace.webp"
+dest_files=["res://.godot/imported/catapace.webp-680a82d246c5c07e8bc6e1f720bc765a.ctex"]
 
 [params]
 

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dy5qxs6qxwvwi" path="res://scenes/levels/level_1.tscn" id="2_tefeu"]
 [ext_resource type="PackedScene" uid="uid://5dv0uh58ql2b" path="res://scenes/levels/level_2.tscn" id="3_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://cj1sajukjk52m" path="res://scenes/levels/level_3.tscn" id="4_tipki"]
-[ext_resource type="PackedScene" uid="uid://b6pcibljvig3f" path="res://scenes/party.tscn" id="6_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://b6pcibljvig3f" path="res://scenes/party.tscn" id="6_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://4tpi2115bjdi" path="res://scenes/knight.tscn" id="7_tipki"]
 [ext_resource type="PackedScene" uid="uid://dntk1hqtl8ews" path="res://scenes/cleric.tscn" id="8_choun"]
 [ext_resource type="PackedScene" uid="uid://des2w3vogbaog" path="res://scenes/ui/pause_menu.tscn" id="8_tipki"]
@@ -17,7 +17,7 @@
 script = ExtResource("1_2o4jk")
 character_selection_screen = ExtResource("2_o6xl0")
 levels = Array[PackedScene]([ExtResource("2_tefeu"), ExtResource("3_o6xl0"), ExtResource("4_tipki")])
-party_scene = ExtResource("6_o6xl0")
+party_scene = ExtResource("6_eb6dy")
 character_name_to_scene = Dictionary[String, PackedScene]({
 "Einar": ExtResource("11_eb6dy"),
 "Josephine": ExtResource("9_ya4ey"),

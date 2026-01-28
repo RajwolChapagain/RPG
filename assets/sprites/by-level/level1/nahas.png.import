@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctu601yhl7h7c"
-path="res://.godot/imported/coyostrel.png-54145043b1376394804e53aae0128770.ctex"
+uid="uid://be552pwkiglm1"
+path="res://.godot/imported/nahas.png-fd68f887b796a6fcbefcf281a907bf50.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/monsters/coyostrel.png"
-dest_files=["res://.godot/imported/coyostrel.png-54145043b1376394804e53aae0128770.ctex"]
+source_file="res://assets/sprites/by-level/level1/nahas.png"
+dest_files=["res://.godot/imported/nahas.png-fd68f887b796a6fcbefcf281a907bf50.ctex"]
 
 [params]
 

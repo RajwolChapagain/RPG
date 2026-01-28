@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="BaseStats" load_steps=3 format=3 uid="uid://c46k2b5fxukoi"]
+
+[ext_resource type="Texture2D" uid="uid://bd25fklcm6g43" path="res://assets/sprites/by-level/level1/winged_capybara.png" id="1_ikff8"]
+[ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="2_hfx2b"]
+
+[resource]
+script = ExtResource("2_hfx2b")
+name = "Winged Capybara"
+attack_damage = 10
+max_hp = 100
+hp = 100
+crit = 10
+dodge = 10
+accuracy = 10
+battle_sprite = ExtResource("1_ikff8")

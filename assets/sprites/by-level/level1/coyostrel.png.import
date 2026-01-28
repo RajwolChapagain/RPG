@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://db5o8hv0puo2c"
-path="res://.godot/imported/smallmonster2.PNG-5d893a0b8d605fb68a35f99d83697f2f.ctex"
+uid="uid://ctu601yhl7h7c"
+path="res://.godot/imported/coyostrel.png-1a25951397c17d3922b82d968a860cce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/monsters/smallmonster2.PNG"
-dest_files=["res://.godot/imported/smallmonster2.PNG-5d893a0b8d605fb68a35f99d83697f2f.ctex"]
+source_file="res://assets/sprites/by-level/level1/coyostrel.png"
+dest_files=["res://.godot/imported/coyostrel.png-1a25951397c17d3922b82d968a860cce.ctex"]
 
 [params]
 

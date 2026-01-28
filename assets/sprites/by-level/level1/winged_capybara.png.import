@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqpa8dgwo21vc"
-path="res://.godot/imported/catapace.webp-1e90b986b6966be916fe8c8e592e445c.ctex"
+uid="uid://bd25fklcm6g43"
+path="res://.godot/imported/winged_capybara.png-913efbc218f8ebf155e2918939534144.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/monsters/catapace.webp"
-dest_files=["res://.godot/imported/catapace.webp-1e90b986b6966be916fe8c8e592e445c.ctex"]
+source_file="res://assets/sprites/by-level/level1/winged_capybara.png"
+dest_files=["res://.godot/imported/winged_capybara.png-913efbc218f8ebf155e2918939534144.ctex"]
 
 [params]
 
