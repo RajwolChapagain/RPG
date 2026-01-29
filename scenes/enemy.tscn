@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ccy0aydyv2sxd"]
+[gd_scene load_steps=10 format=3 uid="uid://ccy0aydyv2sxd"]
 
 [ext_resource type="Script" uid="uid://drochfksobdgv" path="res://scripts/enemy.gd" id="1_6ihyw"]
 [ext_resource type="Texture2D" uid="uid://c8lk4f51jnrt3" path="res://assets/sprites/by-level/level1/monster_spritesheets/crunk.png" id="2_md0e3"]
@@ -7,14 +7,42 @@
 atlas = ExtResource("2_md0e3")
 region = Rect2(0, 64, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_md0e3"]
+atlas = ExtResource("2_md0e3")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5uy6h"]
+atlas = ExtResource("2_md0e3")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4w8v"]
+atlas = ExtResource("2_md0e3")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwavj"]
+atlas = ExtResource("2_md0e3")
+region = Rect2(32, 96, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_5uy6h"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4ra3w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_md0e3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5uy6h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c4w8v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwavj")
 }],
 "loop": true,
-"name": &"default",
+"name": &"move_up",
 "speed": 5.0
 }]
 
@@ -26,6 +54,8 @@ script = ExtResource("1_6ihyw")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5uy6h")
+animation = &"move_up"
+frame_progress = 0.71364456
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_hqqey")
