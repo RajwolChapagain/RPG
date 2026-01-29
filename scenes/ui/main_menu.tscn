@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://d3xpo03pr8ajw"]
+[gd_scene load_steps=19 format=3 uid="uid://d3xpo03pr8ajw"]
 
 [ext_resource type="Script" uid="uid://cpicwjcavoys0" path="res://scripts/ui/main_menu.gd" id="1_fe2o3"]
 [ext_resource type="PackedScene" uid="uid://bn3kv83cw1fcs" path="res://scenes/ui/save_slot.tscn" id="1_sl1te"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://doti88i48dtjf" path="res://assets/sprites/shroud.png" id="3_uhagc"]
 [ext_resource type="Script" uid="uid://cojsnc1kdvshg" path="res://scripts/button_sound.gd" id="5_btxxm"]
 [ext_resource type="Texture2D" uid="uid://dxv0ckuh1llwr" path="res://assets/sprites/title_screen_placeholder.png" id="5_x2yvf"]
+[ext_resource type="Texture2D" uid="uid://vj3w0447ba0" path="res://assets/sprites/ui/under_construction-AI.png" id="7_wb0q5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_uhagc"]
 animations = [{
@@ -270,11 +271,31 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_top = 5
 
-[node name="DummyLabel" type="Label" parent="UI/HBoxContainer/ContentPanel/PanelsContainer/SettingsPanel/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/HBoxContainer/ContentPanel/PanelsContainer/SettingsPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="DummyLabel" type="Label" parent="UI/HBoxContainer/ContentPanel/PanelsContainer/SettingsPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 text = "Settings"
 horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="UI/HBoxContainer/ContentPanel/PanelsContainer/SettingsPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.91
+
+[node name="TextureRect" type="TextureRect" parent="UI/HBoxContainer/ContentPanel/PanelsContainer/SettingsPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("7_wb0q5")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Spacer2" type="Control" parent="UI/HBoxContainer/ContentPanel/PanelsContainer/SettingsPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.37
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI"]
 unique_name_in_owner = true
