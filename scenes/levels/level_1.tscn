@@ -556,9 +556,11 @@ position = Vector2(124, 218)
 
 [node name="NPC2" parent="NPCs" instance=ExtResource("4_oc4kc")]
 position = Vector2(274, 568)
+dialogue_file_path = "uid://cwy0kywud624t"
 
 [node name="NPC3" parent="NPCs" instance=ExtResource("4_oc4kc")]
 position = Vector2(539, 503)
+dialogue_file_path = "uid://b6fcqvvflt5s0"
 
 [node name="NPC4" parent="NPCs" instance=ExtResource("4_oc4kc")]
 position = Vector2(144, 336)
@@ -567,8 +569,8 @@ dialogue_file_path = "res://assets/dialogues/item_drop_tutorial.csv"
 [node name="Sprite2D" parent="NPCs/NPC4" index="0"]
 texture = ExtResource("18_v6ha0")
 
-[connection signal="enemy_defeated" from="Enemies/BossEnemy" to="." method="_on_boss_enemy_enemy_defeated"]
 [connection signal="enemy_defeated" from="Enemies/BossEnemy" to="." method="_on_enemy_enemy_defeated"]
+[connection signal="enemy_defeated" from="Enemies/BossEnemy" to="." method="_on_boss_enemy_enemy_defeated"]
 
 [editable path="DualGrid"]
 [editable path="Enemies/Enemy1"]

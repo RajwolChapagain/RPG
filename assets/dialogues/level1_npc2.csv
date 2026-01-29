@@ -1,0 +1,8 @@
+L:tutorial_npc_base,Great job on defeating those soulless suckers!
+R:rachelle_base/magda_base,Thank you! 
+L:tutorial_npc_base,"Well, don’t stop now. Keep going! Here’s something for the road."
+:drop_item potion_of_healing,
+:set_next_interaction_line 7,
+X,
+L:tutorial_npc_base,Can’t believe you guys are still here. Keep moving. Shoo!
+X,

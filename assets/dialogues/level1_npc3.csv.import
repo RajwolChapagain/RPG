@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://b6fcqvvflt5s0"
+
+[deps]
+
+files=["res://assets/dialogues/level1_npc3.Human.translation"]
+
+source_file="res://assets/dialogues/level1_npc3.csv"
+dest_files=["res://assets/dialogues/level1_npc3.Human.translation"]
+
+[params]
+
+compress=true
+delimiter=0

@@ -1,0 +1,8 @@
+L:tutorial_npc_base,Human-like monsters!! Aaaaaah!
+R:rachelle_base/magda_base,We’re not monst—
+L:tutorial_npc_base,They talk!!! Aaaaaaaaaah!!!!
+R:josephine_base/lachlan_base/einar_base/magda_base/rachelle_base,Let’s just go. Poor guy seems too traumatized.
+:set_next_interaction_line 7,
+X,
+L:tutorial_npc_base,They’re back to take my soul!! Aaaaaahhhh!!
+X,
