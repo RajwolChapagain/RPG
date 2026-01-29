@@ -6,6 +6,8 @@ var selected_item: Item
 var selected_character_inventory
 var selected_character_inventory_index
 
+signal inventory_focus_dropped
+
 func _ready() -> void:
 	initialize_character_inventory_signals()
 	GameManager.set_inventory_manager(self)
@@ -107,6 +109,8 @@ func on_consume_button_pressed(character_name: String) -> void:
 		character_inventory.disable_consume_button()
 	if len(item_buttons) != 0:
 		item_buttons[0].grab_focus()
+	else:
+		inventory_focus_dropped.emit()
 	
 func focus_item_button(item: Item) -> void:
 	for button in item_buttons:

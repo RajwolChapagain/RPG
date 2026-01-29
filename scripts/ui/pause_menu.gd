@@ -56,3 +56,6 @@ func _on_inventory_button_toggled(toggled_on: bool) -> void:
 	else:
 		%InventoryManager.visible = false
 		initialize_stats()
+
+func _on_inventory_manager_inventory_focus_dropped() -> void:
+	%InventoryButton.grab_focus()
