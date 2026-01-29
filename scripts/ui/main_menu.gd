@@ -16,14 +16,14 @@ var state: states = states.TITLE:
 				%PromptAnimationPlayer.play('fade_out')
 			else:
 				%ContentPanel.modulate = Color(%ContentPanel.modulate.r, %ContentPanel.modulate.g, %ContentPanel.modulate.b, 0)
-		elif value == states.PLAY:
+		else: # All states that make the content panel visible go here
 			%ContentPanel.modulate = Color(%ContentPanel.modulate.r, %ContentPanel.modulate.g, %ContentPanel.modulate.b, 1)
 			hide_all_content_panels()
-			%PlayPanel.visible = true
-		elif value == states.SETTINGS:
-			%ContentPanel.modulate = Color(%ContentPanel.modulate.r, %ContentPanel.modulate.g, %ContentPanel.modulate.b, 1)
-			hide_all_content_panels()
-			%SettingsPanel.visible = true
+			%PanelsContainer.set_focus_behavior_recursive(Control.FocusBehaviorRecursive.FOCUS_BEHAVIOR_ENABLED)
+			if value == states.PLAY:
+				%PlayPanel.visible = true
+			if value == states.SETTINGS:
+				%SettingsPanel.visible = true
 		state = value
 		
 enum states { TITLE, MENU, PLAY, SETTINGS }
@@ -89,6 +89,9 @@ func _on_settings_button_toggled(toggled_on: bool) -> void:
 func hide_all_content_panels() -> void:
 	for panel in %PanelsContainer.get_children():
 		panel.visible = false
+		# The following line is so that buttons inside PanelsContainer can't get focused after the panel
+		# goes invisible
+		%PanelsContainer.set_focus_behavior_recursive(Control.FocusBehaviorRecursive.FOCUS_BEHAVIOR_DISABLED)
 
 func untoggle_all_other_buttons(calling_button: Button) -> void:
 	for button: Button in %ButtonsContainer.get_children():
