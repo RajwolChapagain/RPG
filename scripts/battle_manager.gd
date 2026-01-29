@@ -48,6 +48,10 @@ func on_battle_ended(player_character_stats: Array[BaseStats], battle_won: bool)
 		get_tree().call_group('main', 'queue_free')
 		get_tree().change_scene_to_packed(MAIN_MENU_SCENE)
 
+func on_pause_menu_dropped_focus() -> void:
+	if active_battle_scene != null:
+		active_battle_scene.grab_focus_with_attack_button()
+		
 func remove_dead_entities() -> void:
 	remove_dead_players()
 	remove_defeated_enemy()

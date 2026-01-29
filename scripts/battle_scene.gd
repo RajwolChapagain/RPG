@@ -107,6 +107,9 @@ func on_enemy_battler_died(_enemy_name: String) -> void:
 	if alive_enemy_count == 0:
 		end_battle(true)
 	
+func grab_focus_with_attack_button() -> void:
+	%AttackButton.grab_focus()
+	
 #region initialization
 func spawn_players() -> void:
 	for i in range(len(player_character_stats)):

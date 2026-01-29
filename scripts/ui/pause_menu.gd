@@ -22,7 +22,8 @@ func unpause_game() -> void:
 	get_tree().paused = false
 	%InventoryButton.button_pressed = false
 	%InventoryManager.visible = false
-
+	BattleManager.on_pause_menu_dropped_focus()
+	
 func initialize_inventory() -> void:
 	%InventoryManager.populate_character_inventory()
 
