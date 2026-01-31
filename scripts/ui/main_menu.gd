@@ -22,6 +22,7 @@ var state: states = states.TITLE:
 			%PanelsContainer.set_focus_behavior_recursive(Control.FocusBehaviorRecursive.FOCUS_BEHAVIOR_ENABLED)
 			if value == states.PLAY:
 				%PlayPanel.visible = true
+				%SaveSlotsContainer.get_child(0).GRAB_BUTTON_FOCUS()
 			if value == states.SETTINGS:
 				%SettingsPanel.visible = true
 		state = value

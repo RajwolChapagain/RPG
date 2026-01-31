@@ -30,6 +30,12 @@ func initialize_buttons() -> void:
 		%SavedItems.visible = false
 		%UnsavedItems.visible = true
 
+func GRAB_BUTTON_FOCUS() -> void:
+	if SaveManager.slot_contains_data(save_slot_id):
+		%LoadButton.grab_focus()
+	else:
+		%NewButton.grab_focus()
+	
 func _on_new_button_pressed() -> void:
 	new_game_button_pressed.emit(save_slot_id)
 	
