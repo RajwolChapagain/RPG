@@ -45,6 +45,7 @@ theme_override_constants/separation = 4
 [node name="ContinueButton" type="Button" parent="HBoxContainer/ButtonsPanel/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+focus_neighbor_top = NodePath("../MainMenuButton")
 theme_type_variation = &"SideButton"
 text = "CONTINUE"
 
@@ -66,6 +67,7 @@ metadata/_custom_type_script = "uid://cojsnc1kdvshg"
 [node name="MainMenuButton" type="Button" parent="HBoxContainer/ButtonsPanel/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+focus_neighbor_bottom = NodePath("../ContinueButton")
 theme_type_variation = &"SideButton"
 text = "MAIN MENU"
 

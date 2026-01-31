@@ -356,7 +356,8 @@ func _on_abilities_button_toggled(toggled_on: bool) -> void:
 		%PlayerInfos.visible = true
 
 func create_abilities_list() -> void:
-	for ability_scene in player_characters[active_index].stats.abilities:
+	for index in range(len(player_characters[active_index].stats.abilities)):
+		var ability_scene = player_characters[active_index].stats.abilities[index]
 		var ability: Ability = ability_scene.instantiate()
 		var button: AbilityButton = ability_button.instantiate()
 		button.set_ability(ability)
@@ -365,6 +366,11 @@ func create_abilities_list() -> void:
 			button.disable_button()
 			
 		%AbilitiesContainer.add_child(button)
+		
+		# Set looping navigation
+		if index == len(player_characters[active_index].stats.abilities) - 1:
+			button.focus_neighbor_bottom = %AbilitiesContainer.get_child(0).get_path()
+			%AbilitiesContainer.get_child(0).focus_neighbor_top = button.get_path()
 	
 	%AbilitiesContainer.visible = true
 	%AbilitiesContainer.get_child(0).grab_focus()

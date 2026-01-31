@@ -21,11 +21,12 @@ func add_item(item: Item, count: int = 1) -> void:
 	add_item_button(item, count)
 	
 func add_item_button(item: Item, count: int) -> void:
-	var item_button = ItemButtonScene.instantiate()
+	var item_button: ItemButton = ItemButtonScene.instantiate()
 	item_button.initialize(item, count)
 	%ItemButtonsContainer.add_child(item_button)
 	item_buttons.append(item_button)
 	item_button.item_selected.connect(on_inventory_item_selected)
+	set_looping_focus_neighbors()
 	
 func get_items() -> Array[Item]:
 	var out: Array[Item] = []
@@ -34,7 +35,6 @@ func get_items() -> Array[Item]:
 	return out
 	
 func on_inventory_item_selected(item: Item) -> void:
-	print("Selected item %s" % item)
 	selected_item = item
 	if selected_item.type == Item.ItemType.CONSUMABLE:
 		for character_inventory: CharacterInventory in %CharacterInventories.get_children():
@@ -91,6 +91,7 @@ func remove_button(button: ItemButton, index: int) -> void:
 	button.item = null
 	item_buttons.remove_at(index)
 	%ItemButtonsContainer.remove_child(button)
+	set_looping_focus_neighbors()
 
 func _on_discard_button_pressed() -> void:
 	var item = selected_character_inventory.get_item_at_slot(selected_character_inventory_index)
@@ -126,3 +127,13 @@ func remove_character_inventory(player_name: String) -> void:
 	for character_inventory: CharacterInventory in %CharacterInventories.get_children():
 		if character_inventory.get_character_name() == player_name:
 			character_inventory.queue_free()
+
+func set_looping_focus_neighbors() -> void:
+	for index in range(len(item_buttons)):
+		if index == 0:
+			item_buttons[index].focus_neighbor_top = item_buttons[-1].get_path()
+		
+		if index == len(item_buttons) - 1:
+			item_buttons[index].focus_neighbor_bottom = item_buttons[0].get_path()	
+		else:
+			item_buttons[index].focus_neighbor_bottom = item_buttons[index + 1].get_path()

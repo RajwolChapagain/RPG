@@ -176,6 +176,7 @@ alignment = 1
 [node name="PlayButton" type="Button" parent="UI/HBoxContainer/ButtonsPanel/ButtonsContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+focus_neighbor_top = NodePath("../QuitButton")
 theme_type_variation = &"SideButton"
 toggle_mode = true
 text = "PLAY"
@@ -197,6 +198,7 @@ metadata/_custom_type_script = "uid://cojsnc1kdvshg"
 
 [node name="QuitButton" type="Button" parent="UI/HBoxContainer/ButtonsPanel/ButtonsContainer"]
 layout_mode = 2
+focus_neighbor_bottom = NodePath("../PlayButton")
 theme_type_variation = &"SideButton"
 text = "QUIT"
 

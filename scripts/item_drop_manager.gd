@@ -44,6 +44,7 @@ func display_items(items: Array[Item]) -> void:
 		%ItemsContainer.add_child(item_button)
 		if i == 0:
 			item_button.grab_focus()
+			item_button.focus_neighbor_top = %ConfirmButton.get_path()
 		
 	%ItemDropPanel.visible = true
 	
