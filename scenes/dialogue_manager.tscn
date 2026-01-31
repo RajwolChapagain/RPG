@@ -9,7 +9,6 @@ process_mode = 3
 script = ExtResource("1_jbixp")
 dialogue_ui_scene = ExtResource("2_smvbx")
 sprite_database = ExtResource("3_61474")
-dialogue_file_path = "uid://bnxt3xqmmj8ls"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
