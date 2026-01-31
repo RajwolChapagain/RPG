@@ -85,7 +85,6 @@ func save_data() -> void:
 		save.equipped_items[player.stats.name] = player.equipped_items
 	save.inventory_items = %PauseMenu.get_inventory_items()
 	SaveManager.save_to_current_slot(save)
-	print("Checkpoint reached! Progress saved to slot ", SaveManager.current_save_slot)
 
 func _on_pause_menu_main_menu_button_pressed() -> void:
 	if BattleManager.active_battle_scene != null:
