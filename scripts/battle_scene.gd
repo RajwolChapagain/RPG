@@ -293,10 +293,10 @@ func attack_enemy(enemy) -> void:
 	enable_attack_button()
 	
 func enable_attack_button() -> void:
-	%AttackButton.disabled = false
-	%AttackButton.set_focus_mode(Control.FOCUS_ALL)
 	if not battle_ongoing:
 		return
+	%AttackButton.disabled = false
+	%AttackButton.set_focus_mode(Control.FOCUS_ALL)
 	%AttackButton.grab_focus()
 	
 func disable_attack_button() -> void:
@@ -304,6 +304,9 @@ func disable_attack_button() -> void:
 	%AttackButton.set_focus_mode(Control.FOCUS_NONE)
 
 func enable_abilities_button() -> void:
+	if not battle_ongoing:
+		return
+		
 	if get_node_or_null("%AbilitiesButton") == null:
 		return
 		
@@ -350,6 +353,8 @@ func attack_random_player() -> void:
 
 func end_battle(won: bool) -> void:
 	battle_ongoing = false
+	disable_attack_button()
+	disable_abilities_button()
 	if won:
 		MusicManager.play_music('victory', false)
 		%ResultAnnouncementLabel.text = win_text
