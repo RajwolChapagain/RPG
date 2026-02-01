@@ -49,11 +49,11 @@ func _on_main_menu_button_pressed() -> void:
 	unpause_game()
 	main_menu_button_pressed.emit()
 
-
 func _on_inventory_button_toggled(toggled_on: bool) -> void:
 	if toggled_on:
 		%InventoryManager.visible = true
 		%StatsPanel.visible = false
+		%InventoryManager.GRAB_FIRST_ITEM_BUTTON_FOCUS()
 	else:
 		%InventoryManager.visible = false
 		initialize_stats()

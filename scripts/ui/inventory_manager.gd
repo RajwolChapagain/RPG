@@ -137,3 +137,7 @@ func set_looping_focus_neighbors() -> void:
 			item_buttons[index].focus_neighbor_bottom = item_buttons[0].get_path()	
 		else:
 			item_buttons[index].focus_neighbor_bottom = item_buttons[index + 1].get_path()
+
+func GRAB_FIRST_ITEM_BUTTON_FOCUS() -> void:
+	if len(item_buttons) != 0:
+		item_buttons[0].grab_focus()
