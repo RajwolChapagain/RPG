@@ -37,7 +37,7 @@ func _input(event: InputEvent) -> void:
 		
 	if event.is_action_pressed("select_target"):
 		current_callable.call(targets[selected])
-		deactivate()
+		DEACTIVATE()
 	
 	if event.is_action_pressed("select_next"):
 		select_next()
@@ -56,6 +56,6 @@ func mark_selected(index) -> void:
 	%Pointer.position.y = targets[index].position.y - pointer_y_offset
 	%Pointer.visible = true
 
-func deactivate() -> void:
+func DEACTIVATE() -> void:
 	active = false
 	%Pointer.visible = false

@@ -2,7 +2,7 @@ extends Control
 
 signal main_menu_button_pressed
 
-func _input(event: InputEvent) -> void:
+func _unhandled_key_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
 		if not get_tree().paused:
 			pause_game()
