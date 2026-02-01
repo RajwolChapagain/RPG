@@ -8,7 +8,7 @@ colors = PackedColorArray(0.3882353, 0.81960785, 0.40784314, 1, 1, 1, 1, 0)
 
 [node name="Heal" type="Node"]
 script = ExtResource("1_x12ah")
-heal = 40
+heal_percentage = 20.0
 ability_name = "Heal"
 cost = 2
 
