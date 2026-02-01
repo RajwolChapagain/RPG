@@ -37,7 +37,6 @@ func load_dialogue(dialogue_file_path: String, dialogue_start_line_number: int =
 		dialogue_file.get_csv_line()
 		current_dialogue_line_number += 1
 		
-		
 	start_dialogue()
 
 func advance_dialogue() -> void:

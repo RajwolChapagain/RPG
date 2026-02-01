@@ -93,6 +93,7 @@ func set_dialogue_text(text: String) -> void:
 				break
 			await get_tree().physics_frame
 			%DialogueLabel.text += c
+		unraveling_line = false
 	else:
 		unraveling_line = false
 		await get_tree().physics_frame
