@@ -311,7 +311,14 @@ func disable_abilities_button() -> void:
 	%AbilitiesButton.disabled = true
 	%AbilitiesButton.set_focus_mode(Control.FOCUS_NONE)
 	
-func on_ability_finished_execution() -> void:
+func on_ability_finished_execution(ability: Ability, resonant_battlers: Array[Battler]) -> void:
+	# Check for resonance on resonant battlers
+	for battler: Battler in resonant_battlers:
+		var copied_ability: Ability = ability.duplicate()
+		add_child(copied_ability)
+		copied_ability.execute(player_characters[active_index], battler)
+		await copied_ability.ability_finished_execution
+		
 	advance_turn()
 	enable_abilities_button()
 	enable_attack_button()
@@ -387,7 +394,11 @@ func on_ability_selected(ability: Ability) -> void:
 	else:
 		%AbilityPointsContainer.decrease_points(ability.cost)
 	
-	ability.ability_finished_execution.connect(on_ability_finished_execution)
+	# Binding the result of get_resonant_battlers() here is crucial as opposed to calling
+	# get_resonant_battlers() inside of on_ability_finished_execution() because if the
+	# ability being executed applies resonance, then storing the result of get_resonant_battlers()
+	# and binding it here prevents double application of resonance as opposed to the other approach
+	ability.ability_finished_execution.connect(on_ability_finished_execution.bind(ability, get_resonant_battlers()))
 	%AbilitiesButton.set_pressed(false)
 	%PlayerInfos.visible = true
 	disable_attack_button()
@@ -397,16 +408,7 @@ func on_ability_selected(ability: Ability) -> void:
 
 func execute_ability_on_target(target: Battler, ability: Ability) -> void:
 	add_child(ability)
-	var resonant_battlers = get_resonant_battlers() # Need to get resonant battlers before executing ability
-													# because otherwise, resonant status effect gets applied
-													# twice
 	ability.execute(player_characters[active_index], target)
-	
-	# Check for resonance on resonant battlers
-	for battler: Battler in resonant_battlers:
-		var copied_ability: Ability = ability.duplicate()
-		add_child(copied_ability)
-		copied_ability.execute(player_characters[active_index], battler)
 
 func _on_result_label_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "fade_in":

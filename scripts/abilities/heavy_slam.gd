@@ -5,5 +5,6 @@ class_name HeavySlam extends Ability
 func execute(_caster: Battler, target: Battler) -> void:
 	var accuracy = 100
 	target.take_damage(damage, accuracy)
+	await get_tree().process_frame
 	ability_finished_execution.emit()
 	queue_free()
