@@ -12,6 +12,11 @@ var party: Party = null
 func _ready() -> void:
 	call_deferred('load_level', current_level_number)
 	
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed('pause'):
+		if current_level_number == 0:
+			get_viewport().set_input_as_handled()
+			
 func load_level(level: int) -> void:
 	if current_level != null:
 		current_level.queue_free()

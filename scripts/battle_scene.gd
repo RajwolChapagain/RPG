@@ -48,7 +48,7 @@ func _input(event: InputEvent) -> void:
 		if $TargetSelect.IS_ACTIVE():
 			$TargetSelect.DEACTIVATE()
 			enable_attack_button()
-			get_tree().root.get_viewport().set_input_as_handled()
+			get_viewport().set_input_as_handled()
 		
 func update_ui(delta) -> void:
 	var hp_bar_speed = 100
