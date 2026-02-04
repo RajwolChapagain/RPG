@@ -1,11 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://7oyb46fq8cjd"]
+[gd_scene format=3 uid="uid://7oyb46fq8cjd"]
 
 [ext_resource type="Script" uid="uid://bl5pxbr8sf7vu" path="res://scripts/abilities/echo.gd" id="1_xax70"]
 [ext_resource type="Resource" uid="uid://ddmvi1k12xysq" path="res://resources/status_effects/resonant.tres" id="2_4x7kd"]
 
-[node name="Echo" type="Node"]
+[node name="Echo" type="Node" unique_id=1980019008]
 script = ExtResource("1_xax70")
 resonant_effect = ExtResource("2_4x7kd")
 ability_name = "Echo"
-description = null
+description = "Curse your target to reverberate to whatever happens on the battlefield!"
 cost = 1

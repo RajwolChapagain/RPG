@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://ca7wts2h1dfa6"]
+[gd_scene format=3 uid="uid://ca7wts2h1dfa6"]
 
 [ext_resource type="Script" uid="uid://mmkgkc4yoclx" path="res://scripts/abilities/heal.gd" id="1_x12ah"]
 
@@ -6,13 +6,14 @@
 offsets = PackedFloat32Array(0.61777776, 1)
 colors = PackedColorArray(0.3882353, 0.81960785, 0.40784314, 1, 1, 1, 1, 0)
 
-[node name="Heal" type="Node"]
+[node name="Heal" type="Node" unique_id=917651593]
 script = ExtResource("1_x12ah")
 heal_percentage = 20.0
 ability_name = "Heal"
+description = "Endow your target with life-giving energy; delaying their perish in the Regenerengine."
 cost = 2
 
-[node name="HealParticles" type="CPUParticles2D" parent="."]
+[node name="HealParticles" type="CPUParticles2D" parent="." unique_id=1020417276]
 unique_name_in_owner = true
 z_index = 1
 emitting = false

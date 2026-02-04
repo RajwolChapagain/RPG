@@ -1,15 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://bhvoapkx570c4"]
+[gd_scene format=3 uid="uid://bhvoapkx570c4"]
 
 [ext_resource type="Script" uid="uid://vfmmtdviokil" path="res://scripts/abilities/clairvoyance.gd" id="1_tpqgi"]
 [ext_resource type="Theme" uid="uid://5dapp0d0f0x5" path="res://resources/ui.tres" id="2_nyjhf"]
 [ext_resource type="PackedScene" uid="uid://23b01ifqxu4" path="res://scenes/ui/stat_card.tscn" id="3_v57qa"]
 
-[node name="Clairvoyance" type="Node"]
+[node name="Clairvoyance" type="Node" unique_id=1087928118]
 script = ExtResource("1_tpqgi")
 ability_name = "Clairvoyance"
+description = "Discern what escapes the senses; know your target's composition."
 cost = 1
 
-[node name="EnemyStatViewer" type="Control" parent="."]
+[node name="EnemyStatViewer" type="Control" parent="." unique_id=950100203]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,14 +19,14 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_nyjhf")
 
-[node name="Panel" type="Panel" parent="EnemyStatViewer"]
+[node name="Panel" type="Panel" parent="EnemyStatViewer" unique_id=1602346996]
 layout_mode = 0
 offset_left = 250.0
 offset_right = 320.0
 offset_bottom = 180.0
 theme_type_variation = &"BorderedPanel"
 
-[node name="MarginContainer" type="MarginContainer" parent="EnemyStatViewer/Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="EnemyStatViewer/Panel" unique_id=794218840]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -37,14 +38,14 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="EnemyStatViewer/Panel/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="EnemyStatViewer/Panel/MarginContainer" unique_id=252939387]
 layout_mode = 2
 
-[node name="StatCard" parent="EnemyStatViewer/Panel/MarginContainer/VBoxContainer" instance=ExtResource("3_v57qa")]
+[node name="StatCard" parent="EnemyStatViewer/Panel/MarginContainer/VBoxContainer" unique_id=46376483 instance=ExtResource("3_v57qa")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="ConfirmButton" type="Button" parent="EnemyStatViewer/Panel/MarginContainer/VBoxContainer"]
+[node name="ConfirmButton" type="Button" parent="EnemyStatViewer/Panel/MarginContainer/VBoxContainer" unique_id=49003660]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Confirm"

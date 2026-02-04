@@ -6,4 +6,5 @@
 script = ExtResource("1_c2pi8")
 damage = 60
 ability_name = "Heavy Slam"
+description = "Do what a knight does best—slamming into a target and doing heavy damage!"
 cost = 4

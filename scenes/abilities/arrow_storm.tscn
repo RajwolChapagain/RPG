@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c280afbxd1cl3"]
+[gd_scene format=3 uid="uid://c280afbxd1cl3"]
 
 [ext_resource type="Script" uid="uid://cki3ldg155cvm" path="res://scripts/abilities/arrow_storm.gd" id="1_51rgh"]
 [ext_resource type="Texture2D" uid="uid://devyuuaysel55" path="res://assets/sprites/abilities/arrow_storm.png" id="2_ksgxq"]
@@ -45,24 +45,25 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_io0kf"]
 size = Vector2(120, 30)
 
-[node name="Node" type="Node"]
+[node name="Node" type="Node" unique_id=925495463]
 script = ExtResource("1_51rgh")
 max_damage = 50
 damage_faloff_curve = SubResource("Curve_51rgh")
 accuracy_faloff_curve = SubResource("Curve_ksgxq")
 ability_name = "Arrow Storm"
+description = "Unleash a barrage of arrows on your foes! (Or your party; depends on your aim)"
 cost = 2
 
-[node name="ArrowStorm" type="Area2D" parent="."]
+[node name="ArrowStorm" type="Area2D" parent="." unique_id=722577249]
 unique_name_in_owner = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ArrowStorm"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ArrowStorm" unique_id=941703342]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_7op0b")
 frame = 2
 frame_progress = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ArrowStorm"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArrowStorm" unique_id=96946764]
 shape = SubResource("RectangleShape2D_io0kf")
 
 [connection signal="area_entered" from="ArrowStorm" to="." method="_on_arrow_storm_area_entered"]
