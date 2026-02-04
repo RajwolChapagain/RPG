@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="BaseStats" load_steps=5 format=3 uid="uid://cym67rsdldl6j"]
+[gd_resource type="Resource" script_class="BaseStats" format=3 uid="uid://cym67rsdldl6j"]
 
 [ext_resource type="PackedScene" uid="uid://c280afbxd1cl3" path="res://scenes/abilities/arrow_storm.tscn" id="1_fex2c"]
 [ext_resource type="Texture2D" uid="uid://bkbfad4cbiqgk" path="res://assets/sprites/einar_spritesheet.png" id="2_8qnyt"]

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="BaseStats" load_steps=5 format=3 uid="uid://biubxrgae4cha"]
+[gd_resource type="Resource" script_class="BaseStats" format=3 uid="uid://biubxrgae4cha"]
 
 [ext_resource type="PackedScene" uid="uid://ca7wts2h1dfa6" path="res://scenes/abilities/heal.tscn" id="1_lab51"]
 [ext_resource type="Texture2D" uid="uid://dwgfyhp5dlhtf" path="res://assets/sprites/magda_spritesheet.PNG" id="2_oec1o"]

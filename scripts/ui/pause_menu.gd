@@ -20,15 +20,17 @@ func pause_game() -> void:
 func unpause_game() -> void:
 	visible = false
 	get_tree().paused = false
-	%InventoryButton.button_pressed = false
-	%InventoryManager.visible = false
+
+	untoggle_all_buttons()
+	hide_all_content_panels()
+		
 	BattleManager.on_pause_menu_dropped_focus()
 	
 func initialize_inventory() -> void:
 	%InventoryManager.populate_character_inventory()
 
 func _on_visibility_changed() -> void:
-	if visible == true:
+	if visible:
 		initialize_stats()
 		
 func initialize_stats() -> void:
@@ -51,8 +53,10 @@ func _on_main_menu_button_pressed() -> void:
 
 func _on_inventory_button_toggled(toggled_on: bool) -> void:
 	if toggled_on:
+		untoggle_all_buttons()
+		hide_all_content_panels()
+		%InventoryButton.set_pressed_no_signal(true)
 		%InventoryManager.visible = true
-		%StatsPanel.visible = false
 		%InventoryManager.GRAB_FIRST_ITEM_BUTTON_FOCUS()
 	else:
 		%InventoryManager.visible = false
@@ -60,3 +64,21 @@ func _on_inventory_button_toggled(toggled_on: bool) -> void:
 
 func _on_inventory_manager_inventory_focus_dropped() -> void:
 	%InventoryButton.grab_focus()
+
+func _on_ability_info_button_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		untoggle_all_buttons()
+		hide_all_content_panels()
+		%AbilityInfoButton.set_pressed_no_signal(true)
+		%AbilityInfoPanel.visible = true
+	else:
+		%AbilityInfoPanel.visible = false
+		initialize_stats()
+
+func untoggle_all_buttons() -> void:
+	for button: Button in %ButtonsContainer.get_children():
+		button.button_pressed = false
+	
+func hide_all_content_panels() -> void:
+	for panel: Panel in %ContentContainer.get_children():
+		panel.visible = false

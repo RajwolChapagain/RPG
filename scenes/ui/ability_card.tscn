@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://bycn0lofyiuvm"]
+
+[ext_resource type="Theme" uid="uid://5dapp0d0f0x5" path="res://resources/ui.tres" id="1_unr5y"]
+[ext_resource type="Script" uid="uid://c0kphf5vrmxeb" path="res://scripts/ui/ability_card.gd" id="2_aghsq"]
+[ext_resource type="Texture2D" uid="uid://bvrxxlijgc8mi" path="res://assets/sprites/ui/pause_menu/ability_placeholder_image.png" id="3_jvgna"]
+
+[node name="AbilityCard" type="Panel" unique_id=678812619]
+custom_minimum_size = Vector2(96, 66)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 112.0
+offset_top = 62.0
+offset_right = -112.0
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_unr5y")
+theme_type_variation = &"BorderedPanel"
+script = ExtResource("2_aghsq")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=17448708]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=2099491564]
+layout_mode = 2
+
+[node name="AbilityName" type="Label" parent="MarginContainer/VBoxContainer" unique_id=444546140]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 3
+text = "Some Ability"
+horizontal_alignment = 1
+
+[node name="AbilityImage" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=403060922]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("3_jvgna")
+stretch_mode = 3
+
+[node name="AbilityDescription" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1034866899]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 3
+text = "Some ability description that goes on for at least two lines so that I can have some idea about how long ability descriptions "
+autowrap_mode = 2

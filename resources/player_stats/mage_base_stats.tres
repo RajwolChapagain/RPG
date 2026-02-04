@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="BaseStats" load_steps=5 format=3 uid="uid://d3kyf2naa3duo"]
+[gd_resource type="Resource" script_class="BaseStats" format=3 uid="uid://d3kyf2naa3duo"]
 
 [ext_resource type="Texture2D" uid="uid://b0pokaytcoerh" path="res://assets/sprites/lachlan_spritesheet.png" id="1_5si2c"]
 [ext_resource type="PackedScene" uid="uid://7oyb46fq8cjd" path="res://scenes/abilities/echo.tscn" id="1_u61pl"]

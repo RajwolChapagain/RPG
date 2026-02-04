@@ -1,12 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://des2w3vogbaog"]
+[gd_scene format=3 uid="uid://des2w3vogbaog"]
 
 [ext_resource type="Script" uid="uid://bja0kvvwntfs4" path="res://scripts/ui/pause_menu.gd" id="1_0lmf7"]
 [ext_resource type="PackedScene" uid="uid://djewwmdjwkohh" path="res://scenes/ui/inventory_manager.tscn" id="1_6tw0m"]
 [ext_resource type="Theme" uid="uid://5dapp0d0f0x5" path="res://resources/ui.tres" id="1_f6eus"]
 [ext_resource type="Script" uid="uid://cojsnc1kdvshg" path="res://scripts/button_sound.gd" id="3_0bnpd"]
 [ext_resource type="PackedScene" uid="uid://23b01ifqxu4" path="res://scenes/ui/stat_card.tscn" id="4_8uki6"]
+[ext_resource type="PackedScene" uid="uid://c7ql16l1w0ppb" path="res://scenes/ui/ability_info_panel.tscn" id="6_4inpj"]
 
-[node name="PauseMenu" type="Control"]
+[node name="PauseMenu" type="Control" unique_id=1075974794]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -17,7 +18,7 @@ grow_vertical = 2
 theme = ExtResource("1_f6eus")
 script = ExtResource("1_0lmf7")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=175827623]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,13 +27,14 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
 
-[node name="ButtonsPanel" type="Panel" parent="HBoxContainer"]
+[node name="ButtonsPanel" type="Panel" parent="HBoxContainer" unique_id=135422335]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.25
 theme_type_variation = &"BorderedPanel"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/ButtonsPanel"]
+[node name="ButtonsContainer" type="VBoxContainer" parent="HBoxContainer/ButtonsPanel" unique_id=1291311574]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -42,44 +44,56 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 4
 
-[node name="ContinueButton" type="Button" parent="HBoxContainer/ButtonsPanel/VBoxContainer"]
+[node name="ContinueButton" type="Button" parent="HBoxContainer/ButtonsPanel/ButtonsContainer" unique_id=1105313344]
 unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_top = NodePath("../MainMenuButton")
 theme_type_variation = &"SideButton"
 text = "CONTINUE"
 
-[node name="ButtonSound" type="Node" parent="HBoxContainer/ButtonsPanel/VBoxContainer/ContinueButton"]
+[node name="ButtonSound" type="Node" parent="HBoxContainer/ButtonsPanel/ButtonsContainer/ContinueButton" unique_id=1131220914]
 script = ExtResource("3_0bnpd")
 metadata/_custom_type_script = "uid://cojsnc1kdvshg"
 
-[node name="InventoryButton" type="Button" parent="HBoxContainer/ButtonsPanel/VBoxContainer"]
+[node name="InventoryButton" type="Button" parent="HBoxContainer/ButtonsPanel/ButtonsContainer" unique_id=324524296]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"SideButton"
 toggle_mode = true
 text = "INVENTORY"
 
-[node name="ButtonSound" type="Node" parent="HBoxContainer/ButtonsPanel/VBoxContainer/InventoryButton"]
+[node name="ButtonSound" type="Node" parent="HBoxContainer/ButtonsPanel/ButtonsContainer/InventoryButton" unique_id=978562394]
 script = ExtResource("3_0bnpd")
 metadata/_custom_type_script = "uid://cojsnc1kdvshg"
 
-[node name="MainMenuButton" type="Button" parent="HBoxContainer/ButtonsPanel/VBoxContainer"]
+[node name="AbilityInfoButton" type="Button" parent="HBoxContainer/ButtonsPanel/ButtonsContainer" unique_id=1347281092]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"SideButton"
+toggle_mode = true
+text = "ABILITIES"
+
+[node name="ButtonSound" type="Node" parent="HBoxContainer/ButtonsPanel/ButtonsContainer/AbilityInfoButton" unique_id=1252544633]
+script = ExtResource("3_0bnpd")
+metadata/_custom_type_script = "uid://cojsnc1kdvshg"
+
+[node name="MainMenuButton" type="Button" parent="HBoxContainer/ButtonsPanel/ButtonsContainer" unique_id=1934312075]
 unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../ContinueButton")
 theme_type_variation = &"SideButton"
 text = "MAIN MENU"
 
-[node name="ButtonSound" type="Node" parent="HBoxContainer/ButtonsPanel/VBoxContainer/MainMenuButton"]
+[node name="ButtonSound" type="Node" parent="HBoxContainer/ButtonsPanel/ButtonsContainer/MainMenuButton" unique_id=1870371028]
 script = ExtResource("3_0bnpd")
 metadata/_custom_type_script = "uid://cojsnc1kdvshg"
 
-[node name="ContentPanel" type="Panel" parent="HBoxContainer"]
+[node name="ContentPanel" type="Panel" parent="HBoxContainer" unique_id=3354808]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/ContentPanel"]
+[node name="ContentContainer" type="MarginContainer" parent="HBoxContainer/ContentPanel" unique_id=1277028659]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -89,17 +103,11 @@ grow_vertical = 2
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 
-[node name="InventoryManager" parent="HBoxContainer/ContentPanel/MarginContainer" instance=ExtResource("1_6tw0m")]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="StatsPanel" type="Panel" parent="HBoxContainer/ContentPanel/MarginContainer"]
+[node name="StatsPanel" type="Panel" parent="HBoxContainer/ContentPanel/ContentContainer" unique_id=1613773912]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Stats" type="HBoxContainer" parent="HBoxContainer/ContentPanel/MarginContainer/StatsPanel"]
+[node name="Stats" type="HBoxContainer" parent="HBoxContainer/ContentPanel/ContentContainer/StatsPanel" unique_id=174261011]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 12
@@ -111,20 +119,32 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 2
 
-[node name="StatCard1" parent="HBoxContainer/ContentPanel/MarginContainer/StatsPanel/Stats" instance=ExtResource("4_8uki6")]
+[node name="StatCard1" parent="HBoxContainer/ContentPanel/ContentContainer/StatsPanel/Stats" unique_id=1013604729 instance=ExtResource("4_8uki6")]
 layout_mode = 2
 
-[node name="StatCard2" parent="HBoxContainer/ContentPanel/MarginContainer/StatsPanel/Stats" instance=ExtResource("4_8uki6")]
+[node name="StatCard2" parent="HBoxContainer/ContentPanel/ContentContainer/StatsPanel/Stats" unique_id=1636471993 instance=ExtResource("4_8uki6")]
 layout_mode = 2
 
-[node name="StatCard3" parent="HBoxContainer/ContentPanel/MarginContainer/StatsPanel/Stats" instance=ExtResource("4_8uki6")]
+[node name="StatCard3" parent="HBoxContainer/ContentPanel/ContentContainer/StatsPanel/Stats" unique_id=728727307 instance=ExtResource("4_8uki6")]
 layout_mode = 2
 
-[node name="StatCard4" parent="HBoxContainer/ContentPanel/MarginContainer/StatsPanel/Stats" instance=ExtResource("4_8uki6")]
+[node name="StatCard4" parent="HBoxContainer/ContentPanel/ContentContainer/StatsPanel/Stats" unique_id=961803405 instance=ExtResource("4_8uki6")]
+layout_mode = 2
+
+[node name="InventoryManager" parent="HBoxContainer/ContentPanel/ContentContainer" unique_id=1357883181 instance=ExtResource("1_6tw0m")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AbilityInfoPanel" parent="HBoxContainer/ContentPanel/ContentContainer" unique_id=1734538499 instance=ExtResource("6_4inpj")]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
-[connection signal="button_down" from="HBoxContainer/ButtonsPanel/VBoxContainer/ContinueButton" to="." method="_on_continue_button_button_down"]
-[connection signal="toggled" from="HBoxContainer/ButtonsPanel/VBoxContainer/InventoryButton" to="." method="_on_inventory_button_toggled"]
-[connection signal="pressed" from="HBoxContainer/ButtonsPanel/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
-[connection signal="inventory_focus_dropped" from="HBoxContainer/ContentPanel/MarginContainer/InventoryManager" to="." method="_on_inventory_manager_inventory_focus_dropped"]
+[connection signal="button_down" from="HBoxContainer/ButtonsPanel/ButtonsContainer/ContinueButton" to="." method="_on_continue_button_button_down"]
+[connection signal="toggled" from="HBoxContainer/ButtonsPanel/ButtonsContainer/InventoryButton" to="." method="_on_inventory_button_toggled"]
+[connection signal="toggled" from="HBoxContainer/ButtonsPanel/ButtonsContainer/AbilityInfoButton" to="." method="_on_ability_info_button_toggled"]
+[connection signal="pressed" from="HBoxContainer/ButtonsPanel/ButtonsContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="inventory_focus_dropped" from="HBoxContainer/ContentPanel/ContentContainer/InventoryManager" to="." method="_on_inventory_manager_inventory_focus_dropped"]

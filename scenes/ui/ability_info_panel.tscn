@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://c7ql16l1w0ppb"]
+
+[ext_resource type="Theme" uid="uid://5dapp0d0f0x5" path="res://resources/ui.tres" id="1_22ab0"]
+[ext_resource type="Script" uid="uid://cjgfiqm4j8c1n" path="res://scripts/ui/ability_info_panel.gd" id="1_fjimy"]
+[ext_resource type="PackedScene" uid="uid://bycn0lofyiuvm" path="res://scenes/ui/ability_card.tscn" id="2_5kk8j"]
+
+[node name="AbilityInfoPanel" type="Panel" unique_id=1734538499]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_22ab0")
+script = ExtResource("1_fjimy")
+ability_card_scene = ExtResource("2_5kk8j")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1991116957]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="HBoxContainer" unique_id=394888178]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 2
+theme_override_constants/v_separation = 2
+columns = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=1755109504]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

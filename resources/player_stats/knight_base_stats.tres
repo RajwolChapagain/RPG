@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="BaseStats" load_steps=5 format=3 uid="uid://c3bvbxqpkkgu3"]
+[gd_resource type="Resource" script_class="BaseStats" format=3 uid="uid://c3bvbxqpkkgu3"]
 
 [ext_resource type="PackedScene" uid="uid://c3x4ifbvswv3p" path="res://scenes/abilities/heavy_slam.tscn" id="1_j4cxy"]
 [ext_resource type="Texture2D" uid="uid://boqdnqcd5kshd" path="res://assets/sprites/rachelle_spritesheet.png" id="2_6rdet"]
