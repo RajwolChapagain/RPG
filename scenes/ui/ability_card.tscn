@@ -5,14 +5,14 @@
 [ext_resource type="Texture2D" uid="uid://bvrxxlijgc8mi" path="res://assets/sprites/ui/pause_menu/ability_placeholder_image.png" id="3_jvgna"]
 
 [node name="AbilityCard" type="Panel" unique_id=678812619]
-custom_minimum_size = Vector2(96, 66)
+custom_minimum_size = Vector2(82, 56)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 112.0
-offset_top = 62.0
-offset_right = -112.0
-offset_bottom = -52.0
+offset_left = 119.00001
+offset_top = 67.0
+offset_right = -119.0
+offset_bottom = -57.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_unr5y")
@@ -55,5 +55,17 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 3
-text = "Some ability description that goes on for at least two lines so that I can have some idea about how long ability descriptions "
+text = "Some ability description that goes on for at least two lines so that I can have some idea about how long ab"
 autowrap_mode = 2
+
+[node name="Button" type="Button" parent="." unique_id=397033593]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"TransparentButton"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
