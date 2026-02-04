@@ -3,6 +3,7 @@
 [ext_resource type="Theme" uid="uid://5dapp0d0f0x5" path="res://resources/ui.tres" id="1_22ab0"]
 [ext_resource type="Script" uid="uid://cjgfiqm4j8c1n" path="res://scripts/ui/ability_info_panel.gd" id="1_fjimy"]
 [ext_resource type="PackedScene" uid="uid://bycn0lofyiuvm" path="res://scenes/ui/ability_card.tscn" id="2_5kk8j"]
+[ext_resource type="Texture2D" uid="uid://iq8gafxjg2ls" path="res://assets/sprites/ui/pause_menu/ability_sprites/arrow_storm.webp" id="4_nwd31"]
 
 [node name="AbilityInfoPanel" type="Panel" unique_id=1734538499]
 anchors_preset = 15
@@ -16,6 +17,9 @@ size_flags_vertical = 3
 theme = ExtResource("1_22ab0")
 script = ExtResource("1_fjimy")
 ability_card_scene = ExtResource("2_5kk8j")
+ability_images = Dictionary[String, Texture2D]({
+"Arrow Storm": ExtResource("4_nwd31")
+})
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1991116957]
 layout_mode = 1

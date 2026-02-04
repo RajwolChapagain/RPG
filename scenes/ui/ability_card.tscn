@@ -16,7 +16,6 @@ offset_bottom = -52.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_unr5y")
-theme_type_variation = &"BorderedPanel"
 script = ExtResource("2_aghsq")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=17448708]
@@ -45,8 +44,11 @@ horizontal_alignment = 1
 [node name="AbilityImage" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=403060922]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.5
 texture = ExtResource("3_jvgna")
-stretch_mode = 3
+expand_mode = 1
+stretch_mode = 5
 
 [node name="AbilityDescription" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1034866899]
 unique_name_in_owner = true
