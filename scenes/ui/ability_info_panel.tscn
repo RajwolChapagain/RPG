@@ -21,15 +21,19 @@ ability_images = Dictionary[String, Texture2D]({
 "Arrow Storm": ExtResource("4_nwd31")
 })
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1991116957]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1128361373]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 4
 
-[node name="GridContainer" type="GridContainer" parent="HBoxContainer" unique_id=394888178]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1991116957]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer" unique_id=394888178]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -37,7 +41,7 @@ theme_override_constants/h_separation = 2
 theme_override_constants/v_separation = 2
 columns = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=1755109504]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=1755109504]
 layout_mode = 2
 size_flags_horizontal = 3
 
