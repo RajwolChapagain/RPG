@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cjgfiqm4j8c1n" path="res://scripts/ui/ability_info_panel.gd" id="1_fjimy"]
 [ext_resource type="PackedScene" uid="uid://bycn0lofyiuvm" path="res://scenes/ui/ability_card.tscn" id="2_5kk8j"]
 [ext_resource type="Texture2D" uid="uid://iq8gafxjg2ls" path="res://assets/sprites/ui/pause_menu/ability_sprites/arrow_storm.webp" id="4_nwd31"]
+[ext_resource type="PackedScene" uid="uid://dj02cbl1erxui" path="res://scenes/ui/ability_stats.tscn" id="5_yphko"]
 
 [node name="AbilityInfoPanel" type="Panel" unique_id=1734538499]
 anchors_preset = 15
@@ -44,5 +45,10 @@ columns = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=1755109504]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="AbilityStats" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=918259568 instance=ExtResource("5_yphko")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

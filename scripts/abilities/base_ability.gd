@@ -10,3 +10,5 @@ class_name Ability extends Node
 signal ability_finished_execution
 
 @abstract func execute(_caster: Battler, target: Battler) -> void
+
+@abstract func get_stats_dict() -> Dictionary[String, String]

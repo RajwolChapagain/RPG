@@ -10,6 +10,9 @@ func execute(_caster: Battler, target: Battler) -> void:
 	await %AnimatedSprite2D.animation_finished
 	ability_finished_execution.emit()
 	queue_free()
+
+func get_stats_dict() -> Dictionary[String, String]:
+	return {'Cost': str(cost)}
 	
 func _on_arrow_storm_area_entered(area: Area2D) -> void:
 	var max_accuracy = 100

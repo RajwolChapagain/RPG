@@ -9,3 +9,6 @@ func execute(_caster: Battler, target: Battler) -> void:
 	await %HealParticles.finished
 	ability_finished_execution.emit()
 	queue_free()
+
+func get_stats_dict() -> Dictionary[String, String]:
+	return {'Cost': str(cost)}

@@ -7,6 +7,9 @@ func execute(_caster: Battler, target: Battler) -> void:
 	await stats_panel_closed
 	ability_finished_execution.emit()
 	queue_free()
+
+func get_stats_dict() -> Dictionary[String, String]:
+	return {'Cost': str(cost)}
 	
 func show_stats(stats: BaseStats) -> void:
 	%StatCard.portraits.sprite_dictionary[stats.name] = stats.battle_sprite

@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://dj02cbl1erxui"]
+
+[ext_resource type="Theme" uid="uid://5dapp0d0f0x5" path="res://resources/ui.tres" id="1_r3kk5"]
+[ext_resource type="Script" uid="uid://bv08paks42pop" path="res://scripts/ui/ability_stats.gd" id="2_haaca"]
+[ext_resource type="FontFile" uid="uid://csleht6u3wrbw" path="res://assets/fonts/minecraft/Minecraft.ttf" id="3_vq468"]
+
+[node name="AbilityStats" type="Control" unique_id=918259568]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -259.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_r3kk5")
+script = ExtResource("2_haaca")
+ability_name_format = "[u]%s"
+label_font_size = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1237595160]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=303234569]
+layout_mode = 2
+
+[node name="AbillityNameLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=385124870]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+theme_override_fonts/normal_font = ExtResource("3_vq468")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "[u]Arrow Storm"
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1038141126]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="KeyContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1913020809]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/KeyContainer" unique_id=1186758984]
+layout_mode = 2
+theme_override_font_sizes/font_size = 4
+text = "Cost"
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/KeyContainer" unique_id=730455212]
+layout_mode = 2
+theme_override_font_sizes/font_size = 4
+text = "Damage"
+
+[node name="ValueContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1995464585]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/ValueContainer" unique_id=998805557]
+layout_mode = 2
+theme_override_font_sizes/font_size = 4
+text = ": 3"
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/ValueContainer" unique_id=1973174902]
+layout_mode = 2
+theme_override_font_sizes/font_size = 4
+text = ": 40"
