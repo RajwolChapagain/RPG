@@ -12,7 +12,10 @@ func execute(_caster: Battler, target: Battler) -> void:
 	queue_free()
 
 func get_stats_dict() -> Dictionary[String, String]:
-	return {'Cost': str(cost)}
+	return {
+		'Cost': "%d Abilty %s" % [cost, "Point" if cost == 1 else "Points"],
+		'Max Damage': str(max_damage),
+	}
 	
 func _on_arrow_storm_area_entered(area: Area2D) -> void:
 	var max_accuracy = 100

@@ -11,4 +11,7 @@ func execute(_caster: Battler, target: Battler) -> void:
 	queue_free()
 	
 func get_stats_dict() -> Dictionary[String, String]:
-	return {'Cost': str(cost)}
+	return {
+		'Cost': "%d Abilty %s" % [cost, "Point" if cost == 1 else "Points"],
+		'Status Duration': "%d Ticks" % resonant_effect.duration_in_ticks,
+	}

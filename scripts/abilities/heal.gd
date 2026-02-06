@@ -11,4 +11,7 @@ func execute(_caster: Battler, target: Battler) -> void:
 	queue_free()
 
 func get_stats_dict() -> Dictionary[String, String]:
-	return {'Cost': str(cost)}
+	return {
+		'Cost': "%d Abilty %s" % [cost, "Point" if cost == 1 else "Points"],
+		'Heal Amount': "%d%% of Max HP" % heal_percentage,
+	}
