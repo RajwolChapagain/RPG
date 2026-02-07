@@ -6,8 +6,9 @@ class_name ArrowStorm extends Ability
 
 func execute(_caster: Battler, target: Battler) -> void:
 	%ArrowStorm.global_position = target.global_position
-	%AnimatedSprite2D.play('default')
-	await %AnimatedSprite2D.animation_finished
+	%GPUParticles2D.emitting = true
+	%AnimationPlayer.play('decal_fade_in')
+	await %AnimationPlayer.animation_finished
 	ability_finished_execution.emit()
 	queue_free()
 

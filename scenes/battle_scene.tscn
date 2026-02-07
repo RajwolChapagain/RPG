@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://cdvr88h8f2nsx"]
+[gd_scene format=4 uid="uid://cdvr88h8f2nsx"]
 
 [ext_resource type="Script" uid="uid://cj36ljr7yngtl" path="res://scripts/battle_scene.gd" id="1_0yksl"]
 [ext_resource type="PackedScene" uid="uid://bitedxhspi8i5" path="res://scenes/dual_grid.tscn" id="1_6lmhm"]
@@ -10,6 +10,7 @@
 [ext_resource type="Resource" uid="uid://c3bvbxqpkkgu3" path="res://resources/player_stats/knight_base_stats.tres" id="5_tttxe"]
 [ext_resource type="Resource" uid="uid://cym67rsdldl6j" path="res://resources/player_stats/archer_base_stats.tres" id="6_yt3ua"]
 [ext_resource type="Resource" uid="uid://c46k2b5fxukoi" path="res://resources/enemy_stats/crunk.tres" id="7_ti0og"]
+[ext_resource type="Resource" uid="uid://504xnrcw2ros" path="res://resources/enemy_stats/catapace.tres" id="8_bg0yk"]
 [ext_resource type="PackedScene" uid="uid://d3xpo03pr8ajw" path="res://scenes/ui/main_menu.tscn" id="8_tttxe"]
 [ext_resource type="PackedScene" uid="uid://dcqkqx8i5jvbh" path="res://scenes/ability_points_container.tscn" id="10_0gp0h"]
 [ext_resource type="PackedScene" uid="uid://b2iwifb80auqp" path="res://scenes/target_select.tscn" id="10_ceooa"]
@@ -51,15 +52,15 @@ _data = {
 &"fade_in": SubResource("Animation_3oc74")
 }
 
-[node name="BattleScene" type="Node"]
+[node name="BattleScene" type="Node" unique_id=444611762]
 script = ExtResource("1_0yksl")
 character_spacing = 60
 player_character_stats = Array[ExtResource("2_xwxfl")]([ExtResource("5_tttxe"), ExtResource("5_bg0yk"), ExtResource("6_yt3ua"), ExtResource("5_ti0og")])
-enemy_stats = Array[ExtResource("2_xwxfl")]([ExtResource("7_ti0og")])
+enemy_stats = Array[ExtResource("2_xwxfl")]([ExtResource("7_ti0og"), ExtResource("8_bg0yk")])
 ability_button = ExtResource("3_svpld")
 MAIN_MENU_SCENE = ExtResource("8_tttxe")
 
-[node name="DualGrid" parent="." instance=ExtResource("1_6lmhm")]
+[node name="DualGrid" parent="." unique_id=2087056435 instance=ExtResource("1_6lmhm")]
 
 [node name="DisplayGrid" parent="DualGrid" index="0"]
 tile_map_data = PackedByteArray("AAAAAAAAAgABAAMAAAABAAAAAgADAAAAAAAAAAEAAgABAAAAAAABAAEAAgACAAEAAAAAAAIAAgABAAAAAAABAAIAAgACAAEAAAAAAAMAAgABAAAAAAABAAMAAgACAAEAAAAAAAQAAgABAAAAAAABAAQAAgACAAEAAAAAAAUAAgABAAAAAAABAAUAAgACAAEAAAAAAAYAAgAAAAIAAAABAAYAAgABAAIAAAACAAAAAgADAAAAAAACAAEAAgADAAEAAAACAAIAAgACAAAAAAACAAMAAgADAAEAAAACAAQAAgACAAAAAAACAAUAAgACAAEAAAACAAYAAgABAAIAAAADAAAAAgADAAAAAAADAAEAAgABAAIAAAADAAUAAgACAAEAAAADAAYAAgABAAIAAAAEAAAAAgAAAAAAAAAEAAEAAgADAAMAAAAEAAUAAgACAAAAAAAEAAYAAgABAAIAAAAFAAAAAgAAAAMAAAAFAAEAAgAAAAMAAAAFAAUAAgADAAAAAAAFAAYAAgABAAIAAAAGAAAAAgABAAMAAAAGAAEAAgAAAAIAAAAGAAUAAgABAAEAAAAGAAYAAgABAAIAAAAHAAAAAgADAAAAAAAHAAEAAgABAAIAAAAHAAUAAgACAAEAAAAHAAYAAgABAAIAAAAIAAAAAgADAAAAAAAIAAEAAgACAAIAAAAIAAUAAgACAAEAAAAIAAYAAgABAAIAAAAJAAAAAgADAAAAAAAJAAEAAgACAAEAAAAJAAIAAgACAAEAAAAJAAMAAgACAAEAAAAJAAQAAgACAAEAAAAJAAUAAgACAAEAAAAJAAYAAgABAAIAAAADAAIAAgADAAAAAAADAAMAAgABAAIAAAADAAQAAgADAAAAAAAEAAIAAgADAAAAAAAEAAMAAgABAAIAAAAEAAQAAgAAAAAAAAAFAAIAAgADAAAAAAAFAAMAAgABAAIAAAAFAAQAAgAAAAMAAAAGAAIAAgADAAAAAAAGAAMAAgABAAIAAAAGAAQAAgABAAMAAAAHAAIAAgADAAAAAAAHAAMAAgABAAIAAAAHAAQAAgADAAAAAAAIAAIAAgABAAEAAAAIAAMAAgACAAIAAAAIAAQAAgABAAEAAAAKAAAAAgAAAAAAAAAKAAEAAgADAAIAAAAKAAIAAgADAAIAAAAKAAMAAgADAAIAAAAKAAQAAgADAAIAAAAKAAUAAgADAAIAAAAKAAYAAgADAAMAAAA=")
@@ -67,15 +68,15 @@ tile_map_data = PackedByteArray("AAAAAAAAAgABAAMAAAABAAAAAgADAAAAAAAAAAEAAgABAAA
 [node name="WorldGrid" parent="DualGrid" index="1"]
 tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAUAAAAAAAAAAAABAAAAAAAAAAAAAAABAAEAAAAAAAAAAAABAAIAAAAAAAAAAAABAAMAAAAAAAAAAAABAAQAAAAAAAAAAAABAAUAAAAAAAAAAAACAAAAAAAAAAAAAAACAAUAAAAAAAAAAAADAAAAAAAAAAAAAAADAAUAAAAAAAAAAAAEAAAAAAABAAAAAAAEAAUAAAAAAAAAAAAFAAAAAAABAAAAAAAFAAUAAAAAAAAAAAAGAAAAAAAAAAAAAAAGAAUAAAAAAAAAAAAHAAAAAAAAAAAAAAAHAAUAAAAAAAAAAAAIAAAAAAAAAAAAAAAIAAUAAAAAAAAAAAACAAEAAAABAAAAAAACAAIAAAAAAAAAAAACAAMAAAABAAAAAAACAAQAAAAAAAAAAAADAAEAAAABAAAAAAADAAIAAAAAAAAAAAADAAMAAAABAAAAAAADAAQAAAAAAAAAAAAEAAEAAAABAAAAAAAEAAIAAAAAAAAAAAAEAAMAAAABAAAAAAAEAAQAAAABAAAAAAAFAAEAAAABAAAAAAAFAAIAAAAAAAAAAAAFAAMAAAABAAAAAAAFAAQAAAABAAAAAAAGAAEAAAABAAAAAAAGAAIAAAAAAAAAAAAGAAMAAAABAAAAAAAGAAQAAAAAAAAAAAAHAAEAAAABAAAAAAAHAAIAAAAAAAAAAAAHAAMAAAABAAAAAAAHAAQAAAAAAAAAAAAIAAEAAAAAAAAAAAAIAAIAAAAAAAAAAAAIAAMAAAAAAAAAAAAIAAQAAAAAAAAAAAAJAAAAAAAAAAAAAAAJAAEAAAAAAAAAAAAJAAIAAAAAAAAAAAAJAAMAAAAAAAAAAAAJAAQAAAAAAAAAAAAJAAUAAAAAAAAAAAA=")
 
-[node name="PlayerStart" type="Marker2D" parent="."]
+[node name="PlayerStart" type="Marker2D" parent="." unique_id=1438111795]
 position = Vector2(160, 116)
 
-[node name="EnemyStart" type="Marker2D" parent="."]
+[node name="EnemyStart" type="Marker2D" parent="." unique_id=2039436829]
 position = Vector2(160, 38)
 
-[node name="TargetSelect" parent="." instance=ExtResource("10_ceooa")]
+[node name="TargetSelect" parent="." unique_id=11160794 instance=ExtResource("10_ceooa")]
 
-[node name="UI" type="Control" parent="."]
+[node name="UI" type="Control" parent="." unique_id=1174094816]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -84,7 +85,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_gj8wv")
 
-[node name="Deck" type="Panel" parent="UI"]
+[node name="Deck" type="Panel" parent="UI" unique_id=628120235]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -94,7 +95,7 @@ offset_top = -48.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/Deck"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/Deck" unique_id=1308302016]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -106,16 +107,16 @@ theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/Deck/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Deck/MarginContainer" unique_id=1621913293]
 layout_mode = 2
 
-[node name="ButtonsContainer" type="VBoxContainer" parent="UI/Deck/MarginContainer/HBoxContainer"]
+[node name="ButtonsContainer" type="VBoxContainer" parent="UI/Deck/MarginContainer/HBoxContainer" unique_id=952237778]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.15
 theme_override_constants/separation = 2
 
-[node name="AttackButton" type="Button" parent="UI/Deck/MarginContainer/HBoxContainer/ButtonsContainer"]
+[node name="AttackButton" type="Button" parent="UI/Deck/MarginContainer/HBoxContainer/ButtonsContainer" unique_id=984171798]
 unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_top = NodePath("../AbilitiesButton")
@@ -123,7 +124,7 @@ theme = ExtResource("3_gj8wv")
 theme_type_variation = &"SmallButton"
 text = "ATTACK"
 
-[node name="AbilitiesButton" type="Button" parent="UI/Deck/MarginContainer/HBoxContainer/ButtonsContainer"]
+[node name="AbilitiesButton" type="Button" parent="UI/Deck/MarginContainer/HBoxContainer/ButtonsContainer" unique_id=406767700]
 unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../AttackButton")
@@ -132,23 +133,23 @@ theme_type_variation = &"SmallButton"
 toggle_mode = true
 text = "ABILITIES"
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/Deck/MarginContainer/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/Deck/MarginContainer/HBoxContainer" unique_id=147658668]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="PlayerInfos" type="VBoxContainer" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer"]
+[node name="PlayerInfos" type="VBoxContainer" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer" unique_id=453257707]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="P1Info" type="HBoxContainer" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos"]
+[node name="P1Info" type="HBoxContainer" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos" unique_id=906098526]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(137, 7)
 layout_mode = 2
 size_flags_vertical = 4
 alignment = 1
 
-[node name="NameLabelP1" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P1Info"]
+[node name="NameLabelP1" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P1Info" unique_id=2005494068]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(23, 0)
 layout_mode = 2
@@ -158,7 +159,7 @@ theme_override_font_sizes/font_size = 4
 text = "Magda"
 vertical_alignment = 1
 
-[node name="HealthBarP1" type="ProgressBar" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P1Info"]
+[node name="HealthBarP1" type="ProgressBar" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P1Info" unique_id=856924819]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -166,7 +167,7 @@ size_flags_vertical = 1
 value = 75.0
 show_percentage = false
 
-[node name="HPLabel1" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P1Info/HealthBarP1"]
+[node name="HPLabel1" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P1Info/HealthBarP1" unique_id=799775454]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -180,14 +181,14 @@ text = "100/100"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="P2Info" type="HBoxContainer" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos"]
+[node name="P2Info" type="HBoxContainer" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos" unique_id=147323626]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(137, 7)
 layout_mode = 2
 size_flags_vertical = 4
 alignment = 1
 
-[node name="NameLabelP2" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P2Info"]
+[node name="NameLabelP2" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P2Info" unique_id=94750640]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(23, 0)
 layout_mode = 2
@@ -197,7 +198,7 @@ theme_override_font_sizes/font_size = 4
 text = "Lachlan"
 vertical_alignment = 1
 
-[node name="HealthBarP2" type="ProgressBar" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P2Info"]
+[node name="HealthBarP2" type="ProgressBar" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P2Info" unique_id=434377142]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -205,7 +206,7 @@ size_flags_vertical = 1
 value = 75.0
 show_percentage = false
 
-[node name="HPLabel2" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P2Info/HealthBarP2"]
+[node name="HPLabel2" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P2Info/HealthBarP2" unique_id=729121430]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -219,14 +220,14 @@ text = "100/100"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="P3Info" type="HBoxContainer" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos"]
+[node name="P3Info" type="HBoxContainer" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos" unique_id=1262732191]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(137, 7)
 layout_mode = 2
 size_flags_vertical = 4
 alignment = 1
 
-[node name="NameLabelP3" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P3Info"]
+[node name="NameLabelP3" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P3Info" unique_id=395927461]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(23, 0)
 layout_mode = 2
@@ -236,7 +237,7 @@ theme_override_font_sizes/font_size = 4
 text = "Rachelle"
 vertical_alignment = 1
 
-[node name="HealthBarP3" type="ProgressBar" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P3Info"]
+[node name="HealthBarP3" type="ProgressBar" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P3Info" unique_id=1628931946]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -244,7 +245,7 @@ size_flags_vertical = 1
 value = 75.0
 show_percentage = false
 
-[node name="HPLabel3" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P3Info/HealthBarP3"]
+[node name="HPLabel3" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P3Info/HealthBarP3" unique_id=735504980]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -258,14 +259,14 @@ text = "100/100"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="P4Info" type="HBoxContainer" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos"]
+[node name="P4Info" type="HBoxContainer" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos" unique_id=321677495]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(137, 7)
 layout_mode = 2
 size_flags_vertical = 4
 alignment = 1
 
-[node name="NameLabelP4" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P4Info"]
+[node name="NameLabelP4" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P4Info" unique_id=2033997071]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(23, 0)
 layout_mode = 2
@@ -275,7 +276,7 @@ theme_override_font_sizes/font_size = 4
 text = "Placeholder"
 vertical_alignment = 1
 
-[node name="HealthBarP4" type="ProgressBar" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P4Info"]
+[node name="HealthBarP4" type="ProgressBar" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P4Info" unique_id=1660176807]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -283,7 +284,7 @@ size_flags_vertical = 1
 value = 75.0
 show_percentage = false
 
-[node name="HPLabel4" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P4Info/HealthBarP4"]
+[node name="HPLabel4" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P4Info/HealthBarP4" unique_id=1359735912]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -297,23 +298,23 @@ text = "100/100"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer" unique_id=1423318883]
 layout_mode = 2
 follow_focus = true
 horizontal_scroll_mode = 3
 vertical_scroll_mode = 3
 
-[node name="AbilitiesContainer" type="VBoxContainer" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/ScrollContainer"]
+[node name="AbilitiesContainer" type="VBoxContainer" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/ScrollContainer" unique_id=1581012486]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="AbilityPointsContainer" parent="UI/Deck/MarginContainer/HBoxContainer" instance=ExtResource("10_0gp0h")]
+[node name="AbilityPointsContainer" parent="UI/Deck/MarginContainer/HBoxContainer" unique_id=1235570851 instance=ExtResource("10_0gp0h")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="ResultAnnouncementLabel" type="Label" parent="UI"]
+[node name="ResultAnnouncementLabel" type="Label" parent="UI" unique_id=142801585]
 unique_name_in_owner = true
 visible = false
 modulate = Color(1, 1, 1, 0)
@@ -331,12 +332,10 @@ text = "Battle Won!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/ResultAnnouncementLabel"]
-libraries = {
-&"": SubResource("AnimationLibrary_g72on")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/ResultAnnouncementLabel" unique_id=1337908586]
+libraries/ = SubResource("AnimationLibrary_g72on")
 
-[node name="BattleCam" type="Camera2D" parent="."]
+[node name="BattleCam" type="Camera2D" parent="." unique_id=640958940]
 unique_name_in_owner = true
 position = Vector2(160, 90)
 

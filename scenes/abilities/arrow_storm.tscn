@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cki3ldg155cvm" path="res://scripts/abilities/arrow_storm.gd" id="1_51rgh"]
 [ext_resource type="Texture2D" uid="uid://devyuuaysel55" path="res://assets/sprites/abilities/arrow_storm.png" id="2_ksgxq"]
+[ext_resource type="Texture2D" uid="uid://f6yf4kce6hnx" path="res://assets/sprites/abilities/single_arrow.png" id="3_ksgxq"]
+[ext_resource type="Texture2D" uid="uid://mlus3bllv28y" path="res://assets/sprites/abilities/dirt_particle.png" id="4_idkmq"]
 
 [sub_resource type="Curve" id="Curve_51rgh"]
 _limits = [0.0, 1.0, -120.0, 120.0]
@@ -13,37 +15,83 @@ _limits = [0.0, 1.0, -120.0, 120.0]
 _data = [Vector2(-120, 0), 0.0, -0.022052573, 0, 0, Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(120, 0), 0.023559103, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_io0kf"]
-atlas = ExtResource("2_ksgxq")
-region = Rect2(0, 0, 120, 30)
+[sub_resource type="Curve" id="Curve_idkmq"]
+_data = [Vector2(0, 1), 0.0, 1.6971499, 0, 0, Vector2(1, 0), -4.154809, 0.0, 0, 0]
+point_count = 2
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7op0b"]
-atlas = ExtResource("2_ksgxq")
-region = Rect2(0, 0, 120, 30)
+[sub_resource type="CurveTexture" id="CurveTexture_als75"]
+curve = SubResource("Curve_idkmq")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6prty"]
-atlas = ExtResource("2_ksgxq")
-region = Rect2(0, 0, 120, 30)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_7op0b"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_io0kf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7op0b")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6prty")
-}],
-"loop": false,
-"name": &"default",
-"speed": 2.0
-}]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_als75"]
+lifetime_randomness = 0.3
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 60.0
+initial_velocity_min = 150.0
+initial_velocity_max = 200.0
+angular_velocity_min = 199.99998
+angular_velocity_max = 399.99997
+gravity = Vector3(0, 300, 0)
+scale_curve = SubResource("CurveTexture_als75")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_io0kf"]
 size = Vector2(120, 30)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ksgxq"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -60, 0)
+emission_shape = 3
+emission_box_extents = Vector3(60, 15, 1)
+angle_min = -89.99999
+angle_max = 1.0728835e-05
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 250.0
+initial_velocity_max = 300.0
+gravity = Vector3(0, 0, 0)
+collision_mode = 2
+sub_emitter_mode = 3
+sub_emitter_amount_at_collision = 13
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_uj73o"]
+polygon = PackedVector2Array(-60, -15, 60, -15, 60, 15, -60, 15)
+
+[sub_resource type="Animation" id="Animation_ksgxq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArrowStorm/Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_51rgh"]
+resource_name = "decal_fade_in"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArrowStorm/Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(2.5491211, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ksgxq"]
+_data = {
+&"RESET": SubResource("Animation_ksgxq"),
+&"decal_fade_in": SubResource("Animation_51rgh")
+}
 
 [node name="Node" type="Node" unique_id=925495463]
 script = ExtResource("1_51rgh")
@@ -57,15 +105,38 @@ cost = 2
 [node name="ArrowStorm" type="Area2D" parent="." unique_id=722577249]
 unique_name_in_owner = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ArrowStorm" unique_id=941703342]
-unique_name_in_owner = true
-sprite_frames = SubResource("SpriteFrames_7op0b")
-frame = 2
-frame_progress = 1.0
+[node name="Sprite2D" type="Sprite2D" parent="ArrowStorm" unique_id=2139101239]
+modulate = Color(1, 1, 1, 0)
+texture = ExtResource("2_ksgxq")
+
+[node name="DirtParticles" type="GPUParticles2D" parent="ArrowStorm" unique_id=478056268]
+emitting = false
+amount = 13
+texture = ExtResource("4_idkmq")
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_als75")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ArrowStorm" unique_id=96946764]
 shape = SubResource("RectangleShape2D_io0kf")
 
+[node name="GPUParticles2D" type="GPUParticles2D" parent="ArrowStorm" unique_id=430838160]
+unique_name_in_owner = true
+emitting = false
+amount = 13
+sub_emitter = NodePath("../DirtParticles")
+texture = ExtResource("3_ksgxq")
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_ksgxq")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="ArrowStorm" unique_id=1331494879]
+position = Vector2(0, 11)
+occluder = SubResource("OccluderPolygon2D_uj73o")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1868706443]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_ksgxq")
+
 [connection signal="area_entered" from="ArrowStorm" to="." method="_on_arrow_storm_area_entered"]
 [connection signal="area_entered" from="ArrowStorm" to="ArrowStorm" method="_on_area_entered"]
-[connection signal="animation_finished" from="ArrowStorm/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
