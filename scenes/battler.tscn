@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://hqlhygr4xwpx"]
+[gd_scene format=3 uid="uid://hqlhygr4xwpx"]
 
 [ext_resource type="Script" uid="uid://gr353ga32m08" path="res://scripts/battler.gd" id="1_1v4t1"]
 [ext_resource type="Resource" uid="uid://cym67rsdldl6j" path="res://resources/player_stats/archer_base_stats.tres" id="2_csexs"]
@@ -359,10 +359,13 @@ animation = &"critical_miss"
 animation = &"damaged"
 
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_85bts"]
+mix_mode = 1
 
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_ckif6"]
+mix_mode = 1
 
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_3o8jg"]
+mix_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_at1d5"]
 animation = &"RESET"
@@ -377,6 +380,7 @@ animation = &"die"
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_at1d5"]
+switch_mode = 2
 advance_mode = 2
 advance_condition = &"attacking"
 
@@ -397,36 +401,37 @@ states/attack/position = Vector2(457, 187)
 states/die/node = SubResource("AnimationNodeAnimation_qt5w3")
 states/die/position = Vector2(590, 90)
 transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_csexs"), "RESET", "attack", SubResource("AnimationNodeStateMachineTransition_at1d5"), "attack", "RESET", SubResource("AnimationNodeStateMachineTransition_kl8h0"), "RESET", "die", SubResource("AnimationNodeStateMachineTransition_di6md")]
-graph_offset = Vector2(157, 22)
+graph_offset = Vector2(108, -49)
 
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_qt5w3"]
+mix_mode = 1
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_at1d5"]
-graph_offset = Vector2(-215.85852, 1511.6595)
-nodes/output/position = Vector2(1040, 340)
+graph_offset = Vector2(-309.2458, 222.84729)
+nodes/output/position = Vector2(1100, 540)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_di6md")
-nodes/StateMachine/position = Vector2(-200, 1800)
+nodes/StateMachine/position = Vector2(-160, 160)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_8ciys")
-nodes/Animation/position = Vector2(-200, 500)
+nodes/Animation/position = Vector2(-120, 600)
 "nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_csexs")
-"nodes/Animation 2/position" = Vector2(-200, 760)
-nodes/Add2/node = SubResource("AnimationNodeAdd2_at1d5")
-nodes/Add2/position = Vector2(100, 460)
+"nodes/Animation 2/position" = Vector2(-120, 780)
+nodes/Add2Animation/node = SubResource("AnimationNodeAdd2_at1d5")
+nodes/Add2Animation/position = Vector2(120, 620)
 nodes/TakeDamage/node = SubResource("AnimationNodeOneShot_qt5w3")
-nodes/TakeDamage/position = Vector2(340, 400)
+nodes/TakeDamage/position = Vector2(340, 380)
 "nodes/Animation 3/node" = SubResource("AnimationNodeAnimation_di6md")
-"nodes/Animation 3/position" = Vector2(-200, 1020)
+"nodes/Animation 3/position" = Vector2(-120, 420)
 nodes/Dodge/node = SubResource("AnimationNodeOneShot_3o8jg")
-nodes/Dodge/position = Vector2(100, 960)
+nodes/Dodge/position = Vector2(100, 280)
 "nodes/Animation 4/node" = SubResource("AnimationNodeAnimation_3o8jg")
-"nodes/Animation 4/position" = Vector2(-200, 1280)
+"nodes/Animation 4/position" = Vector2(340, 680)
 nodes/CriticalHit/node = SubResource("AnimationNodeOneShot_85bts")
-nodes/CriticalHit/position = Vector2(580, 380)
+nodes/CriticalHit/position = Vector2(600, 420)
 "nodes/Animation 5/node" = SubResource("AnimationNodeAnimation_85bts")
-"nodes/Animation 5/position" = Vector2(-200, 1540)
+"nodes/Animation 5/position" = Vector2(600, 720)
 nodes/CriticalMiss/node = SubResource("AnimationNodeOneShot_ckif6")
-nodes/CriticalMiss/position = Vector2(800, 340)
-node_connections = [&"output", 0, &"CriticalMiss", &"Add2", 0, &"Animation", &"Add2", 1, &"Animation 2", &"TakeDamage", 0, &"Dodge", &"TakeDamage", 1, &"Add2", &"Dodge", 0, &"StateMachine", &"Dodge", 1, &"Animation 3", &"CriticalHit", 0, &"TakeDamage", &"CriticalHit", 1, &"Animation 4", &"CriticalMiss", 0, &"CriticalHit", &"CriticalMiss", 1, &"Animation 5"]
+nodes/CriticalMiss/position = Vector2(860, 460)
+node_connections = [&"output", 0, &"CriticalMiss", &"Add2Animation", 0, &"Animation", &"Add2Animation", 1, &"Animation 2", &"TakeDamage", 0, &"Dodge", &"TakeDamage", 1, &"Add2Animation", &"Dodge", 0, &"StateMachine", &"Dodge", 1, &"Animation 3", &"CriticalHit", 0, &"TakeDamage", &"CriticalHit", 1, &"Animation 4", &"CriticalMiss", 0, &"CriticalHit", &"CriticalMiss", 1, &"Animation 5"]
 
 [sub_resource type="Curve" id="Curve_kl8h0"]
 _data = [Vector2(0, 1), 0.0, 1.4, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -444,28 +449,26 @@ initial_velocity_max = 160.0
 gravity = Vector3(0, 0, 0)
 scale_curve = SubResource("CurveTexture_csexs")
 
-[node name="Battler" type="Area2D"]
+[node name="Battler" type="Area2D" unique_id=1198724431]
 script = ExtResource("1_1v4t1")
 stats = ExtResource("2_csexs")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1689363762]
 texture = ExtResource("2_fyfas")
 
-[node name="Pointer" type="Sprite2D" parent="."]
+[node name="Pointer" type="Sprite2D" parent="." unique_id=374239538]
 visible = false
 position = Vector2(0, -20)
 texture = ExtResource("2_foo5t")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1676425050]
 unique_name_in_owner = true
-libraries = {
-&"": SubResource("AnimationLibrary_fmb78")
-}
+libraries/ = SubResource("AnimationLibrary_fmb78")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1110347991]
 shape = SubResource("CircleShape2D_juhay")
 
-[node name="DamageLabel" type="Label" parent="."]
+[node name="DamageLabel" type="Label" parent="." unique_id=1305042086]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
 anchors_preset = 8
@@ -489,14 +492,14 @@ text = "-30"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=2039703047]
 unique_name_in_owner = true
 root_node = NodePath("%AnimationTree/..")
 tree_root = SubResource("AnimationNodeBlendTree_at1d5")
 anim_player = NodePath("../AnimationPlayer")
 parameters/StateMachine/conditions/attacking = false
 parameters/StateMachine/conditions/dead = false
-parameters/Add2/add_amount = 1.0
+parameters/Add2Animation/add_amount = 1.0
 parameters/TakeDamage/active = false
 parameters/TakeDamage/internal_active = false
 parameters/TakeDamage/request = 0
@@ -510,7 +513,7 @@ parameters/CriticalMiss/active = false
 parameters/CriticalMiss/internal_active = false
 parameters/CriticalMiss/request = 0
 
-[node name="DodgedLabel" type="Label" parent="."]
+[node name="DodgedLabel" type="Label" parent="." unique_id=48268878]
 modulate = Color(1, 1, 1, 0)
 anchors_preset = 8
 anchor_left = 0.5
@@ -533,7 +536,7 @@ text = "MISS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CriticalHitLabel" type="Label" parent="."]
+[node name="CriticalHitLabel" type="Label" parent="." unique_id=1665460852]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
 anchors_preset = 8
@@ -557,7 +560,7 @@ text = "CRITICAL HIT!!!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CriticalMissLabel" type="Label" parent="."]
+[node name="CriticalMissLabel" type="Label" parent="." unique_id=1479160452]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
 anchors_preset = 8
@@ -581,7 +584,7 @@ text = "CRITICAL MISS!!!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HitParticles" type="GPUParticles2D" parent="."]
+[node name="HitParticles" type="GPUParticles2D" parent="." unique_id=292449128]
 unique_name_in_owner = true
 emitting = false
 amount = 10
@@ -592,7 +595,7 @@ explosiveness = 1.0
 randomness = 1.0
 process_material = SubResource("ParticleProcessMaterial_csexs")
 
-[node name="StatusEffectLabels" type="VBoxContainer" parent="."]
+[node name="StatusEffectLabels" type="VBoxContainer" parent="." unique_id=705125033]
 unique_name_in_owner = true
 anchors_preset = 8
 anchor_left = 0.5
