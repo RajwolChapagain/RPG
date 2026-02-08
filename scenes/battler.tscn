@@ -359,7 +359,6 @@ animation = &"critical_miss"
 animation = &"damaged"
 
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_85bts"]
-mix_mode = 1
 
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_ckif6"]
 mix_mode = 1
@@ -401,13 +400,13 @@ states/attack/position = Vector2(457, 187)
 states/die/node = SubResource("AnimationNodeAnimation_qt5w3")
 states/die/position = Vector2(590, 90)
 transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_csexs"), "RESET", "attack", SubResource("AnimationNodeStateMachineTransition_at1d5"), "attack", "RESET", SubResource("AnimationNodeStateMachineTransition_kl8h0"), "RESET", "die", SubResource("AnimationNodeStateMachineTransition_di6md")]
-graph_offset = Vector2(108, -49)
+graph_offset = Vector2(-841, -49)
 
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_qt5w3"]
 mix_mode = 1
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_at1d5"]
-graph_offset = Vector2(-309.2458, 222.84729)
+graph_offset = Vector2(-356.34308, 55.05905)
 nodes/output/position = Vector2(1100, 540)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_di6md")
 nodes/StateMachine/position = Vector2(-160, 160)
