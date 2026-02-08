@@ -4,8 +4,8 @@ extends Area2D
 @export var stats: BaseStats
 var status_effects: Array[StatusEffect] = []
 var effects_pending_application: Array[StatusEffect] = []
-
 var is_alive = true
+var is_player
 
 signal battler_died
 
@@ -99,9 +99,19 @@ func apply_pending_effects() -> void:
 	
 func mark_active():
 	$Pointer.visible = true
+	var active_slide_direction = Vector2.UP
+	if not is_player:
+		active_slide_direction = Vector2.DOWN
+	
+	slide(active_slide_direction)
 	
 func mark_inactive():
 	$Pointer.visible = false
+	var inactive_slide_direction = Vector2.DOWN
+	if not is_player:
+		inactive_slide_direction = Vector2.UP
+	
+	slide(inactive_slide_direction)
 	
 func die():
 	if is_alive:
@@ -129,3 +139,8 @@ func set_hit_particle_color() -> void:
 	
 	var avg_color = Color(sum_color.r / num_pixels, sum_color.g / num_pixels, sum_color.b / num_pixels, 1)
 	%HitParticles.modulate = avg_color
+
+func slide(direction: Vector2) -> void:
+	var slide_distance = 15
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, 'position', position + (direction * slide_distance), 0.1)

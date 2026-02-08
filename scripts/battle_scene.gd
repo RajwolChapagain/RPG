@@ -71,20 +71,13 @@ func update_ui(delta) -> void:
 # Precondition: new_index points to an alive battler
 func update_active_battler(new_index):
 	if players_turn:
-		if new_index != first_attacker_index:
-			make_player_inactive(player_characters[active_index])
+		if num_attacked != 0: # Mark last attacking player inactive if turn didn't just start
+			player_characters[active_index].mark_inactive()
 		
 		if battle_ongoing:
-			make_player_active(player_characters[new_index])
-	else:
-		if active_index < len(enemies) and enemies[active_index].is_alive:
-			if enemies[active_index].position.y != $EnemyStart.position.y:
-				slide_battler(enemies[active_index], Vector2.UP)
-		if enemies[new_index].is_alive:
-			slide_battler(enemies[new_index], Vector2.DOWN)
+			player_characters[new_index].mark_active()
 		
 	active_index = new_index
-
 	
 func on_player_battler_died(player_name: String) -> void:
 	alive_player_count -= 1
@@ -121,18 +114,23 @@ func spawn_players() -> void:
 		var player_character = battler_player.instantiate()
 		player_character.stats = player_character_stats[i]
 		player_character.position = Vector2($PlayerStart.position.x +  ( -(len(player_character_stats) - 1) * int(character_spacing / 2.0)) + i * character_spacing , $PlayerStart.position.y)
+		player_character.is_player = true
 		player_characters.append(player_character)
 		call_deferred("add_child", player_character)
 		
 	connect_player_animation_finished_signal()
 	connect_player_battler_died_signal()
-	update_active_battler(first_attacker_index)
+	call_deferred('update_active_battler', first_attacker_index) # Deferred because update_active_battler tries to mark
+																 # player as active, which attempts to create a tween 
+																 # in player battler for sliding but get_tree() returns
+																 # null because the scene tree hasn't been created yet
 
 func spawn_enemies() -> void:
 	for i in range(len(enemy_stats)):
 		var enemy = battler_enemy.instantiate()
 		enemy.stats = enemy_stats[i]
 		enemy.position = Vector2($EnemyStart.position.x + ( -(len(enemy_stats) - 1) * int(character_spacing / 2.0)) + i * character_spacing, $EnemyStart.position.y)
+		enemy.is_player = false
 		enemies.append(enemy)
 		call_deferred("add_child", enemy)
 		
@@ -236,7 +234,7 @@ func advance_turn() -> void:
 	
 func end_player_turn() -> void:
 	num_attacked = 0
-	make_player_inactive(player_characters[active_index])
+	player_characters[active_index].mark_inactive()
 	players_turn = false
 	
 	var first_alive_enemy_index = -1
@@ -254,7 +252,6 @@ func end_player_turn() -> void:
 
 func end_enemy_turn() -> void:
 	num_attacked = 0
-	slide_battler(enemies[active_index], Vector2.UP)
 
 	players_turn = true
 	for i in range(len(player_characters)):
@@ -425,19 +422,6 @@ func _on_result_label_animation_finished(anim_name: StringName) -> void:
 		battle_ended.emit(player_character_stats, battle_won)
 		%BattleCam.enabled = false
 		GameManager.disable_party_camera_smoothing()
-
-func make_player_active(player) -> void:
-	player.mark_active()
-	slide_battler(player, Vector2.UP)
-	
-func make_player_inactive(player) -> void:
-	player.mark_inactive()
-	slide_battler(player, Vector2.DOWN)
-
-func slide_battler(battler, direction) -> void:
-	var slide_distance = 15
-	var tween = get_tree().create_tween()
-	tween.tween_property(battler, 'position', battler.position + (direction * slide_distance), 0.1)
 
 func shake_camera(magnitude: float, duration: float) -> void:
 	if camera_shaking:
