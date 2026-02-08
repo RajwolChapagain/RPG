@@ -113,6 +113,7 @@ texture = ExtResource("2_ksgxq")
 emitting = false
 amount = 13
 texture = ExtResource("4_idkmq")
+speed_scale = 2.0
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_als75")
 
@@ -121,7 +122,6 @@ shape = SubResource("RectangleShape2D_io0kf")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="ArrowStorm" unique_id=430838160]
 unique_name_in_owner = true
-emitting = false
 amount = 13
 sub_emitter = NodePath("../DirtParticles")
 texture = ExtResource("3_ksgxq")
