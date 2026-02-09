@@ -10,7 +10,7 @@ var is_player
 signal battler_died
 
 func _ready() -> void:
-	$Sprite2D.texture = stats.battle_sprite
+	%Sprite2D.texture = stats.battle_sprite
 	set_hit_particle_color()
 	
 # Returns true if attack hit, false if missed
@@ -21,8 +21,12 @@ func attack(target) -> bool:
 	if (randf() <= (stats.crit / 100.0)):
 		true_damage += crit_damage
 		critting = true
+	
+	if stats.attack_sprite != null:
+		%Sprite2D.texture = stats.attack_sprite
 		
 	%AnimationTree.set('parameters/StateMachine/conditions/attacking', true) 
+	
 	return target.take_damage(true_damage, stats.accuracy, critting)
 	
 # Returns true if damage was taken, false if attack missed
@@ -123,6 +127,7 @@ func die():
 func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "attack":
 		%AnimationTree.set('parameters/StateMachine/conditions/attacking', false)
+		%Sprite2D.texture = stats.battle_sprite
 
 func set_hit_particle_color() -> void:
 	var sum_color = Color(0, 0, 0, 0)

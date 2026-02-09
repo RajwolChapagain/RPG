@@ -2,7 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://c280afbxd1cl3" path="res://scenes/abilities/arrow_storm.tscn" id="1_fex2c"]
 [ext_resource type="Texture2D" uid="uid://bkbfad4cbiqgk" path="res://assets/sprites/einar_spritesheet.png" id="2_8qnyt"]
+[ext_resource type="Texture2D" uid="uid://b8sqs01mv5qci" path="res://assets/sprites/battle_sprites/player_attack_spritesheet.webp" id="2_dmijv"]
 [ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="3_dmijv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1cyu"]
+atlas = ExtResource("2_dmijv")
+region = Rect2(0, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lqhja"]
 atlas = ExtResource("2_8qnyt")
@@ -16,4 +21,5 @@ max_hp = 70
 hp = 70
 defence = 3
 battle_sprite = SubResource("AtlasTexture_lqhja")
+attack_sprite = SubResource("AtlasTexture_b1cyu")
 abilities = Array[PackedScene]([ExtResource("1_fex2c")])

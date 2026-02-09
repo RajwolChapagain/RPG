@@ -1,8 +1,13 @@
 [gd_resource type="Resource" script_class="BaseStats" format=3 uid="uid://biubxrgae4cha"]
 
 [ext_resource type="PackedScene" uid="uid://ca7wts2h1dfa6" path="res://scenes/abilities/heal.tscn" id="1_lab51"]
+[ext_resource type="Texture2D" uid="uid://b8sqs01mv5qci" path="res://assets/sprites/battle_sprites/player_attack_spritesheet.webp" id="2_ji0rv"]
 [ext_resource type="Texture2D" uid="uid://dwgfyhp5dlhtf" path="res://assets/sprites/magda_spritesheet.PNG" id="2_oec1o"]
 [ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="3_ji0rv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xccqi"]
+atlas = ExtResource("2_ji0rv")
+region = Rect2(0, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jnk2e"]
 atlas = ExtResource("2_oec1o")
@@ -16,4 +21,5 @@ max_hp = 100
 hp = 100
 defence = 20
 battle_sprite = SubResource("AtlasTexture_jnk2e")
+attack_sprite = SubResource("AtlasTexture_xccqi")
 abilities = Array[PackedScene]([ExtResource("1_lab51")])

@@ -6,8 +6,8 @@
 [ext_resource type="Theme" uid="uid://5dapp0d0f0x5" path="res://resources/ui.tres" id="3_gj8wv"]
 [ext_resource type="PackedScene" uid="uid://cjs2b082b2lbm" path="res://scenes/ui/ability_button.tscn" id="3_svpld"]
 [ext_resource type="Resource" uid="uid://d3kyf2naa3duo" path="res://resources/player_stats/mage_base_stats.tres" id="5_bg0yk"]
-[ext_resource type="Resource" uid="uid://biubxrgae4cha" path="res://resources/player_stats/cleric_base_stats.tres" id="5_ti0og"]
 [ext_resource type="Resource" uid="uid://c3bvbxqpkkgu3" path="res://resources/player_stats/knight_base_stats.tres" id="5_tttxe"]
+[ext_resource type="Resource" uid="uid://bgg065a045ww" path="res://resources/player_stats/lady_base_stats.tres" id="6_bg0yk"]
 [ext_resource type="Resource" uid="uid://cym67rsdldl6j" path="res://resources/player_stats/archer_base_stats.tres" id="6_yt3ua"]
 [ext_resource type="Resource" uid="uid://c46k2b5fxukoi" path="res://resources/enemy_stats/crunk.tres" id="7_ti0og"]
 [ext_resource type="Resource" uid="uid://504xnrcw2ros" path="res://resources/enemy_stats/catapace.tres" id="8_bg0yk"]
@@ -55,7 +55,7 @@ _data = {
 [node name="BattleScene" type="Node" unique_id=444611762]
 script = ExtResource("1_0yksl")
 character_spacing = 60
-player_character_stats = Array[ExtResource("2_xwxfl")]([ExtResource("5_tttxe"), ExtResource("5_bg0yk"), ExtResource("6_yt3ua"), ExtResource("5_ti0og")])
+player_character_stats = Array[ExtResource("2_xwxfl")]([ExtResource("5_tttxe"), ExtResource("5_bg0yk"), ExtResource("6_yt3ua"), ExtResource("6_bg0yk")])
 enemy_stats = Array[ExtResource("2_xwxfl")]([ExtResource("7_ti0og"), ExtResource("8_bg0yk")])
 ability_button = ExtResource("3_svpld")
 MAIN_MENU_SCENE = ExtResource("8_tttxe")

@@ -159,7 +159,7 @@ resource_name = "attack"
 length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/path = NodePath("Sprite2D:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
@@ -171,7 +171,7 @@ tracks/0/keys = {
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/path = NodePath("Sprite2D:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
@@ -406,7 +406,6 @@ graph_offset = Vector2(-841, -49)
 mix_mode = 1
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_at1d5"]
-graph_offset = Vector2(-356.34308, 55.05905)
 nodes/output/position = Vector2(1100, 540)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_di6md")
 nodes/StateMachine/position = Vector2(-160, 160)
@@ -453,6 +452,7 @@ script = ExtResource("1_1v4t1")
 stats = ExtResource("2_csexs")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1689363762]
+unique_name_in_owner = true
 texture = ExtResource("2_fyfas")
 
 [node name="Pointer" type="Sprite2D" parent="." unique_id=374239538]

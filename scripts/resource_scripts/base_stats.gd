@@ -19,4 +19,5 @@ class_name BaseStats
 @export var accuracy: int
 @export var ap_per_attack: int = 1
 @export var battle_sprite: Texture2D
+@export var attack_sprite: Texture2D
 @export var abilities: Array[PackedScene]
