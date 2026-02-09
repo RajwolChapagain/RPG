@@ -5,6 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://dwgfyhp5dlhtf" path="res://assets/sprites/magda_spritesheet.PNG" id="2_oec1o"]
 [ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="3_ji0rv"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_oec1o"]
+atlas = ExtResource("2_ji0rv")
+region = Rect2(32, 32, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_xccqi"]
 atlas = ExtResource("2_ji0rv")
 region = Rect2(0, 32, 32, 32)
@@ -22,4 +26,5 @@ hp = 100
 defence = 20
 battle_sprite = SubResource("AtlasTexture_jnk2e")
 attack_sprite = SubResource("AtlasTexture_xccqi")
+ability_invoke_sprite = SubResource("AtlasTexture_oec1o")
 abilities = Array[PackedScene]([ExtResource("1_lab51")])

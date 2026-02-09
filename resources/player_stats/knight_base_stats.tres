@@ -5,6 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://b8sqs01mv5qci" path="res://assets/sprites/battle_sprites/player_attack_spritesheet.webp" id="2_jwdny"]
 [ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="3_jwdny"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_6rdet"]
+atlas = ExtResource("2_jwdny")
+region = Rect2(32, 0, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_doo72"]
 atlas = ExtResource("2_jwdny")
 region = Rect2(0, 0, 32, 32)
@@ -23,4 +27,5 @@ defence = 5
 dodge = 50
 battle_sprite = SubResource("AtlasTexture_sj368")
 attack_sprite = SubResource("AtlasTexture_doo72")
+ability_invoke_sprite = SubResource("AtlasTexture_6rdet")
 abilities = Array[PackedScene]([ExtResource("1_j4cxy")])

@@ -5,6 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://b8sqs01mv5qci" path="res://assets/sprites/battle_sprites/player_attack_spritesheet.webp" id="2_wu3wq"]
 [ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="3_wu3wq"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_dfcuj"]
+atlas = ExtResource("2_wu3wq")
+region = Rect2(32, 128, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_bqwt4"]
 atlas = ExtResource("2_wu3wq")
 region = Rect2(0, 128, 32, 32)
@@ -21,4 +25,5 @@ max_hp = 200
 hp = 200
 battle_sprite = SubResource("AtlasTexture_jo85b")
 attack_sprite = SubResource("AtlasTexture_bqwt4")
+ability_invoke_sprite = SubResource("AtlasTexture_dfcuj")
 abilities = Array[PackedScene]([ExtResource("1_cwu5v")])

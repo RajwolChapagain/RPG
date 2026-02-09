@@ -149,3 +149,9 @@ func slide(direction: Vector2) -> void:
 	var slide_distance = 15
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, 'position', position + (direction * slide_distance), 0.1)
+
+func play_ability_animation() -> void:
+	var animation_duration = 0.5
+	%Sprite2D.texture = stats.ability_invoke_sprite
+	await get_tree().create_timer(animation_duration).timeout
+	%Sprite2D.texture = stats.battle_sprite

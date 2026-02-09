@@ -5,6 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://b8sqs01mv5qci" path="res://assets/sprites/battle_sprites/player_attack_spritesheet.webp" id="2_ksumn"]
 [ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="2_u61pl"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ksumn"]
+atlas = ExtResource("2_ksumn")
+region = Rect2(32, 96, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_41trt"]
 atlas = ExtResource("2_ksumn")
 region = Rect2(0, 96, 32, 32)
@@ -23,4 +27,5 @@ defence = 3
 crit = 50
 battle_sprite = SubResource("AtlasTexture_8se7i")
 attack_sprite = SubResource("AtlasTexture_41trt")
+ability_invoke_sprite = SubResource("AtlasTexture_ksumn")
 abilities = Array[PackedScene]([ExtResource("1_u61pl")])

@@ -20,4 +20,5 @@ class_name BaseStats
 @export var ap_per_attack: int = 1
 @export var battle_sprite: Texture2D
 @export var attack_sprite: Texture2D
+@export var ability_invoke_sprite: Texture2D
 @export var abilities: Array[PackedScene]
