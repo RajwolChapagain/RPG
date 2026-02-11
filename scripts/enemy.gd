@@ -11,3 +11,9 @@ signal enemy_defeated # Emitted by BattleManager at end of battle
 
 func get_gang() -> Array[BaseStats]:
 	return gang
+
+func turn_to_pulp() -> void:
+	%Sprite2D.visible = false
+	%PulpSprite.frame = randi_range(0, 3)
+	%CollisionShape2D.disabled = true
+	%PulpSprite.visible = true

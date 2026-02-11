@@ -60,7 +60,7 @@ func remove_dead_players() -> void:
 	battling_party.purge_dead_members()
 
 func remove_defeated_enemy() -> void:
-	battling_enemy.queue_free()
+	battling_enemy.turn_to_pulp()
 	ItemDropManager.drop_random_items(battling_enemy.random_dropped_item_rarity_modifier, battling_enemy.random_drop_item_count)
 	ItemDropManager.drop_items(battling_enemy.dropped_items)
 	battling_enemy.enemy_defeated.emit()
