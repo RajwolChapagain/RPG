@@ -110,14 +110,11 @@ func get_modified_stats() -> BaseStats:
 	
 func get_modification_amount() -> BaseStats:
 	var modification_amount = BaseStats.new()
-	modification_amount.attack_damage = 0
-	modification_amount.max_hp = 0
-	modification_amount.hp = 0
-	modification_amount.crit = 0
-	modification_amount.accuracy = 0
-	modification_amount.dodge = 0
-	modification_amount.defence = 0
-	modification_amount.ap_per_attack = 0
+	
+	for property_name in get_modifiable_stat_properties():
+		if modification_amount.get(property_name) is int: # Will cause bug if float properties are added to
+														  # base_stats that need to be set to 0 as well
+			modification_amount.set(property_name, 0)
 	
 	for item: Item in equipped_items:
 		for stat_modifier: StatModifier in item.stats:
