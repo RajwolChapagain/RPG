@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bobc8p13moxe"]
+
+[ext_resource type="Script" uid="uid://dlfjboubmb5kg" path="res://scripts/patroller.gd" id="1_0ly7c"]
+
+[node name="Patroller" type="Node" unique_id=241894158]
+script = ExtResource("1_0ly7c")
+
+[node name="Path2D" type="Path2D" parent="." unique_id=850319381]
+unique_name_in_owner = true
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=349239067]
+unique_name_in_owner = true
+position = Vector2(-2, 0)
+rotation = 0.02803004
+
+[node name="IdleTimer" type="Timer" parent="Path2D" unique_id=1686652397]
+unique_name_in_owner = true
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="Path2D/IdleTimer" to="." method="_on_idle_timer_timeout"]
