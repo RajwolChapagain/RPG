@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://cxc6nk1g0afvy"]
+
+[ext_resource type="PackedScene" uid="uid://ccy0aydyv2sxd" path="res://scenes/enemies/base_crunk_enemy.tscn" id="1_8w37w"]
+[ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="2_iqplb"]
+[ext_resource type="Resource" uid="uid://504xnrcw2ros" path="res://resources/enemy_stats/catapace.tres" id="3_ans66"]
+[ext_resource type="Texture2D" uid="uid://bvw1286yqj7s6" path="res://assets/sprites/by-level/level1/monster_spritesheets/catapace.png" id="4_ans66"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7atxu"]
+atlas = ExtResource("4_ans66")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w6rr5"]
+atlas = ExtResource("4_ans66")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5daf"]
+atlas = ExtResource("4_ans66")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_senl4"]
+atlas = ExtResource("4_ans66")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_resh2"]
+atlas = ExtResource("4_ans66")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_le0yk"]
+atlas = ExtResource("4_ans66")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wp78s"]
+atlas = ExtResource("4_ans66")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrpxc"]
+atlas = ExtResource("4_ans66")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iqplb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7atxu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w6rr5")
+}],
+"loop": true,
+"name": &"move_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5daf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_senl4")
+}],
+"loop": true,
+"name": &"move_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_resh2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_le0yk")
+}],
+"loop": true,
+"name": &"move_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wp78s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mrpxc")
+}],
+"loop": true,
+"name": &"move_up",
+"speed": 5.0
+}]
+
+[node name="CatapaceEnemy" unique_id=1786002395 instance=ExtResource("1_8w37w")]
+gang = Array[ExtResource("2_iqplb")]([ExtResource("3_ans66")])
+
+[node name="Sprite2D" parent="." index="0" unique_id=1584948219]
+sprite_frames = SubResource("SpriteFrames_iqplb")
+frame_progress = 0.0

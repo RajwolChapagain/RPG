@@ -20,10 +20,10 @@ region = Rect2(0, 96, 32, 32)
 [resource]
 script = ExtResource("3_wu3wq")
 name = "Josephine"
-attack_damage = 20
-max_hp = 200
-hp = 200
 battle_sprite = SubResource("AtlasTexture_jo85b")
 attack_sprite = SubResource("AtlasTexture_bqwt4")
 ability_invoke_sprite = SubResource("AtlasTexture_dfcuj")
+attack_damage = 20
+max_hp = 200
+hp = 200
 abilities = Array[PackedScene]([ExtResource("1_cwu5v")])

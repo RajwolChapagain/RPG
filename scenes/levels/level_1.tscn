@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b1fvsmwksdmq2" path="res://scripts/levels/level1.gd" id="1_qxy0u"]
 [ext_resource type="PackedScene" uid="uid://bitedxhspi8i5" path="res://scenes/dual_grid.tscn" id="1_x42e6"]
-[ext_resource type="PackedScene" uid="uid://ccy0aydyv2sxd" path="res://scenes/enemy.tscn" id="2_6761a"]
+[ext_resource type="PackedScene" uid="uid://ccy0aydyv2sxd" path="res://scenes/enemies/base_crunk_enemy.tscn" id="2_6761a"]
 [ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="3_sk5k4"]
 [ext_resource type="Resource" uid="uid://c3bvbxqpkkgu3" path="res://resources/player_stats/knight_base_stats.tres" id="3_wtwp4"]
 [ext_resource type="Resource" uid="uid://biubxrgae4cha" path="res://resources/player_stats/cleric_base_stats.tres" id="4_iwr0g"]
@@ -24,6 +24,9 @@
 [ext_resource type="Texture2D" uid="uid://7q2pbxgwud01" path="res://assets/sprites/by-level/level1/monster_spritesheets/coyostrel.png" id="18_ndtll"]
 [ext_resource type="Texture2D" uid="uid://dad2codb80kys" path="res://assets/sprites/by-level/level1/npc2.png" id="18_v6ha0"]
 [ext_resource type="Texture2D" uid="uid://be552pwkiglm1" path="res://assets/sprites/battle_sprites/nahas.png" id="20_7h2jl"]
+[ext_resource type="PackedScene" uid="uid://cxc6nk1g0afvy" path="res://scenes/enemies/catapace_enemy.tscn" id="23_7o3do"]
+[ext_resource type="PackedScene" uid="uid://b6pcibljvig3f" path="res://scenes/party.tscn" id="26_o7j4k"]
+[ext_resource type="PackedScene" uid="uid://des2w3vogbaog" path="res://scenes/ui/pause_menu.tscn" id="27_31oqk"]
 
 [sub_resource type="Resource" id="Resource_mqh5v"]
 script = ExtResource("3_sk5k4")
@@ -72,7 +75,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Resource" id="Resource_v6ha0"]
+[sub_resource type="Resource" id="Resource_ytidy"]
 script = ExtResource("3_sk5k4")
 name = "Crunk"
 battle_sprite = ExtResource("10_np2pn")
@@ -83,7 +86,7 @@ crit = 10
 dodge = 10
 accuracy = 10
 
-[sub_resource type="Resource" id="Resource_gmpev"]
+[sub_resource type="Resource" id="Resource_hvllt"]
 script = ExtResource("3_sk5k4")
 name = "Catapace"
 battle_sprite = ExtResource("12_np2pn")
@@ -96,7 +99,7 @@ dodge = 20
 accuracy = 20
 metadata/_custom_type_script = "uid://dbtdwrocpsv30"
 
-[sub_resource type="Resource" id="Resource_mkypq"]
+[sub_resource type="Resource" id="Resource_dp4fg"]
 script = ExtResource("3_sk5k4")
 name = "Crunk"
 battle_sprite = ExtResource("10_np2pn")
@@ -107,33 +110,11 @@ crit = 10
 dodge = 10
 accuracy = 10
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0qwwm"]
-atlas = ExtResource("15_mkypq")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_t4umt"]
-atlas = ExtResource("15_mkypq")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_7h2jl"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0qwwm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_t4umt")
-}],
-"loop": true,
-"name": &"move_left",
-"speed": 5.0
-}]
-
 [sub_resource type="Curve2D" id="Curve2D_mqh5v"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 117, 449, 0, 0, 0, 0, 111, 410, 0, 0, 0, 0, 237, 413, 0, 0, 0, 0, 229, 479, 0, 0, 0, 0, 118, 484, 0, 0, 0, 0, 116, 448)
+"points": PackedVector2Array(-22.89111, 17.985872, 22.89111, -17.985872, 120, 425, -16.677809, -13.898173, 16.677809, 13.898173, 213, 425, 13.571157, -11.936078, -13.571157, 11.936078, 213, 472, 13.080634, 12.59011, -13.080634, -12.59011, 120, 472, 0, 0, 0, 0, 120, 425)
 }
-point_count = 6
+point_count = 5
 
 [sub_resource type="Resource" id="Resource_7o3do"]
 script = ExtResource("3_sk5k4")
@@ -285,6 +266,14 @@ crit = 15
 dodge = 20
 accuracy = 20
 metadata/_custom_type_script = "uid://dbtdwrocpsv30"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qwwm"]
+atlas = ExtResource("15_mkypq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4umt"]
+atlas = ExtResource("15_mkypq")
+region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_o7j4k"]
 animations = [{
@@ -473,25 +462,19 @@ sprite_frames = SubResource("SpriteFrames_ndtll")
 autoplay = "move_up"
 frame_progress = 0.6259358
 
-[node name="Enemy2" parent="Enemies" unique_id=1935828316 instance=ExtResource("2_6761a")]
-position = Vector2(118, 448)
-gang = Array[ExtResource("3_sk5k4")]([SubResource("Resource_v6ha0"), SubResource("Resource_gmpev"), SubResource("Resource_mkypq")])
-dropped_items = Array[ExtResource("6_s8va5")]([ExtResource("7_dga24")])
+[node name="Enemy2" parent="Enemies" unique_id=1786002395 instance=ExtResource("23_7o3do")]
+position = Vector2(119, 425)
+gang = Array[ExtResource("3_sk5k4")]([SubResource("Resource_ytidy"), SubResource("Resource_hvllt"), SubResource("Resource_dp4fg")])
 
-[node name="Sprite2D" parent="Enemies/Enemy2" index="0" unique_id=1584948219]
-sprite_frames = SubResource("SpriteFrames_7h2jl")
-animation = &"move_left"
-autoplay = "move_left"
-frame_progress = 0.0651196
-
-[node name="Patroller" parent="Enemies/Enemy2" unique_id=241894158 instance=ExtResource("17_mqh5v")]
+[node name="Patroller" parent="Enemies/Enemy2" unique_id=1125279601 instance=ExtResource("17_mqh5v")]
+speed = 70.0
 
 [node name="Path2D" parent="Enemies/Enemy2/Patroller" index="0" unique_id=850319381]
 curve = SubResource("Curve2D_mqh5v")
 
 [node name="PathFollow2D" parent="Enemies/Enemy2/Patroller/Path2D" index="0" unique_id=349239067]
-position = Vector2(117, 449)
-rotation = -1.7234457
+position = Vector2(120, 425)
+rotation = -0.66596913
 
 [node name="Enemy3" parent="Enemies" unique_id=296600375 instance=ExtResource("2_6761a")]
 position = Vector2(41, 574)
@@ -585,12 +568,19 @@ dialogue_file_path = "res://assets/dialogues/item_drop_tutorial.csv"
 [node name="Sprite2D" parent="NPCs/NPC4" index="0"]
 texture = ExtResource("18_v6ha0")
 
+[node name="Party" parent="." unique_id=1632761542 instance=ExtResource("26_o7j4k")]
+position = Vector2(32, 32)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=707333795]
+
+[node name="PauseMenu" parent="CanvasLayer" unique_id=1075974794 instance=ExtResource("27_31oqk")]
+visible = false
+
 [connection signal="enemy_defeated" from="Enemies/BossEnemy" to="." method="_on_enemy_enemy_defeated"]
 [connection signal="enemy_defeated" from="Enemies/BossEnemy" to="." method="_on_boss_enemy_enemy_defeated"]
 
 [editable path="DualGrid"]
 [editable path="Enemies/Enemy1"]
-[editable path="Enemies/Enemy2"]
 [editable path="Enemies/Enemy2/Patroller"]
 [editable path="Enemies/Enemy3"]
 [editable path="Enemies/Enemy4"]

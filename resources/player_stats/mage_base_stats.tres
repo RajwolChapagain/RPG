@@ -20,12 +20,12 @@ region = Rect2(0, 96, 32, 32)
 [resource]
 script = ExtResource("2_u61pl")
 name = "Lachlan"
+battle_sprite = SubResource("AtlasTexture_8se7i")
+attack_sprite = SubResource("AtlasTexture_41trt")
+ability_invoke_sprite = SubResource("AtlasTexture_ksumn")
 attack_damage = 20
 max_hp = 50
 hp = 50
 defence = 3
 crit = 50
-battle_sprite = SubResource("AtlasTexture_8se7i")
-attack_sprite = SubResource("AtlasTexture_41trt")
-ability_invoke_sprite = SubResource("AtlasTexture_ksumn")
 abilities = Array[PackedScene]([ExtResource("1_u61pl")])
