@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://b4d2tqccygbdj"]
+
+[ext_resource type="PackedScene" uid="uid://ccy0aydyv2sxd" path="res://scenes/enemies/base_crunk_enemy.tscn" id="1_8aaou"]
+[ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="2_ahl42"]
+[ext_resource type="Texture2D" uid="uid://ctu601yhl7h7c" path="res://assets/sprites/battle_sprites/coyostrel.png" id="3_7auum"]
+[ext_resource type="Texture2D" uid="uid://7q2pbxgwud01" path="res://assets/sprites/by-level/level1/monster_spritesheets/coyostrel.png" id="4_ahl42"]
+
+[sub_resource type="Resource" id="Resource_iugnh"]
+script = ExtResource("2_ahl42")
+name = "Coyostrel"
+battle_sprite = ExtResource("3_7auum")
+attack_damage = 20
+max_hp = 150
+hp = 150
+defence = 5
+crit = 15
+dodge = 30
+accuracy = 40
+metadata/_custom_type_script = "uid://dbtdwrocpsv30"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7auum"]
+atlas = ExtResource("4_ahl42")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iugnh"]
+atlas = ExtResource("4_ahl42")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahl42"]
+atlas = ExtResource("4_ahl42")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjrmf"]
+atlas = ExtResource("4_ahl42")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c13vy"]
+atlas = ExtResource("4_ahl42")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s34as"]
+atlas = ExtResource("4_ahl42")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5j8i7"]
+atlas = ExtResource("4_ahl42")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nveak"]
+atlas = ExtResource("4_ahl42")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8aaou"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7auum")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iugnh")
+}],
+"loop": true,
+"name": &"move_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ahl42")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjrmf")
+}],
+"loop": true,
+"name": &"move_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c13vy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s34as")
+}],
+"loop": true,
+"name": &"move_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5j8i7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nveak")
+}],
+"loop": true,
+"name": &"move_up",
+"speed": 5.0
+}]
+
+[node name="CoyostrelEnemy" unique_id=1786002395 instance=ExtResource("1_8aaou")]
+gang = Array[ExtResource("2_ahl42")]([SubResource("Resource_iugnh")])
+
+[node name="Sprite2D" parent="." index="0" unique_id=1584948219]
+sprite_frames = SubResource("SpriteFrames_8aaou")
+animation = &"move_down"
+frame_progress = 0.0

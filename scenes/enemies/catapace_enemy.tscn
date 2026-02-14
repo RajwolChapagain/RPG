@@ -2,8 +2,21 @@
 
 [ext_resource type="PackedScene" uid="uid://ccy0aydyv2sxd" path="res://scenes/enemies/base_crunk_enemy.tscn" id="1_8w37w"]
 [ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="2_iqplb"]
-[ext_resource type="Resource" uid="uid://504xnrcw2ros" path="res://resources/enemy_stats/catapace.tres" id="3_ans66"]
+[ext_resource type="Texture2D" uid="uid://dqpa8dgwo21vc" path="res://assets/sprites/battle_sprites/catapace.webp" id="3_ans66"]
 [ext_resource type="Texture2D" uid="uid://bvw1286yqj7s6" path="res://assets/sprites/by-level/level1/monster_spritesheets/catapace.png" id="4_ans66"]
+
+[sub_resource type="Resource" id="Resource_7atxu"]
+script = ExtResource("2_iqplb")
+name = "Catapace"
+battle_sprite = ExtResource("3_ans66")
+attack_damage = 30
+max_hp = 130
+hp = 130
+defence = 15
+crit = 15
+dodge = 20
+accuracy = 20
+metadata/_custom_type_script = "uid://dbtdwrocpsv30"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7atxu"]
 atlas = ExtResource("4_ans66")
@@ -85,7 +98,7 @@ animations = [{
 }]
 
 [node name="CatapaceEnemy" unique_id=1786002395 instance=ExtResource("1_8w37w")]
-gang = Array[ExtResource("2_iqplb")]([ExtResource("3_ans66")])
+gang = Array[ExtResource("2_iqplb")]([SubResource("Resource_7atxu")])
 
 [node name="Sprite2D" parent="." index="0" unique_id=1584948219]
 sprite_frames = SubResource("SpriteFrames_iqplb")

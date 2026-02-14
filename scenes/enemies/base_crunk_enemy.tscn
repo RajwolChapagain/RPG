@@ -4,7 +4,18 @@
 [ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="2_0ejvx"]
 [ext_resource type="Texture2D" uid="uid://c8lk4f51jnrt3" path="res://assets/sprites/by-level/level1/monster_spritesheets/crunk.png" id="2_ytfva"]
 [ext_resource type="Texture2D" uid="uid://cqbc0ofs5hmyg" path="res://assets/sprites/pulp_spritesheet.webp" id="3_0ejvx"]
-[ext_resource type="Resource" uid="uid://c46k2b5fxukoi" path="res://resources/enemy_stats/crunk.tres" id="3_2o1b6"]
+[ext_resource type="Texture2D" uid="uid://bd25fklcm6g43" path="res://assets/sprites/battle_sprites/crunk.png" id="3_2o1b6"]
+
+[sub_resource type="Resource" id="Resource_a40dm"]
+script = ExtResource("2_0ejvx")
+name = "Crunk"
+battle_sprite = ExtResource("3_2o1b6")
+attack_damage = 10
+max_hp = 100
+hp = 100
+crit = 10
+dodge = 10
+accuracy = 10
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nenq2"]
 atlas = ExtResource("2_ytfva")
@@ -161,13 +172,13 @@ animations = [{
 
 [node name="BaseCrunkEnemy" type="Area2D" unique_id=1786002395 groups=["enemy"]]
 script = ExtResource("1_4bmfw")
-gang = Array[ExtResource("2_0ejvx")]([ExtResource("3_2o1b6")])
+gang = Array[ExtResource("2_0ejvx")]([SubResource("Resource_a40dm")])
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1584948219]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_5uy6h")
 animation = &"move_up"
-frame_progress = 0.41711205
+frame_progress = 0.35398602
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=819659240]
 unique_name_in_owner = true
