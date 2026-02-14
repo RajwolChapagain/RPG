@@ -395,7 +395,9 @@ func destroy_abilities_list() -> void:
 		%AbilitiesContainer.remove_child(%AbilitiesContainer.get_child(0))
 	
 func on_ability_selected(ability: Ability) -> void:
+	destroy_abilities_list()
 	await player_characters[active_index].play_ability_animation()
+
 	%AbilityPointsContainer.decrease_points(ability.cost)
 	
 	# Binding the result of get_resonant_battlers() here is crucial as opposed to calling

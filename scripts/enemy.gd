@@ -13,7 +13,7 @@ signal enemy_defeated # Emitted by BattleManager at end of battle
 func _ready() -> void:
 	last_position = position
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var movement = position - last_position
 	
 	# Ignore tiny movement (prevents jitter)

@@ -32,5 +32,5 @@ func on_ability_card_focus_entered(ability_name: String) -> void:
 	%AbilityStats.visible = true
 	%AbilityStats.set_stats(ability_name, ability_stats[ability_name])
 	
-func on_ability_card_focus_exited(ability_name: String) -> void:
+func on_ability_card_focus_exited(_ability_name: String) -> void:
 	%AbilityStats.visible = false
