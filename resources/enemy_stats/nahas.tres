@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="BaseStats" load_steps=3 format=3 uid="uid://dnkesy0umn1g6"]
+[gd_resource type="Resource" script_class="BaseStats" format=3 uid="uid://dnkesy0umn1g6"]
 
 [ext_resource type="Texture2D" uid="uid://be552pwkiglm1" path="res://assets/sprites/battle_sprites/nahas.png" id="1_htfhe"]
 [ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="2_c35sd"]
@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("2_c35sd")
 name = "Nahas"
+battle_sprite = ExtResource("1_htfhe")
 attack_damage = 50
 max_hp = 200
 hp = 200
@@ -13,5 +14,4 @@ defence = 20
 crit = 10
 dodge = 15
 accuracy = 10
-battle_sprite = ExtResource("1_htfhe")
 metadata/_custom_type_script = "uid://dbtdwrocpsv30"

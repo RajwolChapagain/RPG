@@ -48,3 +48,8 @@ func STOP_PATROL() -> void:
 	for child in get_children():
 		if child is Patroller:
 			child.STOP_PATROL()
+
+func PLAY_ANIMATION(animation_name: String) -> void:
+	assert(animation_name in %Sprite2D.sprite_frames.get_animation_names())
+	%Sprite2D.play(animation_name)
+	await %Sprite2D.animation_finished

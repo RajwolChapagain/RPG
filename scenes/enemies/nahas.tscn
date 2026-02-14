@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://dovbpucxfycy7"]
+
+[ext_resource type="PackedScene" uid="uid://ccy0aydyv2sxd" path="res://scenes/enemies/base_crunk_enemy.tscn" id="1_4gplk"]
+[ext_resource type="Texture2D" uid="uid://c1xglk4su7dn4" path="res://assets/sprites/by-level/level1/monster_spritesheets/nahas_awakening_spritesheet.webp" id="2_bpqg7"]
+[ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="2_ub7ac"]
+[ext_resource type="Resource" uid="uid://dnkesy0umn1g6" path="res://resources/enemy_stats/nahas.tres" id="3_lydng"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5norj"]
+atlas = ExtResource("2_bpqg7")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ub7ac"]
+atlas = ExtResource("2_bpqg7")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lydng"]
+atlas = ExtResource("2_bpqg7")
+region = Rect2(0, 32, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ayuve"]
+atlas = ExtResource("2_bpqg7")
+region = Rect2(64, 32, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mf62q"]
+atlas = ExtResource("2_bpqg7")
+region = Rect2(0, 64, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e684c"]
+atlas = ExtResource("2_bpqg7")
+region = Rect2(64, 64, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yjola"]
+atlas = ExtResource("2_bpqg7")
+region = Rect2(0, 96, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_splrm"]
+atlas = ExtResource("2_bpqg7")
+region = Rect2(64, 96, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4gplk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5norj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ub7ac")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lydng")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ayuve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mf62q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e684c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yjola")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_splrm")
+}],
+"loop": false,
+"name": &"awaken",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bpqg7"]
+size = Vector2(74, 32)
+
+[node name="NahasEnemy" unique_id=1786002395 instance=ExtResource("1_4gplk")]
+gang = Array[ExtResource("2_ub7ac")]([ExtResource("3_lydng")])
+
+[node name="Sprite2D" parent="." index="0" unique_id=1584948219]
+sprite_frames = SubResource("SpriteFrames_4gplk")
+animation = &"awaken"
+frame_progress = 0.0
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=819659240]
+shape = SubResource("RectangleShape2D_bpqg7")
