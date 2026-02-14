@@ -152,7 +152,7 @@ func connect_enemy_animation_finished_signal() -> void:
 		
 func on_player_animation_finished(animation: StringName) -> void:
 	if animation == "attack":
-		advance_turn()
+		pass
 		
 func on_enemy_animation_finished(animation: StringName) -> void:
 	if animation == "attack":
@@ -216,6 +216,7 @@ func advance_turn() -> void:
 				break
 			
 		update_active_battler(next_player_index)
+		enable_attack_button()
 	else:
 		if num_attacked == alive_enemy_count:
 			end_enemy_turn()
@@ -285,9 +286,9 @@ func attack_enemy(enemy) -> void:
 		
 	for battler: Battler in get_resonant_battlers():
 		player_characters[active_index].attack(battler)
-		
+	
 	await get_tree().process_frame
-	enable_attack_button()
+	advance_turn()
 	
 func enable_attack_button() -> void:
 	if not battle_ongoing:
