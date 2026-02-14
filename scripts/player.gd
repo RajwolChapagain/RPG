@@ -111,6 +111,7 @@ func get_modified_stats() -> BaseStats:
 	modified_stats.ap_per_attack = stats.ap_per_attack + modification_amount.ap_per_attack
 	modified_stats.abilities.append_array(stats.abilities)
 	modified_stats.abilities.append_array(modification_amount.abilities)
+	
 	return modified_stats
 	
 func get_modification_amount() -> BaseStats:
@@ -208,3 +209,22 @@ func modify_base_stats(stat_modifier: StatModifier) -> void:
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group('enemy'):
 		enemy_encountered.emit(area)
+
+func get_constant_stat_properties() -> Array[String]:
+	return get_stat_properties_in_group('constant')
+
+func get_modifiable_stat_properties() -> Array[String]:
+	return get_stat_properties_in_group('modifiable')
+	
+func get_stat_properties_in_group(group_name: String) -> Array[String]:
+	var current_group = ''
+	var out: Array[String] = []
+	
+	for property in stats.get_property_list():
+		if property.usage & PROPERTY_USAGE_GROUP:
+			current_group = property['name']
+		
+		if property.usage & PROPERTY_USAGE_SCRIPT_VARIABLE and current_group == group_name:
+			out.append(property.name)
+	
+	return out

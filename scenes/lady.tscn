@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dybafy3qxap2q"]
+[gd_scene format=3 uid="uid://dybafy3qxap2q"]
 
 [ext_resource type="PackedScene" uid="uid://cx2lym7krpsie" path="res://scenes/archer.tscn" id="1_dionf"]
 [ext_resource type="Resource" uid="uid://bgg065a045ww" path="res://resources/player_stats/lady_base_stats.tres" id="2_y8avh"]
@@ -151,7 +151,7 @@ animations = [{
 "speed": 8.0
 }]
 
-[node name="Player" instance=ExtResource("1_dionf")]
+[node name="Player" unique_id=815769451 instance=ExtResource("1_dionf")]
 stats = ExtResource("2_y8avh")
 
 [node name="Sprite2D" parent="." index="1"]
