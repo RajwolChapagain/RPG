@@ -99,18 +99,12 @@ func set_active(value: bool) -> void:
 func get_modified_stats() -> BaseStats:
 	var modification_amount: BaseStats = get_modification_amount()
 	var modified_stats = BaseStats.new()
-	modified_stats.name = stats.name
-	modified_stats.battle_sprite = stats.battle_sprite
-	modified_stats.attack_damage = stats.attack_damage + modification_amount.attack_damage
-	modified_stats.max_hp = stats.max_hp + modification_amount.max_hp
-	modified_stats.hp = stats.hp + modification_amount.hp
-	modified_stats.crit = stats.crit + modification_amount.crit
-	modified_stats.accuracy = stats.accuracy + modification_amount.accuracy
-	modified_stats.dodge = stats.dodge + modification_amount.dodge
-	modified_stats.defence = stats.defence + modification_amount.defence
-	modified_stats.ap_per_attack = stats.ap_per_attack + modification_amount.ap_per_attack
-	modified_stats.abilities.append_array(stats.abilities)
-	modified_stats.abilities.append_array(modification_amount.abilities)
+	
+	for property_name in get_constant_stat_properties():
+		modified_stats.set(property_name, stats.get(property_name))
+	
+	for property_name in get_modifiable_stat_properties():
+		modified_stats.set(property_name, stats.get(property_name) + modification_amount.get(property_name))
 	
 	return modified_stats
 	
