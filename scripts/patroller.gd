@@ -1,13 +1,15 @@
-extends Node
+class_name Patroller extends Node
 
-@export var speed: float
-@export var target: Node2D
+@export var speed: float = 150.0
+
+var target: Node2D
 var target_position_idx = 0
 var is_reversed = false
 var idle = false
 var path_length = 0.0
 
 func _ready() -> void:
+	target = get_parent()
 	for idx in range(%Path2D.curve.point_count - 1):
 		path_length += %Path2D.curve.get_point_position(idx).distance_to(%Path2D.curve.get_point_position(idx + 1))
 	
@@ -35,7 +37,6 @@ func _process(delta: float) -> void:
 
 	target.global_position = %PathFollow2D.global_position
 
-
 func _on_idle_timer_timeout() -> void:
 	idle = false
 	
@@ -53,3 +54,7 @@ func _on_idle_timer_timeout() -> void:
 		target_position_idx += 1
 	else:
 		target_position_idx -= 1
+
+func STOP_PATROL() -> void:
+	%IdleTimer.stop()
+	idle = true

@@ -21,6 +21,7 @@ func start_battle(party: Party, enemy: Enemy) -> void:
 	active_battle_scene.battle_ended.connect(on_battle_ended)
 	get_tree().root.add_child(active_battle_scene)
 	freeze_party()
+	freeze_enemy()
 	
 	pre_battle_music_stream = MusicManager.get_current_music_title()
 	pre_battle_music_timestamp = MusicManager.get_current_music_timestamp()
@@ -34,6 +35,9 @@ func freeze_party() -> void:
 func thaw_party() -> void:
 	battling_party.enable_all_player_movement()
 	battling_party.enable_cycling()
+	
+func freeze_enemy() -> void:
+	battling_enemy.STOP_PATROL()
 	
 func on_battle_ended(player_character_stats: Array[BaseStats], battle_won: bool) -> void:
 	active_battle_scene.queue_free()

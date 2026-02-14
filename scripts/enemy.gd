@@ -17,3 +17,8 @@ func turn_to_pulp() -> void:
 	%PulpSprite.frame = randi_range(0, 3)
 	%CollisionShape2D.disabled = true
 	%PulpSprite.visible = true
+
+func STOP_PATROL() -> void:
+	for child in get_children():
+		if child is Patroller:
+			child.STOP_PATROL()
