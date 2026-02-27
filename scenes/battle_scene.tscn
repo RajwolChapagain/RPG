@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://d3xpo03pr8ajw" path="res://scenes/ui/main_menu.tscn" id="8_tttxe"]
 [ext_resource type="PackedScene" uid="uid://dcqkqx8i5jvbh" path="res://scenes/ability_points_container.tscn" id="10_0gp0h"]
 [ext_resource type="PackedScene" uid="uid://b2iwifb80auqp" path="res://scenes/target_select.tscn" id="10_ceooa"]
+[ext_resource type="Texture2D" uid="uid://c0k11u6dawxtk" path="res://assets/sprites/by-level/level1/battle_screen_1.webp" id="15_yt3ua"]
 
 [sub_resource type="Animation" id="Animation_0gp0h"]
 length = 0.001
@@ -72,7 +73,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAA
 position = Vector2(160, 116)
 
 [node name="EnemyStart" type="Marker2D" parent="." unique_id=2039436829]
-position = Vector2(160, 38)
+position = Vector2(160, 52)
 
 [node name="TargetSelect" parent="." unique_id=11160794 instance=ExtResource("10_ceooa")]
 
@@ -338,6 +339,10 @@ libraries/ = SubResource("AnimationLibrary_g72on")
 [node name="BattleCam" type="Camera2D" parent="." unique_id=640958940]
 unique_name_in_owner = true
 position = Vector2(160, 90)
+
+[node name="BattleScreen1" type="Sprite2D" parent="." unique_id=840562323]
+position = Vector2(160, 66)
+texture = ExtResource("15_yt3ua")
 
 [connection signal="button_down" from="UI/Deck/MarginContainer/HBoxContainer/ButtonsContainer/AttackButton" to="." method="_on_attack_button_button_down"]
 [connection signal="toggled" from="UI/Deck/MarginContainer/HBoxContainer/ButtonsContainer/AbilitiesButton" to="." method="_on_abilities_button_toggled"]

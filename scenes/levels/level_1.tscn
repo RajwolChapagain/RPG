@@ -24,8 +24,6 @@
 [ext_resource type="Texture2D" uid="uid://dad2codb80kys" path="res://assets/sprites/by-level/level1/npc2.png" id="18_v6ha0"]
 [ext_resource type="PackedScene" uid="uid://dovbpucxfycy7" path="res://scenes/enemies/nahas.tscn" id="22_o7j4k"]
 [ext_resource type="PackedScene" uid="uid://cxc6nk1g0afvy" path="res://scenes/enemies/catapace_enemy.tscn" id="23_7o3do"]
-[ext_resource type="PackedScene" uid="uid://b6pcibljvig3f" path="res://scenes/party.tscn" id="26_o7j4k"]
-[ext_resource type="PackedScene" uid="uid://des2w3vogbaog" path="res://scenes/ui/pause_menu.tscn" id="27_31oqk"]
 
 [sub_resource type="Resource" id="Resource_mqh5v"]
 script = ExtResource("3_sk5k4")
@@ -542,14 +540,6 @@ dialogue_file_path = "res://assets/dialogues/item_drop_tutorial.csv"
 
 [node name="Sprite2D" parent="NPCs/NPC4" index="0"]
 texture = ExtResource("18_v6ha0")
-
-[node name="Party" parent="." unique_id=1632761542 instance=ExtResource("26_o7j4k")]
-position = Vector2(412, 98)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=707333795]
-
-[node name="PauseMenu" parent="CanvasLayer" unique_id=1075974794 instance=ExtResource("27_31oqk")]
-visible = false
 
 [node name="NahasAwakeningTrigger" type="Area2D" parent="." unique_id=966113851]
 unique_name_in_owner = true
