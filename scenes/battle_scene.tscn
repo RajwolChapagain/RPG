@@ -14,6 +14,9 @@
 [ext_resource type="PackedScene" uid="uid://d3xpo03pr8ajw" path="res://scenes/ui/main_menu.tscn" id="8_tttxe"]
 [ext_resource type="PackedScene" uid="uid://dcqkqx8i5jvbh" path="res://scenes/ability_points_container.tscn" id="10_0gp0h"]
 [ext_resource type="PackedScene" uid="uid://b2iwifb80auqp" path="res://scenes/target_select.tscn" id="10_ceooa"]
+[ext_resource type="Texture2D" uid="uid://cixd014ueujbf" path="res://assets/sprites/ui/battle/hp_container.png" id="14_05s0e"]
+[ext_resource type="Texture2D" uid="uid://ckhapeyae067y" path="res://assets/sprites/ui/battle/hp_container_cover.png" id="14_j0cvo"]
+[ext_resource type="Texture2D" uid="uid://bnjsnogy2wlnf" path="res://assets/sprites/ui/battle/hp_progress.png" id="15_j0cvo"]
 [ext_resource type="Texture2D" uid="uid://c0k11u6dawxtk" path="res://assets/sprites/by-level/level1/battle_screen_1.webp" id="15_yt3ua"]
 
 [sub_resource type="Animation" id="Animation_0gp0h"]
@@ -160,15 +163,15 @@ theme_override_font_sizes/font_size = 4
 text = "Magda"
 vertical_alignment = 1
 
-[node name="HealthBarP1" type="ProgressBar" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P1Info" unique_id=856924819]
+[node name="HealthBarP1" type="TextureProgressBar" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P1Info" unique_id=1551103300]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-value = 75.0
-show_percentage = false
+value = 77.0
+texture_under = ExtResource("14_j0cvo")
+texture_over = ExtResource("14_05s0e")
+texture_progress = ExtResource("15_j0cvo")
 
-[node name="HPLabel1" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P1Info/HealthBarP1" unique_id=799775454]
+[node name="HPLabel1" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P1Info/HealthBarP1" unique_id=1403475211]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -199,15 +202,15 @@ theme_override_font_sizes/font_size = 4
 text = "Lachlan"
 vertical_alignment = 1
 
-[node name="HealthBarP2" type="ProgressBar" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P2Info" unique_id=434377142]
+[node name="HealthBarP2" type="TextureProgressBar" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P2Info" unique_id=460686474]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-value = 75.0
-show_percentage = false
+value = 77.0
+texture_under = ExtResource("14_j0cvo")
+texture_over = ExtResource("14_05s0e")
+texture_progress = ExtResource("15_j0cvo")
 
-[node name="HPLabel2" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P2Info/HealthBarP2" unique_id=729121430]
+[node name="HPLabel2" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P2Info/HealthBarP2" unique_id=1352448265]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -238,15 +241,15 @@ theme_override_font_sizes/font_size = 4
 text = "Rachelle"
 vertical_alignment = 1
 
-[node name="HealthBarP3" type="ProgressBar" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P3Info" unique_id=1628931946]
+[node name="HealthBarP3" type="TextureProgressBar" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P3Info" unique_id=961425428]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-value = 75.0
-show_percentage = false
+value = 77.0
+texture_under = ExtResource("14_j0cvo")
+texture_over = ExtResource("14_05s0e")
+texture_progress = ExtResource("15_j0cvo")
 
-[node name="HPLabel3" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P3Info/HealthBarP3" unique_id=735504980]
+[node name="HPLabel3" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P3Info/HealthBarP3" unique_id=715881982]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -277,15 +280,15 @@ theme_override_font_sizes/font_size = 4
 text = "Placeholder"
 vertical_alignment = 1
 
-[node name="HealthBarP4" type="ProgressBar" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P4Info" unique_id=1660176807]
+[node name="HealthBarP4" type="TextureProgressBar" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P4Info" unique_id=922338780]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-value = 75.0
-show_percentage = false
+value = 77.0
+texture_under = ExtResource("14_j0cvo")
+texture_over = ExtResource("14_05s0e")
+texture_progress = ExtResource("15_j0cvo")
 
-[node name="HPLabel4" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P4Info/HealthBarP4" unique_id=1359735912]
+[node name="HPLabel4" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P4Info/HealthBarP4" unique_id=1224010256]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
