@@ -341,6 +341,11 @@ func attack_random_player() -> void:
 	if not battle_ongoing:
 		return
 		
+	if active_index >= len(enemies):
+		printerr('Error: No enemy exists at index %s' % active_index)
+		advance_turn()
+		return
+		
 	var attacking_enemy = enemies[active_index]
 	if not attacking_enemy.is_alive:
 		return

@@ -21,8 +21,6 @@
 [ext_resource type="Texture2D" uid="uid://dad2codb80kys" path="res://assets/sprites/by-level/level1/npc2.png" id="18_v6ha0"]
 [ext_resource type="PackedScene" uid="uid://dovbpucxfycy7" path="res://scenes/enemies/nahas.tscn" id="22_o7j4k"]
 [ext_resource type="PackedScene" uid="uid://cxc6nk1g0afvy" path="res://scenes/enemies/catapace_enemy.tscn" id="23_7o3do"]
-[ext_resource type="PackedScene" uid="uid://b6pcibljvig3f" path="res://scenes/party.tscn" id="25_7o3do"]
-[ext_resource type="PackedScene" uid="uid://des2w3vogbaog" path="res://scenes/ui/pause_menu.tscn" id="26_o7j4k"]
 
 [sub_resource type="Resource" id="Resource_mqh5v"]
 script = ExtResource("3_sk5k4")
@@ -121,36 +119,7 @@ _data = {
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_31oqk"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -178, 562, 0, 0, 0, 0, -178, 494, 0, 0, 0, 0, -101, 494, 0, 0, 0, 0, -101, 562, 0, 0, 0, 0, -178, 562)
-}
-point_count = 5
-
-[sub_resource type="Curve2D" id="Curve2D_7h2jl"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 210, 639, 0, 0, 0, 0, 103, 639)
-}
-point_count = 2
-
-[sub_resource type="Curve2D" id="Curve2D_x7jkp"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 397, 499, 0, 0, 0, 0, 397, 460, 0, 0, 0, 0, 445, 460)
-}
-point_count = 3
-
-[sub_resource type="Resource" id="Resource_ebb2h"]
-script = ExtResource("3_sk5k4")
-name = "Crunk"
-battle_sprite = ExtResource("10_np2pn")
-attack_damage = 10
-max_hp = 100
-hp = 100
-crit = 10
-dodge = 10
-accuracy = 10
-
-[sub_resource type="Resource" id="Resource_ndtll"]
+[sub_resource type="Resource" id="Resource_x7jkp"]
 script = ExtResource("3_sk5k4")
 name = "Catapace"
 battle_sprite = ExtResource("12_np2pn")
@@ -162,6 +131,98 @@ crit = 15
 dodge = 20
 accuracy = 20
 metadata/_custom_type_script = "uid://dbtdwrocpsv30"
+
+[sub_resource type="Resource" id="Resource_0qwwm"]
+script = ExtResource("3_sk5k4")
+name = "Catapace"
+battle_sprite = ExtResource("12_np2pn")
+attack_damage = 30
+max_hp = 130
+hp = 130
+defence = 15
+crit = 15
+dodge = 20
+accuracy = 20
+metadata/_custom_type_script = "uid://dbtdwrocpsv30"
+
+[sub_resource type="Curve2D" id="Curve2D_31oqk"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -178, 562, 0, 0, 0, 0, -178, 494, 0, 0, 0, 0, -101, 494, 0, 0, 0, 0, -101, 562, 0, 0, 0, 0, -178, 562)
+}
+point_count = 5
+
+[sub_resource type="Resource" id="Resource_t4umt"]
+script = ExtResource("3_sk5k4")
+name = "Catapace"
+battle_sprite = ExtResource("12_np2pn")
+attack_damage = 30
+max_hp = 130
+hp = 130
+defence = 15
+crit = 15
+dodge = 20
+accuracy = 20
+metadata/_custom_type_script = "uid://dbtdwrocpsv30"
+
+[sub_resource type="Curve2D" id="Curve2D_7h2jl"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 210, 639, 0, 0, 0, 0, 103, 639)
+}
+point_count = 2
+
+[sub_resource type="Resource" id="Resource_4yk0h"]
+script = ExtResource("3_sk5k4")
+name = "Coyostrel"
+battle_sprite = ExtResource("14_bahl2")
+attack_damage = 20
+max_hp = 150
+hp = 150
+defence = 5
+crit = 15
+dodge = 30
+accuracy = 40
+metadata/_custom_type_script = "uid://dbtdwrocpsv30"
+
+[sub_resource type="Resource" id="Resource_cfnpk"]
+script = ExtResource("3_sk5k4")
+name = "Crunk"
+battle_sprite = ExtResource("10_np2pn")
+attack_damage = 10
+max_hp = 100
+hp = 100
+crit = 10
+dodge = 10
+accuracy = 10
+
+[sub_resource type="Resource" id="Resource_vmrhw"]
+script = ExtResource("3_sk5k4")
+name = "Catapace"
+battle_sprite = ExtResource("12_np2pn")
+attack_damage = 30
+max_hp = 130
+hp = 130
+defence = 15
+crit = 15
+dodge = 20
+accuracy = 20
+metadata/_custom_type_script = "uid://dbtdwrocpsv30"
+
+[sub_resource type="Resource" id="Resource_wvtie"]
+script = ExtResource("3_sk5k4")
+name = "Crunk"
+battle_sprite = ExtResource("10_np2pn")
+attack_damage = 10
+max_hp = 100
+hp = 100
+crit = 10
+dodge = 10
+accuracy = 10
+
+[sub_resource type="Curve2D" id="Curve2D_x7jkp"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 397, 499, 0, 0, 0, 0, 397, 460, 0, 0, 0, 0, 445, 460)
+}
+point_count = 3
 
 [sub_resource type="Resource" id="Resource_7h2jl"]
 script = ExtResource("3_sk5k4")
@@ -176,16 +237,18 @@ dodge = 30
 accuracy = 40
 metadata/_custom_type_script = "uid://dbtdwrocpsv30"
 
-[sub_resource type="Resource" id="Resource_row31"]
+[sub_resource type="Resource" id="Resource_ndtll"]
 script = ExtResource("3_sk5k4")
-name = "Crunk"
-battle_sprite = ExtResource("10_np2pn")
-attack_damage = 10
-max_hp = 100
-hp = 100
-crit = 10
-dodge = 10
-accuracy = 10
+name = "Catapace"
+battle_sprite = ExtResource("12_np2pn")
+attack_damage = 30
+max_hp = 130
+hp = 130
+defence = 15
+crit = 15
+dodge = 20
+accuracy = 20
+metadata/_custom_type_script = "uid://dbtdwrocpsv30"
 
 [sub_resource type="Curve2D" id="Curve2D_0qwwm"]
 _data = {
@@ -276,6 +339,7 @@ rotation = 0.0
 
 [node name="Enemy4" parent="Enemies" unique_id=2096919507 instance=ExtResource("23_7o3do")]
 position = Vector2(-177, 562)
+gang = Array[ExtResource("3_sk5k4")]([SubResource("Resource_x7jkp"), SubResource("Resource_0qwwm")])
 
 [node name="Patroller" parent="Enemies/Enemy4" unique_id=1954782115 instance=ExtResource("17_mqh5v")]
 
@@ -288,6 +352,7 @@ rotation = -1.5707964
 
 [node name="Enemy5" parent="Enemies" unique_id=1185547935 instance=ExtResource("23_7o3do")]
 position = Vector2(213, 640)
+gang = Array[ExtResource("3_sk5k4")]([SubResource("Resource_t4umt")])
 
 [node name="Patroller" parent="Enemies/Enemy5" unique_id=1834570598 instance=ExtResource("17_mqh5v")]
 
@@ -300,6 +365,7 @@ rotation = 3.1415927
 
 [node name="Enemy6" parent="Enemies" unique_id=1019885562 instance=ExtResource("15_mqh5v")]
 position = Vector2(398, 498)
+gang = Array[ExtResource("3_sk5k4")]([SubResource("Resource_4yk0h"), SubResource("Resource_cfnpk"), SubResource("Resource_vmrhw"), SubResource("Resource_wvtie")])
 
 [node name="Patroller" parent="Enemies/Enemy6" unique_id=321498372 instance=ExtResource("17_mqh5v")]
 
@@ -312,7 +378,7 @@ rotation = -1.5707964
 
 [node name="Enemy7" parent="Enemies" unique_id=178764234 instance=ExtResource("15_mqh5v")]
 position = Vector2(407, 246)
-gang = Array[ExtResource("3_sk5k4")]([SubResource("Resource_ebb2h"), SubResource("Resource_ndtll"), SubResource("Resource_7h2jl"), SubResource("Resource_row31")])
+gang = Array[ExtResource("3_sk5k4")]([SubResource("Resource_7h2jl"), SubResource("Resource_ndtll")])
 dropped_items = Array[ExtResource("6_s8va5")]([ExtResource("8_dga24")])
 random_drop_item_count = 2
 random_dropped_item_rarity_modifier = 10.0
@@ -356,14 +422,6 @@ position = Vector2(418, 67)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NahasAwakeningTrigger" unique_id=2043107195]
 shape = SubResource("RectangleShape2D_31oqk")
-
-[node name="Party" parent="." unique_id=1321795303 instance=ExtResource("25_7o3do")]
-position = Vector2(191, 332)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1140800974]
-
-[node name="PauseMenu" parent="CanvasLayer" unique_id=1075974794 instance=ExtResource("26_o7j4k")]
-visible = false
 
 [connection signal="enemy_defeated" from="Enemies/NahasEnemy" to="." method="_on_boss_enemy_enemy_defeated"]
 [connection signal="area_entered" from="NahasAwakeningTrigger" to="." method="_on_nahas_awakening_trigger_area_entered"]
