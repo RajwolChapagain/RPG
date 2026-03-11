@@ -71,6 +71,13 @@ func APPLY_EFFECT(effect: StatusEffect) -> void:
 			existing_effect.duration_in_ticks += effect.duration_in_ticks
 			return
 	
+	# Check to see if effect is already queued. This usually happens
+	# when resonant is active and an effect is attempted to be applied
+	for queued_effect: StatusEffect in effects_pending_application:
+		if queued_effect.effect_name == effect.effect_name:
+			queued_effect.duration_in_ticks += effect.duration_in_ticks
+			return
+	
 	effects_pending_application.append(effect)
 	var effect_label: Label = Label.new()
 	effect_label.text = effect.effect_name.to_upper()
