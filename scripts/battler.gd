@@ -108,7 +108,18 @@ func TICK_EFFECTS_DOWN() -> void:
 		for label: Label in %StatusEffectLabels.get_children():
 			if label.text.to_upper() == status_effects[index].effect_name.to_upper():
 				label.queue_free()
-				
+	
+	# Need to sort in descending order before removing from status_effects array because
+	# removing an element with a lower index first shifts all the indices of the following
+	# items by 1, making them inaccurate:
+	# Ex: depleted_effect_indices: [0, 1]
+	# Here, if we remove element at index 0 from status_effects array first, then the next
+	# element at index 1 becomes the element at index 0. Hence, the correct approach is to 
+	# sort it in descending order first like so:
+	# Ex: depleted_effect_indices: [1, 0]
+	depleted_effect_indices.sort()
+	depleted_effect_indices.reverse()
+	for index in depleted_effect_indices:
 		status_effects.remove_at(index)
 		
 	apply_pending_effects()

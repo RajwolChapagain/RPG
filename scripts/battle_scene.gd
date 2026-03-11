@@ -341,15 +341,29 @@ func attack_random_player() -> void:
 	if not battle_ongoing:
 		return
 		
-	if not enemies[active_index].is_alive:
+	var attacking_enemy = enemies[active_index]
+	if not attacking_enemy.is_alive:
 		return
 		
-	var is_player_hit = enemies[active_index].attack(get_alive_players().pick_random())
-	if is_player_hit:
-		shake_camera(0.8, 0.15)
+	const ABILITY_USE_CHANCE = 0.25
 	
-	for battler: Battler in get_resonant_battlers():
-		enemies[active_index].attack(battler)
+	if not attacking_enemy.stats.abilities.is_empty() and randf() < ABILITY_USE_CHANCE:
+		var ability: Ability = attacking_enemy.stats.abilities.pick_random().instantiate()
+		add_child(ability)
+		ability.execute(attacking_enemy, get_alive_players().pick_random())
+		await ability.ability_finished_execution
+		for battler: Battler in get_resonant_battlers():
+			var resonated_ability: Ability = attacking_enemy.stats.abilities.pick_random().instantiate()
+			add_child(resonated_ability)
+			resonated_ability.execute(attacking_enemy, battler)
+		advance_turn()
+	else:
+		var is_player_hit = attacking_enemy.attack(get_alive_players().pick_random())
+		if is_player_hit:
+			shake_camera(0.8, 0.15)
+	
+		for battler: Battler in get_resonant_battlers():
+			attacking_enemy.attack(battler)
 		
 #endregion attacking
 
