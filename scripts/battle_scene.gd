@@ -201,6 +201,10 @@ func initialize_hp_bar() -> void:
 func advance_turn() -> void:
 	# Tick effects down for all battlers
 	for battler: Battler in (player_characters + enemies):
+		for effect: StatusEffect in battler.status_effects:
+			if effect.effect_name == 'Poisoned':
+				battler.take_raw_damage(4)
+				
 		battler.TICK_EFFECTS_DOWN()
 		
 	num_attacked += 1
