@@ -6,13 +6,14 @@ var status_effects: Array[StatusEffect] = []
 var effects_pending_application: Array[StatusEffect] = []
 var is_alive = true
 var is_player
+var damage_queue: Array[int] = []
 
 signal battler_died
 
 func _ready() -> void:
 	%Sprite2D.texture = stats.battle_sprite
 	set_hit_particle_color()
-	
+		
 # Returns true if attack hit, false if missed
 func attack(target) -> bool:
 	var crit_damage = 30
@@ -54,6 +55,15 @@ func take_damage(damage: int, accuracy: int, critting: bool = false) -> bool:
 	return true
 
 func take_raw_damage(damage: int) -> void:
+	if damage_queue.is_empty():
+		call_deferred('process_damage_queue')
+	damage_queue.append(damage)
+			
+func process_damage_queue() -> void:
+	if damage_queue.is_empty():
+		return
+		
+	var damage = damage_queue.pop_front()
 	stats.hp -= damage
 	stats.hp = clamp(stats.hp, 0, INF)
 	%DamageLabel.text = str(-damage)
@@ -137,6 +147,8 @@ func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "attack":
 		%AnimationTree.set('parameters/StateMachine/conditions/attacking', false)
 		%Sprite2D.texture = stats.battle_sprite
+	elif anim_name == "damaged":
+		process_damage_queue()
 
 func set_hit_particle_color() -> void:
 	var sum_color = Color(0, 0, 0, 0)

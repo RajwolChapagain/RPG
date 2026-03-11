@@ -406,6 +406,7 @@ graph_offset = Vector2(-841, -49)
 mix_mode = 1
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_at1d5"]
+graph_offset = Vector2(-246.86826, 107.077576)
 nodes/output/position = Vector2(1100, 540)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_di6md")
 nodes/StateMachine/position = Vector2(-160, 160)
