@@ -342,6 +342,7 @@ position = Vector2(-177, 562)
 gang = Array[ExtResource("3_sk5k4")]([SubResource("Resource_x7jkp"), SubResource("Resource_0qwwm")])
 
 [node name="Patroller" parent="Enemies/Enemy4" unique_id=1954782115 instance=ExtResource("17_mqh5v")]
+speed = 70.0
 
 [node name="Path2D" parent="Enemies/Enemy4/Patroller" index="0" unique_id=850319381]
 curve = SubResource("Curve2D_31oqk")
@@ -355,6 +356,7 @@ position = Vector2(213, 640)
 gang = Array[ExtResource("3_sk5k4")]([SubResource("Resource_t4umt")])
 
 [node name="Patroller" parent="Enemies/Enemy5" unique_id=1834570598 instance=ExtResource("17_mqh5v")]
+speed = 70.0
 
 [node name="Path2D" parent="Enemies/Enemy5/Patroller" index="0" unique_id=850319381]
 curve = SubResource("Curve2D_7h2jl")
@@ -368,6 +370,7 @@ position = Vector2(398, 498)
 gang = Array[ExtResource("3_sk5k4")]([SubResource("Resource_4yk0h"), SubResource("Resource_cfnpk"), SubResource("Resource_vmrhw"), SubResource("Resource_wvtie")])
 
 [node name="Patroller" parent="Enemies/Enemy6" unique_id=321498372 instance=ExtResource("17_mqh5v")]
+speed = 80.0
 
 [node name="Path2D" parent="Enemies/Enemy6/Patroller" index="0" unique_id=850319381]
 curve = SubResource("Curve2D_x7jkp")
@@ -384,6 +387,7 @@ random_drop_item_count = 2
 random_dropped_item_rarity_modifier = 10.0
 
 [node name="Patroller" parent="Enemies/Enemy7" unique_id=421552510 instance=ExtResource("17_mqh5v")]
+speed = 80.0
 
 [node name="Path2D" parent="Enemies/Enemy7/Patroller" index="0" unique_id=850319381]
 curve = SubResource("Curve2D_0qwwm")
