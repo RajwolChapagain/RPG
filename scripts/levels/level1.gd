@@ -21,3 +21,4 @@ func _on_boss_enemy_enemy_defeated() -> void:
 func _on_nahas_awakening_trigger_area_entered(_area: Area2D) -> void:
 	%NahasEnemy.PLAY_ANIMATION('awaken')
 	%NahasAwakeningTrigger.set_deferred('monitoring', false)
+	DialogueManager.load_dialogue('res://assets/dialogues/level1_nahas_awakening.csv')

@@ -73,6 +73,7 @@ animations = [{
 size = Vector2(74, 32)
 
 [node name="NahasEnemy" unique_id=1786002395 instance=ExtResource("1_4gplk")]
+process_mode = 3
 gang = Array[ExtResource("2_ub7ac")]([ExtResource("3_lydng")])
 
 [node name="Sprite2D" parent="." index="0" unique_id=1584948219]

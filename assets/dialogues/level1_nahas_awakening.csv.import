@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://bofyu4040kdmu"
+
+[deps]
+
+files=["res://assets/dialogues/level1_nahas_awakening.Wait! I see something moving...translation"]
+
+source_file="res://assets/dialogues/level1_nahas_awakening.csv"
+dest_files=["res://assets/dialogues/level1_nahas_awakening.Wait! I see something moving...translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

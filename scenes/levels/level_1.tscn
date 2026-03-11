@@ -24,6 +24,8 @@
 [ext_resource type="Texture2D" uid="uid://dad2codb80kys" path="res://assets/sprites/by-level/level1/npc2.png" id="18_v6ha0"]
 [ext_resource type="PackedScene" uid="uid://dovbpucxfycy7" path="res://scenes/enemies/nahas.tscn" id="22_o7j4k"]
 [ext_resource type="PackedScene" uid="uid://cxc6nk1g0afvy" path="res://scenes/enemies/catapace_enemy.tscn" id="23_7o3do"]
+[ext_resource type="PackedScene" uid="uid://b6pcibljvig3f" path="res://scenes/party.tscn" id="25_7o3do"]
+[ext_resource type="PackedScene" uid="uid://des2w3vogbaog" path="res://scenes/ui/pause_menu.tscn" id="26_o7j4k"]
 
 [sub_resource type="Resource" id="Resource_mqh5v"]
 script = ExtResource("3_sk5k4")
@@ -405,7 +407,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_31oqk"]
-size = Vector2(166, 32)
+size = Vector2(166, 11)
 
 [node name="Level1" type="Node" unique_id=2043903769]
 script = ExtResource("1_qxy0u")
@@ -543,11 +545,18 @@ texture = ExtResource("18_v6ha0")
 
 [node name="NahasAwakeningTrigger" type="Area2D" parent="." unique_id=966113851]
 unique_name_in_owner = true
-position = Vector2(418, 91)
+position = Vector2(418, 67)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NahasAwakeningTrigger" unique_id=2043107195]
-position = Vector2(-3, -9)
 shape = SubResource("RectangleShape2D_31oqk")
+
+[node name="Party" parent="." unique_id=1321795303 instance=ExtResource("25_7o3do")]
+position = Vector2(408, 128)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1140800974]
+
+[node name="PauseMenu" parent="CanvasLayer" unique_id=1075974794 instance=ExtResource("26_o7j4k")]
+visible = false
 
 [connection signal="enemy_defeated" from="Enemies/NahasEnemy" to="." method="_on_boss_enemy_enemy_defeated"]
 [connection signal="area_entered" from="NahasAwakeningTrigger" to="." method="_on_nahas_awakening_trigger_area_entered"]
