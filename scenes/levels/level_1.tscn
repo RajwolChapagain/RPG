@@ -10,17 +10,14 @@
 [ext_resource type="Resource" uid="uid://bgg065a045ww" path="res://resources/player_stats/lady_base_stats.tres" id="5_bahl2"]
 [ext_resource type="Resource" uid="uid://d3kyf2naa3duo" path="res://resources/player_stats/mage_base_stats.tres" id="6_np2pn"]
 [ext_resource type="Script" uid="uid://due732el6o1b8" path="res://scripts/resource_scripts/item.gd" id="6_s8va5"]
-[ext_resource type="Resource" uid="uid://b2wy6qk2i7dnk" path="res://resources/items/bajra.tres" id="7_dga24"]
 [ext_resource type="Resource" uid="uid://cym67rsdldl6j" path="res://resources/player_stats/archer_base_stats.tres" id="7_v6ha0"]
 [ext_resource type="Resource" uid="uid://bin2fs1gqdd6w" path="res://resources/items/doloris's_necklace.tres" id="8_dga24"]
 [ext_resource type="Texture2D" uid="uid://bd25fklcm6g43" path="res://assets/sprites/battle_sprites/crunk.png" id="10_np2pn"]
 [ext_resource type="PackedScene" uid="uid://d0rp7rw1dxv20" path="res://scenes/wall_tile_map.tscn" id="10_qxy0u"]
-[ext_resource type="Texture2D" uid="uid://c8lk4f51jnrt3" path="res://assets/sprites/by-level/level1/monster_spritesheets/crunk.png" id="11_gmpev"]
 [ext_resource type="Texture2D" uid="uid://dqpa8dgwo21vc" path="res://assets/sprites/battle_sprites/catapace.webp" id="12_np2pn"]
 [ext_resource type="Texture2D" uid="uid://ctu601yhl7h7c" path="res://assets/sprites/battle_sprites/coyostrel.png" id="14_bahl2"]
-[ext_resource type="Texture2D" uid="uid://bvw1286yqj7s6" path="res://assets/sprites/by-level/level1/monster_spritesheets/catapace.png" id="15_mkypq"]
+[ext_resource type="PackedScene" uid="uid://b4d2tqccygbdj" path="res://scenes/enemies/coyostrel_enemy.tscn" id="15_mqh5v"]
 [ext_resource type="PackedScene" uid="uid://bobc8p13moxe" path="res://scenes/patroller.tscn" id="17_mqh5v"]
-[ext_resource type="Texture2D" uid="uid://7q2pbxgwud01" path="res://assets/sprites/by-level/level1/monster_spritesheets/coyostrel.png" id="18_ndtll"]
 [ext_resource type="Texture2D" uid="uid://dad2codb80kys" path="res://assets/sprites/by-level/level1/npc2.png" id="18_v6ha0"]
 [ext_resource type="PackedScene" uid="uid://dovbpucxfycy7" path="res://scenes/enemies/nahas.tscn" id="22_o7j4k"]
 [ext_resource type="PackedScene" uid="uid://cxc6nk1g0afvy" path="res://scenes/enemies/catapace_enemy.tscn" id="23_7o3do"]
@@ -38,41 +35,11 @@ crit = 10
 dodge = 10
 accuracy = 10
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7o3do"]
-atlas = ExtResource("11_gmpev")
-region = Rect2(0, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o7j4k"]
-atlas = ExtResource("11_gmpev")
-region = Rect2(0, 96, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_31oqk"]
-atlas = ExtResource("11_gmpev")
-region = Rect2(32, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x7jkp"]
-atlas = ExtResource("11_gmpev")
-region = Rect2(32, 96, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ndtll"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7o3do")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o7j4k")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_31oqk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x7jkp")
-}],
-"loop": true,
-"name": &"move_up",
-"speed": 5.0
-}]
+[sub_resource type="Curve2D" id="Curve2D_o7j4k"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 18, 364, 0, 0, 0, 0, 18, 313, 0, 0, 0, 0, 64, 313, 0, 0, 0, 0, 64, 260)
+}
+point_count = 4
 
 [sub_resource type="Resource" id="Resource_ytidy"]
 script = ExtResource("3_sk5k4")
@@ -148,193 +115,29 @@ crit = 10
 dodge = 10
 accuracy = 10
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4yk0h"]
-atlas = ExtResource("11_gmpev")
-region = Rect2(0, 32, 32, 32)
+[sub_resource type="Curve2D" id="Curve2D_7o3do"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 41, 574, 0, 0, 0, 0, 157, 574)
+}
+point_count = 2
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vmrhw"]
-atlas = ExtResource("11_gmpev")
-region = Rect2(32, 32, 32, 32)
+[sub_resource type="Curve2D" id="Curve2D_31oqk"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -178, 562, 0, 0, 0, 0, -178, 494, 0, 0, 0, 0, -101, 494, 0, 0, 0, 0, -101, 562, 0, 0, 0, 0, -178, 562)
+}
+point_count = 5
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_cfnpk"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4yk0h")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vmrhw")
-}],
-"loop": true,
-"name": &"move_right",
-"speed": 5.0
-}]
+[sub_resource type="Curve2D" id="Curve2D_7h2jl"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 210, 639, 0, 0, 0, 0, 103, 639)
+}
+point_count = 2
 
-[sub_resource type="Resource" id="Resource_x7jkp"]
-script = ExtResource("3_sk5k4")
-name = "Catapace"
-battle_sprite = ExtResource("12_np2pn")
-attack_damage = 30
-max_hp = 130
-hp = 130
-defence = 15
-crit = 15
-dodge = 20
-accuracy = 20
-metadata/_custom_type_script = "uid://dbtdwrocpsv30"
-
-[sub_resource type="Resource" id="Resource_0qwwm"]
-script = ExtResource("3_sk5k4")
-name = "Catapace"
-battle_sprite = ExtResource("12_np2pn")
-attack_damage = 30
-max_hp = 130
-hp = 130
-defence = 15
-crit = 15
-dodge = 20
-accuracy = 20
-metadata/_custom_type_script = "uid://dbtdwrocpsv30"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cfnpk"]
-atlas = ExtResource("15_mkypq")
-region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wvtie"]
-atlas = ExtResource("15_mkypq")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_o8s4s"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cfnpk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wvtie")
-}],
-"loop": true,
-"name": &"move_right",
-"speed": 5.0
-}]
-
-[sub_resource type="Resource" id="Resource_t4umt"]
-script = ExtResource("3_sk5k4")
-name = "Crunk"
-battle_sprite = ExtResource("10_np2pn")
-attack_damage = 10
-max_hp = 100
-hp = 100
-crit = 10
-dodge = 10
-accuracy = 10
-
-[sub_resource type="Resource" id="Resource_4yk0h"]
-script = ExtResource("3_sk5k4")
-name = "Catapace"
-battle_sprite = ExtResource("12_np2pn")
-attack_damage = 30
-max_hp = 130
-hp = 130
-defence = 15
-crit = 15
-dodge = 20
-accuracy = 20
-metadata/_custom_type_script = "uid://dbtdwrocpsv30"
-
-[sub_resource type="Resource" id="Resource_vmrhw"]
-script = ExtResource("3_sk5k4")
-name = "Crunk"
-battle_sprite = ExtResource("10_np2pn")
-attack_damage = 10
-max_hp = 100
-hp = 100
-crit = 10
-dodge = 10
-accuracy = 10
-
-[sub_resource type="Resource" id="Resource_cfnpk"]
-script = ExtResource("3_sk5k4")
-name = "Crunk"
-battle_sprite = ExtResource("12_np2pn")
-attack_damage = 30
-max_hp = 130
-hp = 130
-defence = 15
-crit = 15
-dodge = 20
-accuracy = 20
-metadata/_custom_type_script = "uid://dbtdwrocpsv30"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0qwwm"]
-atlas = ExtResource("15_mkypq")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_t4umt"]
-atlas = ExtResource("15_mkypq")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_o7j4k"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0qwwm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_t4umt")
-}],
-"loop": true,
-"name": &"move_left",
-"speed": 5.0
-}]
-
-[sub_resource type="Resource" id="Resource_wvtie"]
-script = ExtResource("3_sk5k4")
-name = "Coyostrel"
-battle_sprite = ExtResource("14_bahl2")
-attack_damage = 20
-max_hp = 150
-hp = 150
-defence = 5
-crit = 15
-dodge = 30
-accuracy = 40
-metadata/_custom_type_script = "uid://dbtdwrocpsv30"
-
-[sub_resource type="Resource" id="Resource_o8s4s"]
-script = ExtResource("3_sk5k4")
-name = "Catapace"
-battle_sprite = ExtResource("12_np2pn")
-attack_damage = 30
-max_hp = 130
-hp = 130
-defence = 15
-crit = 15
-dodge = 20
-accuracy = 20
-metadata/_custom_type_script = "uid://dbtdwrocpsv30"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o8s4s"]
-atlas = ExtResource("18_ndtll")
-region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ebb2h"]
-atlas = ExtResource("18_ndtll")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_row31"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o8s4s")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ebb2h")
-}],
-"loop": true,
-"name": &"move_right",
-"speed": 5.0
-}]
+[sub_resource type="Curve2D" id="Curve2D_x7jkp"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 397, 499, 0, 0, 0, 0, 397, 460, 0, 0, 0, 0, 445, 460)
+}
+point_count = 3
 
 [sub_resource type="Resource" id="Resource_ebb2h"]
 script = ExtResource("3_sk5k4")
@@ -384,27 +187,11 @@ crit = 10
 dodge = 10
 accuracy = 10
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7h2jl"]
-atlas = ExtResource("18_ndtll")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_row31"]
-atlas = ExtResource("18_ndtll")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ytidy"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7h2jl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_row31")
-}],
-"loop": true,
-"name": &"move_left",
-"speed": 5.0
-}]
+[sub_resource type="Curve2D" id="Curve2D_0qwwm"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 406, 246, 0, 0, 0, 0, 337, 246, 0, 0, 0, 0, 337, 292, 0, 0, 0, 0, 308, 292, 0, 0, 0, 0, 308, 349, 0, 0, 0, 0, 264, 349, 0, 0, 0, 0, 264, 257)
+}
+point_count = 7
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_31oqk"]
 size = Vector2(166, 11)
@@ -437,14 +224,22 @@ tile_map_data = PackedByteArray("AAAJAP3/AAABAAAAAAAJAP7/AAABAAAAAAAJAP//AAABAAA
 [node name="Enemies" type="Node2D" parent="." unique_id=192682527]
 
 [node name="Enemy1" parent="Enemies" unique_id=1600746882 instance=ExtResource("2_6761a")]
-position = Vector2(24, 311)
+position = Vector2(17, 366)
 gang = Array[ExtResource("3_sk5k4")]([SubResource("Resource_mqh5v")])
 random_drop_item_count = 2
 
 [node name="Sprite2D" parent="Enemies/Enemy1" index="0" unique_id=1584948219]
-sprite_frames = SubResource("SpriteFrames_ndtll")
 autoplay = "move_up"
-frame_progress = 0.6259358
+frame_progress = 0.0
+
+[node name="Patroller" parent="Enemies/Enemy1" unique_id=241894158 instance=ExtResource("17_mqh5v")]
+
+[node name="Path2D" parent="Enemies/Enemy1/Patroller" index="0" unique_id=850319381]
+curve = SubResource("Curve2D_o7j4k")
+
+[node name="PathFollow2D" parent="Enemies/Enemy1/Patroller/Path2D" index="0" unique_id=349239067]
+position = Vector2(18, 364)
+rotation = -1.5707964
 
 [node name="Enemy2" parent="Enemies" unique_id=1786002395 instance=ExtResource("23_7o3do")]
 position = Vector2(119, 425)
@@ -466,58 +261,70 @@ gang = Array[ExtResource("3_sk5k4")]([SubResource("Resource_7o3do"), SubResource
 random_drop_item_count = 2
 
 [node name="Sprite2D" parent="Enemies/Enemy3" index="0" unique_id=1584948219]
-sprite_frames = SubResource("SpriteFrames_cfnpk")
 animation = &"move_right"
 autoplay = "move_right"
-frame_progress = 0.24110049
+frame_progress = 0.0
 
-[node name="Enemy4" parent="Enemies" unique_id=38158259 instance=ExtResource("2_6761a")]
-position = Vector2(-143, 531)
-gang = Array[ExtResource("3_sk5k4")]([SubResource("Resource_x7jkp"), SubResource("Resource_0qwwm")])
-dropped_items = Array[ExtResource("6_s8va5")]([ExtResource("7_dga24")])
+[node name="Patroller" parent="Enemies/Enemy3" unique_id=1612968510 instance=ExtResource("17_mqh5v")]
 
-[node name="Sprite2D" parent="Enemies/Enemy4" index="0" unique_id=1584948219]
-sprite_frames = SubResource("SpriteFrames_o8s4s")
-animation = &"move_right"
-autoplay = "move_right"
-frame_progress = 0.908944
+[node name="Path2D" parent="Enemies/Enemy3/Patroller" index="0" unique_id=850319381]
+curve = SubResource("Curve2D_7o3do")
 
-[node name="Enemy5" parent="Enemies" unique_id=958005047 instance=ExtResource("2_6761a")]
-position = Vector2(176, 639)
-gang = Array[ExtResource("3_sk5k4")]([SubResource("Resource_t4umt"), SubResource("Resource_4yk0h"), SubResource("Resource_vmrhw"), SubResource("Resource_cfnpk")])
-dropped_items = Array[ExtResource("6_s8va5")]([ExtResource("7_dga24")])
+[node name="PathFollow2D" parent="Enemies/Enemy3/Patroller/Path2D" index="0" unique_id=349239067]
+position = Vector2(41, 574)
+rotation = 0.0
 
-[node name="Sprite2D" parent="Enemies/Enemy5" index="0" unique_id=1584948219]
-sprite_frames = SubResource("SpriteFrames_o7j4k")
-animation = &"move_left"
-autoplay = "move_left"
-frame_progress = 0.996596
+[node name="Enemy4" parent="Enemies" unique_id=2096919507 instance=ExtResource("23_7o3do")]
+position = Vector2(-177, 562)
 
-[node name="Enemy6" parent="Enemies" unique_id=1382899858 instance=ExtResource("2_6761a")]
-position = Vector2(387, 455)
-gang = Array[ExtResource("3_sk5k4")]([SubResource("Resource_wvtie"), SubResource("Resource_o8s4s")])
-dropped_items = Array[ExtResource("6_s8va5")]([ExtResource("8_dga24")])
-random_drop_item_count = 2
-random_dropped_item_rarity_modifier = 10.0
+[node name="Patroller" parent="Enemies/Enemy4" unique_id=1954782115 instance=ExtResource("17_mqh5v")]
 
-[node name="Sprite2D" parent="Enemies/Enemy6" index="0" unique_id=1584948219]
-sprite_frames = SubResource("SpriteFrames_row31")
-animation = &"move_right"
-autoplay = "move_right"
-frame_progress = 0.5923629
+[node name="Path2D" parent="Enemies/Enemy4/Patroller" index="0" unique_id=850319381]
+curve = SubResource("Curve2D_31oqk")
 
-[node name="Enemy7" parent="Enemies" unique_id=794017082 instance=ExtResource("2_6761a")]
+[node name="PathFollow2D" parent="Enemies/Enemy4/Patroller/Path2D" index="0" unique_id=349239067]
+position = Vector2(-178, 562)
+rotation = -1.5707964
+
+[node name="Enemy5" parent="Enemies" unique_id=1185547935 instance=ExtResource("23_7o3do")]
+position = Vector2(213, 640)
+
+[node name="Patroller" parent="Enemies/Enemy5" unique_id=1834570598 instance=ExtResource("17_mqh5v")]
+
+[node name="Path2D" parent="Enemies/Enemy5/Patroller" index="0" unique_id=850319381]
+curve = SubResource("Curve2D_7h2jl")
+
+[node name="PathFollow2D" parent="Enemies/Enemy5/Patroller/Path2D" index="0" unique_id=349239067]
+position = Vector2(210, 639)
+rotation = 3.1415927
+
+[node name="Enemy6" parent="Enemies" unique_id=1019885562 instance=ExtResource("15_mqh5v")]
+position = Vector2(398, 498)
+
+[node name="Patroller" parent="Enemies/Enemy6" unique_id=321498372 instance=ExtResource("17_mqh5v")]
+
+[node name="Path2D" parent="Enemies/Enemy6/Patroller" index="0" unique_id=850319381]
+curve = SubResource("Curve2D_x7jkp")
+
+[node name="PathFollow2D" parent="Enemies/Enemy6/Patroller/Path2D" index="0" unique_id=349239067]
+position = Vector2(397, 499)
+rotation = -1.5707964
+
+[node name="Enemy7" parent="Enemies" unique_id=178764234 instance=ExtResource("15_mqh5v")]
 position = Vector2(407, 246)
 gang = Array[ExtResource("3_sk5k4")]([SubResource("Resource_ebb2h"), SubResource("Resource_ndtll"), SubResource("Resource_7h2jl"), SubResource("Resource_row31")])
 dropped_items = Array[ExtResource("6_s8va5")]([ExtResource("8_dga24")])
 random_drop_item_count = 2
 random_dropped_item_rarity_modifier = 10.0
 
-[node name="Sprite2D" parent="Enemies/Enemy7" index="0" unique_id=1584948219]
-sprite_frames = SubResource("SpriteFrames_ytidy")
-animation = &"move_left"
-autoplay = "move_left"
-frame_progress = 0.15485474
+[node name="Patroller" parent="Enemies/Enemy7" unique_id=421552510 instance=ExtResource("17_mqh5v")]
+
+[node name="Path2D" parent="Enemies/Enemy7/Patroller" index="0" unique_id=850319381]
+curve = SubResource("Curve2D_0qwwm")
+
+[node name="PathFollow2D" parent="Enemies/Enemy7/Patroller/Path2D" index="0" unique_id=349239067]
+position = Vector2(406, 246)
+rotation = 3.1415927
 
 [node name="NahasEnemy" parent="Enemies" unique_id=1966712350 instance=ExtResource("22_o7j4k")]
 unique_name_in_owner = true
@@ -551,7 +358,7 @@ position = Vector2(418, 67)
 shape = SubResource("RectangleShape2D_31oqk")
 
 [node name="Party" parent="." unique_id=1321795303 instance=ExtResource("25_7o3do")]
-position = Vector2(414, 117)
+position = Vector2(191, 332)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1140800974]
 
@@ -563,10 +370,12 @@ visible = false
 
 [editable path="DualGrid"]
 [editable path="Enemies/Enemy1"]
+[editable path="Enemies/Enemy1/Patroller"]
 [editable path="Enemies/Enemy2/Patroller"]
 [editable path="Enemies/Enemy3"]
-[editable path="Enemies/Enemy4"]
-[editable path="Enemies/Enemy5"]
-[editable path="Enemies/Enemy6"]
-[editable path="Enemies/Enemy7"]
+[editable path="Enemies/Enemy3/Patroller"]
+[editable path="Enemies/Enemy4/Patroller"]
+[editable path="Enemies/Enemy5/Patroller"]
+[editable path="Enemies/Enemy6/Patroller"]
+[editable path="Enemies/Enemy7/Patroller"]
 [editable path="NPCs/NPC4"]
