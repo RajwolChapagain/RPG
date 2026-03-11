@@ -111,7 +111,7 @@ accuracy = 10
 
 [sub_resource type="Curve2D" id="Curve2D_mqh5v"]
 _data = {
-"points": PackedVector2Array(-22.89111, 17.985872, 22.89111, -17.985872, 120, 425, -16.677809, -13.898173, 16.677809, 13.898173, 213, 425, 13.571157, -11.936078, -13.571157, 11.936078, 213, 472, 13.080634, 12.59011, -13.080634, -12.59011, 120, 472, 0, 0, 0, 0, 120, 425)
+"points": PackedVector2Array(0, 0, 0, 0, 118, 424, 0, 0, 0, 0, 224, 424, 0, 0, 0, 0, 224, 481, 0, 0, 0, 0, 117, 481, 0, 0, 0, 0, 118, 424)
 }
 point_count = 5
 
@@ -457,8 +457,8 @@ speed = 70.0
 curve = SubResource("Curve2D_mqh5v")
 
 [node name="PathFollow2D" parent="Enemies/Enemy2/Patroller/Path2D" index="0" unique_id=349239067]
-position = Vector2(120, 425)
-rotation = -0.66596913
+position = Vector2(118, 424)
+rotation = 0.0
 
 [node name="Enemy3" parent="Enemies" unique_id=296600375 instance=ExtResource("2_6761a")]
 position = Vector2(41, 574)
@@ -551,7 +551,7 @@ position = Vector2(418, 67)
 shape = SubResource("RectangleShape2D_31oqk")
 
 [node name="Party" parent="." unique_id=1321795303 instance=ExtResource("25_7o3do")]
-position = Vector2(408, 128)
+position = Vector2(414, 117)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1140800974]
 
