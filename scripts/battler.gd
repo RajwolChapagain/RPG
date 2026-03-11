@@ -49,19 +49,21 @@ func take_damage(damage: int, accuracy: int, critting: bool = false) -> bool:
 	if critting:
 		%AnimationTree['parameters/CriticalHit/request'] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
 	
-		
 	var true_damage = clamp(damage - stats.defence, 0, damage)
-	stats.hp -= true_damage
+	take_raw_damage(true_damage)
+	return true
+
+func take_raw_damage(damage: int) -> void:
+	stats.hp -= damage
 	stats.hp = clamp(stats.hp, 0, INF)
-	%DamageLabel.text = str(-true_damage)
+	%DamageLabel.text = str(-damage)
 	%AnimationTree["parameters/TakeDamage/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
 	
 	if (stats.hp == 0):
 		die()
 	
 	%HitParticles.emitting = true
-	return true
-
+	
 func APPLY_EFFECT(effect: StatusEffect) -> void:
 	# Check for effect re-application
 	for existing_effect: StatusEffect in status_effects:
