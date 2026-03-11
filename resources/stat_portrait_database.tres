@@ -1,11 +1,11 @@
-[gd_resource type="Resource" script_class="PortraitDatabase" load_steps=7 format=3 uid="uid://c7g3v2c4yj2kj"]
+[gd_resource type="Resource" script_class="PortraitDatabase" format=3 uid="uid://c7g3v2c4yj2kj"]
 
 [ext_resource type="Script" uid="uid://be6kcyoah1tit" path="res://scripts/resource_scripts/portrait_database.gd" id="1_trh0s"]
 [ext_resource type="Texture2D" uid="uid://c3yio6yjcrv44" path="res://assets/sprites/ui/archer_portrait.png" id="2_isgnb"]
-[ext_resource type="Texture2D" uid="uid://en0teytc2egu" path="res://assets/sprites/ui/knight_portrait.png" id="2_jscrr"]
-[ext_resource type="Texture2D" uid="uid://ykdf0ync8jll" path="res://assets/sprites/ui/cleric_portrait.png" id="3_isgnb"]
 [ext_resource type="Texture2D" uid="uid://bg2fwew48se0h" path="res://assets/sprites/ui/josephine_portrait.PNG" id="3_jscrr"]
 [ext_resource type="Texture2D" uid="uid://dg4kpgvnw0v7l" path="res://assets/sprites/ui/mage_portrait.png" id="4_wosm0"]
+[ext_resource type="Texture2D" uid="uid://ba7esbnj4so52" path="res://assets/sprites/player_portraits/magda_portrait.webp" id="5_jscrr"]
+[ext_resource type="Texture2D" uid="uid://c23ke6i2fm508" path="res://assets/sprites/player_portraits/knight_portrait.webp" id="6_isgnb"]
 
 [resource]
 script = ExtResource("1_trh0s")
@@ -13,7 +13,7 @@ sprite_dictionary = Dictionary[String, Texture2D]({
 "Einar": ExtResource("2_isgnb"),
 "Josephine": ExtResource("3_jscrr"),
 "Lachlan": ExtResource("4_wosm0"),
-"Magda": ExtResource("3_isgnb"),
-"Rachelle": ExtResource("2_jscrr")
+"Magda": ExtResource("5_jscrr"),
+"Rachelle": ExtResource("6_isgnb")
 })
 metadata/_custom_type_script = "uid://be6kcyoah1tit"
