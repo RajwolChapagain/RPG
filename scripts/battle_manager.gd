@@ -10,7 +10,9 @@ var pre_battle_music_timestamp: float
 
 func start_battle(party: Party, enemy: Enemy) -> void:
 	battling_enemy = enemy
-	var enemies = enemy.get_gang()
+	var enemies: Array[BaseStats] = []
+	for stats: BaseStats in battling_enemy.get_gang():
+		enemies.append(stats.duplicate())
 	
 	if active_battle_scene != null:
 		return
