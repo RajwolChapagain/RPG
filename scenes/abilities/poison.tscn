@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://giecrxnhvjnp"]
 
 [ext_resource type="Script" uid="uid://7j218wcobhb7" path="res://scripts/abilities/poison.gd" id="1_ey54i"]
-[ext_resource type="Resource" uid="uid://do2figdbfmrkt" path="res://resources/status_effects/poison.tres" id="2_a3kwo"]
+[ext_resource type="Resource" uid="uid://do2figdbfmrkt" path="res://resources/status_effects/poisoned.tres" id="2_a3kwo"]
 
 [node name="Poison" type="Node" unique_id=246938105]
 script = ExtResource("1_ey54i")

@@ -55,6 +55,12 @@ func take_damage(damage: int, accuracy: int, critting: bool = false) -> bool:
 	return true
 
 func take_raw_damage(damage: int) -> void:
+	stats.hp -= damage
+	stats.hp = clamp(stats.hp, 0, INF)
+	
+	if (stats.hp == 0):
+		die()
+		
 	if damage_queue.is_empty():
 		call_deferred('process_damage_queue')
 	damage_queue.append(damage)
@@ -64,13 +70,8 @@ func process_damage_queue() -> void:
 		return
 		
 	var damage = damage_queue.pop_front()
-	stats.hp -= damage
-	stats.hp = clamp(stats.hp, 0, INF)
 	%DamageLabel.text = str(-damage)
 	%AnimationTree["parameters/TakeDamage/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
-	
-	if (stats.hp == 0):
-		die()
 	
 	%HitParticles.emitting = true
 	
