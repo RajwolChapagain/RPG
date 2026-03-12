@@ -56,7 +56,7 @@ func initialize_party(names: Array[String]) -> void:
 	party = party_scene.instantiate()
 	var character_scenes: Array[PackedScene] = []
 	for char_name in names:
-		character_scenes.append(character_name_to_scene[char_name])
+		character_scenes.append(character_name_to_scene[char_name].duplicate_deep(Resource.DEEP_DUPLICATE_ALL))
 	party.initialize_character_scenes(character_scenes)
 	add_child(party)
 

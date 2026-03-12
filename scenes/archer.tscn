@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cx2lym7krpsie"]
+[gd_scene format=3 uid="uid://cx2lym7krpsie"]
 
 [ext_resource type="Script" uid="uid://co51hx7h8y0x" path="res://scripts/player.gd" id="1_2iv4p"]
 [ext_resource type="Resource" uid="uid://cym67rsdldl6j" path="res://resources/player_stats/archer_base_stats.tres" id="2_i7o62"]
@@ -157,32 +157,32 @@ animations = [{
 "speed": 8.0
 }]
 
-[node name="Player" type="Area2D" groups=["player_character"]]
+[node name="Player" type="Area2D" unique_id=1265781172 groups=["player_character"]]
 collision_mask = 2147483649
 script = ExtResource("1_2iv4p")
 stats = ExtResource("2_i7o62")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1758955185]
 shape = SubResource("RectangleShape2D_kcvcf")
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=942784180]
 sprite_frames = SubResource("SpriteFrames_s538n")
 animation = &"idle"
 
-[node name="Pointer" type="Sprite2D" parent="."]
+[node name="Pointer" type="Sprite2D" parent="." unique_id=563530257]
 visible = false
 position = Vector2(0, -21)
 texture = ExtResource("3_8jjyp")
 
-[node name="GridMover" type="Node" parent="." node_paths=PackedStringArray("target")]
+[node name="GridMover" type="Node" parent="." unique_id=185147848 node_paths=PackedStringArray("target")]
 script = ExtResource("4_d5x13")
 target = NodePath("..")
 time_to_move_one_grid = 0.2
 
-[node name="GridPositionTracker" type="Node2D" parent="."]
+[node name="GridPositionTracker" type="Node2D" parent="." unique_id=489132364]
 script = ExtResource("5_8gkgf")
 
-[node name="ObstacleRayCast" type="RayCast2D" parent="."]
+[node name="ObstacleRayCast" type="RayCast2D" parent="." unique_id=755353264]
 unique_name_in_owner = true
 target_position = Vector2(0, 32)
 collision_mask = 2147483648
