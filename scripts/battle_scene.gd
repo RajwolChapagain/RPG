@@ -209,7 +209,7 @@ func advance_turn() -> void:
 		
 	num_attacked += 1
 	if players_turn:
-		if num_attacked == alive_player_count:
+		if num_attacked >= alive_player_count:
 			end_player_turn()
 			return
 		
@@ -222,7 +222,9 @@ func advance_turn() -> void:
 		update_active_battler(next_player_index)
 		enable_attack_button()
 	else:
-		if num_attacked == alive_enemy_count:
+		if num_attacked >= alive_enemy_count: # Greater than is used because alive_enemy_count can
+											  # be greater than num_attacked after the last enemy
+											  # attacks since resonance can kill fellow enemies
 			end_enemy_turn()
 			return
 		
@@ -341,11 +343,6 @@ func on_ability_finished_execution(ability: Ability, resonant_battlers: Array[Ba
 func attack_random_player() -> void:
 	# Check to prevent attacking after primary player characters have died
 	if not battle_ongoing:
-		return
-		
-	if active_index >= len(enemies):
-		printerr('Error: No enemy exists at index %s' % active_index)
-		advance_turn()
 		return
 		
 	var attacking_enemy = enemies[active_index]
