@@ -1,11 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://djewwmdjwkohh"]
+[gd_scene format=3 uid="uid://djewwmdjwkohh"]
 
 [ext_resource type="Theme" uid="uid://5dapp0d0f0x5" path="res://resources/ui.tres" id="1_70c5c"]
 [ext_resource type="Script" uid="uid://csexm3de8edkj" path="res://scripts/ui/inventory_manager.gd" id="1_v7cwg"]
 [ext_resource type="PackedScene" uid="uid://cpuacag8n4gcn" path="res://scenes/ui/item_button.tscn" id="2_qoais"]
 [ext_resource type="PackedScene" uid="uid://ctvfieofwmqvo" path="res://scenes/ui/character_inventory.tscn" id="3_hw52i"]
 
-[node name="InventoryManager" type="Panel"]
+[node name="InventoryManager" type="Panel" unique_id=1322456122]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -16,7 +16,7 @@ theme = ExtResource("1_70c5c")
 script = ExtResource("1_v7cwg")
 ItemButtonScene = ExtResource("2_qoais")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=398996404]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,14 +25,14 @@ offset_right = -104.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ItemButtonsContainer" type="VBoxContainer" parent="ScrollContainer"]
+[node name="ItemButtonsContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=52387519]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 0
 
-[node name="DiscardButton" type="Button" parent="ScrollContainer"]
+[node name="DiscardButton" type="Button" parent="ScrollContainer" unique_id=609574091]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -40,7 +40,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_type_variation = &"TransparentButton"
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=593903389]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 11
@@ -51,7 +51,7 @@ offset_left = -96.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="CharacterInventories" type="VBoxContainer" parent="Panel"]
+[node name="CharacterInventories" type="VBoxContainer" parent="Panel" unique_id=374739010]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -60,22 +60,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CharacterInventory" parent="Panel/CharacterInventories" instance=ExtResource("3_hw52i")]
+[node name="CharacterInventory" parent="Panel/CharacterInventories" unique_id=2019309047 instance=ExtResource("3_hw52i")]
 layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_bottom = NodePath("../CharacterInventory2")
 
-[node name="CharacterInventory2" parent="Panel/CharacterInventories" instance=ExtResource("3_hw52i")]
+[node name="CharacterInventory2" parent="Panel/CharacterInventories" unique_id=548959206 instance=ExtResource("3_hw52i")]
 layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_bottom = NodePath("../CharacterInventory3")
 
-[node name="CharacterInventory3" parent="Panel/CharacterInventories" instance=ExtResource("3_hw52i")]
+[node name="CharacterInventory3" parent="Panel/CharacterInventories" unique_id=809006289 instance=ExtResource("3_hw52i")]
 layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_bottom = NodePath("../CharacterInventory4")
 
-[node name="CharacterInventory4" parent="Panel/CharacterInventories" instance=ExtResource("3_hw52i")]
+[node name="CharacterInventory4" parent="Panel/CharacterInventories" unique_id=6857945 instance=ExtResource("3_hw52i")]
 layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_bottom = NodePath("../CharacterInventory")

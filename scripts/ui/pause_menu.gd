@@ -82,3 +82,9 @@ func untoggle_all_buttons() -> void:
 func hide_all_content_panels() -> void:
 	for panel: Panel in %ContentContainer.get_children():
 		panel.visible = false
+
+func _on_inventory_manager_inventory_item_selected() -> void:
+	%ButtonsContainer.focus_behavior_recursive = FocusBehaviorRecursive.FOCUS_BEHAVIOR_DISABLED
+
+func _on_inventory_manager_inventory_item_consumed_or_equipped() -> void:
+	%ButtonsContainer.focus_behavior_recursive = FocusBehaviorRecursive.FOCUS_BEHAVIOR_INHERITED

@@ -1,11 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://ctvfieofwmqvo"]
+[gd_scene format=3 uid="uid://ctvfieofwmqvo"]
 
 [ext_resource type="Theme" uid="uid://5dapp0d0f0x5" path="res://resources/ui.tres" id="1_2oc33"]
 [ext_resource type="Script" uid="uid://dpuweogh2t37r" path="res://scripts/ui/character_inventory.gd" id="1_6t0r0"]
 [ext_resource type="Texture2D" uid="uid://j7uvhkpc8y3w" path="res://assets/sprites/ui/pause_menu/frame_placeholder.png" id="2_2oc33"]
 [ext_resource type="PackedScene" uid="uid://bkaecgm6jt0cp" path="res://scenes/ui/inventory_slot.tscn" id="6_5437v"]
 
-[node name="CharacterInventory" type="Control"]
+[node name="CharacterInventory" type="Control" unique_id=1601932209]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 3
 anchors_preset = 1
@@ -17,7 +17,7 @@ grow_horizontal = 0
 theme = ExtResource("1_2oc33")
 script = ExtResource("1_6t0r0")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1712533602]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,22 +25,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=648775612]
 layout_mode = 2
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=2107899281]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
 
-[node name="Frame" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+[node name="Frame" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer2" unique_id=1513240400]
 clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("2_2oc33")
 stretch_mode = 2
 
-[node name="Portrait" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer2/Frame"]
+[node name="Portrait" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer2/Frame" unique_id=696996188]
 unique_name_in_owner = true
 show_behind_parent = true
 layout_mode = 1
@@ -51,32 +51,32 @@ grow_vertical = 2
 expand_mode = 5
 stretch_mode = 5
 
-[node name="CharacterNameLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+[node name="CharacterNameLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2" unique_id=270076040]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 6
 horizontal_alignment = 1
 
-[node name="SlotContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+[node name="SlotContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=881239636]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.5
 theme_override_constants/separation = 1
 
-[node name="InventorySlot" parent="MarginContainer/HBoxContainer/SlotContainer" instance=ExtResource("6_5437v")]
+[node name="InventorySlot" parent="MarginContainer/HBoxContainer/SlotContainer" unique_id=1201795130 instance=ExtResource("6_5437v")]
 layout_mode = 2
 
-[node name="InventorySlot2" parent="MarginContainer/HBoxContainer/SlotContainer" instance=ExtResource("6_5437v")]
+[node name="InventorySlot2" parent="MarginContainer/HBoxContainer/SlotContainer" unique_id=1255462001 instance=ExtResource("6_5437v")]
 layout_mode = 2
 
-[node name="InventorySlot3" parent="MarginContainer/HBoxContainer/SlotContainer" instance=ExtResource("6_5437v")]
+[node name="InventorySlot3" parent="MarginContainer/HBoxContainer/SlotContainer" unique_id=1187520802 instance=ExtResource("6_5437v")]
 layout_mode = 2
 
-[node name="InventorySlot4" parent="MarginContainer/HBoxContainer/SlotContainer" instance=ExtResource("6_5437v")]
+[node name="InventorySlot4" parent="MarginContainer/HBoxContainer/SlotContainer" unique_id=1900165832 instance=ExtResource("6_5437v")]
 layout_mode = 2
 
-[node name="ConsumeButton" type="Button" parent="MarginContainer"]
+[node name="ConsumeButton" type="Button" parent="MarginContainer" unique_id=471756143]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
