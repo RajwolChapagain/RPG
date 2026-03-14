@@ -324,6 +324,8 @@ func disable_abilities_button() -> void:
 func on_ability_finished_execution(ability: Ability, resonant_battlers: Array[Battler]) -> void:
 	# Check for resonance on resonant battlers
 	for battler: Battler in resonant_battlers:
+		if not battler.is_alive:
+			continue
 		var copied_ability: Ability = ability.duplicate()
 		add_child(copied_ability)
 		copied_ability.execute(player_characters[active_index], battler)
