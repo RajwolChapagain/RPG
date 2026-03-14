@@ -6,9 +6,10 @@
 offsets = PackedFloat32Array(0.61777776, 1)
 colors = PackedColorArray(0.3882353, 0.81960785, 0.40784314, 1, 1, 1, 1, 0)
 
-[node name="Heal" type="Node" unique_id=917651593]
+[node name="Heal" type="Node" unique_id=917651593 node_paths=PackedStringArray("heal_particles")]
 script = ExtResource("1_x12ah")
 heal_percentage = 20.0
+heal_particles = NodePath("HealParticles")
 ability_name = "Heal"
 description = "Endow your target with life-giving energy; delaying their perish in the Regenerengine."
 cost = 2

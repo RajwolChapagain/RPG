@@ -1,12 +1,14 @@
 class_name Heal extends Ability
 
 @export_range(0, 100) var heal_percentage: float
+@export var heal_particles: Node
 
 func execute(_caster: Battler, target: Battler) -> void:
-	%HealParticles.global_position = target.global_position
-	%HealParticles.emitting = true
+	print(get_children())
+	heal_particles.global_position = target.global_position
+	heal_particles.emitting = true
 	target.stats.hp += int(heal_percentage / 100 * target.stats.max_hp)
-	await %HealParticles.finished
+	await heal_particles.finished
 	ability_finished_execution.emit()
 	queue_free()
 
