@@ -90,14 +90,28 @@ func on_character_item_slot_selected(character_inventory, index: int) -> void:
 		%ItemButtonsContainer.focus_behavior_recursive = FocusBehaviorRecursive.FOCUS_BEHAVIOR_INHERITED
 		inventory_item_consumed_or_equipped.emit()
 	else:
-		if character_inventory.get_item_at_slot(index) == null or str(character_inventory.get_item_at_slot(index)) == '':
-			return
-			
-		selected_character_inventory = character_inventory
-		selected_character_inventory_index = index
-		%DiscardButton.visible = true
-		%ItemButtonsContainer.focus_behavior_recursive = FocusBehaviorRecursive.FOCUS_BEHAVIOR_DISABLED
-		inventory_item_selected.emit()
+		if selected_character_inventory == null:
+			if character_inventory.get_item_at_slot(index) == null or str(character_inventory.get_item_at_slot(index)) == '':
+				return
+				
+			selected_character_inventory = character_inventory
+			selected_character_inventory_index = index
+			%DiscardButton.visible = true
+			%ItemButtonsContainer.focus_behavior_recursive = FocusBehaviorRecursive.FOCUS_BEHAVIOR_DISABLED
+			inventory_item_selected.emit()
+		else:
+			# account for if character_inventory and index are same as selected
+			var selected_character_item = selected_character_inventory.get_item_at_slot(selected_character_inventory_index)
+			var swap_item = character_inventory.equip_item_to_slot(selected_character_item, index)
+			if swap_item != null:
+				selected_character_inventory.equip_item_to_slot(swap_item, selected_character_inventory_index)
+			else:
+				selected_character_inventory.remove_item_at_index(selected_character_inventory_index)
+				
+			%DiscardButton.visible = false
+			%ItemButtonsContainer.focus_behavior_recursive = FocusBehaviorRecursive.FOCUS_BEHAVIOR_INHERITED
+			inventory_item_consumed_or_equipped.emit()
+			selected_character_inventory = null
 		
 func remove_item(item: Item) -> void:
 	var i = 0
