@@ -42,7 +42,7 @@ func display_items(items: Array[Item]) -> void:
 		var item_button: ItemButton = item_button_scene.instantiate()
 		item_button.initialize(items[i], 1)
 		%ItemsContainer.add_child(item_button)
-		if i == 0:
+		if %ItemsContainer.get_child_count() == 1:
 			item_button.grab_focus()
 			item_button.focus_neighbor_top = %ConfirmButton.get_path()
 		
