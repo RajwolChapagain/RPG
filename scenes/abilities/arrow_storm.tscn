@@ -93,11 +93,14 @@ _data = {
 &"decal_fade_in": SubResource("Animation_51rgh")
 }
 
-[node name="Node" type="Node" unique_id=925495463]
+[node name="Node" type="Node" unique_id=925495463 node_paths=PackedStringArray("arrow_storm", "particles", "animation_player")]
 script = ExtResource("1_51rgh")
 max_damage = 50
 damage_faloff_curve = SubResource("Curve_51rgh")
 accuracy_faloff_curve = SubResource("Curve_ksgxq")
+arrow_storm = NodePath("ArrowStorm")
+particles = NodePath("ArrowStorm/GPUParticles2D")
+animation_player = NodePath("AnimationPlayer")
 ability_name = "Arrow Storm"
 description = "Unleash a barrage of arrows on your foes! (Or your party; depends on your aim)"
 cost = 2
@@ -122,6 +125,7 @@ shape = SubResource("RectangleShape2D_io0kf")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="ArrowStorm" unique_id=430838160]
 unique_name_in_owner = true
+emitting = false
 amount = 13
 sub_emitter = NodePath("../DirtParticles")
 texture = ExtResource("3_ksgxq")

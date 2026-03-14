@@ -4,7 +4,6 @@ class_name Heal extends Ability
 @export var heal_particles: Node
 
 func execute(_caster: Battler, target: Battler) -> void:
-	print(get_children())
 	heal_particles.global_position = target.global_position
 	heal_particles.emitting = true
 	target.stats.hp += int(heal_percentage / 100 * target.stats.max_hp)

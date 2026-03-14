@@ -4,8 +4,10 @@
 [ext_resource type="Theme" uid="uid://5dapp0d0f0x5" path="res://resources/ui.tres" id="2_nyjhf"]
 [ext_resource type="PackedScene" uid="uid://23b01ifqxu4" path="res://scenes/ui/stat_card.tscn" id="3_v57qa"]
 
-[node name="Clairvoyance" type="Node" unique_id=1087928118]
+[node name="Clairvoyance" type="Node" unique_id=1087928118 node_paths=PackedStringArray("stat_card", "confirm_button")]
 script = ExtResource("1_tpqgi")
+stat_card = NodePath("EnemyStatViewer/Panel/MarginContainer/VBoxContainer/StatCard")
+confirm_button = NodePath("EnemyStatViewer/Panel/MarginContainer/VBoxContainer/ConfirmButton")
 ability_name = "Clairvoyance"
 description = "Discern what escapes the senses; know your target's composition."
 cost = 1

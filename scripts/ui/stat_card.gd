@@ -1,6 +1,9 @@
 extends Control
 class_name StatCard
 
+@export var portrait: TextureRect
+@export var stat_values: Control
+
 @export var stats: BaseStats:
 	get:
 		return stats
@@ -12,7 +15,7 @@ class_name StatCard
 @export var portraits: PortraitDatabase
 
 func initialize_ui() -> void:
-	%Portrait.texture = portraits.get_portrait(stats.name)
+	portrait.texture = portraits.get_portrait(stats.name)
 	update_stats_ui()
 	
 func update_stats_ui() -> void:
@@ -36,7 +39,7 @@ func update_stats_ui() -> void:
 		else:
 			label_text = str(stats.get(stat_name))
 			
-		%StatValues.get_child(i).text = label_text
+		stat_values.get_child(i).text = label_text
 		i += 1
 		
 func get_character_name() -> String:
