@@ -35,17 +35,20 @@ func activate_new_slot() -> void:
 	activated_slots += 1
 
 func equip_item_to_slot(item: Item, index: int) -> Item:
-	while index > len(equipped_items):
+	while index >= len(equipped_items):
 		equipped_items.append(Item.new())
-		
-	equipped_items.insert(index, item)
+	
+	equipped_items[index] = item
 	return %SlotContainer.get_child(index).equip_item(item)
 
 func get_item_at_slot(index: int) -> Item:
 	return %SlotContainer.get_child(index).item
+
+func grab_focus_to_slot(index: int) -> void:
+	%SlotContainer.get_child(index).grab_focus()
 	
 func grab_focus_to_first_slot() -> void:
-	%SlotContainer.get_child(0).grab_focus()
+	grab_focus_to_slot(0)
 
 func grab_focus_to_consume_button() -> void:
 	%ConsumeButton.grab_focus()

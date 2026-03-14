@@ -23,6 +23,14 @@ func _input(event: InputEvent) -> void:
 			character_inventory.disable_consume_button()
 		item_buttons[0].grab_focus()
 		get_viewport().set_input_as_handled()
+	
+	if selected_character_inventory != null and event.is_action_pressed('pause'):
+		selected_character_inventory.grab_focus_to_slot(selected_character_inventory_index)
+		selected_character_inventory = null
+		%DiscardButton.visible = false
+		%ItemButtonsContainer.focus_behavior_recursive = FocusBehaviorRecursive.FOCUS_BEHAVIOR_INHERITED
+		inventory_item_consumed_or_equipped.emit()
+		get_viewport().set_input_as_handled()
 		
 func add_item(item: Item, count: int = 1) -> void:
 	for button in item_buttons:
@@ -88,8 +96,8 @@ func on_character_item_slot_selected(character_inventory, index: int) -> void:
 		selected_character_inventory = character_inventory
 		selected_character_inventory_index = index
 		%DiscardButton.visible = true
-		for button in item_buttons:
-			button.focus_mode = Control.FOCUS_NONE
+		%ItemButtonsContainer.focus_behavior_recursive = FocusBehaviorRecursive.FOCUS_BEHAVIOR_DISABLED
+		inventory_item_selected.emit()
 		
 func remove_item(item: Item) -> void:
 	var i = 0
@@ -115,9 +123,10 @@ func _on_discard_button_pressed() -> void:
 	add_item(item)
 	selected_character_inventory.remove_item_at_index(selected_character_inventory_index)
 	%DiscardButton.visible = false
-	for button in item_buttons:
-		button.focus_mode = Control.FOCUS_ALL
+	%ItemButtonsContainer.focus_behavior_recursive = FocusBehaviorRecursive.FOCUS_BEHAVIOR_INHERITED
+	inventory_item_consumed_or_equipped.emit()
 	focus_item_button(item)
+	selected_character_inventory = null
 		
 func on_consume_button_pressed(character_name: String) -> void:
 	GameManager.make_player_consume_item(character_name, selected_item)

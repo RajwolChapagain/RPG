@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkaecgm6jt0cp"]
+[gd_scene format=3 uid="uid://bkaecgm6jt0cp"]
 
 [ext_resource type="Script" uid="uid://c1jciqiiiuxh5" path="res://scripts/ui/inventory_slot.gd" id="1_kscix"]
 [ext_resource type="Theme" uid="uid://5dapp0d0f0x5" path="res://resources/ui.tres" id="1_ru537"]
 
-[node name="InventorySlot" type="Button"]
+[node name="InventorySlot" type="Button" unique_id=912430048]
 custom_minimum_size = Vector2(60, 8)
 offset_right = 60.0
 offset_bottom = 8.0
