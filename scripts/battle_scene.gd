@@ -138,6 +138,7 @@ func spawn_enemies() -> void:
 	connect_enemy_animation_finished_signal()
 	connect_enemy_battler_died_signal()
 	
+#region unused_signals
 func connect_player_animation_finished_signal() -> void:
 	for character in player_characters:
 		character.get_node("AnimationTree").animation_finished.connect(on_player_animation_finished)
@@ -156,12 +157,13 @@ func on_player_animation_finished(animation: StringName) -> void:
 		
 func on_enemy_animation_finished(animation: StringName) -> void:
 	if animation == "attack":
-		advance_turn()
+		pass
 		
 func on_enemy_animation_started(animation: StringName) -> void:
 	if animation == "attack":
 		pass
-		
+#endregion
+
 func connect_player_battler_died_signal() -> void:
 	for character in player_characters:
 		character.battler_died.connect(on_player_battler_died)
@@ -360,6 +362,7 @@ func attack_random_player() -> void:
 			var resonated_ability: Ability = attacking_enemy.stats.abilities.pick_random().instantiate()
 			add_child(resonated_ability)
 			resonated_ability.execute(attacking_enemy, battler)
+		await get_tree().process_frame
 		advance_turn()
 	else:
 		var is_player_hit = attacking_enemy.attack(get_alive_players().pick_random())
@@ -368,7 +371,8 @@ func attack_random_player() -> void:
 	
 		for battler: Battler in get_resonant_battlers():
 			attacking_enemy.attack(battler)
-		
+		await get_tree().process_frame
+		advance_turn()
 #endregion attacking
 
 func end_battle(won: bool) -> void:
