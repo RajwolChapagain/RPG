@@ -72,7 +72,7 @@ func update_ui(delta) -> void:
 func update_active_battler(new_index):
 	if players_turn:
 		if num_attacked != 0: # Mark last attacking player inactive if turn didn't just start
-			player_characters[active_index].mark_inactive()
+			await player_characters[active_index].mark_inactive()
 		
 		if battle_ongoing:
 			player_characters[new_index].mark_active()
@@ -243,7 +243,7 @@ func advance_turn() -> void:
 	
 func end_player_turn() -> void:
 	num_attacked = 0
-	player_characters[active_index].mark_inactive()
+	await player_characters[active_index].mark_inactive()
 	players_turn = false
 	
 	var first_alive_enemy_index = -1

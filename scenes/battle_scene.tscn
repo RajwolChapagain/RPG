@@ -5,19 +5,30 @@
 [ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="2_xwxfl"]
 [ext_resource type="Theme" uid="uid://5dapp0d0f0x5" path="res://resources/ui.tres" id="3_gj8wv"]
 [ext_resource type="PackedScene" uid="uid://cjs2b082b2lbm" path="res://scenes/ui/ability_button.tscn" id="3_svpld"]
+[ext_resource type="Resource" uid="uid://bgg065a045ww" path="res://resources/player_stats/lady_base_stats.tres" id="4_yt3ua"]
 [ext_resource type="Resource" uid="uid://d3kyf2naa3duo" path="res://resources/player_stats/mage_base_stats.tres" id="5_bg0yk"]
 [ext_resource type="Resource" uid="uid://c3bvbxqpkkgu3" path="res://resources/player_stats/knight_base_stats.tres" id="5_tttxe"]
-[ext_resource type="Resource" uid="uid://biubxrgae4cha" path="res://resources/player_stats/cleric_base_stats.tres" id="6_j0cvo"]
 [ext_resource type="Resource" uid="uid://cym67rsdldl6j" path="res://resources/player_stats/archer_base_stats.tres" id="6_yt3ua"]
-[ext_resource type="Resource" uid="uid://c46k2b5fxukoi" path="res://resources/enemy_stats/crunk.tres" id="7_ti0og"]
-[ext_resource type="Resource" uid="uid://504xnrcw2ros" path="res://resources/enemy_stats/catapace.tres" id="8_bg0yk"]
+[ext_resource type="Resource" uid="uid://504xnrcw2ros" path="res://resources/enemy_stats/catapace.tres" id="7_05s0e"]
 [ext_resource type="PackedScene" uid="uid://d3xpo03pr8ajw" path="res://scenes/ui/main_menu.tscn" id="8_tttxe"]
+[ext_resource type="Texture2D" uid="uid://bd25fklcm6g43" path="res://assets/sprites/battle_sprites/crunk.png" id="9_sjku2"]
 [ext_resource type="PackedScene" uid="uid://dcqkqx8i5jvbh" path="res://scenes/ability_points_container.tscn" id="10_0gp0h"]
 [ext_resource type="PackedScene" uid="uid://b2iwifb80auqp" path="res://scenes/target_select.tscn" id="10_ceooa"]
 [ext_resource type="Texture2D" uid="uid://cixd014ueujbf" path="res://assets/sprites/ui/battle/hp_container.png" id="14_05s0e"]
 [ext_resource type="Texture2D" uid="uid://ckhapeyae067y" path="res://assets/sprites/ui/battle/hp_container_cover.png" id="14_j0cvo"]
 [ext_resource type="Texture2D" uid="uid://bnjsnogy2wlnf" path="res://assets/sprites/ui/battle/hp_progress.png" id="15_j0cvo"]
 [ext_resource type="Texture2D" uid="uid://c0k11u6dawxtk" path="res://assets/sprites/by-level/level1/battle_screen_1.webp" id="15_yt3ua"]
+
+[sub_resource type="Resource" id="Resource_05s0e"]
+script = ExtResource("2_xwxfl")
+name = "Crunk"
+battle_sprite = ExtResource("9_sjku2")
+attack_damage = 10
+max_hp = 100
+hp = 100
+crit = 10
+dodge = 10
+accuracy = 10
 
 [sub_resource type="Animation" id="Animation_0gp0h"]
 length = 0.001
@@ -59,8 +70,8 @@ _data = {
 [node name="BattleScene" type="Node" unique_id=444611762]
 script = ExtResource("1_0yksl")
 character_spacing = 60
-player_character_stats = Array[ExtResource("2_xwxfl")]([ExtResource("6_yt3ua"), ExtResource("6_j0cvo"), ExtResource("5_tttxe"), ExtResource("5_bg0yk")])
-enemy_stats = Array[ExtResource("2_xwxfl")]([ExtResource("7_ti0og"), ExtResource("8_bg0yk")])
+player_character_stats = Array[ExtResource("2_xwxfl")]([ExtResource("6_yt3ua"), ExtResource("5_tttxe"), ExtResource("5_bg0yk"), ExtResource("4_yt3ua")])
+enemy_stats = Array[ExtResource("2_xwxfl")]([SubResource("Resource_05s0e"), ExtResource("7_05s0e")])
 ability_button = ExtResource("3_svpld")
 MAIN_MENU_SCENE = ExtResource("8_tttxe")
 

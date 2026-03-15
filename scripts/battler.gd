@@ -146,7 +146,7 @@ func mark_inactive():
 	if not is_player:
 		inactive_slide_direction = Vector2.UP
 	
-	slide(inactive_slide_direction)
+	await slide(inactive_slide_direction)
 	
 func die():
 	if is_alive:
@@ -181,7 +181,7 @@ func set_hit_particle_color() -> void:
 func slide(direction: Vector2) -> void:
 	var slide_distance = 15
 	var tween = get_tree().create_tween()
-	tween.tween_property(self, 'position', position + (direction * slide_distance), 0.1)
+	await tween.tween_property(self, 'position', position + (direction * slide_distance), 0.1).finished
 
 func play_ability_animation() -> void:
 	var animation_duration = 0.5
