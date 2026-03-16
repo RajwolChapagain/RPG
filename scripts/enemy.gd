@@ -5,6 +5,7 @@ class_name Enemy
 @export var dropped_items: Array[Item] # Used by battle_manager before queuing this enemy for death
 @export var random_drop_item_count: int = 1 # Used by battle_manager before queuing this enemy for death
 @export_range(0, 100, 1) var random_dropped_item_rarity_modifier: float = 0 # Used by battle_manager before queuing this enemy for death
+@export var post_defeat_hook: String
 var last_position
 
 @warning_ignore("unused_signal")

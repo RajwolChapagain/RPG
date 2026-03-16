@@ -19,9 +19,13 @@ var camera_shaking := false
 var camera_shake_time_left: float = 0.0
 var battle_ongoing: bool = true
 var battle_won: bool = false
+var enemy_hook: String = ''
 
 @export var win_text: String = "Battle Won! :)"
 @export var lose_text: String = "Battle Lost! :("
+
+@export_category('Hook variables')
+@export var nahas_parts: Array[BaseStats]
 
 signal battle_ended
 
@@ -103,8 +107,16 @@ func on_player_battler_died(player_name: String) -> void:
 func on_enemy_battler_died(_enemy_name: String) -> void:
 	alive_enemy_count -= 1
 	if alive_enemy_count == 0:
-		end_battle(true)
-	
+		if enemy_hook == '':
+			end_battle(true)
+		else:
+			var callable_hook = Callable(self, enemy_hook)
+			if callable_hook.is_valid():
+				callable_hook.call()
+			else:
+				printerr('Error: Hook %s not found in battle_scene' % enemy_hook)
+				end_battle(true)
+				
 func grab_focus_with_attack_button() -> void:
 	%AttackButton.grab_focus()
 	
@@ -485,7 +497,7 @@ func get_alive_players() -> Array[Battler]:
 
 func get_resonant_battlers() -> Array[Battler]:
 	var resonant_battlers: Array[Battler] = []
-	for battler: Battler in (player_characters + enemies):
+	for battler: Battler in (player_characters + enemies):			
 		if not battler.is_alive:
 			continue
 		for effect: StatusEffect in battler.status_effects:
@@ -496,3 +508,15 @@ func get_resonant_battlers() -> Array[Battler]:
 	return resonant_battlers
 	
 #endregion helpers
+
+#region hooks
+
+func on_nahas_death() -> void:
+	enemies[0].queue_free()
+	enemies.clear()
+	enemy_stats = nahas_parts
+	spawn_enemies()
+	alive_enemy_count = len(enemies)
+	enemy_hook = ''
+	
+#endregion

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://s2tantu6yb2y"
-path="res://.godot/imported/nahas_body_1_frame_1.png-37ee2c64640191932f6c2431b4781f24.ctex"
+uid="uid://bulftdwfhn0ou"
+path="res://.godot/imported/nahas_body_1.png-1f6d6152153907298cf4703abc3d0718.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/unimplemented/nahas_body_1_frame_1.png"
-dest_files=["res://.godot/imported/nahas_body_1_frame_1.png-37ee2c64640191932f6c2431b4781f24.ctex"]
+source_file="res://assets/sprites/battle_sprites/nahas_body_1.png"
+dest_files=["res://.godot/imported/nahas_body_1.png-1f6d6152153907298cf4703abc3d0718.ctex"]
 
 [params]
 

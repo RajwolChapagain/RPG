@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvlnuionojigy"
-path="res://.godot/imported/nahas_head_2.webp-796274810504d6e362d4549a217d1384.ctex"
+uid="uid://c36rve8d1fi4a"
+path="res://.godot/imported/nahas_head.webp-2392b6c30e1518006c9c238a58a05a8d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/unimplemented/nahas_head_2.webp"
-dest_files=["res://.godot/imported/nahas_head_2.webp-796274810504d6e362d4549a217d1384.ctex"]
+source_file="res://assets/sprites/battle_sprites/nahas_head.webp"
+dest_files=["res://.godot/imported/nahas_head.webp-2392b6c30e1518006c9c238a58a05a8d.ctex"]
 
 [params]
 

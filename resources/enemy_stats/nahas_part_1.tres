@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="BaseStats" format=3 uid="uid://jxfj62ux5d5o"]
+
+[ext_resource type="Texture2D" uid="uid://c36rve8d1fi4a" path="res://assets/sprites/battle_sprites/nahas_head.webp" id="1_08s8p"]
+[ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="1_43t3c"]
+[ext_resource type="PackedScene" uid="uid://giecrxnhvjnp" path="res://scenes/abilities/poison.tscn" id="1_ym8ul"]
+
+[resource]
+script = ExtResource("1_43t3c")
+name = "Nahas Head"
+battle_sprite = ExtResource("1_08s8p")
+attack_damage = 10
+max_hp = 50
+hp = 50
+defence = 5
+crit = 10
+dodge = 5
+accuracy = 10
+abilities = Array[PackedScene]([ExtResource("1_ym8ul")])
+metadata/_custom_type_script = "uid://dbtdwrocpsv30"
