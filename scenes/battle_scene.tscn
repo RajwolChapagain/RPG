@@ -14,8 +14,10 @@
 [ext_resource type="Texture2D" uid="uid://bd25fklcm6g43" path="res://assets/sprites/battle_sprites/crunk.png" id="9_sjku2"]
 [ext_resource type="PackedScene" uid="uid://dcqkqx8i5jvbh" path="res://scenes/ability_points_container.tscn" id="10_0gp0h"]
 [ext_resource type="PackedScene" uid="uid://b2iwifb80auqp" path="res://scenes/target_select.tscn" id="10_ceooa"]
-[ext_resource type="Resource" uid="uid://jxfj62ux5d5o" path="res://resources/enemy_stats/nahas_part_1.tres" id="11_7mjbx"]
-[ext_resource type="Resource" uid="uid://bt7dvjwgvewl5" path="res://resources/enemy_stats/nahas_part_2.tres" id="12_jrwob"]
+[ext_resource type="Resource" uid="uid://jxfj62ux5d5o" path="res://resources/enemy_stats/nahas_head.tres" id="11_7mjbx"]
+[ext_resource type="Resource" uid="uid://bt7dvjwgvewl5" path="res://resources/enemy_stats/nahas_body_1.tres" id="12_jrwob"]
+[ext_resource type="Resource" uid="uid://chfyv6kynfa0w" path="res://resources/enemy_stats/nahas_body_2.tres" id="13_porms"]
+[ext_resource type="Resource" uid="uid://b8jh5xkylgyds" path="res://resources/enemy_stats/nahas_body_3.tres" id="14_0hs4o"]
 [ext_resource type="Texture2D" uid="uid://cixd014ueujbf" path="res://assets/sprites/ui/battle/hp_container.png" id="14_05s0e"]
 [ext_resource type="Texture2D" uid="uid://ckhapeyae067y" path="res://assets/sprites/ui/battle/hp_container_cover.png" id="14_j0cvo"]
 [ext_resource type="Texture2D" uid="uid://bnjsnogy2wlnf" path="res://assets/sprites/ui/battle/hp_progress.png" id="15_j0cvo"]
@@ -76,7 +78,7 @@ player_character_stats = Array[ExtResource("2_xwxfl")]([ExtResource("6_yt3ua"), 
 enemy_stats = Array[ExtResource("2_xwxfl")]([SubResource("Resource_05s0e"), ExtResource("7_05s0e")])
 ability_button = ExtResource("3_svpld")
 MAIN_MENU_SCENE = ExtResource("8_tttxe")
-nahas_parts = Array[ExtResource("2_xwxfl")]([ExtResource("11_7mjbx"), ExtResource("12_jrwob")])
+nahas_parts = Array[ExtResource("2_xwxfl")]([ExtResource("11_7mjbx"), ExtResource("12_jrwob"), ExtResource("13_porms"), ExtResource("14_0hs4o")])
 
 [node name="DualGrid" parent="." unique_id=2087056435 instance=ExtResource("1_6lmhm")]
 

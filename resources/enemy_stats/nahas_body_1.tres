@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="BaseStats" format=3 uid="uid://bt7dvjwgvewl5"]
+
+[ext_resource type="PackedScene" uid="uid://giecrxnhvjnp" path="res://scenes/abilities/poison.tscn" id="1_8vng4"]
+[ext_resource type="Texture2D" uid="uid://bulftdwfhn0ou" path="res://assets/sprites/battle_sprites/nahas_body_1.png" id="2_li1q8"]
+[ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="3_hquk5"]
+
+[resource]
+script = ExtResource("3_hquk5")
+name = "Nahas Body Part"
+battle_sprite = ExtResource("2_li1q8")
+attack_damage = 15
+max_hp = 100
+hp = 100
+defence = 5
+crit = 10
+dodge = 5
+accuracy = 10
+abilities = Array[PackedScene]([ExtResource("1_8vng4")])
+metadata/_custom_type_script = "uid://dbtdwrocpsv30"
