@@ -515,6 +515,7 @@ func on_nahas_death() -> void:
 	enemies[0].queue_free()
 	enemies.clear()
 	enemy_stats = nahas_parts
+	character_spacing = 50
 	spawn_enemies()
 	alive_enemy_count = len(enemies)
 	enemy_hook = ''
