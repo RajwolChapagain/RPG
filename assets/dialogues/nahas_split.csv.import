@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://c6dyk68mmj2id"
+
+[deps]
+
+files=["res://assets/dialogues/nahas_split.We did it! Oh, no—.translation"]
+
+source_file="res://assets/dialogues/nahas_split.csv"
+dest_files=["res://assets/dialogues/nahas_split.We did it! Oh, no—.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

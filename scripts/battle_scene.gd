@@ -26,6 +26,7 @@ var enemy_hook: String = ''
 
 @export_category('Hook variables')
 @export var nahas_parts: Array[BaseStats]
+@export_file('*.csv') var nahas_split_dialogue_file: String
 
 signal battle_ended
 
@@ -519,5 +520,6 @@ func on_nahas_death() -> void:
 	spawn_enemies()
 	alive_enemy_count = len(enemies)
 	enemy_hook = ''
+	DialogueManager.load_dialogue(nahas_split_dialogue_file)
 	
 #endregion

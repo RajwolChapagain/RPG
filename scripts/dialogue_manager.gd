@@ -180,5 +180,14 @@ func set_next_interaction_line(line_number: String) -> void:
 
 func drop_item(item_name: String) -> void:
 	ItemDropManager.drop_item_by_name(item_name)
-	
+
+func get_random_alive_hero(excluded_player_names: Array[String] = []) -> String:
+	for player: Player in GameManager.get_alive_players():
+		if player.stats.name not in excluded_player_names:
+			return player.stats.name
+			
+	printerr('No alive character exists that is not in the list of excluded characters: %s\n \
+			  Returning a random alive character name instead.' % excluded_player_names)
+	return get_random_alive_hero()
+			
 #endregion
