@@ -212,35 +212,41 @@ func update_active_battler(new_index):
 			await player_characters[new_index].mark_active()
 		
 	active_index = new_index
-	
+		
 func advance_turn() -> void:
-	# Tick effects down for all battlers
+	handle_status_effects()
+	if players_turn:
+		advance_player_turn()
+	else:
+		advance_enemy_turn()
+		
+func advance_player_turn() -> void:
+	var next_player_index = get_next_alive_index((active_index + 1) % len(player_characters), player_characters)
+	if player_characters[next_player_index].get_instance_id() in attackers_this_turn:
+		end_player_turn()
+		return
+		
+	update_active_battler(next_player_index)
+	enable_attack_button()
+
+func advance_enemy_turn() -> void:
+	var next_alive_enemy_index = get_next_alive_index((active_index + 1) % len(enemies), enemies)
+	if enemies[next_alive_enemy_index].get_instance_id() in attackers_this_turn:
+		end_enemy_turn()
+		return
+		
+	update_active_battler(next_alive_enemy_index)
+	attack_random_player()
+
+func handle_status_effects() -> void:
+	# Tick effects down for all battlers and apply poison damage
 	for battler: Battler in (player_characters + enemies):
 		for effect: StatusEffect in battler.status_effects:
 			if effect.effect_name == 'Poisoned':
 				battler.take_raw_damage(4)
 				
 		battler.TICK_EFFECTS_DOWN()
-	
-	if players_turn:
-		var next_player_index = get_next_alive_index((active_index + 1) % len(player_characters), player_characters)
-		if player_characters[next_player_index].get_instance_id() in attackers_this_turn:
-			end_player_turn()
-			return
 			
-		update_active_battler(next_player_index)
-		enable_attack_button()
-	else:
-		var next_alive_enemy_index = get_next_alive_index((active_index + 1) % len(enemies), enemies)
-		if enemies[next_alive_enemy_index].get_instance_id() in attackers_this_turn:
-			end_enemy_turn()
-			return
-			
-		update_active_battler(next_alive_enemy_index)
-		call_deferred('attack_random_player') # Call deferred so that if more code is added to advance_turn after
-											  # this else statement in the future, advance_turn finishes
-											  # execution before attack_random_player is called
-	
 func end_player_turn() -> void:
 	attackers_this_turn.clear()
 	await player_characters[active_index].mark_inactive()
