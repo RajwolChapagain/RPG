@@ -223,12 +223,7 @@ func advance_turn() -> void:
 		battler.TICK_EFFECTS_DOWN()
 	
 	if players_turn:
-		var next_player_index = active_index
-		for i in range(len(player_characters)):
-			next_player_index = (next_player_index + 1) % len(player_characters)
-			if player_characters[next_player_index].is_alive:
-				break
-		
+		var next_player_index = get_next_alive_index((active_index + 1) % len(player_characters), player_characters)
 		if player_characters[next_player_index].get_instance_id() in attackers_this_turn:
 			end_player_turn()
 			return
@@ -236,12 +231,7 @@ func advance_turn() -> void:
 		update_active_battler(next_player_index)
 		enable_attack_button()
 	else:
-		var next_alive_enemy_index = active_index
-		for i in range(len(enemies)):
-			next_alive_enemy_index = (next_alive_enemy_index + 1) % len(enemies)
-			if enemies[next_alive_enemy_index].is_alive:
-				break
-		
+		var next_alive_enemy_index = get_next_alive_index((active_index + 1) % len(enemies), enemies)
 		if enemies[next_alive_enemy_index].get_instance_id() in attackers_this_turn:
 			end_enemy_turn()
 			return
@@ -256,26 +246,14 @@ func end_player_turn() -> void:
 	await player_characters[active_index].mark_inactive()
 	players_turn = false
 	
-	var first_alive_enemy_index = -1
-	for enemy in enemies:
-		if enemy.is_alive:
-			first_alive_enemy_index += 1
-			break
-		first_alive_enemy_index += 1
-		
-	assert(first_alive_enemy_index != -1)
-	
-	update_active_battler(first_alive_enemy_index)
+	update_active_battler(get_next_alive_index(0, enemies))
 	disable_attack_button()
 	attack_random_player()
 
 func end_enemy_turn() -> void:
 	attackers_this_turn.clear()
 	players_turn = true
-	for i in range(len(player_characters)):
-		if player_characters[first_attacker_index].is_alive:
-			break
-		first_attacker_index = (first_attacker_index + 1) % len(player_characters)
+	first_attacker_index = get_next_alive_index(first_attacker_index, player_characters)
 	update_active_battler(first_attacker_index)
 	enable_attack_button()
 	
@@ -509,6 +487,16 @@ func get_resonant_battlers() -> Array[Battler]:
 				break # No need to check further effects for this battler
 	
 	return resonant_battlers
+	
+func get_next_alive_index(start_index: int, battler_array: Array[Battler]) -> int:
+	for i in range(len(battler_array)):
+		if battler_array[start_index].is_alive:
+			return start_index
+		
+		start_index += 1
+		start_index %= len(battler_array)
+		
+	return -1
 	
 #endregion helpers
 
