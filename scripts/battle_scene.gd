@@ -9,12 +9,12 @@ var battler_player = preload("res://scenes/battler_player.tscn")
 var battler_enemy = preload("res://scenes/battler_enemy.tscn")
 var player_characters: Array[Battler] = []
 var enemies: Array[Battler] = []
+var attackers_this_turn: Array[int] = []
 var active_index = 0
 var first_attacker_index = 0
 var players_turn = true
 var alive_player_count: int
 var alive_enemy_count: int
-var num_attacked: int = 0
 var camera_shaking := false
 var camera_shake_time_left: float = 0.0
 var battle_ongoing: bool = true
@@ -72,17 +72,6 @@ func update_ui(delta) -> void:
 	for i in range(len(player_characters)):
 		var string = str(int(health_fields[i].value)) + "/" + str(player_characters[i].stats.max_hp)
 		hp_labels[i].text = string
-		
-# Precondition: new_index points to an alive battler
-func update_active_battler(new_index):
-	if players_turn:
-		if num_attacked != 0: # Mark last attacking player inactive if turn didn't just start
-			await player_characters[active_index].mark_inactive()
-		
-		if battle_ongoing:
-			player_characters[new_index].mark_active()
-		
-	active_index = new_index
 	
 func on_player_battler_died(player_name: String) -> void:
 	alive_player_count -= 1
@@ -213,6 +202,17 @@ func initialize_hp_bar() -> void:
 #endregion initialization
 
 #region turntaking
+# Precondition: new_index points to an alive battler
+func update_active_battler(new_index):
+	if players_turn:
+		if len(attackers_this_turn) != 0:# Mark last attacking player inactive if turn didn't just start
+			await player_characters[active_index].mark_inactive()
+		
+		if battle_ongoing:
+			await player_characters[new_index].mark_active()
+		
+	active_index = new_index
+	
 func advance_turn() -> void:
 	# Tick effects down for all battlers
 	for battler: Battler in (player_characters + enemies):
@@ -221,41 +221,38 @@ func advance_turn() -> void:
 				battler.take_raw_damage(4)
 				
 		battler.TICK_EFFECTS_DOWN()
-		
-	num_attacked += 1
+	
 	if players_turn:
-		if num_attacked >= alive_player_count:
-			end_player_turn()
-			return
-		
 		var next_player_index = active_index
 		for i in range(len(player_characters)):
 			next_player_index = (next_player_index + 1) % len(player_characters)
-			if player_characters[next_player_index].stats.hp != 0:
+			if player_characters[next_player_index].is_alive:
 				break
+		
+		if player_characters[next_player_index].get_instance_id() in attackers_this_turn:
+			end_player_turn()
+			return
 			
 		update_active_battler(next_player_index)
 		enable_attack_button()
 	else:
-		if num_attacked >= alive_enemy_count: # Greater than is used because alive_enemy_count can
-											  # be greater than num_attacked after the last enemy
-											  # attacks since resonance can kill fellow enemies
-			end_enemy_turn()
-			return
-		
-		var next_alive_enemy_index = active_index + 1
-		for i in range(next_alive_enemy_index, len(enemies)):
+		var next_alive_enemy_index = active_index
+		for i in range(len(enemies)):
+			next_alive_enemy_index = (next_alive_enemy_index + 1) % len(enemies)
 			if enemies[next_alive_enemy_index].is_alive:
 				break
-			next_alive_enemy_index += 1
 		
+		if enemies[next_alive_enemy_index].get_instance_id() in attackers_this_turn:
+			end_enemy_turn()
+			return
+			
 		update_active_battler(next_alive_enemy_index)
 		call_deferred('attack_random_player') # Call deferred so that if more code is added to advance_turn after
 											  # this else statement in the future, advance_turn finishes
 											  # execution before attack_random_player is called
 	
 func end_player_turn() -> void:
-	num_attacked = 0
+	attackers_this_turn.clear()
 	await player_characters[active_index].mark_inactive()
 	players_turn = false
 	
@@ -273,11 +270,10 @@ func end_player_turn() -> void:
 	attack_random_player()
 
 func end_enemy_turn() -> void:
-	num_attacked = 0
-
+	attackers_this_turn.clear()
 	players_turn = true
 	for i in range(len(player_characters)):
-		if player_characters[first_attacker_index].stats.hp != 0:
+		if player_characters[first_attacker_index].is_alive:
 			break
 		first_attacker_index = (first_attacker_index + 1) % len(player_characters)
 	update_active_battler(first_attacker_index)
@@ -307,6 +303,8 @@ func attack_enemy(enemy) -> void:
 		
 	for battler: Battler in get_resonant_battlers():
 		player_characters[active_index].attack(battler)
+	
+	attackers_this_turn.append(player_characters[active_index].get_instance_id())
 	
 	await get_tree().process_frame
 	advance_turn()
@@ -348,6 +346,7 @@ func on_ability_finished_execution(ability: Ability, resonant_battlers: Array[Ba
 		copied_ability.execute(player_characters[active_index], battler)
 		await copied_ability.ability_finished_execution
 		
+	attackers_this_turn.append(player_characters[active_index].get_instance_id())
 	advance_turn()
 	enable_abilities_button()
 	enable_attack_button()
@@ -375,6 +374,8 @@ func attack_random_player() -> void:
 			var resonated_ability: Ability = attacking_enemy.stats.abilities.pick_random().instantiate()
 			add_child(resonated_ability)
 			resonated_ability.execute(attacking_enemy, battler)
+		
+		attackers_this_turn.append(attacking_enemy.get_instance_id())
 		await get_tree().process_frame
 		advance_turn()
 	else:
@@ -384,6 +385,7 @@ func attack_random_player() -> void:
 	
 		for battler: Battler in get_resonant_battlers():
 			attacking_enemy.attack(battler)
+		attackers_this_turn.append(attacking_enemy.get_instance_id())
 		await get_tree().process_frame
 		advance_turn()
 #endregion attacking
