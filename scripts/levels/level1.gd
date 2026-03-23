@@ -1,10 +1,12 @@
 extends Level
 
 @export var character_name_to_base_stats: Dictionary[String, BaseStats]
+@export_file_path('*.csv') var first_death_dialogue: String
+@export_file_path('*.csv') var nahas_awakening_dialogue: String
 
 func _ready() -> void:
 	MusicManager.play_music('level1')
-	DialogueManager.load_dialogue('res://assets/dialogues/first_death_dialogue.csv')
+	DialogueManager.load_dialogue(first_death_dialogue)
 	await DialogueManager.dialogue_finished
 	drop_unselected_player_essence()
 	GameManager.enable_party_camera_smoothing()
@@ -21,4 +23,4 @@ func _on_boss_enemy_enemy_defeated() -> void:
 func _on_nahas_awakening_trigger_area_entered(_area: Area2D) -> void:
 	%NahasEnemy.PLAY_ANIMATION('awaken')
 	%NahasAwakeningTrigger.set_deferred('monitoring', false)
-	DialogueManager.load_dialogue('res://assets/dialogues/level1_nahas_awakening.csv')
+	DialogueManager.load_dialogue(nahas_awakening_dialogue)
