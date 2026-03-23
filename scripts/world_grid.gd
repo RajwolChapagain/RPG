@@ -3,6 +3,7 @@ extends TileMapLayer
 
 @export var grass_placeholder_atlas_coord: Vector2i
 @export var dirt_placeholder_atlas_coord: Vector2i
+@export var display_tileset_source_id: int = 0
 
 const NEIGHBORS = [Vector2i(0, 0), Vector2i(1, 0), Vector2i(0, 1), Vector2i(1, 1)]
 const NEIGHBORS_TO_ATLAS_COORD = {
@@ -43,7 +44,7 @@ func set_tile(coords: Vector2i, atlas_coords: Vector2i) -> void:
 func set_display_tile(pos: Vector2i) -> void:
 	for neighbor in NEIGHBORS:
 		var new_pos = pos + neighbor
-		%DisplayGrid.set_cell(new_pos, 2, calculate_display_tile(new_pos))
+		%DisplayGrid.set_cell(new_pos, display_tileset_source_id, calculate_display_tile(new_pos))
 	
 func remove_deleted_display_tiles() -> void:
 	var used_world_cells = get_used_cells()
