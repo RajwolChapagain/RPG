@@ -22,7 +22,7 @@ func start_battle(party: Party, enemy: Enemy) -> void:
 	active_battle_scene.initialize_battle(party.get_all_player_stats(), enemies, party.get_active_member_index())
 	active_battle_scene.battle_ended.connect(on_battle_ended)
 	active_battle_scene.enemy_hook = enemy.post_defeat_hook
-	get_tree().root.add_child(active_battle_scene)
+	%CanvasLayer.add_child(active_battle_scene)
 	freeze_party()
 	freeze_enemy()
 	

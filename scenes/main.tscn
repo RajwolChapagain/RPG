@@ -27,6 +27,7 @@ character_name_to_scene = Dictionary[String, PackedScene]({
 })
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=285822137]
+layer = 4
 
 [node name="PauseMenu" parent="CanvasLayer" unique_id=30146638 instance=ExtResource("8_tipki")]
 unique_name_in_owner = true
