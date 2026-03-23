@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://c280afbxd1cl3"]
 
 [ext_resource type="Script" uid="uid://cki3ldg155cvm" path="res://scripts/abilities/arrow_storm.gd" id="1_51rgh"]
-[ext_resource type="Texture2D" uid="uid://devyuuaysel55" path="res://assets/sprites/abilities/arrow_storm.png" id="2_ksgxq"]
-[ext_resource type="Texture2D" uid="uid://f6yf4kce6hnx" path="res://assets/sprites/abilities/single_arrow.png" id="3_ksgxq"]
-[ext_resource type="Texture2D" uid="uid://mlus3bllv28y" path="res://assets/sprites/abilities/dirt_particle.png" id="4_idkmq"]
+[ext_resource type="Texture2D" uid="uid://devyuuaysel55" path="res://assets/sprites/effects/abilities/arrow_storm/arrow_storm_impact.png" id="2_ksgxq"]
+[ext_resource type="Texture2D" uid="uid://f6yf4kce6hnx" path="res://assets/sprites/effects/abilities/arrow_storm/single_arrow.png" id="3_ksgxq"]
+[ext_resource type="Texture2D" uid="uid://mlus3bllv28y" path="res://assets/sprites/effects/abilities/arrow_storm/dirt_particle.png" id="4_idkmq"]
 
 [sub_resource type="Curve" id="Curve_51rgh"]
 _limits = [0.0, 1.0, -120.0, 120.0]

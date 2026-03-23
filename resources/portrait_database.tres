@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="PortraitDatabase" format=3 uid="uid://bxqs6rgfxmviq"]
 
 [ext_resource type="Script" uid="uid://be6kcyoah1tit" path="res://scripts/resource_scripts/portrait_database.gd" id="1_3prys"]
-[ext_resource type="Texture2D" uid="uid://c3yio6yjcrv44" path="res://assets/sprites/ui/archer_portrait.png" id="2_0nsdn"]
-[ext_resource type="Texture2D" uid="uid://dg4kpgvnw0v7l" path="res://assets/sprites/ui/mage_portrait.png" id="3_01laf"]
-[ext_resource type="Texture2D" uid="uid://ba7esbnj4so52" path="res://assets/sprites/player_portraits/magda_portrait.webp" id="5_0nsdn"]
-[ext_resource type="Texture2D" uid="uid://bg2fwew48se0h" path="res://assets/sprites/ui/josephine_portrait.PNG" id="5_8h2he"]
-[ext_resource type="Texture2D" uid="uid://c23ke6i2fm508" path="res://assets/sprites/player_portraits/knight_portrait.webp" id="6_0nsdn"]
-[ext_resource type="Texture2D" uid="uid://c50m2e4d2sm0x" path="res://assets/sprites/by-level/level1/npc.png" id="7_0nsdn"]
+[ext_resource type="Texture2D" uid="uid://c3yio6yjcrv44" path="res://assets/sprites/characters/portraits/einar_base_portrait.png" id="2_0nsdn"]
+[ext_resource type="Texture2D" uid="uid://dg4kpgvnw0v7l" path="res://assets/sprites/characters/portraits/lachlan_base_portrait.png" id="3_01laf"]
+[ext_resource type="Texture2D" uid="uid://ba7esbnj4so52" path="res://assets/sprites/characters/portraits/magda_base_portrait.webp" id="5_0nsdn"]
+[ext_resource type="Texture2D" uid="uid://bg2fwew48se0h" path="res://assets/sprites/characters/portraits/josephine_base_portrait.png" id="5_8h2he"]
+[ext_resource type="Texture2D" uid="uid://c23ke6i2fm508" path="res://assets/sprites/characters/portraits/rachelle_base_portrait.webp" id="6_0nsdn"]
+[ext_resource type="Texture2D" uid="uid://c50m2e4d2sm0x" path="res://assets/sprites/characters/overworld/npcs/generic_npc.png" id="7_0nsdn"]
 
 [resource]
 script = ExtResource("1_3prys")

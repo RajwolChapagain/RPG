@@ -1,9 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cjs2b082b2lbm"]
+[gd_scene format=3 uid="uid://cjs2b082b2lbm"]
 
 [ext_resource type="Theme" uid="uid://5dapp0d0f0x5" path="res://resources/ui.tres" id="1_771wn"]
 [ext_resource type="Script" uid="uid://dy7wyyram4smn" path="res://scripts/ui/ability_button.gd" id="1_r138x"]
-[ext_resource type="Texture2D" uid="uid://cww4fl0ixyv3y" path="res://assets/sprites/ui/ability_point_indicator_empty.png" id="3_05lso"]
-[ext_resource type="Texture2D" uid="uid://7jllhui2idxy" path="res://assets/sprites/ui/ability_point_indicator_full.png" id="4_05lso"]
+[ext_resource type="Texture2D" uid="uid://cww4fl0ixyv3y" path="res://assets/sprites/ui/battle/ability_point_indicator_empty.png" id="3_05lso"]
+[ext_resource type="Texture2D" uid="uid://7jllhui2idxy" path="res://assets/sprites/ui/battle/ability_point_indicator_full.png" id="4_05lso"]
 
 [node name="AbilityButton" type="Button"]
 custom_minimum_size = Vector2(0, 15)

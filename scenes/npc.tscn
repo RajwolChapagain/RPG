@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cglapshtkljpc"]
 
 [ext_resource type="Script" uid="uid://ctvsvglqf7kaw" path="res://scripts/npc.gd" id="1_5l8ac"]
-[ext_resource type="Texture2D" uid="uid://c50m2e4d2sm0x" path="res://assets/sprites/by-level/level1/npc.png" id="2_abqhh"]
+[ext_resource type="Texture2D" uid="uid://c50m2e4d2sm0x" path="res://assets/sprites/characters/overworld/npcs/generic_npc.png" id="2_abqhh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2visn"]
 size = Vector2(32, 32)

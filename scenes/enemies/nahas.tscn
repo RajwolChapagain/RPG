@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dovbpucxfycy7"]
 
 [ext_resource type="PackedScene" uid="uid://ccy0aydyv2sxd" path="res://scenes/enemies/base_crunk_enemy.tscn" id="1_4gplk"]
-[ext_resource type="Texture2D" uid="uid://c1xglk4su7dn4" path="res://assets/sprites/by-level/level1/monster_spritesheets/nahas_awakening_spritesheet.webp" id="2_bpqg7"]
+[ext_resource type="Texture2D" uid="uid://c1xglk4su7dn4" path="res://assets/sprites/characters/overworld/enemies/level_1/nahas_awakening_spritesheet.webp" id="2_bpqg7"]
 [ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="2_ub7ac"]
 [ext_resource type="Resource" uid="uid://dnkesy0umn1g6" path="res://resources/enemy_stats/nahas.tres" id="3_lydng"]
 

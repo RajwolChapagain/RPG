@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cf70uoby2saxw"]
+[gd_scene format=3 uid="uid://cf70uoby2saxw"]
 
-[ext_resource type="Texture2D" uid="uid://cww4fl0ixyv3y" path="res://assets/sprites/ui/ability_point_indicator_empty.png" id="1_tf3ir"]
-[ext_resource type="Texture2D" uid="uid://7jllhui2idxy" path="res://assets/sprites/ui/ability_point_indicator_full.png" id="3_yicfd"]
+[ext_resource type="Texture2D" uid="uid://cww4fl0ixyv3y" path="res://assets/sprites/ui/battle/ability_point_indicator_empty.png" id="1_tf3ir"]
+[ext_resource type="Texture2D" uid="uid://7jllhui2idxy" path="res://assets/sprites/ui/battle/ability_point_indicator_full.png" id="3_yicfd"]
 
 [sub_resource type="Animation" id="Animation_jcdeb"]
 length = 0.001

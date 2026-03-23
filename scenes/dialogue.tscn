@@ -1,11 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5h7ovaw0yjei"]
+[gd_scene format=3 uid="uid://b5h7ovaw0yjei"]
 
 [ext_resource type="Theme" uid="uid://5dapp0d0f0x5" path="res://resources/ui.tres" id="1_xsx77"]
 [ext_resource type="Script" uid="uid://cs13nd58c8eu1" path="res://scripts/dialogue.gd" id="1_y8f2w"]
-[ext_resource type="Texture2D" uid="uid://en0teytc2egu" path="res://assets/sprites/ui/knight_portrait.png" id="4_led2e"]
-[ext_resource type="Texture2D" uid="uid://dg4kpgvnw0v7l" path="res://assets/sprites/ui/mage_portrait.png" id="5_vogiq"]
+[ext_resource type="Texture2D" uid="uid://c23ke6i2fm508" path="res://assets/sprites/characters/portraits/rachelle_base_portrait.webp" id="3_fyky8"]
+[ext_resource type="Texture2D" uid="uid://dg4kpgvnw0v7l" path="res://assets/sprites/characters/portraits/lachlan_base_portrait.png" id="5_vogiq"]
 
-[node name="Dialogue" type="Control"]
+[node name="Dialogue" type="Control" unique_id=766588294]
 z_index = 1
 layout_mode = 3
 anchors_preset = 15
@@ -16,7 +16,7 @@ grow_vertical = 2
 theme = ExtResource("1_xsx77")
 script = ExtResource("1_y8f2w")
 
-[node name="TranslucentPanel" type="Panel" parent="."]
+[node name="TranslucentPanel" type="Panel" parent="." unique_id=1919914869]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,7 +25,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_type_variation = &"TranslucentPanel"
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=308404700]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -37,20 +37,20 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1442125197]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Portraits" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="Portraits" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=574198207]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 100
 
-[node name="PortraitContainer1" type="Control" parent="MarginContainer/VBoxContainer/Portraits"]
+[node name="PortraitContainer1" type="Control" parent="MarginContainer/VBoxContainer/Portraits" unique_id=1079395687]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Portrait1" type="TextureRect" parent="MarginContainer/VBoxContainer/Portraits/PortraitContainer1"]
+[node name="Portrait1" type="TextureRect" parent="MarginContainer/VBoxContainer/Portraits/PortraitContainer1" unique_id=1172930337]
 unique_name_in_owner = true
 visible = false
 layout_mode = 0
@@ -58,15 +58,15 @@ offset_right = 95.0
 offset_bottom = 95.0
 size_flags_horizontal = 0
 size_flags_vertical = 3
-texture = ExtResource("4_led2e")
+texture = ExtResource("3_fyky8")
 expand_mode = 2
 stretch_mode = 5
 
-[node name="PortraitContainer2" type="Control" parent="MarginContainer/VBoxContainer/Portraits"]
+[node name="PortraitContainer2" type="Control" parent="MarginContainer/VBoxContainer/Portraits" unique_id=251298369]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Portrait2" type="TextureRect" parent="MarginContainer/VBoxContainer/Portraits/PortraitContainer2"]
+[node name="Portrait2" type="TextureRect" parent="MarginContainer/VBoxContainer/Portraits/PortraitContainer2" unique_id=1428471175]
 unique_name_in_owner = true
 visible = false
 modulate = Color(0.5, 0.5, 0.5, 1)
@@ -80,12 +80,12 @@ expand_mode = 2
 stretch_mode = 5
 flip_h = true
 
-[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer"]
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer" unique_id=43370560]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 theme_type_variation = &"BorderedPanel"
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Panel" unique_id=799294158]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -97,14 +97,14 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="DialogueLabel" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer"]
+[node name="DialogueLabel" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer" unique_id=876956840]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 1
 theme = ExtResource("1_xsx77")
 autowrap_mode = 3
 
-[node name="Tabs" type="Control" parent="."]
+[node name="Tabs" type="Control" parent="." unique_id=38025544]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -117,7 +117,7 @@ offset_bottom = 26.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="LeftTab" type="Panel" parent="Tabs"]
+[node name="LeftTab" type="Panel" parent="Tabs" unique_id=904428730]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -130,7 +130,7 @@ offset_bottom = 8.0
 grow_vertical = 2
 theme_type_variation = &"BorderedPanel"
 
-[node name="MarginContainer" type="MarginContainer" parent="Tabs/LeftTab"]
+[node name="MarginContainer" type="MarginContainer" parent="Tabs/LeftTab" unique_id=1768367039]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -139,7 +139,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 2
 
-[node name="LeftNameLabel" type="Label" parent="Tabs/LeftTab/MarginContainer"]
+[node name="LeftNameLabel" type="Label" parent="Tabs/LeftTab/MarginContainer" unique_id=2096543303]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 1
@@ -147,7 +147,7 @@ theme_override_font_sizes/font_size = 8
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RightTab" type="Panel" parent="Tabs"]
+[node name="RightTab" type="Panel" parent="Tabs" unique_id=1684875451]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -163,7 +163,7 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_type_variation = &"BorderedPanel"
 
-[node name="MarginContainer" type="MarginContainer" parent="Tabs/RightTab"]
+[node name="MarginContainer" type="MarginContainer" parent="Tabs/RightTab" unique_id=367166613]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -172,7 +172,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_right = 2
 
-[node name="RightNameLabel" type="Label" parent="Tabs/RightTab/MarginContainer"]
+[node name="RightNameLabel" type="Label" parent="Tabs/RightTab/MarginContainer" unique_id=530084001]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 1

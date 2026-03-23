@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="BaseStats" format=3 uid="uid://d3kyf2naa3duo"]
 
-[ext_resource type="Texture2D" uid="uid://b0pokaytcoerh" path="res://assets/sprites/lachlan_spritesheet.png" id="1_5si2c"]
+[ext_resource type="Texture2D" uid="uid://b0pokaytcoerh" path="res://assets/sprites/characters/overworld/players/lachlan_movement_spritesheet.png" id="1_5si2c"]
 [ext_resource type="PackedScene" uid="uid://7oyb46fq8cjd" path="res://scenes/abilities/echo.tscn" id="1_u61pl"]
-[ext_resource type="Texture2D" uid="uid://b8sqs01mv5qci" path="res://assets/sprites/battle_sprites/player_attack_spritesheet.webp" id="2_ksumn"]
+[ext_resource type="Texture2D" uid="uid://b8sqs01mv5qci" path="res://assets/sprites/characters/battle/players/attack_ability_combined_tileset.webp" id="2_ksumn"]
 [ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="2_u61pl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ksumn"]

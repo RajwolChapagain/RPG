@@ -1,20 +1,20 @@
 [gd_resource type="Resource" script_class="BaseStats" format=3 uid="uid://cym67rsdldl6j"]
 
 [ext_resource type="PackedScene" uid="uid://c280afbxd1cl3" path="res://scenes/abilities/arrow_storm.tscn" id="1_fex2c"]
-[ext_resource type="Texture2D" uid="uid://bkbfad4cbiqgk" path="res://assets/sprites/einar_spritesheet.png" id="2_8qnyt"]
-[ext_resource type="Texture2D" uid="uid://b8sqs01mv5qci" path="res://assets/sprites/battle_sprites/player_attack_spritesheet.webp" id="2_dmijv"]
+[ext_resource type="Texture2D" uid="uid://b8sqs01mv5qci" path="res://assets/sprites/characters/battle/players/attack_ability_combined_tileset.webp" id="2_8qnyt"]
+[ext_resource type="Texture2D" uid="uid://bkbfad4cbiqgk" path="res://assets/sprites/characters/overworld/players/einar_movement_spritesheet.png" id="3_b1cyu"]
 [ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="3_dmijv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8qnyt"]
-atlas = ExtResource("2_dmijv")
+atlas = ExtResource("2_8qnyt")
 region = Rect2(32, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b1cyu"]
-atlas = ExtResource("2_dmijv")
+atlas = ExtResource("2_8qnyt")
 region = Rect2(0, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lqhja"]
-atlas = ExtResource("2_8qnyt")
+atlas = ExtResource("3_b1cyu")
 region = Rect2(0, 96, 32, 32)
 
 [resource]

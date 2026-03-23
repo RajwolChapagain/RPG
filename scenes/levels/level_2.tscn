@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cvl50yo1l2mfb" path="res://scripts/levels/level2.gd" id="1_l37oo"]
 [ext_resource type="PackedScene" uid="uid://ccy0aydyv2sxd" path="res://scenes/enemies/base_crunk_enemy.tscn" id="2_g2h2n"]
 [ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="3_fiq81"]
-[ext_resource type="Texture2D" uid="uid://k5kjlbmagipr" path="res://assets/sprites/world/level_2.webp" id="4_8qukl"]
+[ext_resource type="Texture2D" uid="uid://k5kjlbmagipr" path="res://assets/sprites/world/level_2/ground_tileset.webp" id="4_8qukl"]
 [ext_resource type="Texture2D" uid="uid://cjakmnucw2q6t" path="res://icon.svg" id="5_l37oo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qsp8v"]

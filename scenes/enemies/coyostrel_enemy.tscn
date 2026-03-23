@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://ccy0aydyv2sxd" path="res://scenes/enemies/base_crunk_enemy.tscn" id="1_8aaou"]
 [ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="2_ahl42"]
-[ext_resource type="Texture2D" uid="uid://ctu601yhl7h7c" path="res://assets/sprites/battle_sprites/coyostrel.png" id="3_7auum"]
-[ext_resource type="Texture2D" uid="uid://7q2pbxgwud01" path="res://assets/sprites/by-level/level1/monster_spritesheets/coyostrel.png" id="4_ahl42"]
+[ext_resource type="Texture2D" uid="uid://ctu601yhl7h7c" path="res://assets/sprites/characters/battle/enemies/level1/coyostrel.png" id="3_7auum"]
+[ext_resource type="Texture2D" uid="uid://7q2pbxgwud01" path="res://assets/sprites/characters/overworld/enemies/level_1/coyostrel_spritesheet.png" id="4_ahl42"]
 
 [sub_resource type="Resource" id="Resource_iugnh"]
 script = ExtResource("2_ahl42")
