@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bd25fklcm6g43"
-path="res://.godot/imported/crunk.png-84bfde941eec3a8bc2c7f6fa8162e4fc.ctex"
+uid="uid://ucyotgp5qkan"
+path="res://.godot/imported/nahas_body_3.png-5947bfd48810b7d19b66e0a9594927f1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/characters/battle/enemies/level1/crunk.png"
-dest_files=["res://.godot/imported/crunk.png-84bfde941eec3a8bc2c7f6fa8162e4fc.ctex"]
+source_file="res://assets/sprites/characters/battle/enemies/level_1/nahas_body_3.png"
+dest_files=["res://.godot/imported/nahas_body_3.png-5947bfd48810b7d19b66e0a9594927f1.ctex"]
 
 [params]
 

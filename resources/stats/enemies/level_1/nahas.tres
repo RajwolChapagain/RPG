@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="BaseStats" format=3 uid="uid://dnkesy0umn1g6"]
 
 [ext_resource type="PackedScene" uid="uid://giecrxnhvjnp" path="res://scenes/abilities/poison.tscn" id="1_c26ib"]
-[ext_resource type="Texture2D" uid="uid://be552pwkiglm1" path="res://assets/sprites/characters/battle/enemies/level1/nahas.png" id="1_htfhe"]
+[ext_resource type="Texture2D" uid="uid://be552pwkiglm1" path="res://assets/sprites/characters/battle/enemies/level_1/nahas.png" id="1_htfhe"]
 [ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="2_c35sd"]
 
 [resource]

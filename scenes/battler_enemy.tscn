@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dra6mrrj61t35"]
 
-[ext_resource type="Resource" uid="uid://c46k2b5fxukoi" path="res://resources/enemy_stats/crunk.tres" id="2_6puew"]
+[ext_resource type="Resource" uid="uid://c46k2b5fxukoi" path="res://resources/stats/enemies/level_1/crunk.tres" id="2_6puew"]
 [ext_resource type="PackedScene" uid="uid://hqlhygr4xwpx" path="res://scenes/battler.tscn" id="2_l2s84"]
 
 [node name="BattlerEnemy" unique_id=1621230182 instance=ExtResource("2_l2s84")]

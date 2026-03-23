@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ccy0aydyv2sxd" path="res://scenes/enemies/base_crunk_enemy.tscn" id="1_8w37w"]
 [ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="2_iqplb"]
-[ext_resource type="Texture2D" uid="uid://dqpa8dgwo21vc" path="res://assets/sprites/characters/battle/enemies/level1/catapace.webp" id="3_ans66"]
+[ext_resource type="Texture2D" uid="uid://dqpa8dgwo21vc" path="res://assets/sprites/characters/battle/enemies/level_1/catapace.webp" id="3_ans66"]
 [ext_resource type="Texture2D" uid="uid://bvw1286yqj7s6" path="res://assets/sprites/characters/overworld/enemies/level_1/catapace_spritesheet.png" id="4_ans66"]
 
 [sub_resource type="Resource" id="Resource_7atxu"]

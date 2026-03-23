@@ -11,11 +11,16 @@ class_name StatCard
 		if value != null:
 			stats = value
 			call_deferred('initialize_ui')
-			
-@export var portraits: PortraitDatabase
+
+@export_group('Portraits')
+@export var einar: Texture2D
+@export var josephine: Texture2D
+@export var lachlan: Texture2D
+@export var magda: Texture2D
+@export var rachelle: Texture2D
 
 func initialize_ui() -> void:
-	portrait.texture = portraits.get_portrait(stats.name)
+	portrait.texture = get(stats.name.to_lower())
 	update_stats_ui()
 	
 func update_stats_ui() -> void:

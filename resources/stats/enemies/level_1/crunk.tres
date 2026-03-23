@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="BaseStats" format=3 uid="uid://c46k2b5fxukoi"]
 
-[ext_resource type="Texture2D" uid="uid://bd25fklcm6g43" path="res://assets/sprites/characters/battle/enemies/level1/crunk.png" id="1_4wxl6"]
+[ext_resource type="Texture2D" uid="uid://bd25fklcm6g43" path="res://assets/sprites/characters/battle/enemies/level_1/crunk.png" id="1_4wxl6"]
 [ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="2_txrxx"]
 
 [resource]

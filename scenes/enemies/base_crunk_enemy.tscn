@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="2_0ejvx"]
 [ext_resource type="Texture2D" uid="uid://c8lk4f51jnrt3" path="res://assets/sprites/characters/overworld/enemies/level_1/crunk_spritesheet.png" id="2_ytfva"]
 [ext_resource type="Texture2D" uid="uid://cqbc0ofs5hmyg" path="res://assets/sprites/effects/pulp_tileset.webp" id="3_0ejvx"]
-[ext_resource type="Texture2D" uid="uid://bd25fklcm6g43" path="res://assets/sprites/characters/battle/enemies/level1/crunk.png" id="3_2o1b6"]
+[ext_resource type="Texture2D" uid="uid://bd25fklcm6g43" path="res://assets/sprites/characters/battle/enemies/level_1/crunk.png" id="3_2o1b6"]
 
 [sub_resource type="Resource" id="Resource_a40dm"]
 script = ExtResource("2_0ejvx")

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dqpa8dgwo21vc"
-path="res://.godot/imported/catapace.webp-ab3e905a51b9b10ad2b1ba3b717c54e1.ctex"
+path="res://.godot/imported/catapace.webp-22339ff818e53a42b9fe36b70f7c1d66.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/characters/battle/enemies/level1/catapace.webp"
-dest_files=["res://.godot/imported/catapace.webp-ab3e905a51b9b10ad2b1ba3b717c54e1.ctex"]
+source_file="res://assets/sprites/characters/battle/enemies/level_1/catapace.webp"
+dest_files=["res://.godot/imported/catapace.webp-22339ff818e53a42b9fe36b70f7c1d66.ctex"]
 
 [params]
 

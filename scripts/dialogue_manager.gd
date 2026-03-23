@@ -1,7 +1,14 @@
 extends Node
 
+@export_category('Portraits')
+@export_group('Base')
+@export var einar_base: Texture2D
+@export var josephine_base: Texture2D
+@export var lachlan_base: Texture2D
+@export var magda_base: Texture2D
+@export var rachelle_base: Texture2D
+
 @export var dialogue_ui_scene: PackedScene
-@export var sprite_database: PortraitDatabase
 
 enum SIDE { LEFT, RIGHT }
 var dialogue_file = null
@@ -103,11 +110,8 @@ func get_dialogue(line: PackedStringArray) -> String:
 	return out
 	
 func get_sprite(character_name: String) -> Texture2D:
-	if sprite_database.get_portrait(character_name) == null:
-		printerr("Received null from portrait database! Verify that %s is a valid key in %s" % [character_name, sprite_database.resource_path])
-		return null
-	
-	return sprite_database.get_portrait(character_name)
+	var character_sprite = get(character_name)
+	return character_sprite
 
 func get_player_name_from_sprite_name(sprite_name: String) -> String:
 	return sprite_name.split('_')[0].capitalize()

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dg6np1pb88t5s"
-path="res://.godot/imported/nahas_body_2.png-8fd01c38729016a1eece2b1feaa9aa02.ctex"
+uid="uid://ctu601yhl7h7c"
+path="res://.godot/imported/coyostrel.png-090aa26c47fe763fb082578c2325c276.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/characters/battle/enemies/level1/nahas_body_2.png"
-dest_files=["res://.godot/imported/nahas_body_2.png-8fd01c38729016a1eece2b1feaa9aa02.ctex"]
+source_file="res://assets/sprites/characters/battle/enemies/level_1/coyostrel.png"
+dest_files=["res://.godot/imported/coyostrel.png-090aa26c47fe763fb082578c2325c276.ctex"]
 
 [params]
 
