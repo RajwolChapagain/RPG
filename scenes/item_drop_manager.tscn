@@ -9,30 +9,29 @@
 [ext_resource type="PackedScene" uid="uid://cpuacag8n4gcn" path="res://scenes/ui/item_button.tscn" id="4_tnc5c"]
 [ext_resource type="Resource" uid="uid://d04dcksevwiue" path="res://resources/items/fruit_of_life.tres" id="5_rikeb"]
 [ext_resource type="Resource" uid="uid://bin2fs1gqdd6w" path="res://resources/items/doloris's_necklace.tres" id="6_u5da0"]
-[ext_resource type="Script" uid="uid://ct1qv2e8ykaqy" path="res://scripts/resource_scripts/item_database.gd" id="9_u5da0"]
 
 [sub_resource type="Resource" id="Resource_rikeb"]
 script = ExtResource("2_a4wni")
-name = "Mythical Item"
+name = "PLACEHOLDER_COMMON_ITEM"
 metadata/_custom_type_script = "uid://due732el6o1b8"
 
-[sub_resource type="Resource" id="Resource_15hqh"]
-script = ExtResource("9_u5da0")
-item_dictionary = Dictionary[String, ExtResource("2_a4wni")]({
-"potion_of_healing": ExtResource("3_rpn2w")
-})
-metadata/_custom_type_script = "uid://ct1qv2e8ykaqy"
+[sub_resource type="Resource" id="Resource_u5da0"]
+script = ExtResource("2_a4wni")
+name = "PLACEHOLDER_MYTHICAL_ITEM"
+metadata/_custom_type_script = "uid://due732el6o1b8"
 
 [node name="ItemDropManager" type="Node" unique_id=526768092]
 process_mode = 3
 script = ExtResource("1_uacbh")
-common_items = Array[ExtResource("2_a4wni")]([ExtResource("3_rpn2w")])
-uncommon_items = Array[ExtResource("2_a4wni")]([ExtResource("4_351bv")])
-rare_items = Array[ExtResource("2_a4wni")]([ExtResource("5_rikeb")])
-legendary_items = Array[ExtResource("2_a4wni")]([ExtResource("6_u5da0")])
-mythical_items = Array[ExtResource("2_a4wni")]([SubResource("Resource_rikeb")])
 item_button_scene = ExtResource("4_tnc5c")
-item_database = SubResource("Resource_15hqh")
+items_and_rarities = Dictionary[ExtResource("2_a4wni"), int]({
+ExtResource("3_rpn2w"): 1,
+ExtResource("6_u5da0"): 3,
+ExtResource("4_351bv"): 2,
+ExtResource("5_rikeb"): 2,
+SubResource("Resource_rikeb"): 0,
+SubResource("Resource_u5da0"): 4
+})
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=694202685]
 
