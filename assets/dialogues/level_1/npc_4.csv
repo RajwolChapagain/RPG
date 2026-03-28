@@ -17,12 +17,12 @@ L:tutorial_npc_base,Fear. The engine is frightful for the first time.
 R:lachlan_base/einar_base,I hear nothing.
 L:tutorial_npc_base,Maybe you all will be the ones to fulfil the prophecy.
 ,"I have faith in you. Here, take this. This will help you in your endeavor."
-:drop_item potion_of_healing,
-:set_next_interaction_line 23,
+:drop_item; Potion of Healing,
+:set_next_interaction_line; 23,
 X,
 L:tutorial_npc_base,Take another potion. May you fulfil the prophecy!
-:drop_item potion_of_healing,
-:set_next_interaction_line 27,
+:drop_item; Potion of Healing,
+:set_next_interaction_line; 27,
 X,
 L:tutorial_npc_base,I’ve run out of potions. All I’ve left to give is moral support.
 X,

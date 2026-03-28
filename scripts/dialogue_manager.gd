@@ -142,8 +142,12 @@ func end_dialogue() -> void:
 
 # Expects: line to be a string starting with a : followed by a function name
 func handle_function_call(line: String) -> void:
-	var items = line.split(' ')
+	var items = line.split(';')
 	
+	# Strip whitespace from every token up front
+	for i in range(len(items)):
+		items[i] = items[i].strip_edges()
+		
 	for i in range(len(items) - 1, -1, -1):
 		var item = items[i]
 		if item.begins_with(':'): # If it is a function name
