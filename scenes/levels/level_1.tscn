@@ -17,14 +17,10 @@
 [ext_resource type="Texture2D" uid="uid://ctu601yhl7h7c" path="res://assets/sprites/characters/battle/enemies/level_1/coyostrel.png" id="14_bahl2"]
 [ext_resource type="PackedScene" uid="uid://b4d2tqccygbdj" path="res://scenes/characters/enemies/level_1/coyostrel.tscn" id="15_mqh5v"]
 [ext_resource type="PackedScene" uid="uid://bobc8p13moxe" path="res://scenes/characters/enemies/patroller.tscn" id="17_mqh5v"]
-[ext_resource type="PackedScene" uid="uid://des2w3vogbaog" path="res://scenes/ui/pause/pause_menu.tscn" id="22_7h2jl"]
 [ext_resource type="Texture2D" uid="uid://cqbc0ofs5hmyg" path="res://assets/sprites/effects/pulp_tileset.webp" id="22_mqh5v"]
 [ext_resource type="PackedScene" uid="uid://dovbpucxfycy7" path="res://scenes/characters/enemies/level_1/nahas.tscn" id="22_o7j4k"]
 [ext_resource type="Texture2D" uid="uid://btrv86cgisq13" path="res://assets/sprites/world/level_1/structure_tileset.webp" id="23_7h2jl"]
 [ext_resource type="PackedScene" uid="uid://cxc6nk1g0afvy" path="res://scenes/characters/enemies/level_1/catapace.tscn" id="23_7o3do"]
-[ext_resource type="PackedScene" uid="uid://b6pcibljvig3f" path="res://scenes/characters/players/party.tscn" id="23_mqh5v"]
-[ext_resource type="PackedScene" uid="uid://dntk1hqtl8ews" path="res://scenes/characters/players/magda.tscn" id="23_o7j4k"]
-[ext_resource type="PackedScene" uid="uid://btp1ybbdujkbw" path="res://scenes/characters/players/lachlan.tscn" id="24_31oqk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mkypq"]
 resource_name = "colliders"
@@ -361,8 +357,12 @@ character_name_to_base_stats = Dictionary[String, ExtResource("3_sk5k4")]({
 "Magda": ExtResource("4_iwr0g"),
 "Rachelle": ExtResource("3_wtwp4")
 })
-first_death_dialogue = "res://assets/dialogues/level_1/first_death_dialogue.csv"
 nahas_awakening_dialogue = "res://assets/dialogues/level_1/nahas_awakening.csv"
+einar_death_dialogue = "res://assets/dialogues/level_1/starting_sequences/einar_death.csv"
+josephine_death_dialogue = "res://assets/dialogues/level_1/starting_sequences/josephine_death.csv"
+lachlan_death_dialogue = "res://assets/dialogues/level_1/starting_sequences/lachlan_death.csv"
+magda_death_dialogue = "res://assets/dialogues/level_1/starting_sequences/magda_death.csv"
+rachelle_death_dialogue = "res://assets/dialogues/level_1/starting_sequences/rachelle_death.csv"
 
 [node name="PartyOriginMarker" type="Marker2D" parent="." unique_id=529798362]
 unique_name_in_owner = true
@@ -562,15 +562,6 @@ position = Vector2(443, 64)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NahasAwakeningTrigger" unique_id=2043107195]
 shape = SubResource("RectangleShape2D_31oqk")
-
-[node name="Party" parent="." unique_id=267000097 instance=ExtResource("23_mqh5v")]
-position = Vector2(96, 640)
-character_scenes = Array[PackedScene]([ExtResource("23_o7j4k"), ExtResource("24_31oqk")])
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=246428183]
-
-[node name="PauseMenu" parent="CanvasLayer" unique_id=1075974794 instance=ExtResource("22_7h2jl")]
-visible = false
 
 [connection signal="enemy_defeated" from="Enemies/NahasEnemy" to="." method="_on_boss_enemy_enemy_defeated"]
 [connection signal="area_entered" from="NahasAwakeningTrigger" to="." method="_on_nahas_awakening_trigger_area_entered"]

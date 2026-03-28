@@ -1,12 +1,30 @@
 extends Level
 
 @export var character_name_to_base_stats: Dictionary[String, BaseStats]
-@export_file_path('*.csv') var first_death_dialogue: String
 @export_file_path('*.csv') var nahas_awakening_dialogue: String
+
+@export_group('Starting Sequence Dialogues')
+@export_file_path('*.csv') var einar_death_dialogue
+@export_file_path('*.csv') var josephine_death_dialogue
+@export_file_path('*.csv') var lachlan_death_dialogue
+@export_file_path('*.csv') var magda_death_dialogue
+@export_file_path('*.csv') var rachelle_death_dialogue
 
 func _ready() -> void:
 	MusicManager.play_music('level1')
-	DialogueManager.load_dialogue(first_death_dialogue)
+	
+	var dead_player = GameManager.get_dead_player_names().pick_random()
+	if dead_player == 'Einar':
+		DialogueManager.load_dialogue(einar_death_dialogue)
+	elif dead_player == 'Josephine':
+		DialogueManager.load_dialogue(josephine_death_dialogue)
+	elif dead_player == 'Lachlan':
+		DialogueManager.load_dialogue(lachlan_death_dialogue)
+	elif dead_player == 'Magda':
+		DialogueManager.load_dialogue(magda_death_dialogue)
+	elif dead_player == 'Rachelle':
+		DialogueManager.load_dialogue(rachelle_death_dialogue)
+		
 	await DialogueManager.dialogue_finished
 	drop_unselected_player_essence()
 	GameManager.enable_party_camera_smoothing()

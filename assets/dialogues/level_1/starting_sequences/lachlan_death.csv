@@ -1,0 +1,34 @@
+L:magda_base,Lachlan!
+,(She falls to the ground at the dust left in the shape of a body.)
+R:rachelle_base,"(You crouch to scavenge the remains. The boy is impossibly gone, made to ash.)"
+,(The girl finds something and pockets it in her skirt.)
+,...
+L:josephine_base,"Ray, if you would."
+R:rachelle_base,"Of course, your grace. Are you alright?"
+L:josephine_base,I've been better. Please help me up.
+R:einar_base,(Einar turns to the girl.)
+,"Ma'am, are you okay?"
+L:magda_base,...
+R:einar_base,Ma'am?
+L:magda_base,Huh?
+R:einar_base,Are you okay?
+L:magda_base,"Fine. Fine, I just hear something. Does anyone else hear that low droning noise?"
+R:einar_base,No?
+L:magda_base,"Okay, great. Who are... wait, that armor... are you from House Ronan?"
+R:einar_base,"Yes. I mean, well. I mean. "
+,(He turns to the lady.)
+R:josephine_base,"Yes. You're correct, these are my guards. You may address me as Duchess Josephine."
+L:magda_base,...!
+R:josephine_base,"This is Dame Rachelle, knight commander of House Ronan.  Follow her orders "
+,and you'll live to see the surface world again.
+R:rachelle_base,Greetings.
+L:einar_base,"I'm Einar, also a knight of House Ronan."
+L:magda_base,...I see. I'm Magda. 
+R:josephine_base,You're a sister of the cloth?
+L:magda_base,"Yes, your grace."
+R:josephine_base,Are your healing prayers particularly strong?
+L:magda_base,"They should be adequate for our circumstances, your grace."
+R:josephine_base,"Well, that will have to do, then. Ray will take vanguard, please do your best"
+,to support her. We may get back to the surface yet.
+L:magda_base,"Of course, your grace. "
+X,

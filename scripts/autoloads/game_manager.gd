@@ -3,6 +3,9 @@ extends Node
 var party
 var inventory_manager
 
+func get_all_player_names() -> Array[String]:
+	return ['Einar', 'Josephine', 'Lachlan', 'Magda', 'Rachelle']
+
 func get_alive_players() -> Array[Player]:
 	if party != null:
 		return party.get_players()
@@ -15,6 +18,18 @@ func get_alive_player_names() -> Array[String]:
 		var name_array: Array[String] = []
 		for player in get_alive_players():
 			name_array.append(player.stats.name)
+		return name_array
+	else:
+		push_warning('Warning: Party was not declared in the scene tree. Returning empty array.')
+		return []
+		
+func get_dead_player_names() -> Array[String]:
+	if party != null:
+		var name_array: Array[String] = []
+		var alive_player_names = get_alive_player_names()
+		for player_name in get_all_player_names():
+			if player_name not in alive_player_names:
+				name_array.append(player_name)
 		return name_array
 	else:
 		push_warning('Warning: Party was not declared in the scene tree. Returning empty array.')

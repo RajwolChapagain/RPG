@@ -1,0 +1,37 @@
+R:rachelle_base,Einar!
+L:josephine_base,...
+L:lachlan_base,"Magda, something's wrong, right? The air feels heavy."
+R:magda_base,I mean we're pretty far down. It's probably the mold...
+R:rachelle_base,(You look down at the dust left in the shape of a body.)
+,(You crouch down to card a hand through the remains when you notice a marble glimmering in the dirt.)
+,(He's left no other remains. You pocket the glass bauble and continue.) 
+L:josephine_base,Ray!
+R:rachelle_base,"Your grace, are you alright?"
+L:josephine_base,I've been better. Please help me up.
+R:rachelle_base,"Of course, your grace."
+L:magda_base,...
+,That armor...are you from House Ronan?
+R:josephine_base,You may address me as Duchess Josephine.
+L:magda_base,(Her eyes grow as wide as saucer dishes.)
+,"My apologies, your grace. I didn't, um, well... Erm..."
+L:lachlan_base,"Um, your grace, why did you follow us down a well? Who was that guy? Is he dead??"
+R:josephine_base,That was a knight in service to House Ronan.
+,He matters not now. Where are we?
+L:lachlan_base,...
+L:magda_base,"This is just a well nearby. We didn't have a plan, your grace. The explosion was too fast."
+R:josephine_base,"Then I suppose all we can do is move forward. This is Dame Rachelle, knight commander"
+,of House Ronan. Follow her orders and you'll live to see the surface world again.
+R:rachelle_base,Greetings.
+L:magda_base,I'm Magda. 
+R:josephine_base,You're a sister of the cloth?
+L:magda_base,"Yes, your grace."
+R:josephine_base,Are your healing prayers particularly strong?
+L:magda_base,"They should be adequate for our circumstances, your grace."
+L:lachlan_base,"Um... your grace, I'm Lachlan. "
+R:josephine_base,(Her eyes shine with interest.)
+,"You're a mage of the Academy? I don't recognize you, but your uniform is quite... large for your frame. "
+,What do you specialize in?
+L:lachlan_base,I'm really only good at fire spells. 
+L:magda_base,"He's very adept with fire. Without a sniper, he'll be good at range."
+R:josephine_base,"Perfect. Ray will take the vanguard, we'll support her from the back."
+X,
