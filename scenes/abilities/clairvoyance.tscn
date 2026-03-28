@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://vfmmtdviokil" path="res://scripts/abilities/clairvoyance.gd" id="1_tpqgi"]
 [ext_resource type="Theme" uid="uid://5dapp0d0f0x5" path="res://resources/ui.tres" id="2_nyjhf"]
-[ext_resource type="PackedScene" uid="uid://23b01ifqxu4" path="res://scenes/ui/stat_card.tscn" id="3_v57qa"]
+[ext_resource type="PackedScene" uid="uid://23b01ifqxu4" path="res://scenes/ui/pause/stat_card.tscn" id="3_v57qa"]
 
 [node name="Clairvoyance" type="Node" unique_id=1087928118 node_paths=PackedStringArray("stat_card", "confirm_button")]
 script = ExtResource("1_tpqgi")

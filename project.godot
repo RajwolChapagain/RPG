@@ -20,11 +20,11 @@ config/features=PackedStringArray("4.6", "Forward Plus")
 
 [autoload]
 
-DialogueManager="*res://scenes/dialogue_manager.tscn"
-GameManager="*res://scripts/game_manager.gd"
-ItemDropManager="*res://scenes/item_drop_manager.tscn"
-BattleManager="*res://scenes/battle_manager.tscn"
-SaveManager="*res://scripts/save_manager.gd"
+DialogueManager="*res://scenes/autoloads/dialogue_manager.tscn"
+GameManager="*res://scripts/autoloads/game_manager.gd"
+ItemDropManager="*res://scenes/autoloads/item_drop_manager.tscn"
+BattleManager="*res://scenes/autoloads/battle_manager.tscn"
+SaveManager="*res://scripts/autoloads/save_manager.gd"
 MusicManager="*res://scenes/autoloads/music_manager.tscn"
 UisfxManager="*res://scenes/autoloads/uisfx_manager.tscn"
 

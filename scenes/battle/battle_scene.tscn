@@ -1,0 +1,371 @@
+[gd_scene format=4 uid="uid://cdvr88h8f2nsx"]
+
+[ext_resource type="Script" uid="uid://cj36ljr7yngtl" path="res://scripts/battle/battle_scene.gd" id="1_0yksl"]
+[ext_resource type="PackedScene" uid="uid://bitedxhspi8i5" path="res://scenes/levels/dual_grid.tscn" id="1_6lmhm"]
+[ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="2_xwxfl"]
+[ext_resource type="Theme" uid="uid://5dapp0d0f0x5" path="res://resources/ui.tres" id="3_gj8wv"]
+[ext_resource type="PackedScene" uid="uid://cjs2b082b2lbm" path="res://scenes/ui/battle/ability_button.tscn" id="3_svpld"]
+[ext_resource type="Resource" uid="uid://bgg065a045ww" path="res://resources/stats/players/josephine.tres" id="4_yt3ua"]
+[ext_resource type="Resource" uid="uid://d3kyf2naa3duo" path="res://resources/stats/players/lachlan.tres" id="5_bg0yk"]
+[ext_resource type="Resource" uid="uid://c3bvbxqpkkgu3" path="res://resources/stats/players/rachelle.tres" id="5_tttxe"]
+[ext_resource type="Resource" uid="uid://cym67rsdldl6j" path="res://resources/stats/players/einar.tres" id="6_yt3ua"]
+[ext_resource type="Resource" uid="uid://504xnrcw2ros" path="res://resources/stats/enemies/level_1/catapace.tres" id="7_05s0e"]
+[ext_resource type="PackedScene" uid="uid://d3xpo03pr8ajw" path="res://scenes/ui/title/main_menu.tscn" id="8_tttxe"]
+[ext_resource type="Texture2D" uid="uid://bd25fklcm6g43" path="res://assets/sprites/characters/battle/enemies/level_1/crunk.png" id="9_sjku2"]
+[ext_resource type="PackedScene" uid="uid://dcqkqx8i5jvbh" path="res://scenes/ui/battle/ability_points_container.tscn" id="10_0gp0h"]
+[ext_resource type="PackedScene" uid="uid://b2iwifb80auqp" path="res://scenes/battle/target_select.tscn" id="10_ceooa"]
+[ext_resource type="Resource" uid="uid://jxfj62ux5d5o" path="res://resources/stats/enemies/level_1/nahas_head.tres" id="11_7mjbx"]
+[ext_resource type="Resource" uid="uid://bt7dvjwgvewl5" path="res://resources/stats/enemies/level_1/nahas_body_1.tres" id="12_jrwob"]
+[ext_resource type="Resource" uid="uid://chfyv6kynfa0w" path="res://resources/stats/enemies/level_1/nahas_body_2.tres" id="13_porms"]
+[ext_resource type="Resource" uid="uid://b8jh5xkylgyds" path="res://resources/stats/enemies/level_1/nahas_body_3.tres" id="14_0hs4o"]
+[ext_resource type="Texture2D" uid="uid://cixd014ueujbf" path="res://assets/sprites/ui/battle/hp_container.png" id="14_05s0e"]
+[ext_resource type="Texture2D" uid="uid://ckhapeyae067y" path="res://assets/sprites/ui/battle/hp_container_cover.png" id="14_j0cvo"]
+[ext_resource type="Texture2D" uid="uid://bnjsnogy2wlnf" path="res://assets/sprites/ui/battle/hp_progress.png" id="15_j0cvo"]
+[ext_resource type="Texture2D" uid="uid://c0k11u6dawxtk" path="res://assets/sprites/screens/battle_screen_1.webp" id="15_yt3ua"]
+
+[sub_resource type="Resource" id="Resource_05s0e"]
+script = ExtResource("2_xwxfl")
+name = "Crunk"
+battle_sprite = ExtResource("9_sjku2")
+attack_damage = 10
+max_hp = 100
+hp = 100
+crit = 10
+dodge = 10
+accuracy = 10
+
+[sub_resource type="Animation" id="Animation_0gp0h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3oc74"]
+resource_name = "fade_in"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.4, 2.1, 2.8, 3.5),
+"transitions": PackedFloat32Array(1, 0.5, 2, 0.5, 2, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g72on"]
+_data = {
+&"RESET": SubResource("Animation_0gp0h"),
+&"fade_in": SubResource("Animation_3oc74")
+}
+
+[node name="BattleScene" type="Node" unique_id=444611762]
+script = ExtResource("1_0yksl")
+character_spacing = 60
+player_character_stats = Array[ExtResource("2_xwxfl")]([ExtResource("6_yt3ua"), ExtResource("5_tttxe"), ExtResource("5_bg0yk"), ExtResource("4_yt3ua")])
+enemy_stats = Array[ExtResource("2_xwxfl")]([SubResource("Resource_05s0e"), ExtResource("7_05s0e")])
+ability_button = ExtResource("3_svpld")
+MAIN_MENU_SCENE = ExtResource("8_tttxe")
+nahas_parts = Array[ExtResource("2_xwxfl")]([ExtResource("11_7mjbx"), ExtResource("12_jrwob"), ExtResource("13_porms"), ExtResource("14_0hs4o")])
+nahas_split_dialogue_file = "res://assets/dialogues/level_1/nahas_split.csv"
+
+[node name="DualGrid" parent="." unique_id=2087056435 instance=ExtResource("1_6lmhm")]
+
+[node name="DisplayGrid" parent="DualGrid" index="0" unique_id=1834303286]
+tile_map_data = PackedByteArray("AAAAAAAAAAABAAMAAAABAAAAAAADAAAAAAAAAAEAAAABAAAAAAABAAEAAAACAAEAAAAAAAIAAAABAAAAAAABAAIAAAACAAEAAAAAAAMAAAABAAAAAAABAAMAAAACAAEAAAAAAAQAAAABAAAAAAABAAQAAAACAAEAAAAAAAUAAAABAAAAAAABAAUAAAACAAEAAAAAAAYAAAAAAAIAAAABAAYAAAABAAIAAAACAAAAAAADAAAAAAACAAEAAAADAAEAAAACAAIAAAACAAAAAAACAAMAAAADAAEAAAACAAQAAAACAAAAAAACAAUAAAACAAEAAAACAAYAAAABAAIAAAADAAAAAAADAAAAAAADAAEAAAABAAIAAAADAAIAAAADAAAAAAADAAMAAAABAAIAAAADAAQAAAADAAAAAAADAAUAAAACAAEAAAADAAYAAAABAAIAAAAEAAAAAAAAAAAAAAAEAAEAAAADAAMAAAAEAAIAAAADAAAAAAAEAAMAAAABAAIAAAAEAAQAAAAAAAAAAAAEAAUAAAACAAAAAAAEAAYAAAABAAIAAAAFAAAAAAAAAAMAAAAFAAEAAAAAAAMAAAAFAAIAAAADAAAAAAAFAAMAAAABAAIAAAAFAAQAAAAAAAMAAAAFAAUAAAADAAAAAAAFAAYAAAABAAIAAAAGAAAAAAABAAMAAAAGAAEAAAAAAAIAAAAGAAIAAAADAAAAAAAGAAMAAAABAAIAAAAGAAQAAAABAAMAAAAGAAUAAAABAAEAAAAGAAYAAAABAAIAAAAHAAAAAAADAAAAAAAHAAEAAAABAAIAAAAHAAIAAAADAAAAAAAHAAMAAAABAAIAAAAHAAQAAAADAAAAAAAHAAUAAAACAAEAAAAHAAYAAAABAAIAAAAIAAAAAAADAAAAAAAIAAEAAAACAAIAAAAIAAIAAAABAAEAAAAIAAMAAAACAAIAAAAIAAQAAAABAAEAAAAIAAUAAAACAAEAAAAIAAYAAAABAAIAAAAJAAAAAAADAAAAAAAJAAEAAAACAAEAAAAJAAIAAAACAAEAAAAJAAMAAAACAAEAAAAJAAQAAAACAAEAAAAJAAUAAAACAAEAAAAJAAYAAAABAAIAAAAKAAAAAAAAAAAAAAAKAAEAAAADAAIAAAAKAAIAAAADAAIAAAAKAAMAAAADAAIAAAAKAAQAAAADAAIAAAAKAAUAAAADAAIAAAAKAAYAAAADAAMAAAA=")
+
+[node name="DataGrid" parent="DualGrid" index="1" unique_id=1355745187]
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAUAAAAAAAAAAAABAAAAAAAAAAAAAAABAAEAAAAAAAAAAAABAAIAAAAAAAAAAAABAAMAAAAAAAAAAAABAAQAAAAAAAAAAAABAAUAAAAAAAAAAAACAAAAAAAAAAAAAAACAAEAAAABAAAAAAACAAIAAAAAAAAAAAACAAMAAAABAAAAAAACAAQAAAAAAAAAAAACAAUAAAAAAAAAAAADAAAAAAAAAAAAAAADAAEAAAABAAAAAAADAAIAAAAAAAAAAAADAAMAAAABAAAAAAADAAQAAAAAAAAAAAADAAUAAAAAAAAAAAAEAAAAAAABAAAAAAAEAAEAAAABAAAAAAAEAAIAAAAAAAAAAAAEAAMAAAABAAAAAAAEAAQAAAABAAAAAAAEAAUAAAAAAAAAAAAFAAAAAAABAAAAAAAFAAEAAAABAAAAAAAFAAIAAAAAAAAAAAAFAAMAAAABAAAAAAAFAAQAAAABAAAAAAAFAAUAAAAAAAAAAAAGAAAAAAAAAAAAAAAGAAEAAAABAAAAAAAGAAIAAAAAAAAAAAAGAAMAAAABAAAAAAAGAAQAAAAAAAAAAAAGAAUAAAAAAAAAAAAHAAAAAAAAAAAAAAAHAAEAAAABAAAAAAAHAAIAAAAAAAAAAAAHAAMAAAABAAAAAAAHAAQAAAAAAAAAAAAHAAUAAAAAAAAAAAAIAAAAAAAAAAAAAAAIAAEAAAAAAAAAAAAIAAIAAAAAAAAAAAAIAAMAAAAAAAAAAAAIAAQAAAAAAAAAAAAIAAUAAAAAAAAAAAAJAAAAAAAAAAAAAAAJAAEAAAAAAAAAAAAJAAIAAAAAAAAAAAAJAAMAAAAAAAAAAAAJAAQAAAAAAAAAAAAJAAUAAAAAAAAAAAA=")
+
+[node name="PlayerStart" type="Marker2D" parent="." unique_id=1438111795]
+position = Vector2(160, 116)
+
+[node name="EnemyStart" type="Marker2D" parent="." unique_id=2039436829]
+position = Vector2(160, 52)
+
+[node name="TargetSelect" parent="." unique_id=11160794 instance=ExtResource("10_ceooa")]
+
+[node name="UI" type="Control" parent="." unique_id=1174094816]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_gj8wv")
+
+[node name="Deck" type="Panel" parent="UI" unique_id=628120235]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -48.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/Deck" unique_id=1308302016]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Deck/MarginContainer" unique_id=1621913293]
+layout_mode = 2
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="UI/Deck/MarginContainer/HBoxContainer" unique_id=952237778]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.15
+theme_override_constants/separation = 2
+
+[node name="AttackButton" type="Button" parent="UI/Deck/MarginContainer/HBoxContainer/ButtonsContainer" unique_id=984171798]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_top = NodePath("../AbilitiesButton")
+theme = ExtResource("3_gj8wv")
+theme_type_variation = &"SmallButton"
+text = "ATTACK"
+
+[node name="AbilitiesButton" type="Button" parent="UI/Deck/MarginContainer/HBoxContainer/ButtonsContainer" unique_id=406767700]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../AttackButton")
+theme = ExtResource("3_gj8wv")
+theme_type_variation = &"SmallButton"
+toggle_mode = true
+text = "ABILITIES"
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/Deck/MarginContainer/HBoxContainer" unique_id=147658668]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PlayerInfos" type="VBoxContainer" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer" unique_id=453257707]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="P1Info" type="HBoxContainer" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos" unique_id=906098526]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(137, 7)
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="NameLabelP1" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P1Info" unique_id=2005494068]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("3_gj8wv")
+theme_override_font_sizes/font_size = 4
+text = "Magda"
+vertical_alignment = 1
+
+[node name="HealthBarP1" type="TextureProgressBar" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P1Info" unique_id=1551103300]
+unique_name_in_owner = true
+layout_mode = 2
+value = 77.0
+texture_under = ExtResource("14_j0cvo")
+texture_over = ExtResource("14_05s0e")
+texture_progress = ExtResource("15_j0cvo")
+
+[node name="HPLabel1" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P1Info/HealthBarP1" unique_id=1403475211]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_gj8wv")
+theme_type_variation = &"ProgressLabel"
+text = "100/100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="P2Info" type="HBoxContainer" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos" unique_id=147323626]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(137, 7)
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="NameLabelP2" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P2Info" unique_id=94750640]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("3_gj8wv")
+theme_override_font_sizes/font_size = 4
+text = "Lachlan"
+vertical_alignment = 1
+
+[node name="HealthBarP2" type="TextureProgressBar" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P2Info" unique_id=460686474]
+unique_name_in_owner = true
+layout_mode = 2
+value = 77.0
+texture_under = ExtResource("14_j0cvo")
+texture_over = ExtResource("14_05s0e")
+texture_progress = ExtResource("15_j0cvo")
+
+[node name="HPLabel2" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P2Info/HealthBarP2" unique_id=1352448265]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_gj8wv")
+theme_type_variation = &"ProgressLabel"
+text = "100/100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="P3Info" type="HBoxContainer" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos" unique_id=1262732191]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(137, 7)
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="NameLabelP3" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P3Info" unique_id=395927461]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("3_gj8wv")
+theme_override_font_sizes/font_size = 4
+text = "Rachelle"
+vertical_alignment = 1
+
+[node name="HealthBarP3" type="TextureProgressBar" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P3Info" unique_id=961425428]
+unique_name_in_owner = true
+layout_mode = 2
+value = 77.0
+texture_under = ExtResource("14_j0cvo")
+texture_over = ExtResource("14_05s0e")
+texture_progress = ExtResource("15_j0cvo")
+
+[node name="HPLabel3" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P3Info/HealthBarP3" unique_id=715881982]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_gj8wv")
+theme_type_variation = &"ProgressLabel"
+text = "100/100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="P4Info" type="HBoxContainer" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos" unique_id=321677495]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(137, 7)
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="NameLabelP4" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P4Info" unique_id=2033997071]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("3_gj8wv")
+theme_override_font_sizes/font_size = 4
+text = "Placeholder"
+vertical_alignment = 1
+
+[node name="HealthBarP4" type="TextureProgressBar" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P4Info" unique_id=922338780]
+unique_name_in_owner = true
+layout_mode = 2
+value = 77.0
+texture_under = ExtResource("14_j0cvo")
+texture_over = ExtResource("14_05s0e")
+texture_progress = ExtResource("15_j0cvo")
+
+[node name="HPLabel4" type="Label" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P4Info/HealthBarP4" unique_id=1224010256]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_gj8wv")
+theme_type_variation = &"ProgressLabel"
+text = "100/100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer" unique_id=1423318883]
+layout_mode = 2
+follow_focus = true
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="AbilitiesContainer" type="VBoxContainer" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/ScrollContainer" unique_id=1581012486]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="AbilityPointsContainer" parent="UI/Deck/MarginContainer/HBoxContainer" unique_id=1235570851 instance=ExtResource("10_0gp0h")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ResultAnnouncementLabel" type="Label" parent="UI" unique_id=142801585]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_gj8wv")
+text = "Battle Won!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/ResultAnnouncementLabel" unique_id=1337908586]
+libraries/ = SubResource("AnimationLibrary_g72on")
+
+[node name="BattleCam" type="Camera2D" parent="." unique_id=640958940]
+unique_name_in_owner = true
+position = Vector2(160, 90)
+
+[node name="BattleScreen1" type="Sprite2D" parent="." unique_id=840562323]
+position = Vector2(160, 66)
+texture = ExtResource("15_yt3ua")
+
+[connection signal="button_down" from="UI/Deck/MarginContainer/HBoxContainer/ButtonsContainer/AttackButton" to="." method="_on_attack_button_button_down"]
+[connection signal="toggled" from="UI/Deck/MarginContainer/HBoxContainer/ButtonsContainer/AbilitiesButton" to="." method="_on_abilities_button_toggled"]
+[connection signal="animation_finished" from="UI/ResultAnnouncementLabel/AnimationPlayer" to="." method="_on_result_label_animation_finished"]
+
+[editable path="DualGrid"]

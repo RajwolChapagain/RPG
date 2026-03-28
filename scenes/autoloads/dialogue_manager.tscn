@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bqav2mcd6scgh"]
+
+[ext_resource type="Script" uid="uid://ot5crqavpfom" path="res://scripts/autoloads/dialogue_manager.gd" id="1_n5hh0"]
+[ext_resource type="PackedScene" uid="uid://b5h7ovaw0yjei" path="res://scenes/ui/dialogue.tscn" id="2_bijsm"]
+[ext_resource type="Texture2D" uid="uid://c3yio6yjcrv44" path="res://assets/sprites/characters/portraits/einar_base_portrait.png" id="3_4ehk8"]
+[ext_resource type="Texture2D" uid="uid://bg2fwew48se0h" path="res://assets/sprites/characters/portraits/josephine_base_portrait.png" id="4_pdgrl"]
+[ext_resource type="Texture2D" uid="uid://dg4kpgvnw0v7l" path="res://assets/sprites/characters/portraits/lachlan_base_portrait.png" id="5_ydeu1"]
+[ext_resource type="Texture2D" uid="uid://ba7esbnj4so52" path="res://assets/sprites/characters/portraits/magda_base_portrait.webp" id="6_ybwd0"]
+[ext_resource type="Texture2D" uid="uid://c23ke6i2fm508" path="res://assets/sprites/characters/portraits/rachelle_base_portrait.webp" id="7_p3grk"]
+
+[node name="DialogueManager" type="Node" unique_id=349911880]
+process_mode = 3
+script = ExtResource("1_n5hh0")
+dialogue_ui_scene = ExtResource("2_bijsm")
+einar_base = ExtResource("3_4ehk8")
+josephine_base = ExtResource("4_pdgrl")
+lachlan_base = ExtResource("5_ydeu1")
+magda_base = ExtResource("6_ybwd0")
+rachelle_base = ExtResource("7_p3grk")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1659669719]
+unique_name_in_owner = true
+layer = 3

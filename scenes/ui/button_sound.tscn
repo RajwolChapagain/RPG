@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bcnguifte57xb"]
+
+[ext_resource type="Script" uid="uid://cojsnc1kdvshg" path="res://scripts/ui/button_sound.gd" id="1_6h5jg"]
+
+[node name="ButtonSound" type="Node" unique_id=1443046910]
+script = ExtResource("1_6h5jg")

@@ -1,5 +1,0 @@
-[gd_scene format=3 uid="uid://yubue2j1d5dh"]
-
-[ext_resource type="PackedScene" uid="uid://hqlhygr4xwpx" path="res://scenes/battler.tscn" id="1_8u3t1"]
-
-[node name="BattlerPlayer" unique_id=182006424 instance=ExtResource("1_8u3t1")]

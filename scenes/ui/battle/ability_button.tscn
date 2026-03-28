@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://cjs2b082b2lbm"]
+
+[ext_resource type="Theme" uid="uid://5dapp0d0f0x5" path="res://resources/ui.tres" id="1_rujo5"]
+[ext_resource type="Script" uid="uid://dy7wyyram4smn" path="res://scripts/ui/battle/ability_button.gd" id="2_g4d3i"]
+[ext_resource type="Texture2D" uid="uid://cww4fl0ixyv3y" path="res://assets/sprites/ui/battle/ability_point_indicator_empty.png" id="3_omwh6"]
+[ext_resource type="Texture2D" uid="uid://7jllhui2idxy" path="res://assets/sprites/ui/battle/ability_point_indicator_full.png" id="4_s84td"]
+
+[node name="AbilityButton" type="Button" unique_id=136824884]
+custom_minimum_size = Vector2(0, 15)
+offset_right = 118.0
+offset_bottom = 15.0
+theme = ExtResource("1_rujo5")
+theme_type_variation = &"SmallButton"
+script = ExtResource("2_g4d3i")
+dectivated_ap_icon = ExtResource("3_omwh6")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1645467874]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=583369098]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="NameLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1147588972]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 10
+text = "123456789012345"
+vertical_alignment = 1
+
+[node name="CostLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=141564153]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "3"
+vertical_alignment = 1
+
+[node name="APIcon" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=729532498]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("4_s84td")
+stretch_mode = 3
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
