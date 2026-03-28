@@ -13,14 +13,14 @@ class_name StatCard
 			call_deferred('initialize_ui')
 
 @export_group('Portraits')
-@export var einar: Texture2D
-@export var josephine: Texture2D
-@export var lachlan: Texture2D
-@export var magda: Texture2D
-@export var rachelle: Texture2D
+@export var portrait_dictionary: Dictionary[String, Texture2D]
 
 func initialize_ui() -> void:
-	portrait.texture = get(stats.name.to_lower())
+	var character_name = stats.name.to_lower()
+	if character_name not in portrait_dictionary:
+		portrait_dictionary[character_name] = stats.battle_sprite
+		
+	portrait.texture = portrait_dictionary[character_name]
 	update_stats_ui()
 	
 func update_stats_ui() -> void:

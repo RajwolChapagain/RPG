@@ -1,5 +1,7 @@
 extends Node
 
+@export var dialogue_ui_scene: PackedScene
+
 @export_category('Portraits')
 @export_group('Base')
 @export var einar_base: Texture2D
@@ -7,8 +9,6 @@ extends Node
 @export var lachlan_base: Texture2D
 @export var magda_base: Texture2D
 @export var rachelle_base: Texture2D
-
-@export var dialogue_ui_scene: PackedScene
 
 enum SIDE { LEFT, RIGHT }
 var dialogue_file = null

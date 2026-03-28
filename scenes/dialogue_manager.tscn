@@ -11,12 +11,12 @@
 [node name="DialogueManager" type="Node" unique_id=349911880]
 process_mode = 3
 script = ExtResource("1_jbixp")
+dialogue_ui_scene = ExtResource("2_smvbx")
 einar_base = ExtResource("4_pfpkg")
 josephine_base = ExtResource("5_t6t0s")
 lachlan_base = ExtResource("6_ni401")
 magda_base = ExtResource("7_qbc2s")
 rachelle_base = ExtResource("8_sxg8s")
-dialogue_ui_scene = ExtResource("2_smvbx")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1659669719]
 unique_name_in_owner = true

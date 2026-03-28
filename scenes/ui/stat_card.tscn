@@ -21,11 +21,13 @@ script = ExtResource("1_8egb0")
 portrait = NodePath("MarginContainer/VBoxContainer/Portrait")
 stat_values = NodePath("MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/StatValues")
 stats = ExtResource("2_6w24n")
-einar = ExtResource("3_tif7g")
-josephine = ExtResource("4_cfx32")
-lachlan = ExtResource("5_m37ky")
-magda = ExtResource("6_gyvdu")
-rachelle = ExtResource("7_cebnm")
+portrait_dictionary = Dictionary[String, Texture2D]({
+"einar": ExtResource("3_tif7g"),
+"josephine": ExtResource("4_cfx32"),
+"lachlan": ExtResource("5_m37ky"),
+"magda": ExtResource("6_gyvdu"),
+"rachelle": ExtResource("7_cebnm")
+})
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=717938831]
 layout_mode = 1

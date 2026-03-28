@@ -18,12 +18,11 @@
 [ext_resource type="PackedScene" uid="uid://b4d2tqccygbdj" path="res://scenes/enemies/coyostrel_enemy.tscn" id="15_mqh5v"]
 [ext_resource type="PackedScene" uid="uid://bobc8p13moxe" path="res://scenes/patroller.tscn" id="17_mqh5v"]
 [ext_resource type="Texture2D" uid="uid://cqbc0ofs5hmyg" path="res://assets/sprites/effects/pulp_tileset.webp" id="22_mqh5v"]
-[ext_resource type="Shader" uid="uid://bukciwtixa7ky" path="res://scripts/shaders/vignette.gdshader" id="22_ndtll"]
 [ext_resource type="PackedScene" uid="uid://dovbpucxfycy7" path="res://scenes/enemies/nahas.tscn" id="22_o7j4k"]
 [ext_resource type="Texture2D" uid="uid://btrv86cgisq13" path="res://assets/sprites/world/level_1/structure_tileset.webp" id="23_7h2jl"]
 [ext_resource type="PackedScene" uid="uid://cxc6nk1g0afvy" path="res://scenes/enemies/catapace_enemy.tscn" id="23_7o3do"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mqh5v"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mkypq"]
 resource_name = "colliders"
 texture = ExtResource("23_7h2jl")
 texture_region_size = Vector2i(32, 32)
@@ -44,9 +43,9 @@ use_texture_padding = false
 [sub_resource type="TileSet" id="TileSet_7o3do"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_mqh5v")
+sources/0 = SubResource("TileSetAtlasSource_mkypq")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7o3do"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ndtll"]
 texture = ExtResource("23_7h2jl")
 texture_region_size = Vector2i(32, 32)
 3:0/0 = 0
@@ -54,25 +53,25 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_7h2jl"]
 tile_size = Vector2i(32, 32)
-sources/0 = SubResource("TileSetAtlasSource_7o3do")
+sources/0 = SubResource("TileSetAtlasSource_ndtll")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o7j4k"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7h2jl"]
 texture = ExtResource("23_7h2jl")
 texture_region_size = Vector2i(32, 32)
 0:1/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_31oqk"]
 tile_size = Vector2i(32, 32)
-sources/1 = SubResource("TileSetAtlasSource_o7j4k")
+sources/1 = SubResource("TileSetAtlasSource_7h2jl")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7h2jl"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mqh5v"]
 texture = ExtResource("23_7h2jl")
 texture_region_size = Vector2i(32, 32)
 1:1/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_mqh5v"]
 tile_size = Vector2i(32, 32)
-sources/1 = SubResource("TileSetAtlasSource_7h2jl")
+sources/1 = SubResource("TileSetAtlasSource_mqh5v")
 
 [sub_resource type="Resource" id="Resource_mqh5v"]
 script = ExtResource("3_sk5k4")
@@ -349,13 +348,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_31oqk"]
 size = Vector2(166, 11)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ndtll"]
-shader = ExtResource("22_ndtll")
-shader_parameter/strength = 0.746000035435
-shader_parameter/radius = 0.72400003439
-shader_parameter/softness = 0.258000012255
-shader_parameter/ovalness = 0.72200003103512
-
 [node name="Level1" type="Node" unique_id=2043903769]
 script = ExtResource("1_qxy0u")
 character_name_to_base_stats = Dictionary[String, ExtResource("3_sk5k4")]({
@@ -563,17 +555,6 @@ position = Vector2(443, 64)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NahasAwakeningTrigger" unique_id=2043107195]
 shape = SubResource("RectangleShape2D_31oqk")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=720064456]
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1012358121]
-visible = false
-material = SubResource("ShaderMaterial_ndtll")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [connection signal="enemy_defeated" from="Enemies/NahasEnemy" to="." method="_on_boss_enemy_enemy_defeated"]
 [connection signal="area_entered" from="NahasAwakeningTrigger" to="." method="_on_nahas_awakening_trigger_area_entered"]
