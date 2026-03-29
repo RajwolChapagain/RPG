@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://k5kjlbmagipr"
-path="res://.godot/imported/ground_tileset.webp-69ff339301f1fddd91036941873049fd.ctex"
+uid="uid://dxci1cfqay45t"
+path="res://.godot/imported/ground_tileset_1_no_water.webp-bd7a07f4e7544d2fc4c784f9bb2073f8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/world/level_2/ground_tileset.webp"
-dest_files=["res://.godot/imported/ground_tileset.webp-69ff339301f1fddd91036941873049fd.ctex"]
+source_file="res://assets/sprites/world/level_2/ground_tileset_1_no_water.webp"
+dest_files=["res://.godot/imported/ground_tileset_1_no_water.webp-bd7a07f4e7544d2fc4c784f9bb2073f8.ctex"]
 
 [params]
 
