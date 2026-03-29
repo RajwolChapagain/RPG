@@ -554,6 +554,71 @@ frame = 1
 [node name="Pulp3" type="AnimatedSprite2D" parent="Props/Pulps" unique_id=1558166093]
 position = Vector2(505, 31)
 sprite_frames = SubResource("SpriteFrames_o7j4k")
+frame = 2
+frame_progress = 0.7682092
+
+[node name="Pulp4" type="AnimatedSprite2D" parent="Props/Pulps" unique_id=658116404]
+position = Vector2(527, 361)
+sprite_frames = SubResource("SpriteFrames_o7j4k")
+frame = 2
+frame_progress = 0.7682092
+
+[node name="Pulp5" type="AnimatedSprite2D" parent="Props/Pulps" unique_id=1353364227]
+position = Vector2(17, 204)
+sprite_frames = SubResource("SpriteFrames_o7j4k")
+frame = 3
+
+[node name="Pulp6" type="AnimatedSprite2D" parent="Props/Pulps" unique_id=1798360806]
+position = Vector2(48, 477)
+sprite_frames = SubResource("SpriteFrames_o7j4k")
+frame = 1
+
+[node name="Pulp7" type="AnimatedSprite2D" parent="Props/Pulps" unique_id=1130210356]
+position = Vector2(214, 415)
+sprite_frames = SubResource("SpriteFrames_o7j4k")
+frame = 2
+
+[node name="Pulp8" type="AnimatedSprite2D" parent="Props/Pulps" unique_id=231417496]
+position = Vector2(191, 575)
+sprite_frames = SubResource("SpriteFrames_o7j4k")
+
+[node name="Pulp9" type="AnimatedSprite2D" parent="Props/Pulps" unique_id=1921164463]
+position = Vector2(101, 710)
+sprite_frames = SubResource("SpriteFrames_o7j4k")
+frame = 1
+
+[node name="Pulp13" type="AnimatedSprite2D" parent="Props/Pulps" unique_id=642071371]
+position = Vector2(66, 133)
+sprite_frames = SubResource("SpriteFrames_o7j4k")
+frame = 1
+
+[node name="Pulp14" type="AnimatedSprite2D" parent="Props/Pulps" unique_id=1657552291]
+position = Vector2(-111, 485)
+sprite_frames = SubResource("SpriteFrames_o7j4k")
+frame = 1
+
+[node name="Pulp15" type="AnimatedSprite2D" parent="Props/Pulps" unique_id=528037666]
+position = Vector2(-35, 638)
+sprite_frames = SubResource("SpriteFrames_o7j4k")
+frame = 2
+
+[node name="Pulp16" type="AnimatedSprite2D" parent="Props/Pulps" unique_id=1500184902]
+position = Vector2(369, 639)
+sprite_frames = SubResource("SpriteFrames_o7j4k")
+frame = 3
+
+[node name="Pulp10" type="AnimatedSprite2D" parent="Props/Pulps" unique_id=449420875]
+position = Vector2(218, 730)
+sprite_frames = SubResource("SpriteFrames_o7j4k")
+frame = 2
+
+[node name="Pulp11" type="AnimatedSprite2D" parent="Props/Pulps" unique_id=733600557]
+position = Vector2(445, 575)
+sprite_frames = SubResource("SpriteFrames_o7j4k")
+
+[node name="Pulp12" type="AnimatedSprite2D" parent="Props/Pulps" unique_id=321095019]
+position = Vector2(228, 321)
+sprite_frames = SubResource("SpriteFrames_o7j4k")
 frame = 3
 
 [node name="NahasAwakeningTrigger" type="Area2D" parent="." unique_id=966113851]
