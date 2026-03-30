@@ -18,12 +18,10 @@
 [ext_resource type="Texture2D" uid="uid://ctu601yhl7h7c" path="res://assets/sprites/characters/battle/enemies/level_1/coyostrel.png" id="14_bahl2"]
 [ext_resource type="PackedScene" uid="uid://b4d2tqccygbdj" path="res://scenes/characters/enemies/level_1/coyostrel.tscn" id="15_mqh5v"]
 [ext_resource type="PackedScene" uid="uid://bobc8p13moxe" path="res://scenes/characters/enemies/patroller.tscn" id="17_mqh5v"]
-[ext_resource type="PackedScene" uid="uid://b6pcibljvig3f" path="res://scenes/characters/players/party.tscn" id="22_7h2jl"]
 [ext_resource type="Texture2D" uid="uid://cqbc0ofs5hmyg" path="res://assets/sprites/effects/pulp_tileset.webp" id="22_mqh5v"]
 [ext_resource type="PackedScene" uid="uid://dovbpucxfycy7" path="res://scenes/characters/enemies/level_1/nahas.tscn" id="22_o7j4k"]
 [ext_resource type="Texture2D" uid="uid://btrv86cgisq13" path="res://assets/sprites/world/level_1/structure_tileset.webp" id="23_7h2jl"]
 [ext_resource type="PackedScene" uid="uid://cxc6nk1g0afvy" path="res://scenes/characters/enemies/level_1/catapace.tscn" id="23_7o3do"]
-[ext_resource type="PackedScene" uid="uid://des2w3vogbaog" path="res://scenes/ui/pause/pause_menu.tscn" id="23_mqh5v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mkypq"]
 resource_name = "colliders"
@@ -39,9 +37,7 @@ use_texture_padding = false
 1:0/0 = 0
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 4:0/0 = 0
-4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 4:1/0 = 0
-4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
 [sub_resource type="TileSet" id="TileSet_7o3do"]
 tile_size = Vector2i(32, 32)
@@ -351,6 +347,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_31oqk"]
 size = Vector2(166, 11)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mqh5v"]
+size = Vector2(56, 46)
+
 [node name="Level1" type="Node" unique_id=2043903769]
 script = ExtResource("1_qxy0u")
 nahas_essence = ExtResource("2_mqh5v")
@@ -625,24 +624,24 @@ position = Vector2(228, 321)
 sprite_frames = SubResource("SpriteFrames_o7j4k")
 frame = 3
 
-[node name="NahasAwakeningTrigger" type="Area2D" parent="." unique_id=966113851]
+[node name="CollisionTriggers" type="Node2D" parent="." unique_id=569362291]
+
+[node name="NahasAwakeningTrigger" type="Area2D" parent="CollisionTriggers" unique_id=966113851]
 unique_name_in_owner = true
 position = Vector2(443, 64)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NahasAwakeningTrigger" unique_id=2043107195]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionTriggers/NahasAwakeningTrigger" unique_id=2043107195]
 shape = SubResource("RectangleShape2D_31oqk")
 
-[node name="Party" parent="." unique_id=6905227 instance=ExtResource("22_7h2jl")]
-position = Vector2(448, 92)
+[node name="LevelCompleteTrigger" type="Area2D" parent="CollisionTriggers" unique_id=896547952]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=178149407]
-
-[node name="PauseMenu" parent="CanvasLayer" unique_id=1075974794 instance=ExtResource("23_mqh5v")]
-unique_name_in_owner = true
-visible = false
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionTriggers/LevelCompleteTrigger" unique_id=1454038055]
+position = Vector2(433, -72)
+shape = SubResource("RectangleShape2D_mqh5v")
 
 [connection signal="enemy_defeated" from="Enemies/NahasEnemy" to="." method="_on_boss_enemy_enemy_defeated"]
-[connection signal="area_entered" from="NahasAwakeningTrigger" to="." method="_on_nahas_awakening_trigger_area_entered"]
+[connection signal="area_entered" from="CollisionTriggers/NahasAwakeningTrigger" to="." method="_on_nahas_awakening_trigger_area_entered"]
+[connection signal="area_entered" from="CollisionTriggers/LevelCompleteTrigger" to="." method="_on_level_complete_trigger_area_entered"]
 
 [editable path="World/DualGrid"]
 [editable path="Enemies/Enemy1"]

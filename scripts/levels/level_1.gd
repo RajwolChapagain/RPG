@@ -30,8 +30,6 @@ func _ready() -> void:
 	drop_unselected_player_essence()
 	GameManager.enable_party_camera_smoothing()
 	
-	%PauseMenu.initialize_inventory()
-
 func drop_unselected_player_essence() -> void:
 	var selected_players = GameManager.get_alive_players().map(func (player: Player): return player.stats.name)
 	var all_players = ['Rachelle', 'Magda', 'Josephine', 'Lachlan', 'Einar']
@@ -40,9 +38,11 @@ func drop_unselected_player_essence() -> void:
 
 func _on_boss_enemy_enemy_defeated() -> void:
 	ItemDropManager.drop_items([nahas_essence])
-	#level_completed.emit(level_number)
 
 func _on_nahas_awakening_trigger_area_entered(_area: Area2D) -> void:
 	%NahasEnemy.PLAY_ANIMATION('awaken')
 	%NahasAwakeningTrigger.set_deferred('monitoring', false)
 	DialogueManager.load_dialogue(nahas_awakening_dialogue)
+
+func _on_level_complete_trigger_area_entered(_area: Area2D) -> void:
+	level_completed.emit(level_number)
