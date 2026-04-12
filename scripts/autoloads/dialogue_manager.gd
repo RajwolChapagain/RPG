@@ -170,7 +170,7 @@ func get_random_dead_hero_name() -> String:
 	
 # line_number is String because we read everything as String from the CSV file
 func if_dead_go_to(player_name: String, line_number: String) -> void:
-	if player_name not in GameManager.get_alive_players().map(func(player): return player.stats.name):
+	if player_name.to_lower() not in GameManager.get_alive_players().map(func(player): return player.stats.name.to_lower()):
 		go_to(line_number)
 
 # line_number is String because we read everything as String from the CSV file
@@ -190,7 +190,9 @@ func drop_item(item_name: String) -> void:
 	ItemDropManager.drop_item_by_name(item_name)
 
 func get_random_alive_hero(excluded_player_names: Array[String] = []) -> String:
-	for player: Player in GameManager.get_alive_players():
+	var alive_players = GameManager.get_alive_players()
+	alive_players.shuffle()
+	for player: Player in alive_players:
 		if player.stats.name not in excluded_player_names:
 			return player.stats.name
 			

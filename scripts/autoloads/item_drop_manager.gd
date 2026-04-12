@@ -22,7 +22,7 @@ func drop_items(items: Array[Item]) -> void:
 	
 func drop_item_by_name(item_name: String) -> void:
 	for item: Item in items_and_rarities:
-		if str(item) == item_name:
+		if str(item).to_lower() == item_name.to_lower():
 			drop_items([item])
 			return
 	
