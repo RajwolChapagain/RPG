@@ -20,9 +20,6 @@ var battle_ongoing: bool = true
 var battle_won: bool = false
 var enemy_hook: String = ''
 
-@export var win_text: String = "Battle Won! :)"
-@export var lose_text: String = "Battle Lost! :("
-
 @export_category('Hook variables')
 @export var nahas_parts: Array[BaseStats]
 @export_file('*.csv') var nahas_split_dialogue_file: String
@@ -377,14 +374,14 @@ func end_battle(won: bool) -> void:
 	battle_ongoing = false
 	disable_attack_button()
 	disable_abilities_button()
+	%ResultAnnouncementLabel.visible = true
 	if won:
 		MusicManager.play_music('victory', false)
-		%ResultAnnouncementLabel.text = win_text
+		%ResultAnnouncementLabel/AnimationPlayer.play("victory")
 		battle_won = true
 	else:
-		%ResultAnnouncementLabel.text = lose_text
-	%ResultAnnouncementLabel.visible = true
-	%ResultAnnouncementLabel/AnimationPlayer.play("fade_in")
+		MusicManager.play_music('defeat', false)
+		%ResultAnnouncementLabel/AnimationPlayer.play("defeat")
 
 func _on_abilities_button_toggled(toggled_on: bool) -> void:
 	if toggled_on:
@@ -442,7 +439,7 @@ func execute_ability_on_target(target: Battler, ability: Ability) -> void:
 	ability.execute(player_characters[active_index], target)
 
 func _on_result_label_animation_finished(anim_name: StringName) -> void:
-	if anim_name == "fade_in":
+	if anim_name == "victory" or anim_name == "defeat":
 		battle_ended.emit(player_character_stats, battle_won)
 		%BattleCam.enabled = false
 		GameManager.disable_party_camera_smoothing()

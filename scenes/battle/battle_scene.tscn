@@ -9,7 +9,6 @@
 [ext_resource type="Resource" uid="uid://d3kyf2naa3duo" path="res://resources/stats/players/lachlan.tres" id="5_bg0yk"]
 [ext_resource type="Resource" uid="uid://c3bvbxqpkkgu3" path="res://resources/stats/players/rachelle.tres" id="5_tttxe"]
 [ext_resource type="Resource" uid="uid://cym67rsdldl6j" path="res://resources/stats/players/einar.tres" id="6_yt3ua"]
-[ext_resource type="Resource" uid="uid://504xnrcw2ros" path="res://resources/stats/enemies/level_1/catapace.tres" id="7_05s0e"]
 [ext_resource type="PackedScene" uid="uid://d3xpo03pr8ajw" path="res://scenes/ui/title/main_menu.tscn" id="8_tttxe"]
 [ext_resource type="Texture2D" uid="uid://bd25fklcm6g43" path="res://assets/sprites/characters/battle/enemies/level_1/crunk.png" id="9_sjku2"]
 [ext_resource type="PackedScene" uid="uid://dcqkqx8i5jvbh" path="res://scenes/ui/battle/ability_points_container.tscn" id="10_0gp0h"]
@@ -48,6 +47,70 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0.016666412, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["DEFEAT."]
+}
+
+[sub_resource type="Animation" id="Animation_22msv"]
+resource_name = "defeat"
+length = 12.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0.016666412, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["DEFEAT."]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_3oc74"]
 resource_name = "fade_in"
@@ -64,18 +127,43 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["VICTORY!"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g72on"]
 _data = {
 &"RESET": SubResource("Animation_0gp0h"),
-&"fade_in": SubResource("Animation_3oc74")
+&"defeat": SubResource("Animation_22msv"),
+&"victory": SubResource("Animation_3oc74")
 }
 
 [node name="BattleScene" type="Node" unique_id=444611762]
 script = ExtResource("1_0yksl")
 character_spacing = 60
 player_character_stats = Array[ExtResource("2_xwxfl")]([ExtResource("6_yt3ua"), ExtResource("5_tttxe"), ExtResource("5_bg0yk"), ExtResource("4_yt3ua")])
-enemy_stats = Array[ExtResource("2_xwxfl")]([SubResource("Resource_05s0e"), ExtResource("7_05s0e")])
+enemy_stats = Array[ExtResource("2_xwxfl")]([SubResource("Resource_05s0e")])
 ability_button = ExtResource("3_svpld")
 MAIN_MENU_SCENE = ExtResource("8_tttxe")
 nahas_parts = Array[ExtResource("2_xwxfl")]([ExtResource("11_7mjbx"), ExtResource("12_jrwob"), ExtResource("13_porms"), ExtResource("14_0hs4o")])
@@ -339,6 +427,8 @@ layout_mode = 2
 unique_name_in_owner = true
 visible = false
 modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 0, 0.016666412, 1)
+z_index = 1
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -349,7 +439,8 @@ offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_gj8wv")
-text = "Battle Won!"
+theme_override_constants/outline_size = 4
+text = "DEFEAT."
 horizontal_alignment = 1
 vertical_alignment = 1
 
