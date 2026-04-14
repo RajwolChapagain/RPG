@@ -176,6 +176,7 @@ gang = Array[ExtResource("2_0ejvx")]([SubResource("Resource_a40dm")])
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1584948219]
 unique_name_in_owner = true
+z_index = 1
 sprite_frames = SubResource("SpriteFrames_5uy6h")
 animation = &"move_up"
 frame_progress = 0.35398602
