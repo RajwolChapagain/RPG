@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://hr078w76t52d"]
+
+[ext_resource type="Script" uid="uid://due732el6o1b8" path="res://scripts/resource_scripts/item.gd" id="1_3ait7"]
+[ext_resource type="Script" uid="uid://cospd4gauu2qa" path="res://scripts/resource_scripts/stat_modifier.gd" id="2_1ocir"]
+
+[sub_resource type="Resource" id="Resource_3ait7"]
+script = ExtResource("2_1ocir")
+stat_name = "defence"
+modification = "*"
+amount = 2.0
+metadata/_custom_type_script = "uid://cospd4gauu2qa"
+
+[resource]
+script = ExtResource("1_3ait7")
+name = "Glyptodon"
+stats = Array[ExtResource("2_1ocir")]([SubResource("Resource_3ait7")])
+metadata/_custom_type_script = "uid://due732el6o1b8"
