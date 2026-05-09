@@ -25,9 +25,11 @@ var state: states = states.TITLE:
 				%SaveSlotsContainer.get_child(0).GRAB_BUTTON_FOCUS()
 			if value == states.SETTINGS:
 				%SettingsPanel.visible = true
+			if value == states.CREDITS:
+				%CreditsPanel.visible = true
 		state = value
 		
-enum states { TITLE, MENU, PLAY, SETTINGS }
+enum states { TITLE, MENU, PLAY, SETTINGS, CREDITS }
 
 func _ready() -> void:
 	#Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN
@@ -88,6 +90,13 @@ func _on_settings_button_toggled(toggled_on: bool) -> void:
 	else:
 		state = states.MENU
 
+func _on_credits_button_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		untoggle_all_other_buttons(%CreditsButton)
+		state = states.CREDITS
+	else:
+		state = states.MENU
+		
 func hide_all_content_panels() -> void:
 	for panel in %PanelsContainer.get_children():
 		panel.visible = false

@@ -196,6 +196,17 @@ text = "SETTINGS"
 script = ExtResource("5_btxxm")
 metadata/_custom_type_script = "uid://cojsnc1kdvshg"
 
+[node name="CreditsButton" type="Button" parent="UI/HBoxContainer/ButtonsPanel/ButtonsContainer" unique_id=1473375092]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"SideButton"
+toggle_mode = true
+text = "CREDITS"
+
+[node name="ButtonSound" type="Node" parent="UI/HBoxContainer/ButtonsPanel/ButtonsContainer/CreditsButton" unique_id=1812155180]
+script = ExtResource("5_btxxm")
+metadata/_custom_type_script = "uid://cojsnc1kdvshg"
+
 [node name="QuitButton" type="Button" parent="UI/HBoxContainer/ButtonsPanel/ButtonsContainer" unique_id=1807734409]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../PlayButton")
@@ -299,6 +310,46 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.37
 
+[node name="CreditsPanel" type="Panel" parent="UI/HBoxContainer/ContentPanel/PanelsContainer" unique_id=151296566]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/HBoxContainer/ContentPanel/PanelsContainer/CreditsPanel" unique_id=1698480139]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/HBoxContainer/ContentPanel/PanelsContainer/CreditsPanel/MarginContainer" unique_id=1656381112]
+layout_mode = 2
+
+[node name="DummyLabel" type="Label" parent="UI/HBoxContainer/ContentPanel/PanelsContainer/CreditsPanel/MarginContainer/VBoxContainer" unique_id=1009587988]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Credits"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="UI/HBoxContainer/ContentPanel/PanelsContainer/CreditsPanel/MarginContainer/VBoxContainer" unique_id=1954233404]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.91
+
+[node name="CreditsLabelList" type="Label" parent="UI/HBoxContainer/ContentPanel/PanelsContainer/CreditsPanel/MarginContainer/VBoxContainer" unique_id=742552043]
+layout_mode = 2
+size_flags_vertical = 0
+theme_type_variation = &"HeaderSmall"
+text = "Music: Infinity Crystal by Sara Garrard"
+horizontal_alignment = 1
+
+[node name="Spacer2" type="Control" parent="UI/HBoxContainer/ContentPanel/PanelsContainer/CreditsPanel/MarginContainer/VBoxContainer" unique_id=2091390402]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.37
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI" unique_id=1215401244]
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_uhagc")
@@ -341,6 +392,7 @@ autostart = true
 
 [connection signal="toggled" from="UI/HBoxContainer/ButtonsPanel/ButtonsContainer/PlayButton" to="." method="_on_play_button_toggled"]
 [connection signal="toggled" from="UI/HBoxContainer/ButtonsPanel/ButtonsContainer/SettingsButton" to="." method="_on_settings_button_toggled"]
+[connection signal="toggled" from="UI/HBoxContainer/ButtonsPanel/ButtonsContainer/CreditsButton" to="." method="_on_credits_button_toggled"]
 [connection signal="button_down" from="UI/HBoxContainer/ButtonsPanel/ButtonsContainer/QuitButton" to="." method="_on_quit_button_button_down"]
 [connection signal="animation_finished" from="UI/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="TitleMusicDelayTimer" to="." method="_on_title_music_delay_timer_timeout"]
