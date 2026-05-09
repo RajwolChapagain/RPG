@@ -306,8 +306,6 @@ _data = {
 }
 point_count = 7
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ndtll"]
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_mqh5v"]
 atlas = ExtResource("22_mqh5v")
 region = Rect2(0, 0, 32, 32)
@@ -523,23 +521,12 @@ position = Vector2(432, 17)
 [node name="NPCs" type="Node2D" parent="." unique_id=905652458]
 
 [node name="NPC1" parent="NPCs" unique_id=709891974 instance=ExtResource("4_oc4kc")]
-position = Vector2(158, 226)
-dialogue_file_path = "res://assets/dialogues/level_1/npc_1.csv"
+position = Vector2(158, 198)
+dialogue_file_path = "uid://ddrobl6sbv7h5"
 
 [node name="NPC2" parent="NPCs" unique_id=1975223701 instance=ExtResource("4_oc4kc")]
 position = Vector2(274, 568)
-dialogue_file_path = "res://assets/dialogues/level_1/npc_2.csv"
-
-[node name="NPC3" parent="NPCs" unique_id=58131391 instance=ExtResource("4_oc4kc")]
-position = Vector2(539, 503)
-dialogue_file_path = "res://assets/dialogues/level_1/npc_3.csv"
-
-[node name="NPC4" parent="NPCs" unique_id=568573979 instance=ExtResource("4_oc4kc")]
-position = Vector2(144, 336)
-dialogue_file_path = "res://assets/dialogues/level_1/npc_4.csv"
-
-[node name="Sprite2D" parent="NPCs/NPC4" index="0" unique_id=1757280124]
-texture = SubResource("CompressedTexture2D_ndtll")
+dialogue_file_path = "uid://rhggrwkvexfg"
 
 [node name="Props" type="Node2D" parent="." unique_id=949065582]
 
@@ -653,4 +640,3 @@ shape = SubResource("RectangleShape2D_mqh5v")
 [editable path="Enemies/Enemy5/Patroller"]
 [editable path="Enemies/Enemy6/Patroller"]
 [editable path="Enemies/Enemy7/Patroller"]
-[editable path="NPCs/NPC4"]
