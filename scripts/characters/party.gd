@@ -69,7 +69,6 @@ func purge_dead_members() -> void:
 		if member.stats.hp == 0:
 			GameManager.increase_available_inventory_slots()
 			GameManager.remove_character_inventory(member.stats.name)
-			GameManager.drop_player_essence(member.stats)
 			member.queue_free()
 		else:
 			new_members.append(member)
@@ -87,6 +86,14 @@ func reestablish_queue() -> void:
 func get_players() -> Array[Player]:
 	return party_members
 
+func get_alive_players() -> Array[Player]:
+	var alive_players: Array[Player] = []
+	for player in party_members:
+		if player.stats.hp != 0:
+			alive_players.append(player)
+			
+	return alive_players
+	
 func on_player_encountered_enemy(enemy) -> void:
 	BattleManager.start_battle(self, enemy)
 	

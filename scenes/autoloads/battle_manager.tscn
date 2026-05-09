@@ -8,6 +8,7 @@
 script = ExtResource("1_3jpuh")
 battle_scene = ExtResource("2_05opc")
 MAIN_MENU_SCENE = ExtResource("3_8w533")
+death_dialogues_dir = "res://assets/dialogues/character_deaths/"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2086977407]
 unique_name_in_owner = true

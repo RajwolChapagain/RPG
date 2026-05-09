@@ -8,7 +8,7 @@ func get_all_player_names() -> Array[String]:
 
 func get_alive_players() -> Array[Player]:
 	if party != null:
-		return party.get_players()
+		return party.get_alive_players()
 	else:
 		push_warning('Warning: Party was not declared in the scene tree. Returning empty array.')
 		return []

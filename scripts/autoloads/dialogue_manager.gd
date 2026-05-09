@@ -169,9 +169,11 @@ func get_random_dead_hero_name() -> String:
 	return all_player_names.filter(func (player_name): return player_name not in GameManager.get_alive_players().map(func (player): return player.stats.name)).pick_random()
 	
 # line_number is String because we read everything as String from the CSV file
-func if_dead_go_to(player_name: String, line_number: String) -> void:
-	if player_name.to_lower() not in GameManager.get_alive_players().map(func(player): return player.stats.name.to_lower()):
-		go_to(line_number)
+func if_dead_go_to(player_names: String, line_number: String) -> void:
+	var alive_player_names = GameManager.get_alive_players().map(func(player): return player.stats.name.to_lower())
+	for player_name in player_names.split(','):
+		if player_name.to_lower().strip_edges() not in alive_player_names:
+			go_to(line_number)
 
 # line_number is String because we read everything as String from the CSV file
 func go_to(line_number: String) -> void:
