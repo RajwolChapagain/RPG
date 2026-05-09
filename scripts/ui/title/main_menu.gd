@@ -118,3 +118,6 @@ func play_shroud_animation() -> void:
 	tween.tween_property(%Shroud, 'modulate', Color(%Shroud.modulate.r, %Shroud.modulate.g, %Shroud.modulate.b, 1), 0.4).set_ease(Tween.EASE_OUT)
 	await tween.finished
 	await get_tree().create_timer(2).timeout
+
+func _on_quit_button_button_down() -> void:
+	get_tree().quit()

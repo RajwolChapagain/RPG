@@ -133,15 +133,15 @@ _data = {
 &"fade_out": SubResource("Animation_q85j6")
 }
 
-[node name="MainMenu" type="Node"]
+[node name="MainMenu" type="Node" unique_id=210206520]
 script = ExtResource("1_fe2o3")
 main_scene = ExtResource("2_1g8jr")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=865168699]
 position = Vector2(160, 90)
 sprite_frames = SubResource("SpriteFrames_uhagc")
 
-[node name="UI" type="MarginContainer" parent="."]
+[node name="UI" type="MarginContainer" parent="." unique_id=1931253480]
 unique_name_in_owner = true
 anchors_preset = 15
 anchor_right = 1.0
@@ -152,16 +152,16 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_m1kxf")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI" unique_id=1333784810]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="ButtonsPanel" type="Panel" parent="UI/HBoxContainer"]
+[node name="ButtonsPanel" type="Panel" parent="UI/HBoxContainer" unique_id=1991660158]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"BorderedPanel"
 
-[node name="ButtonsContainer" type="VBoxContainer" parent="UI/HBoxContainer/ButtonsPanel"]
+[node name="ButtonsContainer" type="VBoxContainer" parent="UI/HBoxContainer/ButtonsPanel" unique_id=228277299]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 14
@@ -173,7 +173,7 @@ grow_vertical = 2
 theme_override_constants/separation = 4
 alignment = 1
 
-[node name="PlayButton" type="Button" parent="UI/HBoxContainer/ButtonsPanel/ButtonsContainer"]
+[node name="PlayButton" type="Button" parent="UI/HBoxContainer/ButtonsPanel/ButtonsContainer" unique_id=354026279]
 unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_top = NodePath("../QuitButton")
@@ -181,32 +181,32 @@ theme_type_variation = &"SideButton"
 toggle_mode = true
 text = "PLAY"
 
-[node name="ButtonSound" type="Node" parent="UI/HBoxContainer/ButtonsPanel/ButtonsContainer/PlayButton"]
+[node name="ButtonSound" type="Node" parent="UI/HBoxContainer/ButtonsPanel/ButtonsContainer/PlayButton" unique_id=536198724]
 script = ExtResource("5_btxxm")
 metadata/_custom_type_script = "uid://cojsnc1kdvshg"
 
-[node name="SettingsButton" type="Button" parent="UI/HBoxContainer/ButtonsPanel/ButtonsContainer"]
+[node name="SettingsButton" type="Button" parent="UI/HBoxContainer/ButtonsPanel/ButtonsContainer" unique_id=654192192]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"SideButton"
 toggle_mode = true
 text = "SETTINGS"
 
-[node name="ButtonSound" type="Node" parent="UI/HBoxContainer/ButtonsPanel/ButtonsContainer/SettingsButton"]
+[node name="ButtonSound" type="Node" parent="UI/HBoxContainer/ButtonsPanel/ButtonsContainer/SettingsButton" unique_id=219272187]
 script = ExtResource("5_btxxm")
 metadata/_custom_type_script = "uid://cojsnc1kdvshg"
 
-[node name="QuitButton" type="Button" parent="UI/HBoxContainer/ButtonsPanel/ButtonsContainer"]
+[node name="QuitButton" type="Button" parent="UI/HBoxContainer/ButtonsPanel/ButtonsContainer" unique_id=1807734409]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../PlayButton")
 theme_type_variation = &"SideButton"
 text = "QUIT"
 
-[node name="ButtonSound" type="Node" parent="UI/HBoxContainer/ButtonsPanel/ButtonsContainer/QuitButton"]
+[node name="ButtonSound" type="Node" parent="UI/HBoxContainer/ButtonsPanel/ButtonsContainer/QuitButton" unique_id=1068371385]
 script = ExtResource("5_btxxm")
 metadata/_custom_type_script = "uid://cojsnc1kdvshg"
 
-[node name="ContentPanel" type="Panel" parent="UI/HBoxContainer"]
+[node name="ContentPanel" type="Panel" parent="UI/HBoxContainer" unique_id=2066814557]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
@@ -214,7 +214,7 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 4.0
 theme_type_variation = &"BorderedPanel"
 
-[node name="PanelsContainer" type="MarginContainer" parent="UI/HBoxContainer/ContentPanel"]
+[node name="PanelsContainer" type="MarginContainer" parent="UI/HBoxContainer/ContentPanel" unique_id=1004341288]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -228,43 +228,43 @@ theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 2
 
-[node name="PlayPanel" type="MarginContainer" parent="UI/HBoxContainer/ContentPanel/PanelsContainer"]
+[node name="PlayPanel" type="MarginContainer" parent="UI/HBoxContainer/ContentPanel/PanelsContainer" unique_id=1199462547]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/margin_top = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/HBoxContainer/ContentPanel/PanelsContainer/PlayPanel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/HBoxContainer/ContentPanel/PanelsContainer/PlayPanel" unique_id=878045336]
 layout_mode = 2
 
-[node name="PlayLabel" type="Label" parent="UI/HBoxContainer/ContentPanel/PanelsContainer/PlayPanel/VBoxContainer"]
+[node name="PlayLabel" type="Label" parent="UI/HBoxContainer/ContentPanel/PanelsContainer/PlayPanel/VBoxContainer" unique_id=794893959]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.28
 text = "Play"
 horizontal_alignment = 1
 
-[node name="SaveSlotsContainer" type="HBoxContainer" parent="UI/HBoxContainer/ContentPanel/PanelsContainer/PlayPanel/VBoxContainer"]
+[node name="SaveSlotsContainer" type="HBoxContainer" parent="UI/HBoxContainer/ContentPanel/PanelsContainer/PlayPanel/VBoxContainer" unique_id=2122484342]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="SaveSlot" parent="UI/HBoxContainer/ContentPanel/PanelsContainer/PlayPanel/VBoxContainer/SaveSlotsContainer" instance=ExtResource("1_sl1te")]
+[node name="SaveSlot" parent="UI/HBoxContainer/ContentPanel/PanelsContainer/PlayPanel/VBoxContainer/SaveSlotsContainer" unique_id=1832524951 instance=ExtResource("1_sl1te")]
 layout_mode = 2
 
-[node name="SaveSlot2" parent="UI/HBoxContainer/ContentPanel/PanelsContainer/PlayPanel/VBoxContainer/SaveSlotsContainer" instance=ExtResource("1_sl1te")]
+[node name="SaveSlot2" parent="UI/HBoxContainer/ContentPanel/PanelsContainer/PlayPanel/VBoxContainer/SaveSlotsContainer" unique_id=96380949 instance=ExtResource("1_sl1te")]
 layout_mode = 2
 save_slot_id = 2
 
-[node name="SaveSlot3" parent="UI/HBoxContainer/ContentPanel/PanelsContainer/PlayPanel/VBoxContainer/SaveSlotsContainer" instance=ExtResource("1_sl1te")]
+[node name="SaveSlot3" parent="UI/HBoxContainer/ContentPanel/PanelsContainer/PlayPanel/VBoxContainer/SaveSlotsContainer" unique_id=1605544179 instance=ExtResource("1_sl1te")]
 layout_mode = 2
 save_slot_id = 3
 
-[node name="SettingsPanel" type="Panel" parent="UI/HBoxContainer/ContentPanel/PanelsContainer"]
+[node name="SettingsPanel" type="Panel" parent="UI/HBoxContainer/ContentPanel/PanelsContainer" unique_id=525877234]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/HBoxContainer/ContentPanel/PanelsContainer/SettingsPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/HBoxContainer/ContentPanel/PanelsContainer/SettingsPanel" unique_id=982256923]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -273,39 +273,37 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_top = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/HBoxContainer/ContentPanel/PanelsContainer/SettingsPanel/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/HBoxContainer/ContentPanel/PanelsContainer/SettingsPanel/MarginContainer" unique_id=1702272430]
 layout_mode = 2
 
-[node name="DummyLabel" type="Label" parent="UI/HBoxContainer/ContentPanel/PanelsContainer/SettingsPanel/MarginContainer/VBoxContainer"]
+[node name="DummyLabel" type="Label" parent="UI/HBoxContainer/ContentPanel/PanelsContainer/SettingsPanel/MarginContainer/VBoxContainer" unique_id=750884892]
 layout_mode = 2
 size_flags_vertical = 0
 text = "Settings"
 horizontal_alignment = 1
 
-[node name="Spacer" type="Control" parent="UI/HBoxContainer/ContentPanel/PanelsContainer/SettingsPanel/MarginContainer/VBoxContainer"]
+[node name="Spacer" type="Control" parent="UI/HBoxContainer/ContentPanel/PanelsContainer/SettingsPanel/MarginContainer/VBoxContainer" unique_id=1492577913]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.91
 
-[node name="TextureRect" type="TextureRect" parent="UI/HBoxContainer/ContentPanel/PanelsContainer/SettingsPanel/MarginContainer/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="UI/HBoxContainer/ContentPanel/PanelsContainer/SettingsPanel/MarginContainer/VBoxContainer" unique_id=559762608]
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("7_wb0q5")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="Spacer2" type="Control" parent="UI/HBoxContainer/ContentPanel/PanelsContainer/SettingsPanel/MarginContainer/VBoxContainer"]
+[node name="Spacer2" type="Control" parent="UI/HBoxContainer/ContentPanel/PanelsContainer/SettingsPanel/MarginContainer/VBoxContainer" unique_id=2032022226]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.37
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="UI"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI" unique_id=1215401244]
 unique_name_in_owner = true
-libraries = {
-&"": SubResource("AnimationLibrary_uhagc")
-}
+libraries/ = SubResource("AnimationLibrary_uhagc")
 
-[node name="Prompt" type="Label" parent="."]
+[node name="Prompt" type="Label" parent="." unique_id=1633548537]
 unique_name_in_owner = true
 anchors_preset = 7
 anchor_left = 0.5
@@ -324,20 +322,18 @@ text = "Press any key to start"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PromptAnimationPlayer" type="AnimationPlayer" parent="Prompt"]
+[node name="PromptAnimationPlayer" type="AnimationPlayer" parent="Prompt" unique_id=1935714505]
 unique_name_in_owner = true
-libraries = {
-&"": SubResource("AnimationLibrary_q85j6")
-}
-autoplay = "blink"
+libraries/ = SubResource("AnimationLibrary_q85j6")
+autoplay = &"blink"
 
-[node name="Shroud" type="Sprite2D" parent="."]
+[node name="Shroud" type="Sprite2D" parent="." unique_id=248528262]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
 position = Vector2(160, 90)
 texture = ExtResource("3_uhagc")
 
-[node name="TitleMusicDelayTimer" type="Timer" parent="."]
+[node name="TitleMusicDelayTimer" type="Timer" parent="." unique_id=178216443]
 unique_name_in_owner = true
 wait_time = 3.0
 one_shot = true
@@ -345,5 +341,6 @@ autostart = true
 
 [connection signal="toggled" from="UI/HBoxContainer/ButtonsPanel/ButtonsContainer/PlayButton" to="." method="_on_play_button_toggled"]
 [connection signal="toggled" from="UI/HBoxContainer/ButtonsPanel/ButtonsContainer/SettingsButton" to="." method="_on_settings_button_toggled"]
+[connection signal="button_down" from="UI/HBoxContainer/ButtonsPanel/ButtonsContainer/QuitButton" to="." method="_on_quit_button_button_down"]
 [connection signal="animation_finished" from="UI/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="TitleMusicDelayTimer" to="." method="_on_title_music_delay_timer_timeout"]
