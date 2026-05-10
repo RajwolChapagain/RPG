@@ -522,11 +522,11 @@ position = Vector2(432, 17)
 
 [node name="NPC1" parent="NPCs" unique_id=709891974 instance=ExtResource("4_oc4kc")]
 position = Vector2(158, 198)
-dialogue_file_path = "uid://ddrobl6sbv7h5"
+dialogue_file_path = "res://assets/dialogues/level_1/tutorials/intro_tutorial.csv"
 
 [node name="NPC2" parent="NPCs" unique_id=1975223701 instance=ExtResource("4_oc4kc")]
 position = Vector2(274, 568)
-dialogue_file_path = "uid://rhggrwkvexfg"
+dialogue_file_path = "res://assets/dialogues/level_1/tutorials/potion_use_tutorial.csv"
 
 [node name="Props" type="Node2D" parent="." unique_id=949065582]
 
