@@ -40,9 +40,10 @@ func _on_boss_enemy_enemy_defeated() -> void:
 	ItemDropManager.drop_items([nahas_essence])
 
 func _on_nahas_awakening_trigger_area_entered(_area: Area2D) -> void:
-	%NahasEnemy.PLAY_ANIMATION('awaken')
 	%NahasAwakeningTrigger.set_deferred('monitoring', false)
 	DialogueManager.load_dialogue(nahas_awakening_dialogue)
+	await DialogueManager.dialogue_finished
+	%NahasEnemy.PLAY_ANIMATION('awaken')
 
 func _on_level_complete_trigger_area_entered(_area: Area2D) -> void:
 	level_completed.emit(level_number)
