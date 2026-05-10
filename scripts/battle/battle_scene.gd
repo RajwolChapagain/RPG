@@ -71,24 +71,9 @@ func update_ui(delta) -> void:
 	
 func on_player_battler_died(player_name: String) -> void:
 	alive_player_count -= 1
-	if player_name == 'Magda':
-		var rachelle_is_dead = true
-		
-		for player_character_stat in player_character_stats:
-			if player_character_stat.name == 'Rachelle' and player_character_stat.hp > 0:
-				rachelle_is_dead = false
-				
-		if rachelle_is_dead:
-			end_battle(false)
-	elif player_name == 'Rachelle':
-		var magda_is_dead = true
-		
-		for player_character_stat in player_character_stats:
-			if player_character_stat.name == 'Magda' and player_character_stat.hp > 0:
-				magda_is_dead = false
-				
-		if magda_is_dead:
-			end_battle(false)
+	if (player_name == 'Rachelle' and GameManager.route == SaveInfo.routes.RACHELLE_ROUTE) or \
+		(player_name == 'Magda' and GameManager.route == SaveInfo.routes.MAGDA_ROUTE):
+		end_battle(false)
 	
 func on_enemy_battler_died(_enemy_name: String) -> void:
 	alive_enemy_count -= 1
