@@ -2,6 +2,7 @@ extends Node
 
 var party
 var inventory_manager
+var route: SaveInfo.routes
 
 func get_all_player_names() -> Array[String]:
 	return ['Einar', 'Josephine', 'Lachlan', 'Magda', 'Rachelle']

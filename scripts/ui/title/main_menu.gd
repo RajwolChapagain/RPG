@@ -73,6 +73,7 @@ func load_saved_game(saved_slot_id: int) -> void:
 	main.activate_item_slots(5 - len(save.party_member_names))
 	main.initialize_inventory(save.inventory_items)
 	main.initialize_equipped_items(save.equipped_items)
+	GameManager.route = save.route
 	SaveManager.current_save_slot = saved_slot_id
 	queue_free()
 

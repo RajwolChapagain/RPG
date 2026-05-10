@@ -49,6 +49,7 @@ func load_character_selection_screen() -> void:
 	
 func on_characters_selected(names: Array[String]) -> void:
 	initialize_party(names)
+	set_route(names)
 	%PauseMenu.initialize_inventory()
 	load_next_level()
 
@@ -60,6 +61,12 @@ func initialize_party(names: Array[String]) -> void:
 	party.initialize_character_scenes(character_scenes)
 	add_child(party)
 
+func set_route(names: Array[String]) -> void:
+	if 'Rachelle' not in names:
+		GameManager.route = SaveInfo.routes.MAGDA_ROUTE
+	else:
+		GameManager.route = SaveInfo.routes.RACHELLE_ROUTE
+	
 func initialize_inventory(inventory_items: Array[Item]) -> void:
 	GameManager.add_items_to_inventory(inventory_items)
 
@@ -89,6 +96,7 @@ func save_data() -> void:
 		save.character_stats[player.stats.name] = player.stats.duplicate(true)
 		save.equipped_items[player.stats.name] = player.equipped_items
 	save.inventory_items = %PauseMenu.get_inventory_items()
+	save.route = GameManager.route
 	SaveManager.save_to_current_slot(save)
 
 func _on_pause_menu_main_menu_button_pressed() -> void:
