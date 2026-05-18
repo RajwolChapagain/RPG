@@ -3,6 +3,8 @@ extends Control
 
 const SLOT_ID_LABEL_TEMPLATE: String = 'Slot %s'
 @export var save_slot_id: int = 1
+@export var screenshot_placeholder: Texture2D
+const date_time_placeholder: String = "Last saved at %s:%s on %s/%s"
 
 signal new_game_button_pressed(save_slot_id)
 signal load_game_button_pressed(save_slot_id)
@@ -24,11 +26,15 @@ func initialize_slot_id_label() -> void:
 func initialize_buttons() -> void:
 	if SaveManager.slot_contains_data(save_slot_id):
 		%UnsavedItems.visible = false
+		var save = SaveManager.get_save(save_slot_id)
+		%TextureRect.texture = save.saved_screenshot
+		%SavedDateTime.text = date_time_placeholder % [save.date_time.hour, save.date_time.minute, \
+													save.date_time.month, save.date_time.day]
 		%SavedItems.visible = true
-		# show_saved_info()
 	else:
 		%SavedItems.visible = false
 		%UnsavedItems.visible = true
+		%TextureRect.texture = screenshot_placeholder
 
 func GRAB_BUTTON_FOCUS() -> void:
 	if SaveManager.slot_contains_data(save_slot_id):

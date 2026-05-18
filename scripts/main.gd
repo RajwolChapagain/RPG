@@ -27,8 +27,8 @@ func load_level(level: int) -> void:
 	elif level == 1:
 		GameManager.disable_party_camera_smoothing() # So that camera snaps into position before 
 											 		 # 		DialogueManger freezes the game at the start of level 1
-		
 	current_level = levels[level - 1].instantiate()
+	await get_tree().process_frame # Otherwise, the next line encounters "Can't flush queries error"
 	add_child(current_level)
 	current_level.initialize_party_position(party)
 	move_child(current_level, 0)
@@ -40,6 +40,8 @@ func load_next_level() -> void:
 
 func on_level_completed(_level_count: int) -> void:
 	load_next_level()
+	%AnimationPlayer.play('saving')
+	await %AnimationPlayer.animation_finished
 	save_data()
 
 func load_character_selection_screen() -> void:
@@ -97,6 +99,8 @@ func save_data() -> void:
 		save.equipped_items[player.stats.name] = player.equipped_items
 	save.inventory_items = %PauseMenu.get_inventory_items()
 	save.route = GameManager.route
+	save.saved_screenshot = ImageTexture.create_from_image(get_viewport().get_texture().get_image())
+	save.date_time = Time.get_datetime_dict_from_system()
 	SaveManager.save_to_current_slot(save)
 
 func _on_pause_menu_main_menu_button_pressed() -> void:

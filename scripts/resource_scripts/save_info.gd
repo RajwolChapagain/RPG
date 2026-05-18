@@ -7,4 +7,6 @@ class_name SaveInfo
 @export var equipped_items: Dictionary[String, Array] = {}
 @export var inventory_items: Array[Item] = []
 @export var route: routes = routes.RACHELLE_ROUTE
+@export var saved_screenshot: Texture2D
+@export var date_time: Dictionary
 enum routes { RACHELLE_ROUTE, MAGDA_ROUTE }
