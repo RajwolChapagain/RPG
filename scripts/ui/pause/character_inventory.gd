@@ -64,7 +64,7 @@ func on_item_slot_selected(index: int) -> void:
 	character_item_slot_selected.emit(self, index)
 
 func remove_item_at_index(index: int) -> void:
-	equipped_items.remove_at(index)
+	equipped_items[index] = Item.new()
 	%SlotContainer.get_child(index).remove_item()
 
 func get_character_name() -> String:
