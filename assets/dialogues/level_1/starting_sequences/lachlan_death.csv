@@ -31,4 +31,5 @@ L:magda_base,"They should be adequate for our circumstances, your grace."
 R:josephine_base,"Well, that will have to do, then. Ray will take vanguard, please do your best"
 ,to support her. We may get back to the surface yet.
 L:magda_base,"Of course, your grace. "
+:set_vanguard; rachelle,
 X,

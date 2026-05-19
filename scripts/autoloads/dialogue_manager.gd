@@ -203,5 +203,8 @@ func get_random_alive_hero(excluded_player_names: Array[String] = []) -> String:
 	printerr('No alive character exists that is not in the list of excluded characters: %s\n \
 			  Returning a random alive character name instead.' % excluded_player_names)
 	return get_random_alive_hero()
-			
+
+func set_vanguard(character_name: String) -> void:
+	GameManager.activate_party_member(character_name)
+	
 #endregion

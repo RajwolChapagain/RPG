@@ -39,6 +39,14 @@ func establish_queue() -> void:
 			
 		party_members[i].character_moved.connect(on_character_moved)
 	
+func activate_party_member_by_name(character_name: String) -> void:
+	for i in range(0, len(party_members)):
+		if party_members[i].stats.name.to_lower() == character_name.to_lower():
+			activate_party_member(i)
+			return
+	
+	printerr("Can't activate dead party member %s. Ignoring request" % character_name)
+	
 func activate_party_member(index: int) -> void:
 	for i in range(0, len(party_members)):
 		if i == index:

@@ -36,4 +36,5 @@ L:magda_base,"He's very adept with fire. Without a sniper, he'll be good at rang
 R:josephine_base,"Perfect. Ray will take the vanguard, we'll support her from the back."
 ,"If you would, Ray. "
 L:rachelle_base,"Of course, your grace."
+:set_vanguard; rachelle,
 X,

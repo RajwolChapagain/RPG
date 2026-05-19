@@ -4,6 +4,9 @@ var party
 var inventory_manager
 var route: SaveInfo.routes
 
+func activate_party_member(character_name: String) -> void:
+	party.activate_party_member_by_name(character_name)
+	
 func get_all_player_names() -> Array[String]:
 	return ['Einar', 'Josephine', 'Lachlan', 'Magda', 'Rachelle']
 
