@@ -185,6 +185,10 @@ func slide(direction: Vector2) -> void:
 
 func play_ability_animation() -> void:
 	var animation_duration = 0.5
-	%Sprite2D.texture = stats.ability_invoke_sprite
+	%ShroudAnimationPlayer.play('blink')
+	%Sprite2D.reparent(%CanvasLayer)
+	if stats.ability_invoke_sprite != null:
+		%Sprite2D.texture = stats.ability_invoke_sprite
 	await get_tree().create_timer(animation_duration).timeout
+	%Sprite2D.reparent(self)
 	%Sprite2D.texture = stats.battle_sprite

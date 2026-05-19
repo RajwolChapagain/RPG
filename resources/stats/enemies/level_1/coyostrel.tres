@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("1_ubxfp")
 name = "Coyostrel"
+battle_sprite = ExtResource("1_n4ted")
 attack_damage = 20
 max_hp = 150
 hp = 150
@@ -13,5 +14,4 @@ defence = 5
 crit = 15
 dodge = 30
 accuracy = 40
-battle_sprite = ExtResource("1_n4ted")
 metadata/_custom_type_script = "uid://dbtdwrocpsv30"
