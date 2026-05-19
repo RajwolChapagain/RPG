@@ -330,6 +330,8 @@ func attack_random_player() -> void:
 		
 	const ABILITY_USE_CHANCE = 0.25
 	
+	await attacking_enemy.slide(Vector2.DOWN)
+	await get_tree().create_timer(0.1).timeout
 	if not attacking_enemy.stats.abilities.is_empty() and randf() < ABILITY_USE_CHANCE:
 		var ability: Ability = attacking_enemy.stats.abilities.pick_random().instantiate()
 		add_child(ability)
@@ -341,8 +343,6 @@ func attack_random_player() -> void:
 			resonated_ability.execute(attacking_enemy, battler)
 		
 		attackers_this_turn.append(attacking_enemy.get_instance_id())
-		await get_tree().process_frame
-		advance_turn()
 	else:
 		var is_player_hit = attacking_enemy.attack(get_alive_players().pick_random())
 		if is_player_hit:
@@ -351,8 +351,11 @@ func attack_random_player() -> void:
 		for battler: Battler in get_resonant_battlers():
 			attacking_enemy.attack(battler)
 		attackers_this_turn.append(attacking_enemy.get_instance_id())
-		await get_tree().process_frame
-		advance_turn()
+	
+	await get_tree().create_timer(0.2).timeout
+	await attacking_enemy.slide(Vector2.UP)
+	advance_turn()
+
 #endregion attacking
 
 func end_battle(won: bool) -> void:
