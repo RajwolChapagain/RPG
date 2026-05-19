@@ -27,4 +27,4 @@ func _on_confirm_button_button_down() -> void:
 	
 # Intended to be called by battle scene
 func GRAB_FOCUS() -> void:
-	%ConfirmButton.grab_focus()
+	confirm_button.grab_focus()

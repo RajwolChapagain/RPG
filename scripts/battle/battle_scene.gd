@@ -92,7 +92,10 @@ func grab_focus_with_attack_button() -> void:
 	if not %AttackButton.disabled:
 		%AttackButton.grab_focus()
 	else: # In the middle of an abilty like Clairvoyance
-		find_child('Clairvoyance', false, false).GRAB_FOCUS()
+		for child in get_children():
+			if child is Clairvoyance:
+				child.GRAB_FOCUS()
+				return
 	
 #region initialization
 func spawn_players() -> void:
