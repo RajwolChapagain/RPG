@@ -24,3 +24,7 @@ func show_stats(stats: BaseStats) -> void:
 
 func _on_confirm_button_button_down() -> void:
 	stats_panel_closed.emit()
+	
+# Intended to be called by battle scene
+func GRAB_FOCUS() -> void:
+	%ConfirmButton.grab_focus()

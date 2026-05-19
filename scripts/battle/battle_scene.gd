@@ -89,7 +89,10 @@ func on_enemy_battler_died(_enemy_name: String) -> void:
 				end_battle(true)
 				
 func grab_focus_with_attack_button() -> void:
-	%AttackButton.grab_focus()
+	if not %AttackButton.disabled:
+		%AttackButton.grab_focus()
+	else: # In the middle of an abilty like Clairvoyance
+		find_child('Clairvoyance', false, false).GRAB_FOCUS()
 	
 #region initialization
 func spawn_players() -> void:
