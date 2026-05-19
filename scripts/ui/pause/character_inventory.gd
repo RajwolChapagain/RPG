@@ -1,6 +1,13 @@
 extends Control
 class_name CharacterInventory
 
+@export_category('headshots')
+@export var einar: Texture2D
+@export var josephine: Texture2D
+@export var lachlan: Texture2D
+@export var magda: Texture2D
+@export var rachelle: Texture2D
+
 var activated_slots = 1
 const MAX_SLOTS = 4
 var equipped_items: Array[Item]
@@ -17,7 +24,7 @@ func _ready() -> void:
 		%SlotContainer.get_child(i).item_slot_selected.connect(on_item_slot_selected)
 
 func initialize_inventory(character: Player) -> void:
-	%Portrait.texture = character.stats.battle_sprite
+	%Portrait.texture = get(character.stats.name.to_lower())
 	%CharacterNameLabel.text = character.stats.name
 	
 	for i in range(len(character.equipped_items)):

@@ -4,6 +4,11 @@
 [ext_resource type="Script" uid="uid://dpuweogh2t37r" path="res://scripts/ui/pause/character_inventory.gd" id="2_xkt4j"]
 [ext_resource type="Texture2D" uid="uid://j7uvhkpc8y3w" path="res://assets/sprites/ui/pause_menu/frame_placeholder.png" id="3_cuj8i"]
 [ext_resource type="PackedScene" uid="uid://bkaecgm6jt0cp" path="res://scenes/ui/pause/inventory_slot.tscn" id="4_1frsu"]
+[ext_resource type="Texture2D" uid="uid://ctnetkjl458u0" path="res://assets/sprites/characters/portraits/headshots/josephine_headshot.png" id="4_miey3"]
+[ext_resource type="Texture2D" uid="uid://c7qf7krlxh2tx" path="res://assets/sprites/characters/portraits/headshots/einar_headshot.png" id="4_s2ig3"]
+[ext_resource type="Texture2D" uid="uid://qfyioxx88jft" path="res://assets/sprites/characters/portraits/headshots/lachlan_headshot.png" id="5_db3d2"]
+[ext_resource type="Texture2D" uid="uid://bobk1nrtxpamh" path="res://assets/sprites/characters/portraits/headshots/magda_headshot.png" id="6_2cnxw"]
+[ext_resource type="Texture2D" uid="uid://5qkyrpx6fj0t" path="res://assets/sprites/characters/portraits/headshots/rachelle_headshot.png" id="7_rd6l1"]
 
 [node name="CharacterInventory" type="Control" unique_id=1601932209]
 custom_minimum_size = Vector2(0, 40)
@@ -16,6 +21,11 @@ offset_bottom = 40.0
 grow_horizontal = 0
 theme = ExtResource("1_f40tk")
 script = ExtResource("2_xkt4j")
+einar = ExtResource("4_s2ig3")
+josephine = ExtResource("4_miey3")
+lachlan = ExtResource("5_db3d2")
+magda = ExtResource("6_2cnxw")
+rachelle = ExtResource("7_rd6l1")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1712533602]
 layout_mode = 1
@@ -48,7 +58,7 @@ anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 32.0
 grow_vertical = 2
-expand_mode = 5
+expand_mode = 1
 stretch_mode = 5
 
 [node name="CharacterNameLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2" unique_id=270076040]
