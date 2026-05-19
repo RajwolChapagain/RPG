@@ -13,6 +13,11 @@ func _on_continue_button_button_down() -> void:
 	unpause_game()
 	
 func pause_game() -> void:
+	if BattleManager.is_battle_ongoing:
+		%InventoryButton.visible = false
+	else:
+		%InventoryButton.visible = true
+
 	visible = true
 	get_tree().paused = true
 	%ContinueButton.grab_focus()

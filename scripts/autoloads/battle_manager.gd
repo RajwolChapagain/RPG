@@ -10,6 +10,7 @@ var battling_party: Party
 var battling_enemy: Enemy
 var pre_battle_music_stream: AudioStreamWAV
 var pre_battle_music_timestamp: float
+var is_battle_ongoing: bool = false
 
 func start_battle(party: Party, enemy: Enemy) -> void:
 	battling_enemy = enemy
@@ -33,6 +34,8 @@ func start_battle(party: Party, enemy: Enemy) -> void:
 	pre_battle_music_timestamp = MusicManager.get_current_music_timestamp()
 	MusicManager.fade_music_out(0.8)
 	MusicManager.play_music('battle')
+	
+	is_battle_ongoing = true
 
 func freeze_party() -> void:
 	battling_party.disable_all_player_movement()
@@ -46,6 +49,7 @@ func freeze_enemy() -> void:
 	battling_enemy.STOP_PATROL()
 	
 func on_battle_ended(player_character_stats: Array[BaseStats], battle_won: bool) -> void:
+	is_battle_ongoing = false
 	active_battle_scene.queue_free()
 	if battle_won:
 		set_player_hps_post_battle(player_character_stats)
