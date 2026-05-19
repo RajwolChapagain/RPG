@@ -133,6 +133,8 @@ func end_dialogue() -> void:
 	dialogue_ui.get_node("%Portrait2").visible = false
 	dialogue_ui.get_node("%LeftTab").visible = false
 	dialogue_ui.get_node("%RightTab").visible = false
+	dialogue_ui.last_left_character = ''
+	dialogue_ui.last_right_character = ''
 	
 	get_tree().paused = false
 	dialogue_finished.emit()
