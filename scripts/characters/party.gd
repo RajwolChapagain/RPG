@@ -81,8 +81,10 @@ func purge_dead_members() -> void:
 		else:
 			new_members.append(member)
 
+	var death_occurred = len(party_members) != len(new_members)
 	party_members = new_members
-	reestablish_queue()
+	if death_occurred:
+		reestablish_queue()
 	
 func reestablish_queue() -> void:
 	for member in party_members:
@@ -126,7 +128,15 @@ func disable_cycling() -> void:
 	can_cycle = false
 
 func enable_all_player_movement() -> void:
-	party_members[active_member_index_before_freezing].set_active(true)
+	active_member_index_before_freezing = clamp(active_member_index_before_freezing, 0, len(party_members) - 1)
+	var member_already_active = false
+	for member in party_members:
+		if member.is_active:
+			member_already_active = true
+			break
+	
+	if not member_already_active:
+		party_members[active_member_index_before_freezing].set_active(true)
 
 func enable_party_camera() -> void:
 	%Camera2D.enabled = true
@@ -139,6 +149,7 @@ func reset_player_positions() -> void:
 		player.position = Vector2.ZERO
 
 func regroup_party() -> void:
+	active_member_index_before_freezing = clamp(active_member_index_before_freezing, 0, len(party_members) - 1)
 	for member in party_members:
 		member.global_position = party_members[active_member_index_before_freezing].global_position
 
