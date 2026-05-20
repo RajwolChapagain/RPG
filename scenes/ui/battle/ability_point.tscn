@@ -3,6 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://cww4fl0ixyv3y" path="res://assets/sprites/ui/battle/ability_point_indicator_empty.png" id="1_tf3ir"]
 [ext_resource type="Texture2D" uid="uid://7jllhui2idxy" path="res://assets/sprites/ui/battle/ability_point_indicator_full.png" id="3_yicfd"]
 
+[sub_resource type="Curve" id="Curve_yyj3w"]
+_data = [Vector2(0, 1), 0.0, 1.4, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_yyj3w"]
+colors = PackedColorArray(0.49803922, 0.8, 0.36078432, 1, 1, 1, 1, 0.49803922)
+
 [sub_resource type="Animation" id="Animation_jcdeb"]
 length = 0.001
 tracks/0/type = "value"
@@ -29,6 +36,42 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Line2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.001),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(5, 50)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Line2D:points")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(0, 0, 0, 25)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Line2D:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_h1ddq"]
 resource_name = "activate"
@@ -40,7 +83,7 @@ tracks/0/path = NodePath("TextureRect:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
+"times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [ExtResource("1_tf3ir"), ExtResource("3_yicfd")]
@@ -55,7 +98,43 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.4),
 "transitions": PackedFloat32Array(1, 2, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, 5), Vector2(0, 0)]
+"values": [Vector2(0, 0), Vector2(0, -5), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Line2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(5, 50), Vector2(5, 0), Vector2(5, 5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Line2D:points")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.0009999999, 0.4),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [PackedVector2Array(0, 0, 0, 40), PackedVector2Array(0, 0, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Line2D:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.0009999999),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_yicfd"]
@@ -81,18 +160,25 @@ _data = {
 &"deactivate": SubResource("Animation_yicfd")
 }
 
-[node name="AbilityPoint" type="Control"]
+[node name="AbilityPoint" type="Control" unique_id=1824193484]
 layout_mode = 3
 anchors_preset = 0
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Line2D" type="Line2D" parent="." unique_id=1195619298]
+visible = false
+position = Vector2(5, 50)
+points = PackedVector2Array(0, 0, 0, 25)
+width = 5.0
+width_curve = SubResource("Curve_yyj3w")
+default_color = Color(0.49803922, 0.8, 0.36078432, 1)
+gradient = SubResource("Gradient_yyj3w")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=888145990]
 layout_mode = 0
 offset_right = 10.0
 offset_bottom = 10.0
 texture = ExtResource("1_tf3ir")
 stretch_mode = 4
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_yicfd")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1123877092]
+libraries/ = SubResource("AnimationLibrary_yicfd")
