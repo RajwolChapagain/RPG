@@ -116,17 +116,21 @@ func connect_player_signals() -> void:
 		player.enemy_encountered.connect(on_player_encountered_enemy)
 
 func disable_all_player_movement() -> void:
-	%Camera2D.enabled = false
 	active_member_index_before_freezing = get_active_member_index()
 	party_members[active_member_index_before_freezing].set_active(false)
+	
+func disable_party_camera() -> void:
+	%Camera2D.enabled = false
 	
 func disable_cycling() -> void:
 	can_cycle = false
 
 func enable_all_player_movement() -> void:
 	party_members[active_member_index_before_freezing].set_active(true)
-	%Camera2D.enabled = true
 
+func enable_party_camera() -> void:
+	%Camera2D.enabled = true
+	
 func enable_cycling() -> void:
 	can_cycle = true
 

@@ -13,6 +13,7 @@ var pre_battle_music_timestamp: float
 var is_battle_ongoing: bool = false
 
 func start_battle(party: Party, enemy: Enemy) -> void:
+	is_battle_ongoing = true
 	battling_enemy = enemy
 	var enemies: Array[BaseStats] = []
 	for stats: BaseStats in battling_enemy.get_gang():
@@ -26,7 +27,6 @@ func start_battle(party: Party, enemy: Enemy) -> void:
 	active_battle_scene.initialize_battle(party.get_all_player_stats(), enemies, party.get_active_member_index())
 	active_battle_scene.battle_ended.connect(on_battle_ended)
 	active_battle_scene.enemy_hook = enemy.post_defeat_hook
-	%CanvasLayer.add_child(active_battle_scene)
 	freeze_party()
 	freeze_enemy()
 	
@@ -34,9 +34,10 @@ func start_battle(party: Party, enemy: Enemy) -> void:
 	pre_battle_music_timestamp = MusicManager.get_current_music_timestamp()
 	MusicManager.fade_music_out(0.8)
 	MusicManager.play_music('battle')
+	await get_tree().create_timer(0.8).timeout
+	battling_party.disable_party_camera()
+	%CanvasLayer.add_child(active_battle_scene)
 	
-	is_battle_ongoing = true
-
 func freeze_party() -> void:
 	battling_party.disable_all_player_movement()
 	battling_party.disable_cycling()
@@ -62,6 +63,7 @@ func on_battle_ended(player_character_stats: Array[BaseStats], battle_won: bool)
 		drop_dead_player_essences(player_character_stats)
 		remove_defeated_enemy()
 		thaw_party()
+		battling_party.enable_party_camera()
 	else:
 		get_tree().call_group('main', 'queue_free')
 		get_tree().change_scene_to_packed(MAIN_MENU_SCENE)
