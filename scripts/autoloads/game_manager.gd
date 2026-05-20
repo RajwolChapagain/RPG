@@ -51,7 +51,7 @@ func increase_available_inventory_slots() -> void:
 	
 func crystalize_stat(stats: BaseStats) -> Item:
 	var item = Item.new("%s's Essence" % stats.name, Item.ItemType.CONSUMABLE, [], stats.abilities)
-	var stat_names = ['attack_damage', 'max_hp', 'dodge', 'accuracy', 'crit', 'defence', 'ap_per_attack']
+	var stat_names = ['attack_damage', 'max_hp', 'dodge', 'accuracy', 'crit', 'defence', 'ap_per_attack', 'ap_slots']
 	
 	for stat_name in stat_names:
 		item.stats.append(StatModifier.new(stat_name, '+', false, stats.get(stat_name)))

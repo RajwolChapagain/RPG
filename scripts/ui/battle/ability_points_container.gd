@@ -28,7 +28,10 @@ func decrease_points(value: int) -> void:
 
 func play_activate_animation(start_index: int, count: int) -> void:
 	for i in range(start_index, start_index + count):
+		ability_points[i].get_node("AnimationPlayer").speed_scale += (i - start_index) * 1
 		ability_points[i].get_node("AnimationPlayer").play("activate")
+		await ability_points[i].get_node("AnimationPlayer").animation_finished
+		ability_points[i].get_node("AnimationPlayer").speed_scale = 1
 
 func play_deactivate_animation(start_index, count: int) -> void:
 	for i in range(start_index, start_index + count):
