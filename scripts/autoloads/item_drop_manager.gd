@@ -15,6 +15,10 @@ const RARITY_THRESHOLDS: Dictionary[Rarity, float] = {
 	Rarity.MYTHICAL:  100.0,
 }
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("pause") and %ItemDropPanel.visible:
+		get_viewport().set_input_as_handled()
+		
 func drop_items(items: Array[Item]) -> void:
 	GameManager.add_items_to_inventory(items)
 	display_items(items)

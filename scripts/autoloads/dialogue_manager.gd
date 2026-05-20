@@ -33,6 +33,8 @@ func _input(event: InputEvent) -> void:
 		end_dialogue()
 	if event.is_action_pressed("advance_dialogue"):
 		advance_dialogue()
+	if event.is_action_pressed("pause") and dialogue_ongoing:
+		get_viewport().set_input_as_handled()
 		
 func load_dialogue(dialogue_file_path: String, dialogue_start_line_number: int = 1, invoking_entity=null) -> void:
 	dialogue_file = FileAccess.open(dialogue_file_path, FileAccess.READ)
