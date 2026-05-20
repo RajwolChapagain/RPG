@@ -2,20 +2,23 @@ extends Area2D
 
 @export_file('*.csv') var dialogue_file_path: String
 @export var dialogue_start_line_number: int
+@export var sprite: Sprite2D
 
-func _on_area_entered(area: Area2D) -> void:
-	if area.is_in_group("player_character"):
-		call_deferred('disable_interactivity')
+var interactable: bool = false:
+	get:
+		return interactable
+	set(value):
+		sprite.material.set_shader_parameter('interactable', value)
+		interactable = value
+
+func _process(_delta: float) -> void:
+	for area in get_overlapping_areas():
+		if area is Player:
+			interactable = true
+			return
+	
+	interactable = false
+		
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed('interact') and interactable:
 		DialogueManager.load_dialogue(dialogue_file_path, dialogue_start_line_number, self)
-
-func start_interaction_cooldown_timer() -> void:
-	%InteractionCooldownTimer.start()
-	
-func _on_interaction_cooldown_timer_timeout() -> void:
-	enable_interactivity()
-	
-func enable_interactivity():
-	monitoring = true
-
-func disable_interactivity():
-	monitoring = false
