@@ -1,0 +1,131 @@
+[gd_scene format=3 uid="uid://c0bm53uurnf81"]
+
+[ext_resource type="Theme" uid="uid://5dapp0d0f0x5" path="res://resources/ui.tres" id="1_hoa14"]
+
+[node name="ControlsPanel" type="Panel" unique_id=607597725]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_hoa14")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1322868050]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1764447179]
+layout_mode = 2
+
+[node name="Entry" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1400998495]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Action" type="Label" parent="MarginContainer/VBoxContainer/Entry" unique_id=1135114875]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Movement"
+horizontal_alignment = 2
+
+[node name="Key" type="Label" parent="MarginContainer/VBoxContainer/Entry" unique_id=251923194]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.57, 0.57, 0.57, 1)
+theme_override_font_sizes/font_size = 10
+text = "WASD  / Arrow Keys"
+
+[node name="Entry2" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1154731838]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Action" type="Label" parent="MarginContainer/VBoxContainer/Entry2" unique_id=608412985]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Interact"
+horizontal_alignment = 2
+
+[node name="Key" type="Label" parent="MarginContainer/VBoxContainer/Entry2" unique_id=1952512794]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.57, 0.57, 0.57, 1)
+theme_override_font_sizes/font_size = 10
+text = "E"
+
+[node name="Entry3" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1676177666]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Action" type="Label" parent="MarginContainer/VBoxContainer/Entry3" unique_id=707981186]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Cycle Vanguard"
+horizontal_alignment = 2
+
+[node name="Key" type="Label" parent="MarginContainer/VBoxContainer/Entry3" unique_id=741273860]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.57, 0.57, 0.57, 1)
+theme_override_font_sizes/font_size = 10
+text = "Space / Enter"
+
+[node name="Entry6" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=790576774]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Action" type="Label" parent="MarginContainer/VBoxContainer/Entry6" unique_id=2087751605]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Advance Dialogue"
+horizontal_alignment = 2
+
+[node name="Key" type="Label" parent="MarginContainer/VBoxContainer/Entry6" unique_id=778543662]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.57, 0.57, 0.57, 1)
+theme_override_font_sizes/font_size = 10
+text = "Space / Enter"
+
+[node name="Entry4" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=583545745]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Action" type="Label" parent="MarginContainer/VBoxContainer/Entry4" unique_id=1405826986]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Cancel Action"
+horizontal_alignment = 2
+
+[node name="Key" type="Label" parent="MarginContainer/VBoxContainer/Entry4" unique_id=365243846]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.57, 0.57, 0.57, 1)
+theme_override_font_sizes/font_size = 10
+text = "Escape"
+
+[node name="Entry5" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1026165546]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Action" type="Label" parent="MarginContainer/VBoxContainer/Entry5" unique_id=931938868]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Pause Game"
+horizontal_alignment = 2
+
+[node name="Key" type="Label" parent="MarginContainer/VBoxContainer/Entry5" unique_id=2135649393]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.57, 0.57, 0.57, 1)
+theme_override_font_sizes/font_size = 10
+text = "Escape"

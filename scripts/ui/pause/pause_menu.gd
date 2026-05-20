@@ -93,3 +93,13 @@ func _on_inventory_manager_inventory_item_selected() -> void:
 
 func _on_inventory_manager_inventory_item_consumed_or_equipped() -> void:
 	%ButtonsContainer.focus_behavior_recursive = FocusBehaviorRecursive.FOCUS_BEHAVIOR_INHERITED
+
+func _on_controls_button_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		untoggle_all_buttons()
+		hide_all_content_panels()
+		%ControlsButton.set_pressed_no_signal(true)
+		%ControlsPanel.visible = true
+	else:
+		%ControlsPanel.visible = false
+		initialize_stats()
