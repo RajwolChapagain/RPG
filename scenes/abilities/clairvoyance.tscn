@@ -11,6 +11,7 @@ confirm_button = NodePath("EnemyStatViewer/Panel/MarginContainer/VBoxContainer/C
 ability_name = "Clairvoyance"
 description = "Discern what escapes the senses; know your target's composition."
 cost = 1
+owner_character = "Josephine"
 
 [node name="EnemyStatViewer" type="Control" parent="." unique_id=950100203]
 layout_mode = 3

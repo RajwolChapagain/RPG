@@ -4,8 +4,30 @@
 [ext_resource type="Resource" uid="uid://cym67rsdldl6j" path="res://resources/stats/players/einar.tres" id="2_csexs"]
 [ext_resource type="Texture2D" uid="uid://bvh0dl870ttbp" path="res://assets/sprites/ui/battle/pointer.png" id="2_foo5t"]
 [ext_resource type="Texture2D" uid="uid://doti88i48dtjf" path="res://assets/sprites/screens/transition_shroud.png" id="3_vno5h"]
+[ext_resource type="Texture2D" uid="uid://b8sqs01mv5qci" path="res://assets/sprites/characters/battle/players/attack_ability_combined_tileset.webp" id="3_ybafd"]
 [ext_resource type="Theme" uid="uid://5dapp0d0f0x5" path="res://resources/ui.tres" id="4_at1d5"]
+[ext_resource type="Texture2D" uid="uid://be552pwkiglm1" path="res://assets/sprites/characters/battle/enemies/level_1/nahas.png" id="4_oylcg"]
 [ext_resource type="Texture2D" uid="uid://dangfcswl6n35" path="res://assets/sprites/effects/hit_particle.png" id="5_kl8h0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oylcg"]
+atlas = ExtResource("3_ybafd")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqtme"]
+atlas = ExtResource("3_ybafd")
+region = Rect2(32, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7hkm"]
+atlas = ExtResource("3_ybafd")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cff06"]
+atlas = ExtResource("3_ybafd")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1e5l2"]
+atlas = ExtResource("3_ybafd")
+region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="Animation" id="Animation_iakmq"]
 length = 0.001
@@ -488,6 +510,12 @@ _data = {
 [node name="Battler" type="Area2D" unique_id=1198724431]
 script = ExtResource("1_1v4t1")
 stats = ExtResource("2_csexs")
+einar_phantom = SubResource("AtlasTexture_oylcg")
+josephine_phantom = SubResource("AtlasTexture_bqtme")
+lachlan_phantom = SubResource("AtlasTexture_p7hkm")
+magda_phantom = SubResource("AtlasTexture_cff06")
+rachelle_phantom = SubResource("AtlasTexture_1e5l2")
+nahas_phantom = ExtResource("4_oylcg")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1689363762]
 unique_name_in_owner = true

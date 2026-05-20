@@ -9,3 +9,4 @@ resonant_effect = ExtResource("2_4x7kd")
 ability_name = "Echo"
 description = "Curse your target to reverberate to whatever happens on the battlefield!"
 cost = 1
+owner_character = "Lachlan"

@@ -104,6 +104,7 @@ animation_player = NodePath("AnimationPlayer")
 ability_name = "Arrow Storm"
 description = "Unleash a barrage of arrows on your foes! (Or your party; depends on your aim)"
 cost = 2
+owner_character = "Einar"
 
 [node name="ArrowStorm" type="Area2D" parent="." unique_id=722577249]
 unique_name_in_owner = true

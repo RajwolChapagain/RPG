@@ -4,6 +4,7 @@ class_name Ability extends Node
 @export var ability_name: String
 @export_multiline var description: String
 @export var cost: int
+@export var owner_character: String
 
 # To be emitted by inherited ability classes at the end of execute function
 @warning_ignore("unused_signal")

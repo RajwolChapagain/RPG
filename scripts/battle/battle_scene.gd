@@ -419,7 +419,7 @@ func destroy_abilities_list() -> void:
 	
 func on_ability_selected(ability: Ability) -> void:
 	destroy_abilities_list()
-	await player_characters[active_index].play_ability_animation()
+	await player_characters[active_index].play_ability_animation(ability.owner_character)
 
 	%AbilityPointsContainer.decrease_points(ability.cost)
 	

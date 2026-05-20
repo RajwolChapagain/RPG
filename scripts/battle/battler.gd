@@ -2,6 +2,13 @@ class_name Battler
 extends Area2D
 
 @export var stats: BaseStats
+@export var einar_phantom: Texture2D
+@export var josephine_phantom: Texture2D
+@export var lachlan_phantom: Texture2D
+@export var magda_phantom: Texture2D
+@export var rachelle_phantom: Texture2D
+@export var nahas_phantom: Texture2D
+
 var status_effects: Array[StatusEffect] = []
 var effects_pending_application: Array[StatusEffect] = []
 var is_alive = true
@@ -183,12 +190,30 @@ func slide(direction: Vector2) -> void:
 	var tween = get_tree().create_tween()
 	await tween.tween_property(self, 'position', position + (direction * slide_distance), 0.1).finished
 
-func play_ability_animation() -> void:
+func play_ability_animation(ability_owner: String = stats.name) -> void:
 	var animation_duration = 0.5
 	%ShroudAnimationPlayer.play('blink')
 	%Sprite2D.reparent(%CanvasLayer)
 	if stats.ability_invoke_sprite != null:
 		%Sprite2D.texture = stats.ability_invoke_sprite
+		
+	if ability_owner != stats.name:
+		var phantom_texture = get('%s_phantom' % ability_owner.to_lower())
+		if phantom_texture != null:
+			play_phantom_animation(phantom_texture, animation_duration)
+		
 	await get_tree().create_timer(animation_duration).timeout
 	%Sprite2D.reparent(self)
 	%Sprite2D.texture = stats.battle_sprite
+
+func play_phantom_animation(phantom_texture: Texture2D, animation_duration: float):
+		var phantom_sprite = Sprite2D.new()
+		phantom_sprite.texture = phantom_texture
+		phantom_sprite.name = "PhantomSprite"
+		phantom_sprite.modulate = Color(phantom_sprite.modulate, 0.7)
+		add_child(phantom_sprite)
+		phantom_sprite.reparent(%CanvasLayer)
+		var tween = get_tree().create_tween()
+		tween.set_parallel(true)
+		tween.tween_property(phantom_sprite, 'position', Vector2(position.x + 20, position.y), animation_duration / 2).set_ease(Tween.EASE_OUT)
+		tween.tween_property(phantom_sprite, 'modulate', Color(phantom_sprite.modulate, 0), animation_duration)

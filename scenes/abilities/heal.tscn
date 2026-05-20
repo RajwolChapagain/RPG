@@ -13,6 +13,7 @@ heal_particles = NodePath("HealParticles")
 ability_name = "Heal"
 description = "Endow your target with life-giving energy; delaying their perish in the Regenerengine."
 cost = 2
+owner_character = "Magda"
 
 [node name="HealParticles" type="CPUParticles2D" parent="." unique_id=1020417276]
 unique_name_in_owner = true
