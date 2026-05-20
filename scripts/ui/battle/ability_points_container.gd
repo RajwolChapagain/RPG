@@ -6,7 +6,7 @@ extends HFlowContainer
 
 var ability_points = []
 
-func _ready() -> void:
+func INITIALIZE() -> void:
 	for i in range(max_points):
 		var ability_point = ability_point_scene.instantiate()
 		add_child(ability_point)

@@ -24,4 +24,5 @@ class_name BaseStats
 @export var dodge: int
 @export var accuracy: int
 @export var ap_per_attack: int = 1
+@export var ap_slots: int = 1
 @export var abilities: Array[PackedScene]

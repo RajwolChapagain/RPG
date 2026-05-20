@@ -120,6 +120,12 @@ text = "AP:"
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 3
+text = "AP Slots:"
+
+[node name="Label10" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1062439036]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 3
 text = "Abilities:"
 
 [node name="StatValues" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=2146970834]
@@ -185,6 +191,13 @@ theme_override_font_sizes/font_size = 3
 clip_text = true
 
 [node name="Label9" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/StatValues" unique_id=560849253]
+custom_minimum_size = Vector2(37, 5)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 3
+clip_text = true
+
+[node name="Label10" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/StatValues" unique_id=987421024]
 custom_minimum_size = Vector2(37, 5)
 layout_mode = 2
 size_flags_vertical = 6

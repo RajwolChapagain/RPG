@@ -422,6 +422,7 @@ size_flags_vertical = 3
 [node name="AbilityPointsContainer" parent="UI/Deck/MarginContainer/HBoxContainer" unique_id=1235570851 instance=ExtResource("10_0gp0h")]
 unique_name_in_owner = true
 layout_mode = 2
+alignment = 0
 
 [node name="ResultAnnouncementLabel" type="Label" parent="UI" unique_id=142801585]
 unique_name_in_owner = true

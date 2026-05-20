@@ -32,6 +32,8 @@ func initialize_battle(init_player_stats: Array[BaseStats], init_enemy_stats: Ar
 	self.first_attacker_index = init_first_attacker_index
 	
 func _ready() -> void:
+	initialize_ability_points()
+	%AbilityPointsContainer.INITIALIZE()
 	%AttackButton.grab_focus()
 	spawn_players()
 	spawn_enemies()
@@ -185,6 +187,10 @@ func initialize_hp_bar() -> void:
 	for i in range(len(player_characters)):
 		var string = str(player_characters[i].stats.hp) + "/" + str(player_characters[i].stats.max_hp)
 		hp_labels[i].text = string
+	
+func initialize_ability_points() -> void:
+	for stats: BaseStats in player_character_stats:
+		%AbilityPointsContainer.max_points += stats.ap_slots
 	
 #endregion initialization
 

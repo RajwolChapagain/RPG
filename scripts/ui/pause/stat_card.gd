@@ -24,7 +24,7 @@ func initialize_ui() -> void:
 	update_stats_ui()
 	
 func update_stats_ui() -> void:
-	var stat_names = ['name', 'hp', 'attack_damage', 'defence', 'dodge', 'accuracy', 'crit', 'ap_per_attack', 'abilities']
+	var stat_names = ['name', 'hp', 'attack_damage', 'defence', 'dodge', 'accuracy', 'crit', 'ap_per_attack', 'ap_slots' , 'abilities']
 	
 	var i = 0
 	for stat_name in stat_names:
