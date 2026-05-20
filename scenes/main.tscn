@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://btp1ybbdujkbw" path="res://scenes/characters/players/lachlan.tscn" id="10_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://cx2lym7krpsie" path="res://scenes/characters/players/einar.tscn" id="11_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://bdmr0t0sfvw43" path="res://assets/sprites/ui/saving_icon.png" id="13_trceg"]
+[ext_resource type="Texture2D" uid="uid://doti88i48dtjf" path="res://assets/sprites/screens/transition_shroud.png" id="14_a8y0u"]
 
 [sub_resource type="Animation" id="Animation_trceg"]
 length = 0.001
@@ -123,6 +124,12 @@ visible = false
 position = Vector2(21, 166)
 rotation = 3.1415927
 texture = ExtResource("13_trceg")
+
+[node name="Shroud" type="Sprite2D" parent="CanvasLayer" unique_id=726338215]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+position = Vector2(160, 90)
+texture = ExtResource("14_a8y0u")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=544858028]
 unique_name_in_owner = true

@@ -8,17 +8,23 @@ extends Node
 
 var current_level: Level = null
 var party: Party = null
+var transitioning: bool = false
 
 func _ready() -> void:
 	call_deferred('load_level', current_level_number)
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed('pause'):
-		if current_level_number == 0:
+		if current_level_number == 0 or transitioning:
 			get_viewport().set_input_as_handled()
 			
 func load_level(level: int) -> void:
 	if current_level != null:
+		if level == 2:
+			transitioning = true
+			party.disable_all_player_movement()
+			party.disable_cycling()
+			await play_shroud_animation()
 		current_level.queue_free()
 	
 	if level == 0:
@@ -27,19 +33,25 @@ func load_level(level: int) -> void:
 	elif level == 1:
 		GameManager.disable_party_camera_smoothing() # So that camera snaps into position before 
 											 		 # 		DialogueManger freezes the game at the start of level 1
+		
 	current_level = levels[level - 1].instantiate()
 	await get_tree().process_frame # Otherwise, the next line encounters "Can't flush queries error"
 	add_child(current_level)
 	current_level.initialize_party_position(party)
 	move_child(current_level, 0)
 	current_level.level_completed.connect(on_level_completed)
+	if level == 2:
+		await play_unshroud_animation()
+		party.enable_all_player_movement()
+		party.enable_cycling()
+		transitioning = false
 
 func load_next_level() -> void:
 	current_level_number += 1
-	load_level(current_level_number)
+	await load_level(current_level_number)
 
 func on_level_completed(_level_count: int) -> void:
-	load_next_level()
+	await load_next_level()
 	%AnimationPlayer.play('saving')
 	await %AnimationPlayer.animation_finished
 	save_data()
@@ -111,3 +123,13 @@ func _on_pause_menu_main_menu_button_pressed() -> void:
 	get_tree().root.add_child(main_menu)
 	main_menu.quick_switch_to_main()
 	queue_free()
+	
+func play_shroud_animation() -> void:
+	var tween = get_tree().create_tween()
+	tween.tween_property(%Shroud, 'modulate', Color(%Shroud.modulate, 1), 2).set_ease(Tween.EASE_OUT)
+	await tween.finished
+	
+func play_unshroud_animation() -> void:
+	var tween = get_tree().create_tween()
+	tween.tween_property(%Shroud, 'modulate', Color(%Shroud.modulate, 0), 1).set_ease(Tween.EASE_OUT)
+	await tween.finished
