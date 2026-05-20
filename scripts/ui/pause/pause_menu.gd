@@ -99,6 +99,13 @@ func _on_controls_button_toggled(toggled_on: bool) -> void:
 		untoggle_all_buttons()
 		hide_all_content_panels()
 		%ControlsButton.set_pressed_no_signal(true)
+		if not Input.get_connected_joypads().is_empty():
+			%ControlsPanel/KeyboardControls.visible = false
+			%ControlsPanel/ControllerControls.visible = true
+		else:
+			%ControlsPanel/ControllerControls.visible = false
+			%ControlsPanel/KeyboardControls.visible = true
+			
 		%ControlsPanel.visible = true
 	else:
 		%ControlsPanel.visible = false
