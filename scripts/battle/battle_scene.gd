@@ -366,7 +366,9 @@ func attack_random_player() -> void:
 		attackers_this_turn.append(attacking_enemy.get_instance_id())
 	
 	await get_tree().create_timer(0.2).timeout
-	await attacking_enemy.slide(Vector2.UP)
+	if attacking_enemy != null: # Specifically for Nahas, who gets freed up immediately after dying
+		await attacking_enemy.slide(Vector2.UP)
+		
 	advance_turn()
 
 #endregion attacking
