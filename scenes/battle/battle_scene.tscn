@@ -23,6 +23,14 @@
 [ext_resource type="Texture2D" uid="uid://bnjsnogy2wlnf" path="res://assets/sprites/ui/battle/hp_progress.png" id="15_j0cvo"]
 [ext_resource type="Texture2D" uid="uid://c0k11u6dawxtk" path="res://assets/sprites/screens/battle_screen_1.webp" id="15_yt3ua"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_22msv"]
+bg_color = Color(0.13725491, 0.10980392, 0.13725491, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.8784314, 0.8784314, 0.8784314, 1)
+
 [sub_resource type="Animation" id="Animation_0gp0h"]
 length = 0.001
 tracks/0/type = "value"
@@ -193,6 +201,7 @@ anchor_bottom = 1.0
 offset_top = -48.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_22msv")
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/Deck" unique_id=1308302016]
 layout_mode = 1
@@ -213,7 +222,8 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.15
-theme_override_constants/separation = 2
+theme_override_constants/separation = 6
+alignment = 1
 
 [node name="AttackButton" type="Button" parent="UI/Deck/MarginContainer/HBoxContainer/ButtonsContainer" unique_id=984171798]
 unique_name_in_owner = true
