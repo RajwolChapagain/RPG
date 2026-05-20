@@ -6,6 +6,8 @@
 [ext_resource type="AudioStream" uid="uid://doakml2m22iqj" path="res://assets/music/battle.wav" id="4_wqf1e"]
 [ext_resource type="AudioStream" uid="uid://cemgaf3pps58l" path="res://assets/music/victory.wav" id="5_wqf1e"]
 [ext_resource type="AudioStream" uid="uid://bpphv72npynab" path="res://assets/music/game_over.wav" id="6_1k8jw"]
+[ext_resource type="AudioStream" uid="uid://gccrgkbqlhbf" path="res://assets/music/level2.wav" id="7_qt1x2"]
+[ext_resource type="AudioStream" uid="uid://bkka73snqg7af" path="res://assets/music/saved.wav" id="8_y1rp2"]
 
 [node name="MusicManager" type="Node" unique_id=237614924]
 script = ExtResource("1_6jbwf")
@@ -13,6 +15,8 @@ music_dict = Dictionary[StringName, AudioStreamWAV]({
 &"battle": ExtResource("4_wqf1e"),
 &"defeat": ExtResource("6_1k8jw"),
 &"level1": ExtResource("3_vqpxq"),
+&"level2": ExtResource("7_qt1x2"),
+&"saved": ExtResource("8_y1rp2"),
 &"title": ExtResource("2_u4hoh"),
 &"victory": ExtResource("5_wqf1e")
 })

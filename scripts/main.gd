@@ -24,6 +24,7 @@ func load_level(level: int) -> void:
 			transitioning = true
 			party.disable_all_player_movement()
 			party.disable_cycling()
+			MusicManager.play_music('saved', false)
 			await play_shroud_animation()
 		current_level.queue_free()
 	
@@ -126,7 +127,7 @@ func _on_pause_menu_main_menu_button_pressed() -> void:
 	
 func play_shroud_animation() -> void:
 	var tween = get_tree().create_tween()
-	tween.tween_property(%Shroud, 'modulate', Color(%Shroud.modulate, 1), 2).set_ease(Tween.EASE_OUT)
+	tween.tween_property(%Shroud, 'modulate', Color(%Shroud.modulate, 1), 9).set_ease(Tween.EASE_IN)
 	await tween.finished
 	
 func play_unshroud_animation() -> void:
