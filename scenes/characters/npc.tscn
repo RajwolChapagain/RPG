@@ -12,13 +12,13 @@ shader_parameter/interactable = false
 [sub_resource type="CircleShape2D" id="CircleShape2D_bgitj"]
 radius = 26.0
 
-[node name="NPC" type="Area2D" unique_id=1105115065 node_paths=PackedStringArray("sprite")]
+[node name="NPC" type="Area2D" unique_id=1105115065]
 script = ExtResource("1_5l8ac")
 dialogue_file_path = "res://assets/dialogues/item_equip_tutorial.csv"
 dialogue_start_line_number = 1
-sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1757280124]
+unique_name_in_owner = true
 material = SubResource("ShaderMaterial_01k3j")
 texture = ExtResource("2_abqhh")
 
@@ -26,3 +26,4 @@ texture = ExtResource("2_abqhh")
 shape = SubResource("CircleShape2D_bgitj")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
