@@ -40,7 +40,7 @@ func _on_title_music_delay_timer_timeout() -> void:
 	MusicManager.play_music('title')
 
 func _input(event: InputEvent) -> void:
-	if event is not InputEventKey:
+	if event is not InputEventKey and event is not InputEventJoypadButton:
 		return
 		
 	if state == states.TITLE:
