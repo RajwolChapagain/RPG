@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cjs2b082b2lbm" path="res://scenes/ui/battle/ability_button.tscn" id="3_svpld"]
 [ext_resource type="Resource" uid="uid://bgg065a045ww" path="res://resources/stats/players/josephine.tres" id="4_yt3ua"]
 [ext_resource type="Resource" uid="uid://d3kyf2naa3duo" path="res://resources/stats/players/lachlan.tres" id="5_bg0yk"]
-[ext_resource type="Resource" uid="uid://c3bvbxqpkkgu3" path="res://resources/stats/players/rachelle.tres" id="5_tttxe"]
+[ext_resource type="Resource" uid="uid://biubxrgae4cha" path="res://resources/stats/players/magda.tres" id="6_22msv"]
 [ext_resource type="Resource" uid="uid://cym67rsdldl6j" path="res://resources/stats/players/einar.tres" id="6_yt3ua"]
 [ext_resource type="Resource" uid="uid://c46k2b5fxukoi" path="res://resources/stats/enemies/level_1/crunk.tres" id="7_mjiip"]
 [ext_resource type="Resource" uid="uid://do77x272klmh8" path="res://resources/stats/enemies/level_1/coyostrel.tres" id="8_22msv"]
@@ -160,7 +160,7 @@ _data = {
 [node name="BattleScene" type="Node" unique_id=444611762]
 script = ExtResource("1_0yksl")
 character_spacing = 60
-player_character_stats = Array[ExtResource("2_xwxfl")]([ExtResource("6_yt3ua"), ExtResource("5_tttxe"), ExtResource("5_bg0yk"), ExtResource("4_yt3ua")])
+player_character_stats = Array[ExtResource("2_xwxfl")]([ExtResource("6_yt3ua"), ExtResource("5_bg0yk"), ExtResource("4_yt3ua"), ExtResource("6_22msv")])
 enemy_stats = Array[ExtResource("2_xwxfl")]([ExtResource("7_mjiip"), ExtResource("8_22msv"), ExtResource("7_mjiip")])
 ability_button = ExtResource("3_svpld")
 MAIN_MENU_SCENE = ExtResource("8_tttxe")
