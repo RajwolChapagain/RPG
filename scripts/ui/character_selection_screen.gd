@@ -123,9 +123,20 @@ func play_landing_animation() -> void:
 	await tween.finished
 	
 func play_landed_animation() -> void:
-	for button in %Buttons.get_children():
+	var unselected_index = range(5).filter(func (x): return x not in selected_indices)[0]
+	for i in range(0, len(%Buttons.get_children())):
+		var button = %Buttons.get_child(i)
 		var animated_sprite: AnimatedSprite2D = button.get_child(0)
 		animated_sprite.play('landed')
+		if i == unselected_index:
+			var fade_out_tween = get_tree().create_tween()
+			fade_out_tween.tween_property(animated_sprite, \
+										'modulate', \
+										Color(animated_sprite.modulate.r, \
+										animated_sprite.modulate.g, \
+										animated_sprite.modulate.b, 0.0), \
+										0.8
+			)
 		
 func place_rock() -> void:
 	var unselected_index = range(5).filter(func (x): return x not in selected_indices)[0]
