@@ -33,7 +33,11 @@ func start_battle(party: Party, enemy: Enemy) -> void:
 	pre_battle_music_stream = MusicManager.get_current_music_title()
 	pre_battle_music_timestamp = MusicManager.get_current_music_timestamp()
 	MusicManager.fade_music_out(0.8)
-	MusicManager.play_music('battle')
+	if enemy.is_in_group('boss_enemy'):
+		MusicManager.play_music('boss_battle')
+	else:
+		MusicManager.play_music('battle')
+		
 	await get_tree().create_timer(0.8).timeout
 	battling_party.disable_party_camera()
 	%CanvasLayer.add_child(active_battle_scene)

@@ -72,7 +72,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bpqg7"]
 size = Vector2(74, 32)
 
-[node name="NahasEnemy" unique_id=1786002395 instance=ExtResource("1_4gplk")]
+[node name="NahasEnemy" unique_id=1786002395 groups=["boss_enemy"] instance=ExtResource("1_4gplk")]
 process_mode = 3
 gang = Array[ExtResource("2_ub7ac")]([ExtResource("3_lydng")])
 post_defeat_hook = "on_nahas_death"

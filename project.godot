@@ -45,6 +45,7 @@ run/main_run_args="dev"
 player_character=""
 enemy=""
 main=""
+boss_enemy=""
 
 [input]
 
