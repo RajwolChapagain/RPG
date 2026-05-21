@@ -1,6 +1,7 @@
 extends Node
 
 @export var main_scene: PackedScene
+const SETTINGS_DIR = 'user://settings/'
 var state: states = states.TITLE:
 	get():
 		return state
@@ -25,6 +26,7 @@ var state: states = states.TITLE:
 				%SaveSlotsContainer.get_child(0).GRAB_BUTTON_FOCUS()
 			if value == states.SETTINGS:
 				%SettingsPanel.visible = true
+				%FullScreenCheckBox.grab_focus()
 			if value == states.CREDITS:
 				%CreditsPanel.visible = true
 		state = value
@@ -32,9 +34,11 @@ var state: states = states.TITLE:
 enum states { TITLE, MENU, PLAY, SETTINGS, CREDITS }
 
 func _ready() -> void:
+	load_settings()
 	#Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN
 	connect_save_slot_signals()
 	MusicManager.fade_music_out(0.8)
+	
 
 func _on_title_music_delay_timer_timeout() -> void:
 	MusicManager.play_music('title')
@@ -90,6 +94,7 @@ func _on_settings_button_toggled(toggled_on: bool) -> void:
 		state = states.SETTINGS
 	else:
 		state = states.MENU
+		save_settings()
 
 func _on_credits_button_toggled(toggled_on: bool) -> void:
 	if toggled_on:
@@ -131,3 +136,38 @@ func play_shroud_animation() -> void:
 
 func _on_quit_button_button_down() -> void:
 	get_tree().quit()
+
+func _on_full_screen_check_box_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		get_window().mode = Window.MODE_FULLSCREEN
+	else:
+		get_window().mode = Window.MODE_MAXIMIZED
+
+func _on_music_volume_slider_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(value))
+	
+func save_settings() -> void:
+	var settings_path = SETTINGS_DIR + "/settings.tres"
+	var saved_settings: Settings = ResourceLoader.load(settings_path)
+	saved_settings.fullscreen = %FullScreenCheckBox.button_pressed
+	saved_settings.music_level = %MusicVolumeSlider.value
+	ResourceSaver.save(saved_settings, settings_path)
+	
+func load_settings() -> void:
+	var settings_path = SETTINGS_DIR + "/settings.tres"
+	var settings: Settings = null
+	if ResourceLoader.exists(settings_path): 
+		settings = ResourceLoader.load(settings_path)
+		%FullScreenCheckBox.button_pressed = settings.fullscreen
+		%MusicVolumeSlider.value = settings.music_level
+	else: # First time opening game
+		if not DirAccess.dir_exists_absolute(SETTINGS_DIR):
+			DirAccess.make_dir_absolute(SETTINGS_DIR)
+		
+		settings = Settings.new(%FullScreenCheckBox.button_pressed, %MusicVolumeSlider.value)
+		ResourceSaver.save(settings, settings_path)
+	
+	%FullScreenCheckBox.set_pressed_no_signal(settings.fullscreen)
+	%MusicVolumeSlider.set_value_no_signal(settings.music_level)
+	get_window().mode = Window.MODE_FULLSCREEN if settings.fullscreen else Window.MODE_MAXIMIZED
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(settings.music_level))

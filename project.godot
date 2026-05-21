@@ -18,6 +18,10 @@ config/name="Regenerengine"
 run/main_scene="uid://d3xpo03pr8ajw"
 config/features=PackedStringArray("4.6", "Forward Plus")
 
+[audio]
+
+buses/default_bus_layout=""
+
 [autoload]
 
 DialogueManager="*res://scenes/autoloads/dialogue_manager.tscn"
@@ -32,6 +36,7 @@ UisfxManager="*res://scenes/autoloads/uisfx_manager.tscn"
 
 window/size/viewport_width=320
 window/size/viewport_height=180
+window/size/mode=3
 window/size/initial_position_type=3
 window/size/initial_position=Vector2i(200, 200)
 window/stretch/mode="canvas_items"

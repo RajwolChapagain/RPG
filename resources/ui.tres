@@ -102,6 +102,7 @@ Button/styles/disabled = SubResource("StyleBoxFlat_8yfhb")
 Button/styles/focus = SubResource("StyleBoxFlat_r702l")
 Button/styles/normal = SubResource("StyleBoxFlat_nr324")
 Button/styles/pressed = SubResource("StyleBoxFlat_nr324")
+CheckBox/colors/checkbox_unchecked_color = Color(18.892, 18.892, 18.892, 1)
 ItemButton/base_type = &"Button"
 ItemButton/font_sizes/font_size = 6
 ItemButton/styles/normal = SubResource("StyleBoxFlat_tyv3d")
