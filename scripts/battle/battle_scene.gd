@@ -277,7 +277,7 @@ func attack_enemy(enemy) -> void:
 	if is_enemy_hit:
 		%AbilityPointsContainer.increase_points(player_characters[active_index].stats.ap_per_attack)
 		shake_camera(1, 0.2)
-		Input.start_joy_vibration(0, 1.0, 1.0, 0.2)
+		Input.start_joy_vibration(0, 0.5, 0.8, 0.15)
 		
 	for battler: Battler in get_resonant_battlers():
 		player_characters[active_index].attack(battler)
