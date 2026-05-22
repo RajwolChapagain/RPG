@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://beie628n64ix6"]
+
+[ext_resource type="Script" uid="uid://b11kg4wwd84u8" path="res://scripts/levels/props/statue.gd" id="1_0jj3y"]
+[ext_resource type="Texture2D" uid="uid://bne87m7oegiko" path="res://assets/sprites/world/level_2/statue_inactive.PNG" id="1_nvunc"]
+[ext_resource type="Texture2D" uid="uid://dmvnwc1va41y0" path="res://assets/sprites/world/level_2/statue_activating.PNG" id="2_0jj3y"]
+[ext_resource type="Shader" uid="uid://bahj070arha5b" path="res://scripts/shaders/highlight.gdshader" id="2_tb4gb"]
+[ext_resource type="Texture2D" uid="uid://coqyighj0jlku" path="res://assets/sprites/world/level_2/statue_active.png" id="3_tb4gb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b14ee"]
+shader = ExtResource("2_tb4gb")
+shader_parameter/highlight_color = Vector4(1, 1, 0, 1)
+shader_parameter/interactable = false
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v8d84"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nvunc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0jj3y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tb4gb")
+}],
+"loop": false,
+"name": &"activating",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_tb4gb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0jj3y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_nvunc")
+}],
+"loop": false,
+"name": &"deactivating",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_tb4gb")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cqu1g"]
+size = Vector2(20, 58.0475)
+
+[node name="Statue" type="Area2D" unique_id=772618171]
+script = ExtResource("1_0jj3y")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=595775073]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_b14ee")
+sprite_frames = SubResource("SpriteFrames_v8d84")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=45848073]
+position = Vector2(0, -1.5265503)
+shape = SubResource("RectangleShape2D_cqu1g")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
