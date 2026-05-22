@@ -20,6 +20,8 @@ func _input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 		
 func drop_items(items: Array[Item]) -> void:
+	if items.is_empty():
+		return
 	GameManager.add_items_to_inventory(items)
 	display_items(items)
 	call_deferred('pause_game')
@@ -32,7 +34,7 @@ func drop_item_by_name(item_name: String) -> void:
 	
 	printerr('Could not drop item with name %s' % item_name)
 	
-func drop_random_items(rarity_modifier: float = 0.0, item_count: int = 1) -> void:
+func drop_random_items(rarity_modifier: float = 0.0, item_count: int = 1) -> void:		
 	var items: Array[Item] = []
 	
 	for i in range(item_count):

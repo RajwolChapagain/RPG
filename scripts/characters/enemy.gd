@@ -18,7 +18,7 @@ func _process(_delta: float) -> void:
 	var movement = position - last_position
 	
 	# Ignore tiny movement (prevents jitter)
-	if movement.length() < 0.1:
+	if movement.length() < 0.1 or get_node_or_null("Patroller") == null:
 		return
 	
 	if abs(movement.x) > abs(movement.y):

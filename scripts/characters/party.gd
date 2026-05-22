@@ -124,6 +124,9 @@ func disable_all_player_movement() -> void:
 func disable_party_camera() -> void:
 	%Camera2D.enabled = false
 	
+func get_party_camera() -> Camera2D:
+	return %Camera2D
+	
 func disable_cycling() -> void:
 	can_cycle = false
 

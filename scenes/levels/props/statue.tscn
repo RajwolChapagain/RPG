@@ -54,6 +54,7 @@ animations = [{
 size = Vector2(20, 58.0475)
 
 [node name="Statue" type="Area2D" unique_id=772618171]
+z_index = 1
 script = ExtResource("1_0jj3y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=595775073]

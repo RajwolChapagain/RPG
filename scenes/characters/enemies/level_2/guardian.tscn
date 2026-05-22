@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://b31k4xm27oyj0"]
+
+[ext_resource type="PackedScene" uid="uid://ccy0aydyv2sxd" path="res://scenes/characters/enemies/level_1/crunk.tscn" id="1_lt00c"]
+[ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="2_2q17e"]
+[ext_resource type="Texture2D" uid="uid://dk378pi8rbh5j" path="res://assets/sprites/characters/overworld/enemies/level_2/guardian_spritesheet.png" id="2_xmrs5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7g7r"]
+atlas = ExtResource("2_xmrs5")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6xua"]
+atlas = ExtResource("2_xmrs5")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="Resource" id="Resource_iyhsu"]
+script = ExtResource("2_2q17e")
+name = "Guardian"
+battle_sprite = SubResource("AtlasTexture_u6xua")
+attack_sprite = SubResource("AtlasTexture_p7g7r")
+attack_damage = 20
+max_hp = 80
+hp = 80
+defence = 5
+crit = 20
+dodge = 20
+accuracy = 25
+metadata/_custom_type_script = "uid://dbtdwrocpsv30"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2q17e"]
+atlas = ExtResource("2_xmrs5")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iyhsu"]
+atlas = ExtResource("2_xmrs5")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38lf2"]
+atlas = ExtResource("2_xmrs5")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s0303"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2q17e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iyhsu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38lf2")
+}],
+"loop": false,
+"name": &"attacking",
+"speed": 7.0
+}]
+
+[node name="Guardian" unique_id=1786002395 instance=ExtResource("1_lt00c")]
+z_as_relative = false
+gang = Array[ExtResource("2_2q17e")]([SubResource("Resource_iyhsu")])
+random_drop_item_count = 0
+
+[node name="Sprite2D" parent="." index="0" unique_id=1584948219]
+z_index = 3
+sprite_frames = SubResource("SpriteFrames_s0303")
+animation = &"attacking"
+frame_progress = 0.0

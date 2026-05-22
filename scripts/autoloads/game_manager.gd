@@ -17,6 +17,13 @@ func get_alive_players() -> Array[Player]:
 		push_warning('Warning: Party was not declared in the scene tree. Returning empty array.')
 		return []
 		
+func get_active_player() -> Player:
+	if party != null:
+		return party.get_alive_players()[party.get_active_member_index()]
+	else:
+		push_warning('Warning: Party was not declared in the scene tree. Returning null.')
+		return null
+		
 func get_alive_player_names() -> Array[String]:
 	if party != null:
 		var name_array: Array[String] = []
@@ -26,6 +33,13 @@ func get_alive_player_names() -> Array[String]:
 	else:
 		push_warning('Warning: Party was not declared in the scene tree. Returning empty array.')
 		return []
+
+func get_party_camera() -> Camera2D:
+	if party != null:
+		return party.get_party_camera()
+	else:
+		push_warning('Warning: Party was not declared in the scene tree. Returning null.')
+		return null
 		
 func get_dead_player_names() -> Array[String]:
 	if party != null:

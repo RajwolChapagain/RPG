@@ -1,5 +1,10 @@
 extends Level
 
+@export var guardian_scene: PackedScene
+
+var statue_pending: int = 0
+var pending_active: bool = false
+
 func _ready() -> void:
 	MusicManager.play_music('level2')
 	play_unshroud_animation()
@@ -13,37 +18,90 @@ func play_unshroud_animation() -> void:
 	await tween.finished
 
 func _on_statue_1_statue_toggled(activated: bool) -> void:
-	if activated:
-		deactivate_level_2()
-		%Statue1.play_activate_animation()
-	else:
-		activate_level_2()
-		%Statue1.play_deactivate_animation()
+	spawn_guardian(GameManager.get_active_player().global_position) 
+	statue_pending = 1
+	pending_active = activated
+
 
 func _on_statue_2_or_3_toggled(activated: bool) -> void:
-	if activated:
-		deactivate_level_3()
-		%Statue2.play_activate_animation()
-		%Statue3.play_activate_animation()
-	else:
-		activate_level_3()
-		%Statue2.play_deactivate_animation()
-		%Statue3.play_deactivate_animation()
+	spawn_guardian(GameManager.get_active_player().global_position) 
+	statue_pending = 2
+	pending_active = activated
 		
-func activate_level_2():
-	%Layout2.visible = true
-	%WaterLayer1.collision_enabled = false
-
-func deactivate_level_2():
-	%Layout2.visible = false
+func activate_level_1():
+	shake_camera(1.0, 1.0)
+	Input.start_joy_vibration(0, 1.0, 1.0, 1.0)
+	var fade_tween = get_tree().create_tween()
+	fade_tween.tween_property(%Layout2, 'modulate', Color(%Layout2.modulate, 0.0), 1.0)
+	if %Layout3.modulate.a > 0.0:
+		fade_tween.set_parallel(true)
+		fade_tween.tween_property(%Layout3, 'modulate', Color(%Layout3.modulate, 0.0), 1.0)
 	%WaterLayer1.collision_enabled = true
-
-func activate_level_3():
-	%Layout3.visible = true
-	%WaterLayer2.collision_enabled = false
-	%Level3Colliders.set_collision_layer_value(1, true)
+	%Statue2.is_active = true
+	%Statue3.is_active = true
+	%Statue2.play_activate_animation()
+	%Statue3.play_activate_animation()
 	
-func deactivate_level_3():
-	%Layout3.visible = false
+func activate_level_2():
+	shake_camera(1.0, 1.0)
+	Input.start_joy_vibration(0, 1.0, 1.0, 1.0)
+	var fade_tween = get_tree().create_tween()
+	if statue_pending == 1:
+		fade_tween.tween_property(%Layout2, 'modulate', Color(%Layout2.modulate, 1.0), 1.0)
+		%Layout3.modulate = Color(%Layout3.modulate, 0.0)
+	else:
+		%Layout3.modulate = Color(%Layout2.modulate, 1.0)
+		fade_tween.tween_property(%Layout3, 'modulate', Color(%Layout3.modulate, 0.0), 1.0)
+	%WaterLayer1.collision_enabled = false
 	%WaterLayer2.collision_enabled = true
 	%Level3Colliders.set_collision_layer_value(1, false)
+
+func activate_level_3():
+	shake_camera(1.0, 1.0)
+	Input.start_joy_vibration(0, 1.0, 1.0, 1.0)
+	var fade_tween = get_tree().create_tween()
+	fade_tween.tween_property(%Layout3, 'modulate', Color(%Layout3.modulate, 1.0), 1.0)
+	%WaterLayer1.collision_enabled = false
+	%WaterLayer2.collision_enabled = false
+	%Level3Colliders.set_collision_layer_value(1, true)
+
+func spawn_guardian(pos: Vector2) -> void:
+	var guardian = guardian_scene.instantiate()
+	var random_offset = Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)).normalized() *  160
+	var spawn_position = pos + random_offset
+	if spawn_position.x > pos.x:
+		guardian.get_node('Sprite2D').flip_h = true
+	guardian.global_position = spawn_position
+	guardian.connect('enemy_defeated', on_guardian_defeated)
+	add_child(guardian)
+	var tween = get_tree().create_tween()
+	tween.tween_property(guardian, 'global_position', pos, 0.3).set_ease(Tween.EASE_OUT)
+	guardian.PLAY_ANIMATION('attacking')
+
+func on_guardian_defeated() -> void:
+	if statue_pending == 1:
+		if pending_active:
+			activate_level_1()
+			%Statue1.play_activate_animation()
+		else:
+			activate_level_2()
+			%Statue1.play_deactivate_animation()
+	else:
+		if pending_active:
+			activate_level_2()
+			%Statue2.play_activate_animation()
+			%Statue3.play_activate_animation()
+		else:
+			activate_level_3()
+			%Statue2.play_deactivate_animation()
+			%Statue3.play_deactivate_animation()
+
+func shake_camera(magnitude: float, duration: float) -> void:
+	var party_cam = GameManager.get_party_camera()
+	var original_pos = party_cam.global_position
+	while duration >= 0:
+		party_cam.global_position = original_pos + Vector2(randf_range(-magnitude, magnitude), randf_range(-magnitude, magnitude))
+		await get_tree().process_frame
+		duration -= get_process_delta_time()
+	
+	party_cam.global_position = original_pos

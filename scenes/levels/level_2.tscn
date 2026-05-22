@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://2lee67gvdms6" path="res://assets/sprites/world/level_2/level_2_phase_1.PNG" id="2_brxtv"]
 [ext_resource type="PackedScene" uid="uid://ccy0aydyv2sxd" path="res://scenes/characters/enemies/level_1/crunk.tscn" id="2_g2h2n"]
 [ext_resource type="Texture2D" uid="uid://c3v3a5kn3alr5" path="res://assets/sprites/world/level_2/level_2_phase_3.PNG" id="2_nt80m"]
+[ext_resource type="PackedScene" uid="uid://b31k4xm27oyj0" path="res://scenes/characters/enemies/level_2/guardian.tscn" id="2_tv7cl"]
 [ext_resource type="Texture2D" uid="uid://ck253l5ss77fx" path="res://assets/sprites/world/level_2/structure_tileset.png" id="3_3p04p"]
 [ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="3_fiq81"]
 [ext_resource type="Texture2D" uid="uid://buyv215pr3716" path="res://assets/sprites/world/level_2/level_2_phase_2.PNG" id="3_tv7cl"]
@@ -12,6 +13,7 @@
 [ext_resource type="Resource" uid="uid://504xnrcw2ros" path="res://resources/stats/enemies/level_1/catapace.tres" id="6_qpwj6"]
 [ext_resource type="PackedScene" uid="uid://beie628n64ix6" path="res://scenes/levels/props/statue.tscn" id="8_1yj8c"]
 [ext_resource type="Texture2D" uid="uid://doti88i48dtjf" path="res://assets/sprites/screens/transition_shroud.png" id="10_qsp8v"]
+[ext_resource type="Texture2D" uid="uid://cqbc0ofs5hmyg" path="res://assets/sprites/effects/pulp_tileset.webp" id="10_r88tb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nt80m"]
 texture = ExtResource("3_3p04p")
@@ -281,27 +283,66 @@ size = Vector2(14, 34.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nsjcl"]
 size = Vector2(31, 66)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqh5v"]
+atlas = ExtResource("10_r88tb")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7o3do"]
+atlas = ExtResource("10_r88tb")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7j4k"]
+atlas = ExtResource("10_r88tb")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31oqk"]
+atlas = ExtResource("10_r88tb")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1yj8c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqh5v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7o3do")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o7j4k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31oqk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Level2" type="Node" unique_id=72583909]
 script = ExtResource("1_l37oo")
+guardian_scene = ExtResource("2_tv7cl")
 
 [node name="PartyOriginMarker" type="Marker2D" parent="." unique_id=1758762546]
 unique_name_in_owner = true
+position = Vector2(0, -896)
 
 [node name="World" type="Node2D" parent="." unique_id=311040849]
 
 [node name="Layout1" type="Sprite2D" parent="World" unique_id=765557079]
+unique_name_in_owner = true
 position = Vector2(5, -520)
 texture = ExtResource("2_brxtv")
 
 [node name="Layout2" type="Sprite2D" parent="World" unique_id=1835273274]
 unique_name_in_owner = true
-visible = false
+modulate = Color(1, 1, 1, 0)
 position = Vector2(5, -520)
 texture = ExtResource("3_tv7cl")
 
 [node name="Layout3" type="Sprite2D" parent="World" unique_id=558815154]
 unique_name_in_owner = true
-visible = false
+modulate = Color(1, 1, 1, 0)
 position = Vector2(5, -520)
 texture = ExtResource("2_nt80m")
 
@@ -1001,6 +1042,35 @@ flip_h = true
 [node name="Statue3" parent="World/Props" unique_id=1616679015 instance=ExtResource("8_1yj8c")]
 unique_name_in_owner = true
 position = Vector2(80, -576)
+
+[node name="Pulps" type="Node2D" parent="World/Props" unique_id=195760208]
+
+[node name="Pulp1" type="AnimatedSprite2D" parent="World/Props/Pulps" unique_id=1758824215]
+position = Vector2(8.603027, -807.64716)
+sprite_frames = SubResource("SpriteFrames_1yj8c")
+
+[node name="Pulp2" type="AnimatedSprite2D" parent="World/Props/Pulps" unique_id=949379573]
+position = Vector2(-57.42003, -569.1468)
+sprite_frames = SubResource("SpriteFrames_1yj8c")
+frame = 3
+
+[node name="Pulp3" type="AnimatedSprite2D" parent="World/Props/Pulps" unique_id=1660695036]
+position = Vector2(-39.46563, -582.7921)
+sprite_frames = SubResource("SpriteFrames_1yj8c")
+
+[node name="Pulp4" type="AnimatedSprite2D" parent="World/Props/Pulps" unique_id=584588651]
+position = Vector2(68.55019, -550.9291)
+sprite_frames = SubResource("SpriteFrames_1yj8c")
+frame = 1
+
+[node name="Pulp5" type="AnimatedSprite2D" parent="World/Props/Pulps" unique_id=245627851]
+position = Vector2(73.17672, -585.24243)
+sprite_frames = SubResource("SpriteFrames_1yj8c")
+
+[node name="Pulp6" type="AnimatedSprite2D" parent="World/Props/Pulps" unique_id=1726293046]
+position = Vector2(-8.67749, -803.89685)
+sprite_frames = SubResource("SpriteFrames_1yj8c")
+frame = 2
 
 [node name="Enemies" type="Node2D" parent="." unique_id=1169143122]
 visible = false

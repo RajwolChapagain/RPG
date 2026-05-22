@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="BaseStats" format=3 uid="uid://dsxbdcxosj0fb"]
+
+[ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="1_f1gkn"]
+[ext_resource type="Texture2D" uid="uid://dk378pi8rbh5j" path="res://assets/sprites/characters/overworld/enemies/level_2/guardian_spritesheet.png" id="1_p7g7r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7g7r"]
+atlas = ExtResource("1_p7g7r")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6xua"]
+atlas = ExtResource("1_p7g7r")
+region = Rect2(64, 0, 32, 32)
+
+[resource]
+script = ExtResource("1_f1gkn")
+name = "Guardian"
+battle_sprite = SubResource("AtlasTexture_u6xua")
+attack_sprite = SubResource("AtlasTexture_p7g7r")
+attack_damage = 20
+max_hp = 80
+hp = 80
+defence = 5
+crit = 20
+dodge = 20
+accuracy = 25
+metadata/_custom_type_script = "uid://dbtdwrocpsv30"
