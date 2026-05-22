@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://w3am3q8jaqjr"]
+
+[ext_resource type="PackedScene" uid="uid://ccy0aydyv2sxd" path="res://scenes/characters/enemies/level_1/crunk.tscn" id="1_6fyaa"]
+[ext_resource type="Texture2D" uid="uid://ckp68k6kimuqq" path="res://assets/sprites/characters/overworld/enemies/level_2/eel_spritesheet.png" id="2_fguyl"]
+[ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="2_lk8c2"]
+[ext_resource type="Texture2D" uid="uid://pxbf0riedib8" path="res://assets/sprites/characters/battle/enemies/level_2/eel_3.png" id="3_aad1s"]
+[ext_resource type="Texture2D" uid="uid://bpyx34vcos6o3" path="res://assets/sprites/characters/battle/enemies/level_2/eel_1.png" id="4_0lvtl"]
+
+[sub_resource type="Resource" id="Resource_mdwwc"]
+script = ExtResource("2_lk8c2")
+name = "Eel"
+battle_sprite = ExtResource("4_0lvtl")
+ability_invoke_sprite = ExtResource("3_aad1s")
+attack_damage = 50
+max_hp = 150
+hp = 150
+defence = 10
+crit = 15
+dodge = 50
+accuracy = 30
+metadata/_custom_type_script = "uid://dbtdwrocpsv30"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lk8c2"]
+atlas = ExtResource("2_fguyl")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aad1s"]
+atlas = ExtResource("2_fguyl")
+region = Rect2(0, 32, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0lvtl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lk8c2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aad1s")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[node name="EelEnemy" unique_id=1786002395 instance=ExtResource("1_6fyaa")]
+gang = Array[ExtResource("2_lk8c2")]([SubResource("Resource_mdwwc")])
+
+[node name="Sprite2D" parent="." index="0" unique_id=1584948219]
+sprite_frames = SubResource("SpriteFrames_0lvtl")
+animation = &"new_animation"
+autoplay = "new_animation"
+frame_progress = 0.7284888
