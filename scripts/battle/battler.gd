@@ -9,6 +9,8 @@ extends Area2D
 @export var rachelle_phantom: Texture2D
 @export var nahas_phantom: Texture2D
 
+@onready var default_y_position = position.y
+
 var status_effects: Array[StatusEffect] = []
 var effects_pending_application: Array[StatusEffect] = []
 var is_alive = true
@@ -187,8 +189,20 @@ func set_hit_particle_color() -> void:
 
 func slide(direction: Vector2) -> void:
 	var slide_distance = 15
+	var target_position = null
+	if direction == Vector2.DOWN:
+		if is_player:
+			target_position = Vector2(position.x, default_y_position)
+		else:
+			target_position = Vector2(position.x, default_y_position + slide_distance)
+	else:
+		if is_player:
+			target_position = Vector2(position.x, default_y_position - slide_distance)
+		else:
+			target_position = Vector2(position.x, default_y_position)
+			
 	var tween = get_tree().create_tween()
-	await tween.tween_property(self, 'position', position + (direction * slide_distance), 0.1).finished
+	await tween.tween_property(self, 'position', target_position, 0.1).finished
 
 func play_ability_animation(ability_owner: String = stats.name) -> void:
 	var animation_duration = 0.5
