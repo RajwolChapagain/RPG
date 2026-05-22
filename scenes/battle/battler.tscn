@@ -517,13 +517,14 @@ magda_phantom = SubResource("AtlasTexture_cff06")
 rachelle_phantom = SubResource("AtlasTexture_1e5l2")
 nahas_phantom = ExtResource("4_oylcg")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1689363762]
-unique_name_in_owner = true
-
 [node name="Pointer" type="Sprite2D" parent="." unique_id=374239538]
 visible = false
+z_index = 1
 position = Vector2(0, -20)
 texture = ExtResource("2_foo5t")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1689363762]
+unique_name_in_owner = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1676425050]
 unique_name_in_owner = true

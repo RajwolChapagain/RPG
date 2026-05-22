@@ -218,6 +218,7 @@ func play_ability_animation(ability_owner: String = stats.name) -> void:
 		
 	await get_tree().create_timer(animation_duration).timeout
 	%Sprite2D.reparent(self)
+	move_child(%Sprite2D, 0)
 	%Sprite2D.texture = stats.battle_sprite
 
 func play_phantom_animation(phantom_texture: Texture2D, animation_duration: float):
