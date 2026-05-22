@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6sbioxiceqly"
-path="res://.godot/imported/battle_screen_2.webp-1cad572d6880894a1c7de6ec8da09414.ctex"
+uid="uid://fecnsvt7yucw"
+path="res://.godot/imported/battle_screen_2.png-bd28f135b187dda10f23fd169eaab601.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/screens/battle_screen_2.webp"
-dest_files=["res://.godot/imported/battle_screen_2.webp-1cad572d6880894a1c7de6ec8da09414.ctex"]
+source_file="res://assets/sprites/screens/battle_screen_2.png"
+dest_files=["res://.godot/imported/battle_screen_2.png-bd28f135b187dda10f23fd169eaab601.ctex"]
 
 [params]
 

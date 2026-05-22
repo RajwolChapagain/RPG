@@ -451,7 +451,8 @@ libraries/ = SubResource("AnimationLibrary_g72on")
 unique_name_in_owner = true
 position = Vector2(160, 90)
 
-[node name="BattleScreen1" type="Sprite2D" parent="." unique_id=840562323]
+[node name="BattleScreen" type="Sprite2D" parent="." unique_id=840562323]
+unique_name_in_owner = true
 position = Vector2(160, 66)
 texture = ExtResource("15_yt3ua")
 

@@ -52,7 +52,10 @@ func _input(event: InputEvent) -> void:
 			$TargetSelect.DEACTIVATE()
 			enable_attack_button()
 			get_viewport().set_input_as_handled()
-		
+
+func set_battle_screen(screen: Texture2D) -> void:
+	%BattleScreen.texture = screen
+
 func update_ui(delta) -> void:
 	var hp_bar_speed = 100
 	var epsilon = 1

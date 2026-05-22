@@ -3,6 +3,7 @@ extends Node
 var party
 var inventory_manager
 var route: SaveInfo.routes
+var current_level: int = 0
 
 func activate_party_member(character_name: String) -> void:
 	party.activate_party_member_by_name(character_name)

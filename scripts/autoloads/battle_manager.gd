@@ -4,6 +4,7 @@ extends Node
 @export var MAIN_MENU_SCENE: PackedScene
 @export_dir var death_dialogues_dir: String
 @onready var death_dialogue_path_placeholder: String = death_dialogues_dir + '%s_death.csv'
+@export var battle_screen_2: Texture2D
 
 var active_battle_scene: Node
 var battling_party: Party
@@ -27,6 +28,8 @@ func start_battle(party: Party, enemy: Enemy) -> void:
 	active_battle_scene.initialize_battle(party.get_all_player_stats(), enemies, party.get_active_member_index())
 	active_battle_scene.battle_ended.connect(on_battle_ended)
 	active_battle_scene.enemy_hook = enemy.post_defeat_hook
+	if GameManager.current_level == 2:
+		active_battle_scene.set_battle_screen(battle_screen_2)
 	freeze_party()
 	freeze_enemy()
 	

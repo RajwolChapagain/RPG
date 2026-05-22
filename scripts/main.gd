@@ -47,6 +47,8 @@ func load_level(level: int) -> void:
 		party.enable_cycling()
 		transitioning = false
 
+	GameManager.current_level = current_level_number
+	
 func load_next_level() -> void:
 	current_level_number += 1
 	await load_level(current_level_number)
