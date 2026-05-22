@@ -23,6 +23,7 @@ var enemy_hook: String = ''
 @export_category('Hook variables')
 @export var nahas_parts: Array[BaseStats]
 @export_file('*.csv') var nahas_split_dialogue_file: String
+@export var eel_parts: Array[BaseStats]
 
 signal battle_ended
 
@@ -543,5 +544,14 @@ func on_nahas_death() -> void:
 	alive_enemy_count = len(enemies)
 	enemy_hook = ''
 	DialogueManager.load_dialogue(nahas_split_dialogue_file)
+	
+func on_eel_death() -> void:
+	enemies[0].queue_free()
+	enemies.clear()
+	enemy_stats = eel_parts
+	character_spacing = 64
+	spawn_enemies()
+	alive_enemy_count = len(enemies)
+	enemy_hook = ''
 	
 #endregion

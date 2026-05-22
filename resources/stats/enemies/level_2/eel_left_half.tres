@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="BaseStats" format=3 uid="uid://cdblhfrx1b55r"]
+
+[ext_resource type="Texture2D" uid="uid://dbty7tayoxh1q" path="res://assets/sprites/characters/battle/enemies/level_2/eel_left_half_charged.png" id="1_8ixxa"]
+[ext_resource type="PackedScene" uid="uid://d4l8cphpwh0bp" path="res://scenes/abilities/stun.tscn" id="1_t72sc"]
+[ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="1_vijmc"]
+[ext_resource type="Texture2D" uid="uid://cadewq1vv2vek" path="res://assets/sprites/characters/battle/enemies/level_2/eel_left_half.png" id="2_t72sc"]
+
+[resource]
+script = ExtResource("1_vijmc")
+name = "Eel Left Half"
+battle_sprite = ExtResource("2_t72sc")
+ability_invoke_sprite = ExtResource("1_8ixxa")
+attack_damage = 10
+max_hp = 100
+hp = 100
+defence = 5
+crit = 5
+dodge = 25
+abilities = Array[PackedScene]([ExtResource("1_t72sc")])
+metadata/_custom_type_script = "uid://dbtdwrocpsv30"

@@ -44,6 +44,7 @@ animations = [{
 
 [node name="EelEnemy" unique_id=1786002395 instance=ExtResource("1_6fyaa")]
 gang = Array[ExtResource("2_lk8c2")]([SubResource("Resource_mdwwc")])
+post_defeat_hook = "on_eel_death"
 
 [node name="Sprite2D" parent="." index="0" unique_id=1584948219]
 sprite_frames = SubResource("SpriteFrames_0lvtl")

@@ -19,7 +19,9 @@
 [ext_resource type="Resource" uid="uid://b8jh5xkylgyds" path="res://resources/stats/enemies/level_1/nahas_body_3.tres" id="14_0hs4o"]
 [ext_resource type="Texture2D" uid="uid://cixd014ueujbf" path="res://assets/sprites/ui/battle/hp_container.png" id="14_05s0e"]
 [ext_resource type="Texture2D" uid="uid://ckhapeyae067y" path="res://assets/sprites/ui/battle/hp_container_cover.png" id="14_j0cvo"]
+[ext_resource type="Resource" uid="uid://cdblhfrx1b55r" path="res://resources/stats/enemies/level_2/eel_left_half.tres" id="14_xxdit"]
 [ext_resource type="Texture2D" uid="uid://bnjsnogy2wlnf" path="res://assets/sprites/ui/battle/hp_progress.png" id="15_j0cvo"]
+[ext_resource type="Resource" uid="uid://ye7vkerqhwn4" path="res://resources/stats/enemies/level_2/eel_right_half.tres" id="15_k0vga"]
 [ext_resource type="Texture2D" uid="uid://c0k11u6dawxtk" path="res://assets/sprites/screens/battle_screen_1.webp" id="15_yt3ua"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_22msv"]
@@ -165,6 +167,7 @@ ability_button = ExtResource("3_svpld")
 MAIN_MENU_SCENE = ExtResource("8_tttxe")
 nahas_parts = Array[ExtResource("2_xwxfl")]([ExtResource("11_7mjbx"), ExtResource("12_jrwob"), ExtResource("13_porms"), ExtResource("14_0hs4o")])
 nahas_split_dialogue_file = "res://assets/dialogues/level_1/nahas_split.csv"
+eel_parts = Array[ExtResource("2_xwxfl")]([ExtResource("14_xxdit"), ExtResource("15_k0vga")])
 
 [node name="DualGrid" parent="." unique_id=2087056435 instance=ExtResource("1_6lmhm")]
 
