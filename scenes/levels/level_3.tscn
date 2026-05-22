@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://biubxrgae4cha" path="res://resources/stats/players/magda.tres" id="5_ugcn1"]
 [ext_resource type="Resource" uid="uid://cym67rsdldl6j" path="res://resources/stats/players/einar.tres" id="6_pimnq"]
 [ext_resource type="Resource" uid="uid://504xnrcw2ros" path="res://resources/stats/enemies/level_1/catapace.tres" id="8_ugcn1"]
+[ext_resource type="Texture2D" uid="uid://doti88i48dtjf" path="res://assets/sprites/screens/transition_shroud.png" id="9_pimnq"]
 
 [node name="Level3" type="Node" unique_id=1502880646]
 script = ExtResource("1_fkk1g")
@@ -25,5 +26,12 @@ gang = Array[ExtResource("3_0qepi")]([ExtResource("4_fkk1g"), ExtResource("5_ugc
 [node name="Enemy" parent="." unique_id=1417042831 instance=ExtResource("2_44gv1")]
 position = Vector2(392, 37)
 gang = Array[ExtResource("3_0qepi")]([ExtResource("8_ugcn1")])
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1037867233]
+
+[node name="Shroud" type="Sprite2D" parent="CanvasLayer" unique_id=695757191]
+unique_name_in_owner = true
+position = Vector2(160, 90)
+texture = ExtResource("9_pimnq")
 
 [editable path="DualGrid"]

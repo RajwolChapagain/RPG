@@ -100,3 +100,11 @@ func enable_party_camera_smoothing() -> void:
 func disable_party_camera_smoothing() -> void:
 	assert(party != null)
 	party.disable_camera_smoothing()
+	
+func freeze_party() -> void:
+	party.disable_all_player_movement()
+	party.disable_cycling()
+	
+func thaw_party() -> void:
+	party.enable_all_player_movement()
+	party.enable_cycling()

@@ -20,7 +20,7 @@ func _input(event: InputEvent) -> void:
 			
 func load_level(level: int) -> void:
 	if current_level != null:
-		if level == 2:
+		if level == 2 or level == 3:
 			transitioning = true
 			party.disable_all_player_movement()
 			party.disable_cycling()
@@ -41,7 +41,7 @@ func load_level(level: int) -> void:
 	current_level.initialize_party_position(party)
 	move_child(current_level, 0)
 	current_level.level_completed.connect(on_level_completed)
-	if level == 2:
+	if level == 2 or level == 3:
 		await play_unshroud_animation()
 		party.enable_all_player_movement()
 		party.enable_cycling()

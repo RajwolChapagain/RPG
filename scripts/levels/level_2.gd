@@ -10,7 +10,12 @@ func _ready() -> void:
 	play_unshroud_animation()
 
 func _on_boss_enemy_enemy_defeated() -> void:
-	level_completed.emit(level_number)
+	#	ItemDropManager.drop_items([boss_essence])
+	pass
+	
+func _on_level_complete_trigger_area_entered(area: Area2D) -> void:
+	if area is Player:
+		level_completed.emit(level_number)
 	
 func play_unshroud_animation() -> void:
 	var tween = get_tree().create_tween()
@@ -21,7 +26,6 @@ func _on_statue_1_statue_toggled(activated: bool) -> void:
 	spawn_guardian(GameManager.get_active_player().global_position) 
 	statue_pending = 1
 	pending_active = activated
-
 
 func _on_statue_2_or_3_toggled(activated: bool) -> void:
 	spawn_guardian(GameManager.get_active_player().global_position) 
@@ -97,6 +101,8 @@ func on_guardian_defeated() -> void:
 			%Statue3.play_deactivate_animation()
 
 func shake_camera(magnitude: float, duration: float) -> void:
+	await get_tree().process_frame
+	GameManager.freeze_party()
 	var party_cam = GameManager.get_party_camera()
 	var original_pos = party_cam.global_position
 	while duration >= 0:
@@ -105,3 +111,4 @@ func shake_camera(magnitude: float, duration: float) -> void:
 		duration -= get_process_delta_time()
 	
 	party_cam.global_position = original_pos
+	GameManager.thaw_party()

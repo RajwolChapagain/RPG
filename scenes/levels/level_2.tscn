@@ -2,15 +2,12 @@
 
 [ext_resource type="Script" uid="uid://cvl50yo1l2mfb" path="res://scripts/levels/level_2.gd" id="1_l37oo"]
 [ext_resource type="Texture2D" uid="uid://2lee67gvdms6" path="res://assets/sprites/world/level_2/level_2_phase_1.PNG" id="2_brxtv"]
-[ext_resource type="PackedScene" uid="uid://ccy0aydyv2sxd" path="res://scenes/characters/enemies/level_1/crunk.tscn" id="2_g2h2n"]
 [ext_resource type="Texture2D" uid="uid://c3v3a5kn3alr5" path="res://assets/sprites/world/level_2/level_2_phase_3.PNG" id="2_nt80m"]
 [ext_resource type="PackedScene" uid="uid://b31k4xm27oyj0" path="res://scenes/characters/enemies/level_2/guardian.tscn" id="2_tv7cl"]
 [ext_resource type="Texture2D" uid="uid://ck253l5ss77fx" path="res://assets/sprites/world/level_2/structure_tileset.png" id="3_3p04p"]
-[ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="3_fiq81"]
 [ext_resource type="Texture2D" uid="uid://buyv215pr3716" path="res://assets/sprites/world/level_2/level_2_phase_2.PNG" id="3_tv7cl"]
 [ext_resource type="Texture2D" uid="uid://k5kjlbmagipr" path="res://assets/sprites/world/level_2/ground_tileset_1_water.webp" id="4_8qukl"]
 [ext_resource type="Texture2D" uid="uid://c4lf6o28wrimy" path="res://assets/sprites/world/level_2/structure_tileset_2.webp" id="4_qsp8v"]
-[ext_resource type="Resource" uid="uid://504xnrcw2ros" path="res://resources/stats/enemies/level_1/catapace.tres" id="6_qpwj6"]
 [ext_resource type="PackedScene" uid="uid://beie628n64ix6" path="res://scenes/levels/props/statue.tscn" id="8_1yj8c"]
 [ext_resource type="Texture2D" uid="uid://doti88i48dtjf" path="res://assets/sprites/screens/transition_shroud.png" id="10_qsp8v"]
 [ext_resource type="Texture2D" uid="uid://cqbc0ofs5hmyg" path="res://assets/sprites/effects/pulp_tileset.webp" id="10_r88tb"]
@@ -145,6 +142,9 @@ size = Vector2(240.53323, 7.5746384)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7to3y"]
 size = Vector2(42.16516, 7.5746384)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4mm18"]
+size = Vector2(27.769836, 7.5746384)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ywi5j"]
 size = Vector2(65.362854, 7.5746384)
 
@@ -174,6 +174,9 @@ size = Vector2(51.657623, 7.5746384)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lq6o5"]
 size = Vector2(120.260895, 7.5746384)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y3o2l"]
+size = Vector2(26.276001, 7.5746384)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1p26v"]
 size = Vector2(227.10759, 7.5746384)
@@ -318,6 +321,9 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cqu1g"]
+size = Vector2(42.64073, 34.173145)
 
 [node name="Level2" type="Node" unique_id=72583909]
 script = ExtResource("1_l37oo")
@@ -573,9 +579,9 @@ shape = SubResource("RectangleShape2D_7to3y")
 one_way_collision = true
 
 [node name="CollisionShape2D74" type="CollisionShape2D" parent="World/Level3Colliders" unique_id=328232354]
-position = Vector2(214.17986, 183.25159)
+position = Vector2(214.17986, 176.05396)
 rotation = -1.5707964
-shape = SubResource("RectangleShape2D_7to3y")
+shape = SubResource("RectangleShape2D_4mm18")
 
 [node name="CollisionShape2D76" type="CollisionShape2D" parent="World/Level3Colliders" unique_id=1247204764]
 position = Vector2(234.24803, 309.29846)
@@ -662,9 +668,9 @@ shape = SubResource("RectangleShape2D_lq6o5")
 one_way_collision = true
 
 [node name="CollisionShape2D75" type="CollisionShape2D" parent="World/Level3Colliders" unique_id=1715041336]
-position = Vector2(278.0297, 184.15088)
+position = Vector2(278.0297, 176.2063)
 rotation = -1.5707964
-shape = SubResource("RectangleShape2D_7to3y")
+shape = SubResource("RectangleShape2D_y3o2l")
 
 [node name="CollisionShape2D61" type="CollisionShape2D" parent="World/Level3Colliders" unique_id=914906692]
 position = Vector2(96.84502, 341.81158)
@@ -1073,24 +1079,25 @@ sprite_frames = SubResource("SpriteFrames_1yj8c")
 frame = 2
 
 [node name="Enemies" type="Node2D" parent="." unique_id=1169143122]
-visible = false
 
-[node name="BossEnemy" parent="Enemies" unique_id=1868205848 instance=ExtResource("2_g2h2n")]
-position = Vector2(-1.9595947, -644.29236)
-gang = Array[ExtResource("3_fiq81")]([ExtResource("6_qpwj6")])
+[node name="CollisionTriggers" type="Node2D" parent="." unique_id=1024095474]
+
+[node name="LevelCompleteTrigger" type="Area2D" parent="CollisionTriggers" unique_id=727380189]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionTriggers/LevelCompleteTrigger" unique_id=1379712043]
+position = Vector2(-0.9597397, -709.9906)
+shape = SubResource("RectangleShape2D_cqu1g")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=314535198]
 
 [node name="Shroud" type="Sprite2D" parent="CanvasLayer" unique_id=81085369]
 unique_name_in_owner = true
-visible = false
 position = Vector2(160, 90)
 texture = ExtResource("10_qsp8v")
 
 [connection signal="statue_toggled" from="World/Props/Statue1" to="." method="_on_statue_1_statue_toggled"]
 [connection signal="statue_toggled" from="World/Props/Statue2" to="." method="_on_statue_2_or_3_toggled"]
 [connection signal="statue_toggled" from="World/Props/Statue3" to="." method="_on_statue_2_or_3_toggled"]
-[connection signal="enemy_defeated" from="Enemies/BossEnemy" to="." method="_on_enemy_enemy_defeated"]
-[connection signal="enemy_defeated" from="Enemies/BossEnemy" to="." method="_on_boss_enemy_enemy_defeated"]
+[connection signal="area_entered" from="CollisionTriggers/LevelCompleteTrigger" to="." method="_on_level_complete_trigger_area_entered"]
 
 [editable path="World/Props/Statue2"]
