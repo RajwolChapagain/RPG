@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://d4l8cphpwh0bp"]
+
+[ext_resource type="Script" uid="uid://fd0ushhdcmx" path="res://scripts/abilities/stun.gd" id="1_ud5n4"]
+[ext_resource type="Resource" uid="uid://bxmg8yt5ulbrr" path="res://resources/status_effects/stunned.tres" id="2_bmyh4"]
+
+[node name="Stun" type="Node" unique_id=640762451]
+script = ExtResource("1_ud5n4")
+stun_effect = ExtResource("2_bmyh4")
+ability_name = "Stun"

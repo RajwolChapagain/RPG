@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="1_1fvpy"]
 [ext_resource type="Texture2D" uid="uid://bpyx34vcos6o3" path="res://assets/sprites/characters/battle/enemies/level_2/eel_1.png" id="1_8bwnq"]
+[ext_resource type="PackedScene" uid="uid://d4l8cphpwh0bp" path="res://scenes/abilities/stun.tscn" id="1_yrc8d"]
 [ext_resource type="Texture2D" uid="uid://pxbf0riedib8" path="res://assets/sprites/characters/battle/enemies/level_2/eel_3.png" id="1_yte7n"]
 
 [resource]
@@ -9,11 +10,12 @@ script = ExtResource("1_1fvpy")
 name = "Eel"
 battle_sprite = ExtResource("1_8bwnq")
 ability_invoke_sprite = ExtResource("1_yte7n")
-attack_damage = 50
-max_hp = 150
-hp = 150
+attack_damage = 5
+max_hp = 500
+hp = 500
 defence = 10
 crit = 15
 dodge = 50
 accuracy = 30
+abilities = Array[PackedScene]([ExtResource("1_yrc8d")])
 metadata/_custom_type_script = "uid://dbtdwrocpsv30"

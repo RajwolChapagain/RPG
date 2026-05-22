@@ -200,6 +200,13 @@ func initialize_ability_points() -> void:
 #region turntaking
 # Precondition: new_index points to an alive battler
 func update_active_battler(new_index):
+	if new_index == -1: # All stunned
+		if players_turn:
+			end_player_turn()
+		else:
+			end_enemy_turn()
+		return
+			
 	if players_turn:
 		if len(attackers_this_turn) != 0:# Mark last attacking player inactive if turn didn't just start
 			await player_characters[active_index].mark_inactive()
@@ -218,6 +225,7 @@ func advance_turn() -> void:
 		
 func advance_player_turn() -> void:
 	var next_player_index = get_next_alive_index((active_index + 1) % len(player_characters), player_characters)
+				
 	if player_characters[next_player_index].get_instance_id() in attackers_this_turn:
 		end_player_turn()
 		return
@@ -242,21 +250,28 @@ func handle_status_effects() -> void:
 				battler.take_raw_damage(4)
 				
 		battler.TICK_EFFECTS_DOWN()
-			
+	
 func end_player_turn() -> void:
 	attackers_this_turn.clear()
 	await player_characters[active_index].mark_inactive()
 	players_turn = false
 	
-	update_active_battler(get_next_alive_index(0, enemies))
+	var next_enemy_index = get_next_alive_index(0, enemies)
+	update_active_battler(next_enemy_index)
+	if next_enemy_index == -1:
+		return
 	disable_attack_button()
 	attack_random_player()
 
 func end_enemy_turn() -> void:
 	attackers_this_turn.clear()
 	players_turn = true
+	if first_attacker_index == -1:
+		first_attacker_index = 0
 	first_attacker_index = get_next_alive_index(first_attacker_index, player_characters)
 	update_active_battler(first_attacker_index)
+	if first_attacker_index == -1:
+		return
 	enable_attack_button()
 	
 #endregion turntaking
@@ -500,13 +515,20 @@ func get_resonant_battlers() -> Array[Battler]:
 	
 func get_next_alive_index(start_index: int, battler_array: Array[Battler]) -> int:
 	for i in range(len(battler_array)):
-		if battler_array[start_index].is_alive:
+		if battler_array[start_index].is_alive and not is_battler_stunned(battler_array[start_index]):
 			return start_index
 		
 		start_index += 1
 		start_index %= len(battler_array)
 		
 	return -1
+
+func is_battler_stunned(battler: Battler) -> bool:
+	for effect: StatusEffect in battler.status_effects:
+		if effect.effect_name == 'Stunned':
+			return true
+			
+	return false
 	
 #endregion helpers
 
