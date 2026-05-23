@@ -5,6 +5,7 @@ class_name ItemButton
 
 @export var equippable_icon: Texture2D
 @export var consumable_icon: Texture2D
+@export var essence_icon: Texture2D
 
 @export var item: Item
 @export var count: int:
@@ -60,7 +61,10 @@ func initialize_type_indicator() -> void:
 	if item.type == Item.ItemType.EQUIPPABLE:
 		%TypeIndicator.texture = equippable_icon
 	else:
-		%TypeIndicator.texture = consumable_icon
+		if "essence" in item.name.to_lower():
+			%TypeIndicator.texture = essence_icon
+		else:
+			%TypeIndicator.texture = consumable_icon
 		
 func _on_pressed() -> void:
 	item_selected.emit(item)
