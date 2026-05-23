@@ -1,13 +1,18 @@
 extends Level
 
 @export var guardian_scene: PackedScene
+@export_file_path('*.csv') var opening_dialogue
 
 var statue_pending: int = 0
 var pending_active: bool = false
 
 func _ready() -> void:
+	GameManager.freeze_party()
 	MusicManager.play_music('level2')
-	play_unshroud_animation()
+	await play_unshroud_animation()
+	DialogueManager.load_dialogue(opening_dialogue)
+	await DialogueManager.dialogue_finished
+	GameManager.thaw_party()
 
 func _on_boss_enemy_enemy_defeated() -> void:
 	#	ItemDropManager.drop_items([boss_essence])

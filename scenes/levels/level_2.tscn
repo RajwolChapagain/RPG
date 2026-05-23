@@ -367,6 +367,7 @@ size = Vector2(42.64073, 18.696142)
 [node name="Level2" type="Node" unique_id=72583909]
 script = ExtResource("1_l37oo")
 guardian_scene = ExtResource("2_tv7cl")
+opening_dialogue = "res://assets/dialogues/level_2/level_2_opening.csv"
 
 [node name="PartyOriginMarker" type="Marker2D" parent="." unique_id=1758762546]
 unique_name_in_owner = true
