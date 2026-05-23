@@ -58,7 +58,6 @@ func START_PATROL() -> void:
 func PLAY_ANIMATION(animation_name: String) -> void:
 	assert(animation_name in %Sprite2D.sprite_frames.get_animation_names())
 	%Sprite2D.play(animation_name)
-	print('Played %s animation for %s' % [animation_name, name])
 	await %Sprite2D.animation_finished
 	
 func GET_ANIMATED_SPRITE() -> AnimatedSprite2D:
