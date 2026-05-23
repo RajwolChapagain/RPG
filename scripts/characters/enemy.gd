@@ -50,7 +50,16 @@ func STOP_PATROL() -> void:
 		if child is Patroller:
 			child.STOP_PATROL()
 
+func START_PATROL() -> void:
+	for child in get_children():
+		if child is Patroller:
+			child.START_PATROL()
+
 func PLAY_ANIMATION(animation_name: String) -> void:
 	assert(animation_name in %Sprite2D.sprite_frames.get_animation_names())
 	%Sprite2D.play(animation_name)
+	print('Played %s animation for ' % name)
 	await %Sprite2D.animation_finished
+	
+func GET_ANIMATED_SPRITE() -> AnimatedSprite2D:
+	return %Sprite2D

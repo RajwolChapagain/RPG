@@ -58,3 +58,7 @@ func _on_idle_timer_timeout() -> void:
 func STOP_PATROL() -> void:
 	%IdleTimer.stop()
 	idle = true
+	
+func START_PATROL() -> void:
+	idle = false
+	%IdleTimer.start()

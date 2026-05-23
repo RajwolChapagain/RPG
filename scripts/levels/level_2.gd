@@ -45,6 +45,8 @@ func activate_level_1():
 	%Statue3.is_active = true
 	%Statue2.play_activate_animation()
 	%Statue3.play_activate_animation()
+	toggle_enemy_mobility(2, true)
+	toggle_enemy_mobility(3, true)
 	
 func activate_level_2():
 	shake_camera(1.0, 1.0)
@@ -59,6 +61,8 @@ func activate_level_2():
 	%WaterLayer1.collision_enabled = false
 	%WaterLayer2.collision_enabled = true
 	%Level3Colliders.set_collision_layer_value(1, false)
+	toggle_enemy_mobility(2, false)
+	toggle_enemy_mobility(3, true)
 
 func activate_level_3():
 	shake_camera(1.0, 1.0)
@@ -70,6 +74,20 @@ func activate_level_3():
 	%Level3Colliders.set_collision_layer_value(1, true)
 	await fade_tween.finished
 	%EelEnemy.visible = true
+	toggle_enemy_mobility(3, false)
+
+func toggle_enemy_mobility(level: int, make_mobile: bool) -> void:
+	var enemies = %Level2Enemies.get_children() if level == 2 else %Level3Enemies.get_children()
+	if make_mobile:
+		for enemy: Enemy in enemies:
+			enemy.START_PATROL()
+			enemy.GET_ANIMATED_SPRITE().speed_scale = 1.0
+	else:
+		for enemy: Enemy in enemies:
+			enemy.STOP_PATROL()
+			enemy.PLAY_ANIMATION('flail')
+			enemy.GET_ANIMATED_SPRITE().set_frame_and_progress(randi_range(0, 1), randf())
+			enemy.GET_ANIMATED_SPRITE().speed_scale = 1.0 + randf_range(-0.2, 0.2)
 
 func spawn_guardian(pos: Vector2) -> void:
 	var guardian = guardian_scene.instantiate()

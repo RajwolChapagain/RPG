@@ -111,7 +111,7 @@ gang = Array[ExtResource("2_2olvs")]([ExtResource("3_ac1oy")])
 
 [node name="Sprite2D" parent="." index="0" unique_id=1584948219]
 sprite_frames = SubResource("SpriteFrames_s5n7w")
-animation = &"move_left"
+animation = &"flail"
 frame_progress = 0.0
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=819659240]

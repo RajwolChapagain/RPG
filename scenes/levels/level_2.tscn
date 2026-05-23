@@ -41,7 +41,7 @@ point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_v8d84"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -32, -352, 0, 0, 0, 0, 64, -352)
+"points": PackedVector2Array(0, 0, 0, 0, -32, -362, 0, 0, 0, 0, 64, -362)
 }
 point_count = 2
 
@@ -386,11 +386,13 @@ position = Vector2(5, -520)
 texture = ExtResource("3_tv7cl")
 
 [node name="Level2Enemies" type="Node2D" parent="World" unique_id=329465730]
+unique_name_in_owner = true
 
 [node name="Mermaid" parent="World/Level2Enemies" unique_id=1786002395 instance=ExtResource("5_r88tb")]
 position = Vector2(-256, -192)
 
 [node name="Patroller" parent="World/Level2Enemies/Mermaid" unique_id=241894158 instance=ExtResource("6_1yj8c")]
+speed = 130.0
 
 [node name="Path2D" parent="World/Level2Enemies/Mermaid/Patroller" index="0" unique_id=850319381]
 curve = SubResource("Curve2D_ndlae")
@@ -399,10 +401,14 @@ curve = SubResource("Curve2D_ndlae")
 position = Vector2(-256, -192)
 rotation = -1.5707964
 
+[node name="IdleTimer" parent="World/Level2Enemies/Mermaid/Patroller/Path2D" index="1" unique_id=1686652397]
+wait_time = 1.4
+
 [node name="Mermaid2" parent="World/Level2Enemies" unique_id=1786888974 instance=ExtResource("5_r88tb")]
 position = Vector2(192, -800)
 
 [node name="Patroller" parent="World/Level2Enemies/Mermaid2" unique_id=998414113 instance=ExtResource("6_1yj8c")]
+speed = 120.0
 
 [node name="Path2D" parent="World/Level2Enemies/Mermaid2/Patroller" index="0" unique_id=850319381]
 curve = SubResource("Curve2D_r88tb")
@@ -411,10 +417,14 @@ curve = SubResource("Curve2D_r88tb")
 position = Vector2(191.67143, -801.88684)
 rotation = 1.5777892
 
+[node name="IdleTimer" parent="World/Level2Enemies/Mermaid2/Patroller/Path2D" index="1" unique_id=1686652397]
+wait_time = 1.2
+
 [node name="Mermaid3" parent="World/Level2Enemies" unique_id=1170014446 instance=ExtResource("5_r88tb")]
 position = Vector2(-64, -800)
 
 [node name="Patroller" parent="World/Level2Enemies/Mermaid3" unique_id=1260535141 instance=ExtResource("6_1yj8c")]
+speed = 130.0
 
 [node name="Path2D" parent="World/Level2Enemies/Mermaid3/Patroller" index="0" unique_id=850319381]
 curve = SubResource("Curve2D_1yj8c")
@@ -422,6 +432,9 @@ curve = SubResource("Curve2D_1yj8c")
 [node name="PathFollow2D" parent="World/Level2Enemies/Mermaid3/Patroller/Path2D" index="0" unique_id=349239067]
 position = Vector2(-64, -800)
 rotation = 1.5707964
+
+[node name="IdleTimer" parent="World/Level2Enemies/Mermaid3/Patroller/Path2D" index="1" unique_id=1686652397]
+wait_time = 1.2
 
 [node name="Mermaid4" parent="World/Level2Enemies" unique_id=48520577 instance=ExtResource("5_r88tb")]
 position = Vector2(64, -800)
@@ -442,9 +455,10 @@ position = Vector2(5, -520)
 texture = ExtResource("2_nt80m")
 
 [node name="Level3Enemies" type="Node2D" parent="World" unique_id=523719432]
+unique_name_in_owner = true
 
 [node name="Mermaid" parent="World/Level3Enemies" unique_id=117932111 instance=ExtResource("5_r88tb")]
-position = Vector2(-32, -352)
+position = Vector2(-32, -362)
 
 [node name="Patroller" parent="World/Level3Enemies/Mermaid" unique_id=902881366 instance=ExtResource("6_1yj8c")]
 
@@ -452,13 +466,14 @@ position = Vector2(-32, -352)
 curve = SubResource("Curve2D_v8d84")
 
 [node name="PathFollow2D" parent="World/Level3Enemies/Mermaid/Patroller/Path2D" index="0" unique_id=349239067]
-position = Vector2(-32, -352)
+position = Vector2(-32, -362)
 rotation = 0.0
 
 [node name="Mermaid2" parent="World/Level3Enemies" unique_id=468594701 instance=ExtResource("5_r88tb")]
 position = Vector2(128, -576)
 
 [node name="Patroller" parent="World/Level3Enemies/Mermaid2" unique_id=1097564215 instance=ExtResource("6_1yj8c")]
+speed = 140.0
 
 [node name="Path2D" parent="World/Level3Enemies/Mermaid2/Patroller" index="0" unique_id=850319381]
 curve = SubResource("Curve2D_gw1l3")
@@ -467,8 +482,12 @@ curve = SubResource("Curve2D_gw1l3")
 position = Vector2(128, -576)
 rotation = 1.5707964
 
+[node name="IdleTimer" parent="World/Level3Enemies/Mermaid2/Patroller/Path2D" index="1" unique_id=1686652397]
+wait_time = 2.5
+
 [node name="EelEnemy" parent="World" unique_id=159962368 instance=ExtResource("11_brxtv")]
 unique_name_in_owner = true
+visible = false
 position = Vector2(0, -672)
 
 [node name="CollidersTileMapLayer" type="TileMapLayer" parent="World" unique_id=950067504]
@@ -1211,8 +1230,6 @@ shape = SubResource("RectangleShape2D_cqu1g")
 unique_name_in_owner = true
 position = Vector2(160, 90)
 texture = ExtResource("10_qsp8v")
-
-[node name="Level3Enemies" type="Node2D" parent="." unique_id=1489500345]
 
 [connection signal="statue_toggled" from="World/Props/Statue1" to="." method="_on_statue_1_statue_toggled"]
 [connection signal="statue_toggled" from="World/Props/Statue2" to="." method="_on_statue_2_or_3_toggled"]
