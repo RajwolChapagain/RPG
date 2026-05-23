@@ -68,6 +68,8 @@ func activate_level_3():
 	%WaterLayer1.collision_enabled = false
 	%WaterLayer2.collision_enabled = false
 	%Level3Colliders.set_collision_layer_value(1, true)
+	await fade_tween.finished
+	%EelEnemy.visible = true
 
 func spawn_guardian(pos: Vector2) -> void:
 	var guardian = guardian_scene.instantiate()

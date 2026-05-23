@@ -42,12 +42,20 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aad1s"]
+size = Vector2(58, 32)
+
 [node name="EelEnemy" unique_id=1786002395 instance=ExtResource("1_6fyaa")]
 gang = Array[ExtResource("2_lk8c2")]([SubResource("Resource_mdwwc")])
 post_defeat_hook = "on_eel_death"
 
 [node name="Sprite2D" parent="." index="0" unique_id=1584948219]
+z_index = 0
+z_as_relative = false
 sprite_frames = SubResource("SpriteFrames_0lvtl")
 animation = &"new_animation"
 autoplay = "new_animation"
 frame_progress = 0.7284888
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=819659240]
+shape = SubResource("RectangleShape2D_aad1s")

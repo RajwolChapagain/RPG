@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="BaseStats" format=3 uid="uid://djnesw1o4dbrc"]
+
+[ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="1_la3q2"]
+[ext_resource type="Texture2D" uid="uid://d1fi1bxv5thvj" path="res://assets/sprites/characters/battle/enemies/level_2/mermaid.png" id="1_plg54"]
+
+[resource]
+script = ExtResource("1_la3q2")
+name = "Mermaid"
+battle_sprite = ExtResource("1_plg54")
+attack_damage = 20
+max_hp = 150
+hp = 150
+defence = 5
+crit = 5
+dodge = 15
+accuracy = 20
+metadata/_custom_type_script = "uid://dbtdwrocpsv30"

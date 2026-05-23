@@ -1,0 +1,118 @@
+[gd_scene format=3 uid="uid://bf1tvach8beu2"]
+
+[ext_resource type="PackedScene" uid="uid://ccy0aydyv2sxd" path="res://scenes/characters/enemies/level_1/crunk.tscn" id="1_pf0o5"]
+[ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="2_2olvs"]
+[ext_resource type="Texture2D" uid="uid://wp82xooklfou" path="res://assets/sprites/characters/overworld/enemies/level_2/mermaid_spritesheet.png" id="2_hs1kv"]
+[ext_resource type="Resource" uid="uid://djnesw1o4dbrc" path="res://resources/stats/enemies/level_2/mermaid.tres" id="3_ac1oy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fl6hf"]
+atlas = ExtResource("2_hs1kv")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2olvs"]
+atlas = ExtResource("2_hs1kv")
+region = Rect2(32, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ac1oy"]
+atlas = ExtResource("2_hs1kv")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbl3g"]
+atlas = ExtResource("2_hs1kv")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_djemg"]
+atlas = ExtResource("2_hs1kv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwhmv"]
+atlas = ExtResource("2_hs1kv")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dfclg"]
+atlas = ExtResource("2_hs1kv")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_567dk"]
+atlas = ExtResource("2_hs1kv")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_owvk3"]
+atlas = ExtResource("2_hs1kv")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o62ae"]
+atlas = ExtResource("2_hs1kv")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s5n7w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fl6hf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2olvs")
+}],
+"loop": true,
+"name": &"flail",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ac1oy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tbl3g")
+}],
+"loop": true,
+"name": &"move_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_djemg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cwhmv")
+}],
+"loop": true,
+"name": &"move_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dfclg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_567dk")
+}],
+"loop": true,
+"name": &"move_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_owvk3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o62ae")
+}],
+"loop": true,
+"name": &"move_up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hs1kv"]
+size = Vector2(20.389923, 32)
+
+[node name="Mermaid" unique_id=1786002395 instance=ExtResource("1_pf0o5")]
+gang = Array[ExtResource("2_2olvs")]([ExtResource("3_ac1oy")])
+
+[node name="Sprite2D" parent="." index="0" unique_id=1584948219]
+sprite_frames = SubResource("SpriteFrames_s5n7w")
+animation = &"move_left"
+frame_progress = 0.0
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=819659240]
+shape = SubResource("RectangleShape2D_hs1kv")

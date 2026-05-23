@@ -8,9 +8,48 @@
 [ext_resource type="Texture2D" uid="uid://buyv215pr3716" path="res://assets/sprites/world/level_2/level_2_phase_2.PNG" id="3_tv7cl"]
 [ext_resource type="Texture2D" uid="uid://k5kjlbmagipr" path="res://assets/sprites/world/level_2/ground_tileset_1_water.webp" id="4_8qukl"]
 [ext_resource type="Texture2D" uid="uid://c4lf6o28wrimy" path="res://assets/sprites/world/level_2/structure_tileset_2.webp" id="4_qsp8v"]
+[ext_resource type="PackedScene" uid="uid://bf1tvach8beu2" path="res://scenes/characters/enemies/level_2/mermaid.tscn" id="5_r88tb"]
+[ext_resource type="PackedScene" uid="uid://bobc8p13moxe" path="res://scenes/characters/enemies/patroller.tscn" id="6_1yj8c"]
 [ext_resource type="PackedScene" uid="uid://beie628n64ix6" path="res://scenes/levels/props/statue.tscn" id="8_1yj8c"]
 [ext_resource type="Texture2D" uid="uid://doti88i48dtjf" path="res://assets/sprites/screens/transition_shroud.png" id="10_qsp8v"]
 [ext_resource type="Texture2D" uid="uid://cqbc0ofs5hmyg" path="res://assets/sprites/effects/pulp_tileset.webp" id="10_r88tb"]
+[ext_resource type="PackedScene" uid="uid://w3am3q8jaqjr" path="res://scenes/characters/enemies/level_2/eel_enemy.tscn" id="11_brxtv"]
+
+[sub_resource type="Curve2D" id="Curve2D_ndlae"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -256, -192, 0, 0, 0, 0, -256, -288, 0, 0, 0, 0, -224, -288, 0, 0, 0, 0, -224, -192, 0, 0, 0, 0, -256, -192)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_r88tb"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 191.67143, -801.88684, 0, 0, 0, 0, 191.0921, -719.0428, 0, 0, 0, 0, 162.41534, -719.0428, 0, 0, 0, 0, 162.41533, -802.4662, 0, 0, 0, 0, 191.67143, -801.88684)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_1yj8c"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -64, -800, 0, 0, 0, 0, -64, -736)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_p4se4"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 64, -800, 0, 0, 0, 0, 64, -736)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_v8d84"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -32, -352, 0, 0, 0, 0, 64, -352)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_gw1l3"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 128, -576, 0, 0, 0, 0, 128, -480, 0, 0, 0, 0, 160, -480, 0, 0, 0, 0, 160, -576, 0, 0, 0, 0, 128, -576)
+}
+point_count = 5
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nt80m"]
 texture = ExtResource("3_3p04p")
@@ -323,7 +362,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cqu1g"]
-size = Vector2(42.64073, 34.173145)
+size = Vector2(42.64073, 18.696142)
 
 [node name="Level2" type="Node" unique_id=72583909]
 script = ExtResource("1_l37oo")
@@ -346,11 +385,91 @@ modulate = Color(1, 1, 1, 0)
 position = Vector2(5, -520)
 texture = ExtResource("3_tv7cl")
 
+[node name="Level2Enemies" type="Node2D" parent="World" unique_id=329465730]
+
+[node name="Mermaid" parent="World/Level2Enemies" unique_id=1786002395 instance=ExtResource("5_r88tb")]
+position = Vector2(-256, -192)
+
+[node name="Patroller" parent="World/Level2Enemies/Mermaid" unique_id=241894158 instance=ExtResource("6_1yj8c")]
+
+[node name="Path2D" parent="World/Level2Enemies/Mermaid/Patroller" index="0" unique_id=850319381]
+curve = SubResource("Curve2D_ndlae")
+
+[node name="PathFollow2D" parent="World/Level2Enemies/Mermaid/Patroller/Path2D" index="0" unique_id=349239067]
+position = Vector2(-256, -192)
+rotation = -1.5707964
+
+[node name="Mermaid2" parent="World/Level2Enemies" unique_id=1786888974 instance=ExtResource("5_r88tb")]
+position = Vector2(192, -800)
+
+[node name="Patroller" parent="World/Level2Enemies/Mermaid2" unique_id=998414113 instance=ExtResource("6_1yj8c")]
+
+[node name="Path2D" parent="World/Level2Enemies/Mermaid2/Patroller" index="0" unique_id=850319381]
+curve = SubResource("Curve2D_r88tb")
+
+[node name="PathFollow2D" parent="World/Level2Enemies/Mermaid2/Patroller/Path2D" index="0" unique_id=349239067]
+position = Vector2(191.67143, -801.88684)
+rotation = 1.5777892
+
+[node name="Mermaid3" parent="World/Level2Enemies" unique_id=1170014446 instance=ExtResource("5_r88tb")]
+position = Vector2(-64, -800)
+
+[node name="Patroller" parent="World/Level2Enemies/Mermaid3" unique_id=1260535141 instance=ExtResource("6_1yj8c")]
+
+[node name="Path2D" parent="World/Level2Enemies/Mermaid3/Patroller" index="0" unique_id=850319381]
+curve = SubResource("Curve2D_1yj8c")
+
+[node name="PathFollow2D" parent="World/Level2Enemies/Mermaid3/Patroller/Path2D" index="0" unique_id=349239067]
+position = Vector2(-64, -800)
+rotation = 1.5707964
+
+[node name="Mermaid4" parent="World/Level2Enemies" unique_id=48520577 instance=ExtResource("5_r88tb")]
+position = Vector2(64, -800)
+
+[node name="Patroller" parent="World/Level2Enemies/Mermaid4" unique_id=637663592 instance=ExtResource("6_1yj8c")]
+
+[node name="Path2D" parent="World/Level2Enemies/Mermaid4/Patroller" index="0" unique_id=850319381]
+curve = SubResource("Curve2D_p4se4")
+
+[node name="PathFollow2D" parent="World/Level2Enemies/Mermaid4/Patroller/Path2D" index="0" unique_id=349239067]
+position = Vector2(64, -800)
+rotation = 1.5707964
+
 [node name="Layout3" type="Sprite2D" parent="World" unique_id=558815154]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
 position = Vector2(5, -520)
 texture = ExtResource("2_nt80m")
+
+[node name="Level3Enemies" type="Node2D" parent="World" unique_id=523719432]
+
+[node name="Mermaid" parent="World/Level3Enemies" unique_id=117932111 instance=ExtResource("5_r88tb")]
+position = Vector2(-32, -352)
+
+[node name="Patroller" parent="World/Level3Enemies/Mermaid" unique_id=902881366 instance=ExtResource("6_1yj8c")]
+
+[node name="Path2D" parent="World/Level3Enemies/Mermaid/Patroller" index="0" unique_id=850319381]
+curve = SubResource("Curve2D_v8d84")
+
+[node name="PathFollow2D" parent="World/Level3Enemies/Mermaid/Patroller/Path2D" index="0" unique_id=349239067]
+position = Vector2(-32, -352)
+rotation = 0.0
+
+[node name="Mermaid2" parent="World/Level3Enemies" unique_id=468594701 instance=ExtResource("5_r88tb")]
+position = Vector2(128, -576)
+
+[node name="Patroller" parent="World/Level3Enemies/Mermaid2" unique_id=1097564215 instance=ExtResource("6_1yj8c")]
+
+[node name="Path2D" parent="World/Level3Enemies/Mermaid2/Patroller" index="0" unique_id=850319381]
+curve = SubResource("Curve2D_gw1l3")
+
+[node name="PathFollow2D" parent="World/Level3Enemies/Mermaid2/Patroller/Path2D" index="0" unique_id=349239067]
+position = Vector2(128, -576)
+rotation = 1.5707964
+
+[node name="EelEnemy" parent="World" unique_id=159962368 instance=ExtResource("11_brxtv")]
+unique_name_in_owner = true
+position = Vector2(0, -672)
 
 [node name="CollidersTileMapLayer" type="TileMapLayer" parent="World" unique_id=950067504]
 position = Vector2(-16, -16)
@@ -1078,14 +1197,12 @@ position = Vector2(-8.67749, -803.89685)
 sprite_frames = SubResource("SpriteFrames_1yj8c")
 frame = 2
 
-[node name="Enemies" type="Node2D" parent="." unique_id=1169143122]
-
 [node name="CollisionTriggers" type="Node2D" parent="." unique_id=1024095474]
 
 [node name="LevelCompleteTrigger" type="Area2D" parent="CollisionTriggers" unique_id=727380189]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionTriggers/LevelCompleteTrigger" unique_id=1379712043]
-position = Vector2(-0.9597397, -709.9906)
+position = Vector2(-0.9597397, -702.2521)
 shape = SubResource("RectangleShape2D_cqu1g")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=314535198]
@@ -1095,9 +1212,17 @@ unique_name_in_owner = true
 position = Vector2(160, 90)
 texture = ExtResource("10_qsp8v")
 
+[node name="Level3Enemies" type="Node2D" parent="." unique_id=1489500345]
+
 [connection signal="statue_toggled" from="World/Props/Statue1" to="." method="_on_statue_1_statue_toggled"]
 [connection signal="statue_toggled" from="World/Props/Statue2" to="." method="_on_statue_2_or_3_toggled"]
 [connection signal="statue_toggled" from="World/Props/Statue3" to="." method="_on_statue_2_or_3_toggled"]
 [connection signal="area_entered" from="CollisionTriggers/LevelCompleteTrigger" to="." method="_on_level_complete_trigger_area_entered"]
 
+[editable path="World/Level2Enemies/Mermaid/Patroller"]
+[editable path="World/Level2Enemies/Mermaid2/Patroller"]
+[editable path="World/Level2Enemies/Mermaid3/Patroller"]
+[editable path="World/Level2Enemies/Mermaid4/Patroller"]
+[editable path="World/Level3Enemies/Mermaid/Patroller"]
+[editable path="World/Level3Enemies/Mermaid2/Patroller"]
 [editable path="World/Props/Statue2"]
