@@ -20,14 +20,14 @@ border_width_bottom = 1
 border_color = Color(1, 1, 1, 0.91764706)
 
 [node name="AbilityCard" type="Panel" unique_id=678812619]
-custom_minimum_size = Vector2(82, 56)
+custom_minimum_size = Vector2(82, 82)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 119.00001
+offset_left = 119.0
 offset_top = 67.0
 offset_right = -119.0
-offset_bottom = -57.0
+offset_bottom = -19.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_2kbf5")
@@ -52,7 +52,7 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 1
-theme_override_font_sizes/font_size = 3
+theme_override_font_sizes/font_size = 8
 text = "Some Ability"
 horizontal_alignment = 1
 
@@ -69,8 +69,8 @@ stretch_mode = 5
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 3
-text = "Some ability description that goes on for at least two lines so that I can have some idea about how long ab"
+theme_override_font_sizes/font_size = 5
+text = "Some ability description that goes on for at least two lines so that I can have some idea about how lon"
 autowrap_mode = 2
 
 [node name="Button" type="Button" parent="." unique_id=397033593]

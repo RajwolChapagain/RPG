@@ -2,42 +2,98 @@
 
 [ext_resource type="Theme" uid="uid://5dapp0d0f0x5" path="res://resources/ui.tres" id="1_au4dq"]
 [ext_resource type="Script" uid="uid://cst62a2c03scy" path="res://scripts/ui/pause/item_stats_panel.gd" id="2_ctn15"]
+[ext_resource type="Texture2D" uid="uid://cww4fl0ixyv3y" path="res://assets/sprites/ui/battle/ability_point_indicator_empty.png" id="3_ctn15"]
 
-[node name="ItemStatsPanel" type="Control" unique_id=1142577066]
+[node name="ItemStatsPanel" type="Panel" unique_id=1712411125]
 top_level = true
-layout_mode = 3
-anchors_preset = 0
+custom_minimum_size = Vector2(60, 0)
+offset_right = 60.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = ExtResource("1_au4dq")
 theme_type_variation = &"BorderedPanel"
 script = ExtResource("2_ctn15")
 
-[node name="Label" type="Label" parent="." unique_id=132430553]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=734530653]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(120, 0)
-layout_mode = 1
-offset_right = 120.0
-offset_bottom = 12.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 8
-autowrap_mode = 3
-
-[node name="MarginContainer" type="MarginContainer" parent="Label" unique_id=160927294]
-show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = -4
-theme_override_constants/margin_top = -4
-theme_override_constants/margin_right = -4
-theme_override_constants/margin_bottom = -4
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 2
 
-[node name="Panel" type="Panel" parent="Label/MarginContainer" unique_id=764186615]
-show_behind_parent = true
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1305125730]
 layout_mode = 2
-theme_type_variation = &"BorderedPanel"
+size_flags_vertical = 4
+theme_override_constants/separation = 2
+
+[node name="TypeLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1335789311]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 10
+size_flags_stretch_ratio = 0.0
+theme_override_font_sizes/font_size = 6
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HFlowContainer" type="HFlowContainer" parent="MarginContainer/VBoxContainer" unique_id=1286638855]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="APSlotsRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=2047243064]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/APSlotsRow" unique_id=2028075917]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 1.42
+theme_override_font_sizes/font_size = 6
+text = "AP Slots"
+horizontal_alignment = 1
+
+[node name="APSlotsLabel" type="Label" parent="MarginContainer/VBoxContainer/APSlotsRow" unique_id=24775181]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 6
+text = "+3"
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/APSlotsRow" unique_id=507707837]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_ctn15")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="AbilitiesColumn" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1968258440]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/AbilitiesColumn" unique_id=2113281993]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.82, 0.82, 0.42639998, 1)
+theme_override_font_sizes/font_size = 6
+text = "Abilities"
+horizontal_alignment = 1
+
+[node name="AbilitiesLabel" type="Label" parent="MarginContainer/VBoxContainer/AbilitiesColumn" unique_id=848982032]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "- Poison"
+autowrap_mode = 3

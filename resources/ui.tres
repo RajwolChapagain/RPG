@@ -1,6 +1,7 @@
 [gd_resource type="Theme" format=3 uid="uid://5dapp0d0f0x5"]
 
-[ext_resource type="FontFile" uid="uid://csleht6u3wrbw" path="res://assets/fonts/minecraft/Minecraft.ttf" id="2_puq7a"]
+[ext_resource type="FontFile" uid="uid://crxdklo360qmx" path="res://assets/fonts/Kanit-Regular.ttf" id="1_nr324"]
+[ext_resource type="FontFile" uid="uid://d2hcl1jm02cck" path="res://assets/fonts/ChelaOne-Regular.ttf" id="2_nr324"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pxeie"]
 bg_color = Color(0.13725491, 0.10980392, 0.13725491, 1)
@@ -97,7 +98,7 @@ Button/colors/font_color = Color(0, 0, 0, 1)
 Button/colors/font_disabled_color = Color(0.2, 0.19600001, 0.19600001, 1)
 Button/colors/font_focus_color = Color(1, 1, 1, 1)
 Button/font_sizes/font_size = 10
-Button/fonts/font = ExtResource("2_puq7a")
+Button/fonts/font = ExtResource("1_nr324")
 Button/styles/disabled = SubResource("StyleBoxFlat_8yfhb")
 Button/styles/focus = SubResource("StyleBoxFlat_r702l")
 Button/styles/normal = SubResource("StyleBoxFlat_nr324")
@@ -112,20 +113,19 @@ ItemSlotButton/font_sizes/font_size = 6
 ItemSlotButton/styles/disabled = SubResource("StyleBoxFlat_qa6oi")
 ItemSlotButton/styles/normal = SubResource("StyleBoxFlat_mo0i0")
 Label/font_sizes/font_size = 12
-Label/fonts/font = ExtResource("2_puq7a")
+Label/fonts/font = ExtResource("2_nr324")
 Panel/styles/panel = SubResource("StyleBoxFlat_rb7da")
 ProgressBar/colors/font_color = Color(0.95, 0.95, 0.95, 1)
 ProgressBar/colors/font_outline_color = Color(0, 0, 0, 1)
 ProgressBar/constants/outline_size = 8
 ProgressBar/font_sizes/font_size = 16
-ProgressBar/fonts/font = ExtResource("2_puq7a")
 ProgressBar/styles/background = SubResource("StyleBoxFlat_wpx7l")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_3tp7c")
 ProgressLabel/base_type = &"Label"
 ProgressLabel/colors/font_color = Color(1, 1, 1, 1)
 ProgressLabel/colors/font_outline_color = Color(0, 0, 0, 1)
 ProgressLabel/constants/outline_size = 2
-ProgressLabel/font_sizes/font_size = 6
+ProgressLabel/font_sizes/font_size = 8
 SideButton/base_type = &"Button"
 SideButton/colors/font_color = Color(0.4, 0.4, 0.4, 1)
 SideButton/colors/font_focus_color = Color(1, 1, 1, 1)

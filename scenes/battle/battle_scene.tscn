@@ -7,8 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cjs2b082b2lbm" path="res://scenes/ui/battle/ability_button.tscn" id="3_svpld"]
 [ext_resource type="Resource" uid="uid://c3bvbxqpkkgu3" path="res://resources/stats/players/rachelle.tres" id="3_tc5fe"]
 [ext_resource type="Resource" uid="uid://d281r7xlvaqv2" path="res://resources/stats/enemies/level_2/eel.tres" id="4_tc5fe"]
-[ext_resource type="Resource" uid="uid://d3kyf2naa3duo" path="res://resources/stats/players/lachlan.tres" id="5_bg0yk"]
-[ext_resource type="Resource" uid="uid://biubxrgae4cha" path="res://resources/stats/players/magda.tres" id="6_22msv"]
+[ext_resource type="Resource" uid="uid://bgg065a045ww" path="res://resources/stats/players/josephine.tres" id="5_xxdit"]
 [ext_resource type="Resource" uid="uid://cym67rsdldl6j" path="res://resources/stats/players/einar.tres" id="6_yt3ua"]
 [ext_resource type="PackedScene" uid="uid://d3xpo03pr8ajw" path="res://scenes/ui/title/main_menu.tscn" id="8_tttxe"]
 [ext_resource type="PackedScene" uid="uid://dcqkqx8i5jvbh" path="res://scenes/ui/battle/ability_points_container.tscn" id="10_0gp0h"]
@@ -161,7 +160,7 @@ _data = {
 [node name="BattleScene" type="Node" unique_id=444611762]
 script = ExtResource("1_0yksl")
 character_spacing = 60
-player_character_stats = Array[ExtResource("2_xwxfl")]([ExtResource("6_yt3ua"), ExtResource("3_tc5fe"), ExtResource("6_22msv"), ExtResource("5_bg0yk")])
+player_character_stats = Array[ExtResource("2_xwxfl")]([ExtResource("6_yt3ua"), ExtResource("3_tc5fe"), ExtResource("5_xxdit"), null])
 enemy_stats = Array[ExtResource("2_xwxfl")]([ExtResource("4_tc5fe")])
 ability_button = ExtResource("3_svpld")
 MAIN_MENU_SCENE = ExtResource("8_tttxe")
@@ -266,7 +265,7 @@ custom_minimum_size = Vector2(23, 0)
 layout_mode = 2
 size_flags_vertical = 1
 theme = ExtResource("3_gj8wv")
-theme_override_font_sizes/font_size = 4
+theme_override_font_sizes/font_size = 5
 text = "Magda"
 vertical_alignment = 1
 
@@ -284,6 +283,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_gj8wv")
@@ -305,7 +306,7 @@ custom_minimum_size = Vector2(23, 0)
 layout_mode = 2
 size_flags_vertical = 1
 theme = ExtResource("3_gj8wv")
-theme_override_font_sizes/font_size = 4
+theme_override_font_sizes/font_size = 5
 text = "Lachlan"
 vertical_alignment = 1
 
@@ -323,6 +324,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_gj8wv")
@@ -344,7 +347,7 @@ custom_minimum_size = Vector2(23, 0)
 layout_mode = 2
 size_flags_vertical = 1
 theme = ExtResource("3_gj8wv")
-theme_override_font_sizes/font_size = 4
+theme_override_font_sizes/font_size = 5
 text = "Rachelle"
 vertical_alignment = 1
 
@@ -362,6 +365,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_gj8wv")
@@ -383,8 +388,8 @@ custom_minimum_size = Vector2(23, 0)
 layout_mode = 2
 size_flags_vertical = 1
 theme = ExtResource("3_gj8wv")
-theme_override_font_sizes/font_size = 4
-text = "Placeholder"
+theme_override_font_sizes/font_size = 5
+text = "Josephine"
 vertical_alignment = 1
 
 [node name="HealthBarP4" type="TextureProgressBar" parent="UI/Deck/MarginContainer/HBoxContainer/MarginContainer/PlayerInfos/P4Info" unique_id=922338780]
@@ -401,6 +406,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_gj8wv")
@@ -442,6 +449,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_gj8wv")
 theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 24
 text = "DEFEAT."
 horizontal_alignment = 1
 vertical_alignment = 1

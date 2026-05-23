@@ -100,7 +100,7 @@ metadata/_custom_type_script = "uid://cojsnc1kdvshg"
 [node name="SavedDateTime" type="Label" parent="VBoxContainer/Items/SavedItems" unique_id=137900041]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 4
+theme_override_font_sizes/font_size = 6
 text = "Last Saved at 09:15 PM on 10/31/25, Tue"
 horizontal_alignment = 1
 

@@ -46,6 +46,7 @@ layout_mode = 2
 
 [node name="StatCard" parent="EnemyStatViewer/Panel/MarginContainer/VBoxContainer" unique_id=46376483 instance=ExtResource("3_v57qa")]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 150)
 layout_mode = 2
 
 [node name="ConfirmButton" type="Button" parent="EnemyStatViewer/Panel/MarginContainer/VBoxContainer" unique_id=49003660]

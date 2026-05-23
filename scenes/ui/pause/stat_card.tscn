@@ -1,25 +1,27 @@
 [gd_scene format=3 uid="uid://23b01ifqxu4"]
 
 [ext_resource type="Script" uid="uid://bqwdyr3hw1ism" path="res://scripts/ui/pause/stat_card.gd" id="1_5n6mx"]
+[ext_resource type="Theme" uid="uid://5dapp0d0f0x5" path="res://resources/ui.tres" id="1_8b1pt"]
 [ext_resource type="Resource" uid="uid://c3bvbxqpkkgu3" path="res://resources/stats/players/rachelle.tres" id="2_8b1pt"]
 [ext_resource type="Texture2D" uid="uid://c3yio6yjcrv44" path="res://assets/sprites/characters/portraits/einar_base_portrait.png" id="3_amnne"]
 [ext_resource type="Texture2D" uid="uid://bg2fwew48se0h" path="res://assets/sprites/characters/portraits/josephine_base_portrait.png" id="4_75boq"]
 [ext_resource type="Texture2D" uid="uid://dg4kpgvnw0v7l" path="res://assets/sprites/characters/portraits/lachlan_base_portrait.png" id="5_dj0g2"]
 [ext_resource type="Texture2D" uid="uid://ba7esbnj4so52" path="res://assets/sprites/characters/portraits/magda_base_portrait.webp" id="6_31vy4"]
 [ext_resource type="Texture2D" uid="uid://c23ke6i2fm508" path="res://assets/sprites/characters/portraits/rachelle_base_portrait.webp" id="7_crc46"]
+[ext_resource type="Texture2D" uid="uid://cww4fl0ixyv3y" path="res://assets/sprites/ui/battle/ability_point_indicator_empty.png" id="9_amnne"]
 
-[node name="StatCard" type="Control" unique_id=460006591 node_paths=PackedStringArray("portrait", "stat_values")]
-custom_minimum_size = Vector2(60, 140)
+[node name="StatCard" type="Control" unique_id=460006591 node_paths=PackedStringArray("portrait")]
+custom_minimum_size = Vector2(60, 150)
 layout_mode = 3
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -140.0
+offset_top = -150.0
 offset_right = 60.0
 grow_vertical = 0
+theme = ExtResource("1_8b1pt")
 script = ExtResource("1_5n6mx")
 portrait = NodePath("MarginContainer/VBoxContainer/Portrait")
-stat_values = NodePath("MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/StatValues")
 stats = ExtResource("2_8b1pt")
 portrait_dictionary = Dictionary[String, Texture2D]({
 "einar": ExtResource("3_amnne"),
@@ -45,6 +47,7 @@ theme_override_constants/separation = 0
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+texture = ExtResource("7_crc46")
 expand_mode = 1
 stretch_mode = 5
 
@@ -58,148 +61,217 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 0
 
+[node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=1005638331]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Rachelle"
+horizontal_alignment = 1
+
+[node name="Control3" type="Control" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=502038608]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.07
+
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=2027376419]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/separation = 4
+theme_override_constants/separation = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1824918730]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/separation = 0
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=528912755]
-layout_mode = 2
-size_flags_vertical = 6
-theme_override_font_sizes/font_size = 3
-text = "Name:"
-
 [node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=593306640]
 layout_mode = 2
 size_flags_vertical = 6
-theme_override_font_sizes/font_size = 3
-text = "HP:"
+theme_override_colors/font_color = Color(0.34310004, 0.73, 0.3882384, 1)
+theme_override_font_sizes/font_size = 6
+text = "HP"
 
 [node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1051686941]
 layout_mode = 2
 size_flags_vertical = 6
-theme_override_font_sizes/font_size = 3
-text = "ATK:"
+theme_override_font_sizes/font_size = 6
+text = "ATK"
 
 [node name="Label4" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1224041926]
 layout_mode = 2
 size_flags_vertical = 6
-theme_override_font_sizes/font_size = 3
-text = "DEF:"
+theme_override_font_sizes/font_size = 6
+text = "DEF"
 
 [node name="Label5" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1998754262]
 layout_mode = 2
 size_flags_vertical = 6
-theme_override_font_sizes/font_size = 3
-text = "EVA:"
+theme_override_font_sizes/font_size = 6
+text = "CRT"
 
-[node name="Label6" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1508871462]
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=2129076892]
 layout_mode = 2
-size_flags_vertical = 6
-theme_override_font_sizes/font_size = 3
-text = "ACC:"
-
-[node name="Label7" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1417444869]
-layout_mode = 2
-size_flags_vertical = 6
-theme_override_font_sizes/font_size = 3
-text = "CRT:"
-
-[node name="Label8" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=651224563]
-layout_mode = 2
-size_flags_vertical = 6
-theme_override_font_sizes/font_size = 3
-text = "AP:"
-
-[node name="Label9" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=34304938]
-layout_mode = 2
-size_flags_vertical = 6
-theme_override_font_sizes/font_size = 3
-text = "AP Slots:"
-
-[node name="Label10" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1062439036]
-layout_mode = 2
-size_flags_vertical = 6
-theme_override_font_sizes/font_size = 3
-text = "Abilities:"
-
-[node name="StatValues" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=2146970834]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 0
 theme_override_constants/separation = 0
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/StatValues" unique_id=183405622]
-custom_minimum_size = Vector2(37, 5)
+[node name="HPLabel" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=1376964115]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 6
-theme_override_font_sizes/font_size = 3
-clip_text = true
+theme_override_colors/font_color = Color(0.34117648, 0.7294118, 0.3882353, 1)
+theme_override_font_sizes/font_size = 6
+text = "10"
+horizontal_alignment = 2
 
-[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/StatValues" unique_id=661782006]
-custom_minimum_size = Vector2(37, 5)
+[node name="ATKLabel" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=1355011604]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 6
-theme_override_font_sizes/font_size = 3
-clip_text = true
+theme_override_font_sizes/font_size = 6
+text = "20"
+horizontal_alignment = 2
 
-[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/StatValues" unique_id=796148989]
-custom_minimum_size = Vector2(37, 5)
+[node name="DEFLabel" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=1379939263]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 6
-theme_override_font_sizes/font_size = 3
-clip_text = true
+theme_override_font_sizes/font_size = 6
+text = "30"
+horizontal_alignment = 2
 
-[node name="Label4" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/StatValues" unique_id=701951445]
-custom_minimum_size = Vector2(37, 5)
+[node name="CRTLabel" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=178717552]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 6
-theme_override_font_sizes/font_size = 3
-clip_text = true
+theme_override_font_sizes/font_size = 6
+text = "40"
+horizontal_alignment = 2
 
-[node name="Label5" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/StatValues" unique_id=1728267316]
-custom_minimum_size = Vector2(37, 5)
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=810252643]
 layout_mode = 2
-size_flags_vertical = 6
-theme_override_font_sizes/font_size = 3
-clip_text = true
 
-[node name="Label6" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/StatValues" unique_id=1656673450]
-custom_minimum_size = Vector2(37, 5)
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=58540665]
 layout_mode = 2
-size_flags_vertical = 6
-theme_override_font_sizes/font_size = 3
-clip_text = true
+size_flags_horizontal = 0
+theme_override_constants/separation = 0
 
-[node name="Label7" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/StatValues" unique_id=1008229055]
-custom_minimum_size = Vector2(37, 5)
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3" unique_id=528974017]
 layout_mode = 2
 size_flags_vertical = 6
-theme_override_font_sizes/font_size = 3
-clip_text = true
+theme_override_font_sizes/font_size = 6
+text = "MAX"
 
-[node name="Label8" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/StatValues" unique_id=976654235]
-custom_minimum_size = Vector2(37, 5)
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3" unique_id=1998334297]
 layout_mode = 2
 size_flags_vertical = 6
-theme_override_font_sizes/font_size = 3
-clip_text = true
+theme_override_font_sizes/font_size = 6
+text = "EVA"
 
-[node name="Label9" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/StatValues" unique_id=560849253]
-custom_minimum_size = Vector2(37, 5)
+[node name="Label4" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3" unique_id=1002464136]
 layout_mode = 2
 size_flags_vertical = 6
-theme_override_font_sizes/font_size = 3
-clip_text = true
+theme_override_font_sizes/font_size = 6
+text = "ACC"
 
-[node name="Label10" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/StatValues" unique_id=987421024]
-custom_minimum_size = Vector2(37, 5)
+[node name="Label5" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3" unique_id=226456031]
 layout_mode = 2
 size_flags_vertical = 6
-theme_override_font_sizes/font_size = 3
-clip_text = true
+theme_override_font_sizes/font_size = 6
+text = "AP"
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1276165743]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 0
+
+[node name="MAXLabel" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer4" unique_id=267938852]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 6
+text = "10"
+horizontal_alignment = 2
+
+[node name="EVALabel" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer4" unique_id=1891994734]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 6
+text = "20"
+horizontal_alignment = 2
+
+[node name="ACCLabel" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer4" unique_id=638611538]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 6
+text = "30"
+horizontal_alignment = 2
+
+[node name="APLabel" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer4" unique_id=1564832109]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 6
+text = "40"
+horizontal_alignment = 2
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=1797606862]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.07
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=1540272728]
+layout_mode = 2
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=137858142]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 1.42
+theme_override_font_sizes/font_size = 6
+text = "AP Slots"
+horizontal_alignment = 1
+
+[node name="APSlotsLabel" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1771489401]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 6
+text = "3"
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1856932062]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("9_amnne")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=771501558]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.07
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=179255703]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.82, 0.82, 0.42639998, 1)
+theme_override_font_sizes/font_size = 6
+text = "Abilities"
+horizontal_alignment = 1
+
+[node name="AbilitiesLabel" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=78967683]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 6
+text = "- Clairvoyance
+- Arrow Storm
+- Echo
+- Heavy Slam
+- Poison
+- Stun
+- Suppress"

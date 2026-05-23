@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://njwfxdw22njt"
-path="res://.godot/imported/Jersey10-Regular.ttf-30f514cc58f7fb7754f237e49ceb0463.fontdata"
+uid="uid://d2hcl1jm02cck"
+path="res://.godot/imported/ChelaOne-Regular.ttf-870da4efff18353c23141108dea374ad.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/jersey/Jersey10-Regular.ttf"
-dest_files=["res://.godot/imported/Jersey10-Regular.ttf-30f514cc58f7fb7754f237e49ceb0463.fontdata"]
+source_file="res://assets/fonts/ChelaOne-Regular.ttf"
+dest_files=["res://.godot/imported/ChelaOne-Regular.ttf-870da4efff18353c23141108dea374ad.fontdata"]
 
 [params]
 
@@ -23,19 +23,14 @@ allow_system_fallback=true
 force_autohinter=false
 modulate_color_glyphs=false
 hinting=1
-subpixel_positioning=2
+subpixel_positioning=4
 keep_rounding_remainders=true
 oversampling=0.0
 Fallbacks=null
 fallbacks=[]
 Compress=null
 compress=true
-preload=[{
-"chars": [],
-"glyphs": [],
-"name": "New Configuration",
-"size": Vector2i(16, 0)
-}]
+preload=[]
 language_support={}
 script_support={}
 opentype_features={}
