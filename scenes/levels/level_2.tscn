@@ -371,6 +371,7 @@ opening_dialogue = "res://assets/dialogues/level_2/level_2_opening.csv"
 
 [node name="PartyOriginMarker" type="Marker2D" parent="." unique_id=1758762546]
 unique_name_in_owner = true
+position = Vector2(0, -864)
 
 [node name="World" type="Node2D" parent="." unique_id=311040849]
 

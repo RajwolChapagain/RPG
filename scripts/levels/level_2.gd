@@ -95,6 +95,7 @@ func toggle_enemy_mobility(level: int, make_mobile: bool) -> void:
 			enemy.GET_ANIMATED_SPRITE().speed_scale = 1.0 + randf_range(-0.2, 0.2)
 
 func spawn_guardian(pos: Vector2) -> void:
+	disable_statues()
 	var guardian = guardian_scene.instantiate()
 	var random_offset = Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)).normalized() *  160
 	var spawn_position = pos + random_offset
@@ -124,7 +125,18 @@ func on_guardian_defeated() -> void:
 			activate_level_3()
 			%Statue2.play_deactivate_animation()
 			%Statue3.play_deactivate_animation()
-
+	enable_statues()
+	
+func disable_statues():
+	%Statue1.interactable = false
+	%Statue2.interactable = false
+	%Statue3.interactable = false
+	
+func enable_statues():
+	%Statue1.interactable = true
+	%Statue2.interactable = true
+	%Statue3.interactable = true
+	
 func shake_camera(magnitude: float, duration: float) -> void:
 	await get_tree().process_frame
 	GameManager.freeze_party()
