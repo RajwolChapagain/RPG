@@ -8,7 +8,10 @@ func _ready() -> void:
 		populate()
 		await get_tree().process_frame
 		reset_size()
-		size = %MarginContainer.get_combined_minimum_size()
+		size.x = %MarginContainer.get_combined_minimum_size().x
+		
+		await get_tree().process_frame
+		size.y = %MarginContainer.get_combined_minimum_size().y
 		
 func populate() -> void:
 	%TypeLabel.text = 'Type: %s' % Item.ItemType.keys()[current_item.type]
