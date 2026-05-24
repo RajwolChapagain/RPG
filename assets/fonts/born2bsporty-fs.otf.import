@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://d2hcl1jm02cck"
-path="res://.godot/imported/ChelaOne-Regular.ttf-870da4efff18353c23141108dea374ad.fontdata"
+uid="uid://3bn66mou8jic"
+path="res://.godot/imported/born2bsporty-fs.otf-693215ef815d2ecec611e2d34f5c727c.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/ChelaOne-Regular.ttf"
-dest_files=["res://.godot/imported/ChelaOne-Regular.ttf-870da4efff18353c23141108dea374ad.fontdata"]
+source_file="res://assets/fonts/born2bsporty-fs.otf"
+dest_files=["res://.godot/imported/born2bsporty-fs.otf-693215ef815d2ecec611e2d34f5c727c.fontdata"]
 
 [params]
 

@@ -2,7 +2,6 @@
 
 [ext_resource type="Theme" uid="uid://5dapp0d0f0x5" path="res://resources/ui.tres" id="1_rh5dk"]
 [ext_resource type="Script" uid="uid://bv08paks42pop" path="res://scripts/ui/pause/ability_stats.gd" id="2_whvf2"]
-[ext_resource type="FontFile" uid="uid://d2hcl1jm02cck" path="res://assets/fonts/ChelaOne-Regular.ttf" id="3_rh5dk"]
 
 [node name="AbilityStats" type="Control" unique_id=918259568]
 layout_mode = 3
@@ -34,8 +33,6 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1
-theme_override_fonts/normal_font = ExtResource("3_rh5dk")
-theme_override_font_sizes/normal_font_size = 8
 bbcode_enabled = true
 text = "[u]Arrow Storm"
 scroll_active = false

@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://crxdklo360qmx"
-path="res://.godot/imported/Kanit-Regular.ttf-e51ab0b8a0aaab2525362c9876fb4252.fontdata"
+uid="uid://kyxlvv0de3s6"
+path="res://.godot/imported/8bitlim.ttf-3734a658f9d05fa3d26eb2a54f0ff9b9.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/Kanit-Regular.ttf"
-dest_files=["res://.godot/imported/Kanit-Regular.ttf-e51ab0b8a0aaab2525362c9876fb4252.fontdata"]
+source_file="res://assets/fonts/8bitlim.ttf"
+dest_files=["res://.godot/imported/8bitlim.ttf-3734a658f9d05fa3d26eb2a54f0ff9b9.fontdata"]
 
 [params]
 

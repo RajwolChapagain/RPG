@@ -102,6 +102,7 @@ func APPLY_EFFECT(effect: StatusEffect) -> void:
 	var effect_label: Label = Label.new()
 	effect_label.text = effect.effect_name.to_upper()
 	effect_label.theme_type_variation = 'ProgressLabel'
+	effect_label.add_theme_font_size_override('font_size', 10)
 	effect_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	%StatusEffectLabels.add_child(effect_label)
 	

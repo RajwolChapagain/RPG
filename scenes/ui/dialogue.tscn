@@ -102,6 +102,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 1
 theme = ExtResource("1_xsx77")
+theme_override_font_sizes/font_size = 8
 autowrap_mode = 3
 
 [node name="Tabs" type="Control" parent="." unique_id=38025544]
