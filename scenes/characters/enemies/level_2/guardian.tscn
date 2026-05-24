@@ -3,20 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ccy0aydyv2sxd" path="res://scenes/characters/enemies/level_1/crunk.tscn" id="1_lt00c"]
 [ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="2_2q17e"]
 [ext_resource type="Texture2D" uid="uid://dk378pi8rbh5j" path="res://assets/sprites/characters/overworld/enemies/level_2/guardian_spritesheet.png" id="2_xmrs5"]
-[ext_resource type="Texture2D" uid="uid://jt5gve5cjvau" path="res://assets/sprites/characters/battle/enemies/level_2/guaridan.png" id="3_iyhsu"]
-
-[sub_resource type="Resource" id="Resource_38lf2"]
-script = ExtResource("2_2q17e")
-name = "Guardian"
-battle_sprite = ExtResource("3_iyhsu")
-attack_damage = 20
-max_hp = 80
-hp = 80
-defence = 5
-crit = 20
-dodge = 20
-accuracy = 25
-metadata/_custom_type_script = "uid://dbtdwrocpsv30"
+[ext_resource type="Resource" uid="uid://dsxbdcxosj0fb" path="res://resources/stats/enemies/level_2/guardian.tres" id="3_iyhsu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2q17e"]
 atlas = ExtResource("2_xmrs5")
@@ -49,7 +36,7 @@ animations = [{
 
 [node name="Guardian" unique_id=1786002395 instance=ExtResource("1_lt00c")]
 z_as_relative = false
-gang = Array[ExtResource("2_2q17e")]([SubResource("Resource_38lf2")])
+gang = Array[ExtResource("2_2q17e")]([ExtResource("3_iyhsu")])
 random_drop_item_count = 0
 
 [node name="Sprite2D" parent="." index="0" unique_id=1584948219]
