@@ -12,6 +12,7 @@
 
 [node name="Level3" type="Node" unique_id=1502880646]
 script = ExtResource("1_fkk1g")
+level_number = 3
 
 [node name="DualGrid" parent="." unique_id=105781732 instance=ExtResource("1_o8c3j")]
 

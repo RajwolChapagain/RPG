@@ -26,6 +26,8 @@ func load_level(level: int) -> void:
 			party.disable_cycling()
 			MusicManager.play_music('saved', false)
 			await play_shroud_animation()
+			if level == 3:
+				_on_pause_menu_main_menu_button_pressed()
 		current_level.queue_free()
 	
 	if level == 0:
@@ -54,10 +56,6 @@ func load_next_level() -> void:
 	await load_level(current_level_number)
 
 func on_level_completed(_level_count: int) -> void:
-	if _level_count == 2:
-		_on_pause_menu_main_menu_button_pressed()
-		print("hwerew")
-		return
 	await load_next_level()
 	%AnimationPlayer.play('saving')
 	await %AnimationPlayer.animation_finished

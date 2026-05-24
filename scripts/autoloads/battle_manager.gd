@@ -13,6 +13,10 @@ var pre_battle_music_stream: AudioStreamWAV
 var pre_battle_music_timestamp: float
 var is_battle_ongoing: bool = false
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed('interact') and is_battle_ongoing:
+		get_viewport().set_input_as_handled()
+		
 func start_battle(party: Party, enemy: Enemy) -> void:
 	is_battle_ongoing = true
 	battling_enemy = enemy

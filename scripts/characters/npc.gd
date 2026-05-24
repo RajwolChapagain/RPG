@@ -11,7 +11,7 @@ var interactable: bool = false:
 		sprite.material.set_shader_parameter('interactable', value)
 		interactable = value
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed('interact') and interactable:
 		DialogueManager.load_dialogue(dialogue_file_path, dialogue_start_line_number, self)
 
