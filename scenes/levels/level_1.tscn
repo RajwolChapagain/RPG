@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://dovbpucxfycy7" path="res://scenes/characters/enemies/level_1/nahas.tscn" id="22_o7j4k"]
 [ext_resource type="Texture2D" uid="uid://btrv86cgisq13" path="res://assets/sprites/world/level_1/structure_tileset.webp" id="23_7h2jl"]
 [ext_resource type="PackedScene" uid="uid://cxc6nk1g0afvy" path="res://scenes/characters/enemies/level_1/catapace.tscn" id="23_7o3do"]
+[ext_resource type="Texture2D" uid="uid://01d4dbkqryxs" path="res://assets/sprites/characters/overworld/npcs/npc_4.png" id="23_mqh5v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mkypq"]
 resource_name = "colliders"
@@ -533,6 +534,9 @@ texture = ExtResource("22_7h2jl")
 position = Vector2(288, 576)
 dialogue_file_path = "res://assets/dialogues/level_1/tutorials/potion_use_tutorial.csv"
 
+[node name="Sprite2D" parent="NPCs/NPC2" index="0" unique_id=1757280124]
+texture = ExtResource("23_mqh5v")
+
 [node name="Props" type="Node2D" parent="." unique_id=949065582]
 
 [node name="Pulps" type="Node2D" parent="Props" unique_id=2044993427]
@@ -646,3 +650,4 @@ shape = SubResource("RectangleShape2D_mqh5v")
 [editable path="Enemies/Enemy6/Patroller"]
 [editable path="Enemies/Enemy7/Patroller"]
 [editable path="NPCs/NPC1"]
+[editable path="NPCs/NPC2"]
