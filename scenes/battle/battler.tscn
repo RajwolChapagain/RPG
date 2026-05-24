@@ -8,6 +8,8 @@
 [ext_resource type="Theme" uid="uid://5dapp0d0f0x5" path="res://resources/ui.tres" id="4_at1d5"]
 [ext_resource type="Texture2D" uid="uid://be552pwkiglm1" path="res://assets/sprites/characters/battle/enemies/level_1/nahas.png" id="4_oylcg"]
 [ext_resource type="Texture2D" uid="uid://dangfcswl6n35" path="res://assets/sprites/effects/hit_particle.png" id="5_kl8h0"]
+[ext_resource type="Texture2D" uid="uid://cqbc0ofs5hmyg" path="res://assets/sprites/effects/pulp_spritesheet_level_1.webp" id="6_bqtme"]
+[ext_resource type="Texture2D" uid="uid://c5pc1ddlkvt6t" path="res://assets/sprites/effects/pulp_spritesheet_level_2.png" id="7_p7hkm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oylcg"]
 atlas = ExtResource("3_ybafd")
@@ -28,6 +30,92 @@ region = Rect2(32, 32, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_1e5l2"]
 atlas = ExtResource("3_ybafd")
 region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="Curve" id="Curve_p7hkm"]
+_data = [Vector2(0, 1), 0.0, 1.4, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_cff06"]
+curve = SubResource("Curve_p7hkm")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1e5l2"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 17.07
+spread = 0.0
+gravity = Vector3(0, 98, 0)
+scale_max = 4.0
+scale_curve = SubResource("CurveTexture_cff06")
+color = Color(0.3137255, 0.13333334, 0.2509804, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6mqh"]
+atlas = ExtResource("6_bqtme")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rir7i"]
+atlas = ExtResource("6_bqtme")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ent75"]
+atlas = ExtResource("6_bqtme")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vc65"]
+atlas = ExtResource("6_bqtme")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rdvan"]
+atlas = ExtResource("7_p7hkm")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cdng"]
+atlas = ExtResource("7_p7hkm")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1yy21"]
+atlas = ExtResource("7_p7hkm")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2lptb"]
+atlas = ExtResource("7_p7hkm")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rdvan"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6mqh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rir7i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ent75")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1vc65")
+}],
+"loop": true,
+"name": &"pulp_level_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rdvan")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2cdng")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1yy21")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2lptb")
+}],
+"loop": true,
+"name": &"pulp_level_2",
+"speed": 5.0
+}]
 
 [sub_resource type="Animation" id="Animation_iakmq"]
 length = 0.001
@@ -289,7 +377,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_at1d5"]
 resource_name = "die"
-length = 0.5
+length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -297,10 +385,10 @@ tracks/0/path = NodePath("Sprite2D:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(2, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1)]
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_csexs"]
@@ -521,8 +609,24 @@ z_index = 1
 position = Vector2(0, -20)
 texture = ExtResource("2_foo5t")
 
+[node name="DeathParticles" type="GPUParticles2D" parent="." unique_id=952018527]
+unique_name_in_owner = true
+emitting = false
+amount = 32
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_1e5l2")
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1689363762]
 unique_name_in_owner = true
+
+[node name="PulpSprites" type="AnimatedSprite2D" parent="." unique_id=1840133107]
+unique_name_in_owner = true
+visible = false
+position = Vector2(0, 10)
+sprite_frames = SubResource("SpriteFrames_rdvan")
+animation = &"pulp_level_2"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1676425050]
 unique_name_in_owner = true

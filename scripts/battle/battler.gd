@@ -163,8 +163,18 @@ func die():
 		battler_died.emit(stats.name)
 		is_alive = false
 		%AnimationTree["parameters/StateMachine/conditions/dead"] = true
+		if GameManager.current_level == 1 or GameManager.current_level == 3:
+			%PulpSprites.play("pulp_level_1")
+			%PulpSprites.pause()
+			%PulpSprites.frame = randi_range(0, %PulpSprites.sprite_frames.get_frame_count("pulp_level_1") - 1)
+		else:
+			%PulpSprites.play("pulp_level_2")
+			%PulpSprites.pause()
+			%PulpSprites.frame = randi_range(0, %PulpSprites.sprite_frames.get_frame_count("pulp_level_1") - 1)
+		%DeathParticles.emitting = true
+		%PulpSprites.visible = true
 		%StatusEffectLabels.visible = false
-
+		
 func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "attack":
 		%AnimationTree.set('parameters/StateMachine/conditions/attacking', false)

@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bobc8p13moxe" path="res://scenes/characters/enemies/patroller.tscn" id="6_1yj8c"]
 [ext_resource type="PackedScene" uid="uid://beie628n64ix6" path="res://scenes/levels/props/statue.tscn" id="8_1yj8c"]
 [ext_resource type="Texture2D" uid="uid://doti88i48dtjf" path="res://assets/sprites/screens/transition_shroud.png" id="10_qsp8v"]
-[ext_resource type="Texture2D" uid="uid://cqbc0ofs5hmyg" path="res://assets/sprites/effects/pulp_tileset.webp" id="10_r88tb"]
+[ext_resource type="Texture2D" uid="uid://cqbc0ofs5hmyg" path="res://assets/sprites/effects/pulp_spritesheet_level_1.webp" id="10_r88tb"]
 [ext_resource type="PackedScene" uid="uid://w3am3q8jaqjr" path="res://scenes/characters/enemies/level_2/eel_enemy.tscn" id="11_brxtv"]
 
 [sub_resource type="Curve2D" id="Curve2D_ndlae"]
