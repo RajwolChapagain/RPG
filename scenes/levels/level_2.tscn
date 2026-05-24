@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://cqbc0ofs5hmyg" path="res://assets/sprites/effects/pulp_spritesheet_level_1.webp" id="10_r88tb"]
 [ext_resource type="PackedScene" uid="uid://w3am3q8jaqjr" path="res://scenes/characters/enemies/level_2/eel_enemy.tscn" id="11_brxtv"]
 [ext_resource type="PackedScene" uid="uid://cglapshtkljpc" path="res://scenes/characters/npc.tscn" id="14_1yj8c"]
+[ext_resource type="Texture2D" uid="uid://evgl0spgmm1e" path="res://assets/sprites/characters/overworld/npcs/npc_3.png" id="17_v8d84"]
 
 [sub_resource type="Curve2D" id="Curve2D_ndlae"]
 _data = {
@@ -1252,6 +1253,13 @@ unique_name_in_owner = true
 position = Vector2(160, 90)
 texture = ExtResource("10_qsp8v")
 
+[node name="NPC" parent="." unique_id=261419276 instance=ExtResource("14_1yj8c")]
+position = Vector2(96, -960)
+dialogue_file_path = "res://assets/dialogues/level_2/statue_npc.csv"
+
+[node name="Sprite2D" parent="NPC" index="0" unique_id=1757280124]
+texture = ExtResource("17_v8d84")
+
 [connection signal="statue_toggled" from="World/Props/Statue1" to="." method="_on_statue_1_statue_toggled"]
 [connection signal="statue_toggled" from="World/Props/Statue2" to="." method="_on_statue_2_or_3_toggled"]
 [connection signal="statue_toggled" from="World/Props/Statue3" to="." method="_on_statue_2_or_3_toggled"]
@@ -1266,3 +1274,4 @@ texture = ExtResource("10_qsp8v")
 [editable path="World/Level3Enemies/Mermaid/Patroller"]
 [editable path="World/Level3Enemies/Mermaid2/Patroller"]
 [editable path="World/Props/Statue2"]
+[editable path="NPC"]
