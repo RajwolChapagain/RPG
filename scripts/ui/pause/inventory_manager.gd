@@ -183,3 +183,14 @@ func set_looping_focus_neighbors() -> void:
 func GRAB_FIRST_ITEM_BUTTON_FOCUS() -> void:
 	if len(item_buttons) != 0:
 		item_buttons[0].grab_focus()
+		
+func has_item(item_name: String) -> bool:
+	for button in item_buttons:
+		if button.get_item_name() == item_name:
+			return true
+
+	for character_inventory: CharacterInventory in %CharacterInventories.get_children():
+		if character_inventory.has_item_equipped(item_name):
+			return true
+	
+	return false

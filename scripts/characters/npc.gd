@@ -2,7 +2,25 @@ extends Area2D
 
 @export_file('*.csv') var dialogue_file_path: String
 @export var dialogue_start_line_number: int
+@export var npc_without_spear_sprite: Texture2D
 @export var interact_on_collide: bool = false
+@export var is_obstacle: bool = false:
+	get:
+		return is_obstacle
+	set(value):
+		if value:
+			%StaticBody2D.set_collision_layer_value(1, true)
+		else:
+			%StaticBody2D.set_collision_layer_value(1, false)
+		is_obstacle = value
+var handed_spear_off: bool = false:
+	get:
+		return handed_spear_off
+	set(value):
+		if value:
+			%Sprite2D.texture = npc_without_spear_sprite
+		handed_spear_off = value
+		
 @onready var sprite: Sprite2D = %Sprite2D
 
 var interactable: bool = false:

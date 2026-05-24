@@ -10,6 +10,7 @@
 shader = ExtResource("2_tb4gb")
 shader_parameter/highlight_color = Vector4(1, 1, 0, 1)
 shader_parameter/interactable = false
+shader_parameter/outline_width = 1.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_v8d84"]
 animations = [{

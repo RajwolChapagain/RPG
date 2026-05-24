@@ -11,9 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://bf1tvach8beu2" path="res://scenes/characters/enemies/level_2/mermaid.tscn" id="5_r88tb"]
 [ext_resource type="PackedScene" uid="uid://bobc8p13moxe" path="res://scenes/characters/enemies/patroller.tscn" id="6_1yj8c"]
 [ext_resource type="PackedScene" uid="uid://beie628n64ix6" path="res://scenes/levels/props/statue.tscn" id="8_1yj8c"]
+[ext_resource type="Texture2D" uid="uid://rq2owkrc6l00" path="res://assets/sprites/characters/overworld/npcs/npc_2_spear.png" id="9_ndlae"]
 [ext_resource type="Texture2D" uid="uid://doti88i48dtjf" path="res://assets/sprites/screens/transition_shroud.png" id="10_qsp8v"]
 [ext_resource type="Texture2D" uid="uid://cqbc0ofs5hmyg" path="res://assets/sprites/effects/pulp_spritesheet_level_1.webp" id="10_r88tb"]
 [ext_resource type="PackedScene" uid="uid://w3am3q8jaqjr" path="res://scenes/characters/enemies/level_2/eel_enemy.tscn" id="11_brxtv"]
+[ext_resource type="PackedScene" uid="uid://cglapshtkljpc" path="res://scenes/characters/npc.tscn" id="14_1yj8c"]
 
 [sub_resource type="Curve2D" id="Curve2D_ndlae"]
 _data = {
@@ -23,9 +25,9 @@ point_count = 5
 
 [sub_resource type="Curve2D" id="Curve2D_r88tb"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 191.67143, -801.88684, 0, 0, 0, 0, 191.0921, -719.0428, 0, 0, 0, 0, 162.41534, -719.0428, 0, 0, 0, 0, 162.41533, -802.4662, 0, 0, 0, 0, 191.67143, -801.88684)
+"points": PackedVector2Array(0, 0, 0, 0, 192, -576, 0, 0, 0, 0, 192, -672)
 }
-point_count = 5
+point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_1yj8c"]
 _data = {
@@ -372,7 +374,7 @@ level_number = 2
 
 [node name="PartyOriginMarker" type="Marker2D" parent="." unique_id=1758762546]
 unique_name_in_owner = true
-position = Vector2(0, -832)
+position = Vector2(0, -928)
 
 [node name="World" type="Node2D" parent="." unique_id=311040849]
 
@@ -407,7 +409,7 @@ rotation = -1.5707964
 wait_time = 1.4
 
 [node name="Mermaid2" parent="World/Level2Enemies" unique_id=1786888974 instance=ExtResource("5_r88tb")]
-position = Vector2(192, -800)
+position = Vector2(192, -576)
 
 [node name="Patroller" parent="World/Level2Enemies/Mermaid2" unique_id=998414113 instance=ExtResource("6_1yj8c")]
 speed = 120.0
@@ -416,8 +418,8 @@ speed = 120.0
 curve = SubResource("Curve2D_r88tb")
 
 [node name="PathFollow2D" parent="World/Level2Enemies/Mermaid2/Patroller/Path2D" index="0" unique_id=349239067]
-position = Vector2(191.67143, -801.88684)
-rotation = 1.5777892
+position = Vector2(192, -576)
+rotation = -1.5707964
 
 [node name="IdleTimer" parent="World/Level2Enemies/Mermaid2/Patroller/Path2D" index="1" unique_id=1686652397]
 wait_time = 1.2
@@ -455,6 +457,23 @@ unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
 position = Vector2(5, -520)
 texture = ExtResource("2_nt80m")
+
+[node name="NPCs" type="Node2D" parent="World" unique_id=1913169790]
+unique_name_in_owner = true
+
+[node name="BridgeNPC" parent="World/NPCs" unique_id=1105115065 instance=ExtResource("14_1yj8c")]
+position = Vector2(-160, -384)
+dialogue_file_path = "res://assets/dialogues/level_2/bridge_npc.csv"
+
+[node name="StaticBody2D" parent="World/NPCs/BridgeNPC" index="2" unique_id=746505313]
+collision_layer = 1
+
+[node name="DeadEndNPC" parent="World/NPCs" unique_id=98500857 instance=ExtResource("14_1yj8c")]
+position = Vector2(256, -448)
+dialogue_file_path = "res://assets/dialogues/level_2/dead_end_npc.csv"
+
+[node name="Sprite2D" parent="World/NPCs/DeadEndNPC" index="0" unique_id=1757280124]
+texture = ExtResource("9_ndlae")
 
 [node name="Level3Enemies" type="Node2D" parent="World" unique_id=523719432]
 unique_name_in_owner = true
@@ -1242,6 +1261,8 @@ texture = ExtResource("10_qsp8v")
 [editable path="World/Level2Enemies/Mermaid2/Patroller"]
 [editable path="World/Level2Enemies/Mermaid3/Patroller"]
 [editable path="World/Level2Enemies/Mermaid4/Patroller"]
+[editable path="World/NPCs/BridgeNPC"]
+[editable path="World/NPCs/DeadEndNPC"]
 [editable path="World/Level3Enemies/Mermaid/Patroller"]
 [editable path="World/Level3Enemies/Mermaid2/Patroller"]
 [editable path="World/Props/Statue2"]

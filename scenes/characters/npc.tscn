@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cglapshtkljpc"]
 
 [ext_resource type="Script" uid="uid://ctvsvglqf7kaw" path="res://scripts/characters/npc.gd" id="1_5l8ac"]
+[ext_resource type="Texture2D" uid="uid://cq5hb41jud7d2" path="res://assets/sprites/characters/overworld/npcs/npc_2.png" id="2_01k3j"]
 [ext_resource type="Texture2D" uid="uid://c50m2e4d2sm0x" path="res://assets/sprites/characters/overworld/npcs/generic_npc.png" id="2_abqhh"]
 [ext_resource type="Shader" uid="uid://bahj070arha5b" path="res://scripts/shaders/highlight.gdshader" id="2_bgitj"]
 
@@ -8,14 +9,19 @@
 shader = ExtResource("2_bgitj")
 shader_parameter/highlight_color = Vector4(1, 1, 0, 1)
 shader_parameter/interactable = false
+shader_parameter/outline_width = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bgitj"]
 radius = 26.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bgitj"]
+size = Vector2(32, 32)
 
 [node name="NPC" type="Area2D" unique_id=1105115065]
 script = ExtResource("1_5l8ac")
 dialogue_file_path = "res://assets/dialogues/item_equip_tutorial.csv"
 dialogue_start_line_number = 1
+npc_without_spear_sprite = ExtResource("2_01k3j")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1757280124]
 unique_name_in_owner = true
@@ -24,6 +30,14 @@ texture = ExtResource("2_abqhh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=770378006]
 shape = SubResource("CircleShape2D_bgitj")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=746505313]
+unique_name_in_owner = true
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=112055672]
+shape = SubResource("RectangleShape2D_bgitj")
+debug_color = Color(0.94474494, 0.106702365, 0.5274795, 0.41960785)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

@@ -84,3 +84,9 @@ func disable_consume_button() -> void:
 
 func _on_consume_button_pressed() -> void:
 	consume_button_pressed.emit(%CharacterNameLabel.text)
+	
+func has_item_equipped(item_name: String) -> bool:
+	for item in equipped_items:
+		if item.name == item_name:
+			return true
+	return false

@@ -13,7 +13,7 @@ var interactable: bool = false:
 		interactable = value
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed('interact') and interactable:
+	if event.is_action_pressed('interact') and interactable and not BattleManager.is_battle_ongoing:
 		is_active = not is_active
 		statue_toggled.emit(is_active)
 

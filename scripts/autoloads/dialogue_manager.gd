@@ -180,6 +180,10 @@ func if_dead_go_to(player_names: String, line_number: String) -> void:
 		if player_name.to_lower().strip_edges() not in alive_player_names:
 			go_to(line_number)
 
+func if_has_item(item_name: String, line_number: String) -> void:
+	if GameManager.has_inventory_item(item_name):
+		go_to(line_number)
+
 # line_number is String because we read everything as String from the CSV file
 func go_to(line_number: String) -> void:
 	while current_dialogue_line_number < int(line_number) - 1: # Positions cursor right above the starting line

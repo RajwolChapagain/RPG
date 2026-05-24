@@ -28,11 +28,14 @@ func play_unshroud_animation() -> void:
 	await tween.finished
 
 func _on_statue_1_statue_toggled(activated: bool) -> void:
+	%Statue1.interactable = false
 	spawn_guardian(GameManager.get_active_player().global_position) 
 	statue_pending = 1
 	pending_active = activated
 
 func _on_statue_2_or_3_toggled(activated: bool) -> void:
+	%Statue2.interactable = false
+	%Statue3.interactable = false
 	spawn_guardian(GameManager.get_active_player().global_position) 
 	statue_pending = 2
 	pending_active = activated
@@ -52,6 +55,7 @@ func activate_level_1():
 	%Statue3.play_activate_animation()
 	toggle_enemy_mobility(2, true)
 	toggle_enemy_mobility(3, true)
+	%NPCs.visible = false
 	
 func activate_level_2():
 	shake_camera(1.0, 1.0)
@@ -68,6 +72,7 @@ func activate_level_2():
 	%Level3Colliders.set_collision_layer_value(1, false)
 	toggle_enemy_mobility(2, false)
 	toggle_enemy_mobility(3, true)
+	%NPCs.visible = true
 
 func activate_level_3():
 	shake_camera(1.0, 1.0)
@@ -80,6 +85,7 @@ func activate_level_3():
 	await fade_tween.finished
 	%EelEnemy.visible = true
 	toggle_enemy_mobility(3, false)
+	%NPCs.visible = true
 
 func toggle_enemy_mobility(level: int, make_mobile: bool) -> void:
 	var enemies = %Level2Enemies.get_children() if level == 2 else %Level3Enemies.get_children()
@@ -95,7 +101,6 @@ func toggle_enemy_mobility(level: int, make_mobile: bool) -> void:
 			enemy.GET_ANIMATED_SPRITE().speed_scale = 1.0 + randf_range(-0.2, 0.2)
 
 func spawn_guardian(pos: Vector2) -> void:
-	disable_statues()
 	var guardian = guardian_scene.instantiate()
 	var random_offset = Vector2(randf_range(-0.3, 0.3), randf_range(-1.0, 0)).normalized() *  160
 	var spawn_position = pos + random_offset
@@ -126,17 +131,6 @@ func on_guardian_defeated() -> void:
 			activate_level_3()
 			%Statue2.play_deactivate_animation()
 			%Statue3.play_deactivate_animation()
-	enable_statues()
-	
-func disable_statues():
-	%Statue1.interactable = false
-	%Statue2.interactable = false
-	%Statue3.interactable = false
-	
-func enable_statues():
-	%Statue1.interactable = true
-	%Statue2.interactable = true
-	%Statue3.interactable = true
 	
 func shake_camera(magnitude: float, duration: float) -> void:
 	await get_tree().process_frame

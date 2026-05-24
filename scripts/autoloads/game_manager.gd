@@ -109,3 +109,6 @@ func freeze_party() -> void:
 func thaw_party() -> void:
 	party.enable_all_player_movement()
 	party.enable_cycling()
+
+func has_inventory_item(item_name: String) -> bool:
+	return inventory_manager.has_item(item_name)
