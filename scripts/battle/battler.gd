@@ -206,7 +206,7 @@ func slide(direction: Vector2) -> void:
 	await tween.tween_property(self, 'position', target_position, 0.1).finished
 
 func play_ability_animation(ability_owner: String = stats.name) -> void:
-	var animation_duration = 0.5
+	var animation_duration = 0.8
 	%ShroudAnimationPlayer.play('blink')
 	%Sprite2D.reparent(%CanvasLayer)
 	if stats.ability_invoke_sprite != null:
