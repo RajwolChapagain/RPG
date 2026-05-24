@@ -262,7 +262,6 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_kl8h0"]
 resource_name = "damaged"
-length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -270,7 +269,7 @@ tracks/0/path = NodePath("DamageLabel:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5),
+"times": PackedFloat32Array(0, 0.25, 1),
 "transitions": PackedFloat32Array(0.25, 4, 0.5),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -428,7 +427,6 @@ graph_offset = Vector2(-841, -49)
 mix_mode = 1
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_at1d5"]
-graph_offset = Vector2(-140.2826, 189.80145)
 nodes/output/position = Vector2(1100, 540)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_di6md")
 nodes/StateMachine/position = Vector2(-160, 160)

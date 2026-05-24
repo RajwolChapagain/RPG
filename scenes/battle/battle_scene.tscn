@@ -160,7 +160,7 @@ _data = {
 [node name="BattleScene" type="Node" unique_id=444611762]
 script = ExtResource("1_0yksl")
 character_spacing = 60
-player_character_stats = Array[ExtResource("2_xwxfl")]([ExtResource("6_yt3ua"), ExtResource("3_tc5fe"), ExtResource("5_xxdit"), null])
+player_character_stats = Array[ExtResource("2_xwxfl")]([ExtResource("6_yt3ua"), ExtResource("3_tc5fe"), ExtResource("5_xxdit")])
 enemy_stats = Array[ExtResource("2_xwxfl")]([ExtResource("4_tc5fe")])
 ability_button = ExtResource("3_svpld")
 MAIN_MENU_SCENE = ExtResource("8_tttxe")
