@@ -97,7 +97,7 @@ func toggle_enemy_mobility(level: int, make_mobile: bool) -> void:
 func spawn_guardian(pos: Vector2) -> void:
 	disable_statues()
 	var guardian = guardian_scene.instantiate()
-	var random_offset = Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)).normalized() *  160
+	var random_offset = Vector2(randf_range(-0.3, 0.3), randf_range(-1.0, 0)).normalized() *  160
 	var spawn_position = pos + random_offset
 	if spawn_position.x > pos.x:
 		guardian.get_node('Sprite2D').flip_h = true
