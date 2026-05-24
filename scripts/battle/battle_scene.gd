@@ -57,6 +57,9 @@ func _input(event: InputEvent) -> void:
 func set_battle_screen(screen: Texture2D) -> void:
 	%BattleScreen.texture = screen
 
+func make_level_2_background_visible() -> void:
+	%DualGridLevel2.visible = true
+	
 func update_ui(delta) -> void:
 	var hp_bar_speed = 100
 	var epsilon = 1
@@ -475,13 +478,13 @@ func shake_camera(magnitude: float, duration: float) -> void:
 		
 	camera_shaking = true
 	camera_shake_time_left += duration
-	var original_pos = %BattleCam.global_position
+	var canvas_layer = BattleManager.get_node('CanvasLayer')
 	while camera_shake_time_left >= 0:
-		%BattleCam.global_position = original_pos + Vector2(randf_range(-magnitude, magnitude), randf_range(-magnitude, magnitude))
+		canvas_layer.offset = Vector2(randf_range(-magnitude, magnitude), randf_range(-magnitude, magnitude))
 		await get_tree().process_frame
 		camera_shake_time_left -= get_process_delta_time()
 	
-	%BattleCam.global_position = original_pos
+	canvas_layer.offset = Vector2.ZERO
 	camera_shake_time_left = 0.0
 	camera_shaking = false
 

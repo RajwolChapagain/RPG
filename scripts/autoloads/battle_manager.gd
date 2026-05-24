@@ -30,6 +30,7 @@ func start_battle(party: Party, enemy: Enemy) -> void:
 	active_battle_scene.enemy_hook = enemy.post_defeat_hook
 	if GameManager.current_level == 2:
 		active_battle_scene.set_battle_screen(battle_screen_2)
+		active_battle_scene.make_level_2_background_visible()
 	freeze_party()
 	freeze_enemy()
 	
