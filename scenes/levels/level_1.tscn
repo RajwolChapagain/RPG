@@ -523,6 +523,7 @@ position = Vector2(432, 17)
 [node name="NPC1" parent="NPCs" unique_id=1105115065 instance=ExtResource("4_oc4kc")]
 position = Vector2(160, 224)
 dialogue_file_path = "res://assets/dialogues/level_1/tutorials/intro_tutorial.csv"
+interact_on_collide = true
 
 [node name="NPC2" parent="NPCs" unique_id=1975223701 instance=ExtResource("4_oc4kc")]
 position = Vector2(288, 576)

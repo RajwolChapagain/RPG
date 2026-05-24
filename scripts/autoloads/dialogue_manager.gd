@@ -192,6 +192,24 @@ func set_next_interaction_line(line_number: String) -> void:
 	assert(current_invoking_entity != null, "Tried to set next interaction line on a null invoking entity")
 	current_invoking_entity.dialogue_start_line_number = int(line_number)
 
+func set_var(var_name: String, value: Variant) -> void:
+	assert(current_invoking_entity != null, "Tried to set var on a null invoking entity")
+	if current_invoking_entity.get(var_name) == null:
+		printerr('Error: Variable %s does not exist for entity %s' % [var_name, current_invoking_entity.name])
+		return
+		
+	var var_type: Variant.Type = typeof(current_invoking_entity.get(var_name)) as Variant.Type
+	
+	if var_type == Variant.Type.TYPE_BOOL:
+		if value.to_lower() == 'true':
+			value = true
+		else:
+			value = false
+	else:
+		value = type_convert(value, var_type)
+		
+	current_invoking_entity.set(var_name, value)
+	
 func drop_item(item_name: String) -> void:
 	ItemDropManager.drop_item_by_name(item_name)
 

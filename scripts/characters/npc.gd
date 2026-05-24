@@ -2,6 +2,7 @@ extends Area2D
 
 @export_file('*.csv') var dialogue_file_path: String
 @export var dialogue_start_line_number: int
+@export var interact_on_collide: bool = false
 @onready var sprite: Sprite2D = %Sprite2D
 
 var interactable: bool = false:
@@ -17,7 +18,10 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	if area is Player:
-		interactable = true
+		if not interact_on_collide:
+			interactable = true
+		else:
+			DialogueManager.load_dialogue(dialogue_file_path, dialogue_start_line_number, self)
 
 func _on_area_exited(_area: Area2D) -> void:
 	for overlapping_areas in get_overlapping_areas():

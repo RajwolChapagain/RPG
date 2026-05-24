@@ -177,7 +177,7 @@ texture = ExtResource("3_8jjyp")
 [node name="GridMover" type="Node" parent="." unique_id=185147848 node_paths=PackedStringArray("target")]
 script = ExtResource("4_d5x13")
 target = NodePath("..")
-time_to_move_one_grid = 0.3
+time_to_move_one_grid = 0.25
 
 [node name="GridPositionTracker" type="Node2D" parent="." unique_id=489132364]
 script = ExtResource("5_8gkgf")
