@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://ctu601yhl7h7c" path="res://assets/sprites/characters/battle/enemies/level_1/coyostrel.png" id="14_bahl2"]
 [ext_resource type="PackedScene" uid="uid://b4d2tqccygbdj" path="res://scenes/characters/enemies/level_1/coyostrel.tscn" id="15_mqh5v"]
 [ext_resource type="PackedScene" uid="uid://bobc8p13moxe" path="res://scenes/characters/enemies/patroller.tscn" id="17_mqh5v"]
+[ext_resource type="Texture2D" uid="uid://cadb7nbg6k162" path="res://assets/sprites/characters/overworld/npcs/npc_1.png" id="22_7h2jl"]
 [ext_resource type="Texture2D" uid="uid://cqbc0ofs5hmyg" path="res://assets/sprites/effects/pulp_tileset.webp" id="22_mqh5v"]
 [ext_resource type="PackedScene" uid="uid://dovbpucxfycy7" path="res://scenes/characters/enemies/level_1/nahas.tscn" id="22_o7j4k"]
 [ext_resource type="Texture2D" uid="uid://btrv86cgisq13" path="res://assets/sprites/world/level_1/structure_tileset.webp" id="23_7h2jl"]
@@ -525,6 +526,9 @@ position = Vector2(160, 224)
 dialogue_file_path = "res://assets/dialogues/level_1/tutorials/intro_tutorial.csv"
 interact_on_collide = true
 
+[node name="Sprite2D" parent="NPCs/NPC1" index="0" unique_id=1757280124]
+texture = ExtResource("22_7h2jl")
+
 [node name="NPC2" parent="NPCs" unique_id=1975223701 instance=ExtResource("4_oc4kc")]
 position = Vector2(288, 576)
 dialogue_file_path = "res://assets/dialogues/level_1/tutorials/potion_use_tutorial.csv"
@@ -641,3 +645,4 @@ shape = SubResource("RectangleShape2D_mqh5v")
 [editable path="Enemies/Enemy5/Patroller"]
 [editable path="Enemies/Enemy6/Patroller"]
 [editable path="Enemies/Enemy7/Patroller"]
+[editable path="NPCs/NPC1"]

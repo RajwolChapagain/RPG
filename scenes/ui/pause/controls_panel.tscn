@@ -61,7 +61,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.57, 0.57, 0.57, 1)
 theme_override_font_sizes/font_size = 10
-text = "E"
+text = "Space / Enter"
 
 [node name="Entry3" type="HBoxContainer" parent="KeyboardControls/VBoxContainer" unique_id=1676177666]
 layout_mode = 2
@@ -78,7 +78,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.57, 0.57, 0.57, 1)
 theme_override_font_sizes/font_size = 10
-text = "Space / Enter"
+text = "E"
 
 [node name="Entry6" type="HBoxContainer" parent="KeyboardControls/VBoxContainer" unique_id=790576774]
 layout_mode = 2
@@ -180,7 +180,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.57, 0.57, 0.57, 1)
 theme_override_font_sizes/font_size = 10
-text = "Y"
+text = "A"
 
 [node name="Entry3" type="HBoxContainer" parent="ControllerControls/VBoxContainer" unique_id=1236319736]
 layout_mode = 2
@@ -197,7 +197,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.57, 0.57, 0.57, 1)
 theme_override_font_sizes/font_size = 10
-text = "A"
+text = "Y"
 
 [node name="Entry6" type="HBoxContainer" parent="ControllerControls/VBoxContainer" unique_id=1683882071]
 layout_mode = 2

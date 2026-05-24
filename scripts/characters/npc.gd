@@ -13,7 +13,7 @@ var interactable: bool = false:
 		interactable = value
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed('interact') and interactable:
+	if event.is_action_pressed('interact') and interactable and not BattleManager.is_battle_ongoing:
 		DialogueManager.load_dialogue(dialogue_file_path, dialogue_start_line_number, self)
 
 func _on_area_entered(area: Area2D) -> void:

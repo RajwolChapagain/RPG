@@ -31,8 +31,9 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed('skip_dialogue'):
 		end_dialogue()
-	if event.is_action_pressed("advance_dialogue"):
+	if event.is_action_pressed("advance_dialogue") and dialogue_ongoing:
 		advance_dialogue()
+		get_viewport().set_input_as_handled()
 	if event.is_action_pressed("pause") and dialogue_ongoing:
 		get_viewport().set_input_as_handled()
 		
