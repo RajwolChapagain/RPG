@@ -106,6 +106,7 @@ func spawn_guardian(pos: Vector2) -> void:
 	add_child(guardian)
 	var tween = get_tree().create_tween()
 	tween.tween_property(guardian, 'global_position', pos, 0.3).set_ease(Tween.EASE_OUT)
+	await get_tree().create_timer(0.2).timeout
 	guardian.PLAY_ANIMATION('attacking')
 
 func on_guardian_defeated() -> void:
