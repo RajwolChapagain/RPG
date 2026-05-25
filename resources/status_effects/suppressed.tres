@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_xllhe")
 effect_name = "Suppressed"
-duration_in_ticks = 4
+duration_in_ticks = 5
 metadata/_custom_type_script = "uid://bfe0gg36ej1bu"

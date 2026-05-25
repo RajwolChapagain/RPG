@@ -367,7 +367,7 @@ func attack_random_player() -> void:
 	const ABILITY_USE_CHANCE = 0.25
 	
 	await attacking_enemy.slide(Vector2.DOWN)
-	if not attacking_enemy.stats.abilities.is_empty() and randf() < ABILITY_USE_CHANCE:
+	if not attacking_enemy.stats.abilities.is_empty() and randf() < ABILITY_USE_CHANCE and not is_battler_suppressed(attacking_enemy):
 		await attacking_enemy.play_ability_animation()
 		var ability: Ability = attacking_enemy.stats.abilities.pick_random().instantiate()
 		add_child(ability)
@@ -419,6 +419,10 @@ func _on_abilities_button_toggled(toggled_on: bool) -> void:
 		%PlayerInfos.visible = true
 
 func create_abilities_list() -> void:
+	if is_battler_suppressed(player_characters[active_index]):
+		%AbilitiesContainer.visible = true
+		return
+		
 	for index in range(len(player_characters[active_index].stats.abilities)):
 		var ability_scene = player_characters[active_index].stats.abilities[index]
 		var ability: Ability = ability_scene.instantiate()
@@ -530,6 +534,13 @@ func get_next_alive_index(start_index: int, battler_array: Array[Battler]) -> in
 func is_battler_stunned(battler: Battler) -> bool:
 	for effect: StatusEffect in battler.status_effects:
 		if effect.effect_name == 'Stunned':
+			return true
+			
+	return false
+	
+func is_battler_suppressed(battler: Battler) -> bool:
+	for effect: StatusEffect in battler.status_effects:
+		if effect.effect_name == 'Suppressed':
 			return true
 			
 	return false

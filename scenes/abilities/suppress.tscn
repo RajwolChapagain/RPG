@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://dy0fajkgewbmq"]
 
 [ext_resource type="Script" uid="uid://dsnak0kes8pxd" path="res://scripts/abilities/suppress.gd" id="1_igwbb"]
+[ext_resource type="Resource" uid="uid://cg5gu232fgb3n" path="res://resources/status_effects/suppressed.tres" id="2_0xgbu"]
 
 [node name="Suppress" type="Node" unique_id=1698177182]
 script = ExtResource("1_igwbb")
+suppress_effect = ExtResource("2_0xgbu")
 ability_name = "Suppress"
-cost = 3
