@@ -438,7 +438,7 @@ position = Vector2(-64, -800)
 rotation = 1.5707964
 
 [node name="IdleTimer" parent="World/Level2Enemies/Mermaid3/Patroller/Path2D" index="1" unique_id=1686652397]
-wait_time = 1.2
+wait_time = 0.1
 
 [node name="Mermaid4" parent="World/Level2Enemies" unique_id=48520577 instance=ExtResource("5_r88tb")]
 position = Vector2(64, -800)

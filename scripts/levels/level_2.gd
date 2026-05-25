@@ -96,6 +96,7 @@ func toggle_enemy_mobility(level: int, make_mobile: bool) -> void:
 	else:
 		for enemy: Enemy in enemies:
 			enemy.STOP_PATROL()
+			await get_tree().process_frame
 			enemy.PLAY_ANIMATION('flail')
 			enemy.GET_ANIMATED_SPRITE().set_frame_and_progress(randi_range(0, 1), randf())
 			enemy.GET_ANIMATED_SPRITE().speed_scale = 1.0 + randf_range(-0.2, 0.2)

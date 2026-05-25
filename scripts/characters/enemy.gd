@@ -24,15 +24,19 @@ func _process(_delta: float) -> void:
 	if abs(movement.x) > abs(movement.y):
 		# Horizontal dominant
 		if movement.x > 0:
-			PLAY_ANIMATION('move_right')
+			if %Sprite2D.animation != 'move_right':
+				PLAY_ANIMATION('move_right')
 		else:
-			PLAY_ANIMATION('move_left')
+			if %Sprite2D.animation != 'move_left':
+				PLAY_ANIMATION('move_left')
 	else:
 		# Vertical dominant
 		if movement.y > 0:
-			PLAY_ANIMATION('move_down')
+			if %Sprite2D.animation != 'move_down':
+				PLAY_ANIMATION('move_down')
 		else:
-			PLAY_ANIMATION('move_up')
+			if %Sprite2D.animation != 'move_up':
+				PLAY_ANIMATION('move_up')
 	
 	last_position = global_position
 	
