@@ -104,7 +104,11 @@ func get_alive_players() -> Array[Player]:
 			
 	return alive_players
 	
-func on_player_encountered_enemy(enemy) -> void:
+func on_player_encountered_enemy(enemy, player) -> void:
+	var tween = get_tree().create_tween()
+	tween.set_parallel()
+	tween.tween_property(%Camera2D, 'global_position', player.global_position, BattleManager.BATTLE_START_DELAY / 4).set_ease(Tween.EASE_OUT)
+	tween.tween_property(%Camera2D, 'zoom', Vector2(2, 2), BattleManager.BATTLE_START_DELAY / 4).set_ease(Tween.EASE_OUT)
 	BattleManager.start_battle(self, enemy)
 	
 func get_all_player_stats() -> Array[BaseStats]:
@@ -158,6 +162,7 @@ func regroup_party() -> void:
 	for member in party_members:
 		member.move_queue.clear()
 		member.sync_last_grid_pos()
+	%Camera2D.zoom = Vector2.ONE
 		
 func disable_camera_smoothing() -> void:
 	%Camera2D.position_smoothing_enabled = false

@@ -10,7 +10,7 @@ var equipped_items: Array[Item]
 const OBSTACLE_RAYCAST_LENGTH: float = 32.0
 
 signal character_moved(character, old_grid_pos)
-signal enemy_encountered(enemy)
+signal enemy_encountered(enemy, player)
 
 func _process(_delta: float) -> void:
 	if not is_colliding():
@@ -230,7 +230,7 @@ func modify_base_stats(stat_modifier: StatModifier) -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group('enemy'):
-		enemy_encountered.emit(area)
+		enemy_encountered.emit(area, self)
 
 func get_constant_stat_properties() -> Array[String]:
 	return get_stat_properties_in_group('constant')

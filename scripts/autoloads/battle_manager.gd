@@ -12,7 +12,9 @@ var battling_enemy: Enemy
 var pre_battle_music_stream: AudioStreamWAV
 var pre_battle_music_timestamp: float
 var is_battle_ongoing: bool = false
-		
+
+const BATTLE_START_DELAY: float = 0.8
+
 func start_battle(party: Party, enemy: Enemy) -> void:
 	is_battle_ongoing = true
 	battling_enemy = enemy
@@ -36,13 +38,13 @@ func start_battle(party: Party, enemy: Enemy) -> void:
 	
 	pre_battle_music_stream = MusicManager.get_current_music_title()
 	pre_battle_music_timestamp = MusicManager.get_current_music_timestamp()
-	MusicManager.fade_music_out(0.8)
+	MusicManager.fade_music_out(BATTLE_START_DELAY)
 	if enemy.is_in_group('boss_enemy'):
 		MusicManager.play_music('boss_battle')
 	else:
 		MusicManager.play_music('battle')
 		
-	await get_tree().create_timer(0.8).timeout
+	await get_tree().create_timer(BATTLE_START_DELAY).timeout
 	battling_party.disable_party_camera()
 	%CanvasLayer.add_child(active_battle_scene)
 	
@@ -67,6 +69,7 @@ func on_battle_ended(player_character_stats: Array[BaseStats], battle_won: bool)
 		MusicManager.play_audio_stream(pre_battle_music_stream)
 		MusicManager.seek_stream(pre_battle_music_timestamp)
 		battling_enemy.turn_to_pulp()
+		battling_party.enable_party_camera()
 		await trigger_death_dialogues(player_character_stats)
 		drop_dead_player_essences(player_character_stats)
 		remove_defeated_enemy()
