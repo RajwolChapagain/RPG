@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c23ke6i2fm508" path="res://assets/sprites/characters/portraits/rachelle_base_portrait.webp" id="7_crc46"]
 [ext_resource type="Texture2D" uid="uid://cww4fl0ixyv3y" path="res://assets/sprites/ui/battle/ability_point_indicator_empty.png" id="9_amnne"]
 
-[node name="StatCard" type="Control" unique_id=460006591 node_paths=PackedStringArray("portrait")]
+[node name="StatCard" type="Control" unique_id=460006591 node_paths=PackedStringArray("portrait", "name_label", "hp_label", "max_label", "atk_label", "def_label", "crt_label", "eva_label", "acc_label", "ap_label", "ap_slots_label", "abilities_label")]
 custom_minimum_size = Vector2(60, 150)
 layout_mode = 3
 anchors_preset = 2
@@ -30,6 +30,17 @@ portrait_dictionary = Dictionary[String, Texture2D]({
 "magda": ExtResource("6_31vy4"),
 "rachelle": ExtResource("7_crc46")
 })
+name_label = NodePath("MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/NameLabel")
+hp_label = NodePath("MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HPLabel")
+max_label = NodePath("MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer4/MAXLabel")
+atk_label = NodePath("MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/ATKLabel")
+def_label = NodePath("MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/DEFLabel")
+crt_label = NodePath("MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/CRTLabel")
+eva_label = NodePath("MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer4/EVALabel")
+acc_label = NodePath("MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer4/ACCLabel")
+ap_label = NodePath("MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer4/APLabel")
+ap_slots_label = NodePath("MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/APSlotsLabel")
+abilities_label = NodePath("MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/AbilitiesLabel")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=717938831]
 layout_mode = 1

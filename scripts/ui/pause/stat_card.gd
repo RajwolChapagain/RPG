@@ -14,6 +14,19 @@ class_name StatCard
 @export_group('Portraits')
 @export var portrait_dictionary: Dictionary[String, Texture2D]
 
+@export_group('Labels')
+@export var name_label: Label
+@export var hp_label: Label
+@export var max_label: Label
+@export var atk_label: Label
+@export var def_label: Label
+@export var crt_label: Label
+@export var eva_label: Label
+@export var acc_label: Label
+@export var ap_label: Label
+@export var ap_slots_label: Label
+@export var abilities_label: Label
+
 func initialize_ui() -> void:
 	var character_name = stats.name.to_lower()
 	if character_name not in portrait_dictionary:
@@ -41,27 +54,27 @@ func update_stats_ui() -> void:
 			label_text = str(stats.get(stat_name))
 			
 		if stat_name == 'name':
-			%NameLabel.text = label_text
+			name_label.text = label_text
 		elif stat_name == 'hp':
-			%HPLabel.text = label_text
+			hp_label.text = label_text
 		elif stat_name == 'max_hp':
-			%MAXLabel.text = label_text
+			max_label.text = label_text
 		elif stat_name == 'attack_damage':
-			%ATKLabel.text = label_text
+			atk_label.text = label_text
 		elif stat_name == 'defence':
-			%DEFLabel.text = label_text
+			def_label.text = label_text
 		elif stat_name == 'dodge':
-			%EVALabel.text = label_text
+			eva_label.text = label_text
 		elif stat_name == 'accuracy':
-			%ACCLabel.text = label_text
+			acc_label.text = label_text
 		elif stat_name == 'crit':
-			%CRTLabel.text = label_text
+			crt_label.text = label_text
 		elif stat_name == 'ap_per_attack':
-			%APLabel.text = label_text
+			ap_label.text = label_text
 		elif stat_name == 'ap_slots':
-			%APSlotsLabel.text = label_text
+			ap_slots_label.text = label_text
 		elif stat_name == 'abilities':
-			%AbilitiesLabel.text = label_text
+			abilities_label.text = label_text
 			
 func get_character_name() -> String:
 	return stats.name
