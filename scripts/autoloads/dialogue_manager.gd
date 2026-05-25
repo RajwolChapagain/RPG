@@ -191,7 +191,23 @@ func go_to(line_number: String) -> void:
 		current_dialogue_line_number += 1
 
 func get_pause_button_as_string() -> String:
-	return InputMap.action_get_events("pause")[0].as_text()
+	if Input.get_connected_joypads().is_empty():
+		for event in InputMap.action_get_events('pause'):
+			if event is InputEventKey:
+				return event.as_text()
+	else:
+		var joy_name = Input.get_joy_name(Input.get_connected_joypads()[0]).to_lower()
+		
+		if "xbox" in joy_name:
+			return 'B'
+		elif "ps" in joy_name:
+			return 'Circle'
+		elif "nintendo" in joy_name:
+			return 'A'
+		else:
+			return 'Right Action'
+	
+	return 'Escape'
 	
 func set_next_interaction_line(line_number: String) -> void:
 	assert(current_invoking_entity != null, "Tried to set next interaction line on a null invoking entity")
