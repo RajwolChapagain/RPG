@@ -7,3 +7,4 @@
 script = ExtResource("1_ud5n4")
 stun_effect = ExtResource("2_bmyh4")
 ability_name = "Stun"
+owner_character = "Eel"

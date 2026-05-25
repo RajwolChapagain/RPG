@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b8sqs01mv5qci" path="res://assets/sprites/characters/battle/players/attack_ability_combined_tileset.webp" id="3_ybafd"]
 [ext_resource type="Theme" uid="uid://5dapp0d0f0x5" path="res://resources/ui.tres" id="4_at1d5"]
 [ext_resource type="Texture2D" uid="uid://be552pwkiglm1" path="res://assets/sprites/characters/battle/enemies/level_1/nahas.png" id="4_oylcg"]
+[ext_resource type="Texture2D" uid="uid://bpyx34vcos6o3" path="res://assets/sprites/characters/battle/enemies/level_2/eel_1.png" id="5_1e5l2"]
 [ext_resource type="Texture2D" uid="uid://dangfcswl6n35" path="res://assets/sprites/effects/hit_particle.png" id="5_kl8h0"]
 [ext_resource type="Texture2D" uid="uid://cqbc0ofs5hmyg" path="res://assets/sprites/effects/pulp_spritesheet_level_1.webp" id="6_bqtme"]
 [ext_resource type="Texture2D" uid="uid://d1fi1bxv5thvj" path="res://assets/sprites/characters/battle/enemies/level_2/mermaid.png" id="6_cff06"]
@@ -604,6 +605,7 @@ lachlan_phantom = SubResource("AtlasTexture_p7hkm")
 magda_phantom = SubResource("AtlasTexture_cff06")
 rachelle_phantom = SubResource("AtlasTexture_1e5l2")
 nahas_phantom = ExtResource("4_oylcg")
+eel_phantom = ExtResource("5_1e5l2")
 
 [node name="Pointer" type="Sprite2D" parent="." unique_id=374239538]
 visible = false
@@ -637,6 +639,11 @@ libraries/ = SubResource("AnimationLibrary_fmb78")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1110347991]
 shape = SubResource("CircleShape2D_juhay")
+
+[node name="StatusEffectSymbols" type="HBoxContainer" parent="." unique_id=1643144995]
+unique_name_in_owner = true
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="StatusEffectLabels" type="VBoxContainer" parent="." unique_id=705125033]
 unique_name_in_owner = true
