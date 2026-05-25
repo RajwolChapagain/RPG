@@ -114,6 +114,10 @@ func check_and_emit_last_pos() -> void:
 		character_moved.emit(self, last_grid_pos)
 		last_grid_pos = $GridPositionTracker.get_grid_coord()
 		
+func sync_last_grid_pos() -> void:
+	$GridPositionTracker.UPDATE_GRID_COORD()
+	last_grid_pos = $GridPositionTracker.get_grid_coord()
+	
 func set_active(value: bool) -> void:
 	is_active = value
 	

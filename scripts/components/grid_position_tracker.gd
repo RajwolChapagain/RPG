@@ -18,3 +18,6 @@ func set_grid_coord(new_coord: Vector2i) -> void:
 	
 func get_grid_coord() -> Vector2i:
 	return grid_coord
+
+func UPDATE_GRID_COORD() -> void:
+	set_grid_coord(ceil(global_position / grid_size))
