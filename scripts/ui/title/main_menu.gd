@@ -1,5 +1,7 @@
 extends Node
 
+var menu_opened_this_press: bool = false
+
 @export var main_scene: PackedScene
 const SETTINGS_DIR = 'user://settings/'
 var state: states = states.TITLE:
@@ -49,9 +51,12 @@ func _input(event: InputEvent) -> void:
 		
 	if state == states.TITLE:
 		state = states.MENU
+		menu_opened_this_press = true
 	elif state == states.MENU:
-		if event.is_action_released('ui_cancel'):
+		if event.is_action_released('ui_cancel') and not menu_opened_this_press:
 			state = states.TITLE
+		if menu_opened_this_press:
+			menu_opened_this_press = false
 		
 func connect_save_slot_signals() -> void:
 	for save_slot: SaveSlot in %SaveSlotsContainer.get_children():
