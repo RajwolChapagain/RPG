@@ -155,7 +155,9 @@ func regroup_party() -> void:
 	active_member_index_before_freezing = clamp(active_member_index_before_freezing, 0, len(party_members) - 1)
 	for member in party_members:
 		member.global_position = party_members[active_member_index_before_freezing].global_position
-
+	for member in party_members:
+		member.move_queue.clear()
+		
 func disable_camera_smoothing() -> void:
 	%Camera2D.position_smoothing_enabled = false
 

@@ -57,16 +57,29 @@ func process_movement_queue() -> void:
 	if move_queue.is_empty():
 		return
 		
+	if BattleManager.is_battle_ongoing:
+		move_queue.clear()
+		return
+		
 	var next_grid_pos = move_queue.front()
 	move_queue.remove_at(0)
 	if (next_grid_pos == null):
 		return
 		
-	if (next_grid_pos == $GridPositionTracker.get_grid_coord()):
+	var current = $GridPositionTracker.get_grid_coord()
+	if next_grid_pos == current:
 		return
 		
-	var direction = next_grid_pos - $GridPositionTracker.get_grid_coord()
+	var direction = next_grid_pos - current
 	
+	# If the target is more than one tile away, decompose into unit steps
+	# and requeue them so no move is ever silently dropped
+	if abs(direction.x) + abs(direction.y) > 1:
+		var steps = decompose_path_to_steps(current, next_grid_pos)
+		for i in range(steps.size() - 1, -1, -1):
+			move_queue.push_front(steps[i])
+		return
+		
 	if direction == Vector2i.RIGHT:
 		$GridMover.move_target_right()
 		$Sprite2D.play("run_right")
@@ -81,8 +94,21 @@ func process_movement_queue() -> void:
 		$Sprite2D.play("run_down")
 	else:
 		# Direction is not in the next tile
+		print('Lost')
 		pass
 
+func decompose_path_to_steps(from: Vector2i, to: Vector2i) -> Array[Vector2i]:
+	var steps: Array[Vector2i] = []
+	var current = from
+	while current != to:
+		var diff = to - current
+		if diff.x != 0:
+			current += Vector2i(sign(diff.x), 0)
+		else:
+			current += Vector2i(0, sign(diff.y))
+		steps.append(current)
+	return steps
+	
 func check_and_emit_last_pos() -> void:
 	if last_grid_pos != $GridPositionTracker.get_grid_coord():
 		character_moved.emit(self, last_grid_pos)
@@ -92,6 +118,7 @@ func set_active(value: bool) -> void:
 	is_active = value
 	
 	if is_active:
+		move_queue.clear()
 		$Pointer.visible = true
 	else:
 		$Pointer.visible = false
