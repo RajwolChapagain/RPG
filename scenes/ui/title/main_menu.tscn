@@ -395,7 +395,11 @@ size_flags_stretch_ratio = 0.91
 layout_mode = 2
 size_flags_vertical = 0
 theme_type_variation = &"HeaderSmall"
-text = "Music: Infinity Crystal by Sara Garrard"
+text = "Music: Infinity Crystal by Sara Garrard
+Playtesters:
+Evelyn Day
+Sydney Peckenpaugh
+Maddie P."
 horizontal_alignment = 1
 
 [node name="Spacer2" type="Control" parent="UI/HBoxContainer/ContentPanel/PanelsContainer/CreditsPanel/MarginContainer/VBoxContainer" unique_id=2091390402]
