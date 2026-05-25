@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="StatusEffect" format=3 uid="uid://cg5gu232fgb3n"]
+
+[ext_resource type="Script" uid="uid://bfe0gg36ej1bu" path="res://scripts/resource_scripts/base_status_effect.gd" id="1_xllhe"]
+
+[resource]
+script = ExtResource("1_xllhe")
+effect_name = "Suppressed"
+duration_in_ticks = 4
+metadata/_custom_type_script = "uid://bfe0gg36ej1bu"

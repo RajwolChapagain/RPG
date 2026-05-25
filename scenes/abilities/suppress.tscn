@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dy0fajkgewbmq"]
+
+[ext_resource type="Script" uid="uid://dsnak0kes8pxd" path="res://scripts/abilities/suppress.gd" id="1_igwbb"]
+
+[node name="Suppress" type="Node" unique_id=1698177182]
+script = ExtResource("1_igwbb")
+ability_name = "Suppress"
+cost = 3
