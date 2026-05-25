@@ -163,6 +163,7 @@ func die():
 		battler_died.emit(stats.name)
 		is_alive = false
 		%AnimationTree["parameters/StateMachine/conditions/dead"] = true
+		%Sprite2D.visible = false
 		if GameManager.current_level == 1 or GameManager.current_level == 3:
 			%PulpSprites.play("pulp_level_1")
 			%PulpSprites.pause()

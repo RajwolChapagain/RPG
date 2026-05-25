@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cjs2b082b2lbm" path="res://scenes/ui/battle/ability_button.tscn" id="3_svpld"]
 [ext_resource type="Resource" uid="uid://c3bvbxqpkkgu3" path="res://resources/stats/players/rachelle.tres" id="3_tc5fe"]
 [ext_resource type="Resource" uid="uid://bgg065a045ww" path="res://resources/stats/players/josephine.tres" id="5_xxdit"]
+[ext_resource type="Resource" uid="uid://d3kyf2naa3duo" path="res://resources/stats/players/lachlan.tres" id="6_vwcfl"]
 [ext_resource type="Resource" uid="uid://c46k2b5fxukoi" path="res://resources/stats/enemies/level_1/crunk.tres" id="6_xxdit"]
 [ext_resource type="Resource" uid="uid://cym67rsdldl6j" path="res://resources/stats/players/einar.tres" id="6_yt3ua"]
 [ext_resource type="Resource" uid="uid://504xnrcw2ros" path="res://resources/stats/enemies/level_1/catapace.tres" id="7_k0vga"]
@@ -186,7 +187,7 @@ _data = {
 [node name="BattleScene" type="Node" unique_id=444611762]
 script = ExtResource("1_0yksl")
 character_spacing = 60
-player_character_stats = Array[ExtResource("2_xwxfl")]([ExtResource("6_yt3ua"), ExtResource("3_tc5fe"), ExtResource("5_xxdit")])
+player_character_stats = Array[ExtResource("2_xwxfl")]([ExtResource("6_yt3ua"), ExtResource("3_tc5fe"), ExtResource("5_xxdit"), ExtResource("6_vwcfl")])
 enemy_stats = Array[ExtResource("2_xwxfl")]([ExtResource("6_xxdit"), ExtResource("7_k0vga"), ExtResource("6_xxdit")])
 ability_button = ExtResource("3_svpld")
 MAIN_MENU_SCENE = ExtResource("8_tttxe")
@@ -222,6 +223,7 @@ position = Vector2(160, 52)
 [node name="TargetSelect" parent="." unique_id=11160794 instance=ExtResource("10_ceooa")]
 
 [node name="UI" type="Control" parent="." unique_id=1174094816]
+z_index = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
