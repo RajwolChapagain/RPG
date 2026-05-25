@@ -28,7 +28,7 @@ ExtResource("4_351bv"): 2,
 ExtResource("5_rikeb"): 2,
 ExtResource("9_pt2ca"): 0,
 ExtResource("9_hacnp"): 4,
-SubResource("Resource_epxqs"): 4
+SubResource("Resource_epxqs"): 5
 })
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=694202685]

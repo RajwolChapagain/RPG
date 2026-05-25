@@ -4,15 +4,16 @@ extends Node
 @export var items_and_rarities: Dictionary[Item, Rarity]
 @onready var rarity_bucketed_items: Dictionary[Rarity, Array] = get_rarity_bucketed_items()
 
-enum Rarity {COMMON, UNCOMMON, RARE, LEGENDARY, MYTHICAL}
+enum Rarity {COMMON, UNCOMMON, RARE, LEGENDARY, MYTHICAL, UNACHIEVABLE}
 
-# Effective rates: COMMON 55%, UNCOMMON 30%, RARE 12%, LEGENDARY 2.5%, MYTHICAL 0.5%
+# Effective rates: COMMON 55%, UNCOMMON 30%, RARE 12%, LEGENDARY 2.5%, MYTHICAL 0.5%, UNACHIEVABLE 0.0%
 const RARITY_THRESHOLDS: Dictionary[Rarity, float] = {
 	Rarity.COMMON:    55.0,
 	Rarity.UNCOMMON:  85.0,
 	Rarity.RARE:      97.0,
 	Rarity.LEGENDARY: 99.5,
 	Rarity.MYTHICAL:  100.0,
+	Rarity.UNACHIEVABLE:  100.0,
 }
 
 func _input(event: InputEvent) -> void:
