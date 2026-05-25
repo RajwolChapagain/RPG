@@ -105,6 +105,9 @@ func get_alive_players() -> Array[Player]:
 	return alive_players
 	
 func on_player_encountered_enemy(enemy, player) -> void:
+	if BattleManager.is_battle_ongoing:
+		return
+		
 	var tween = get_tree().create_tween()
 	tween.set_parallel()
 	tween.tween_property(%Camera2D, 'global_position', player.global_position, BattleManager.BATTLE_START_DELAY / 4).set_ease(Tween.EASE_OUT)
