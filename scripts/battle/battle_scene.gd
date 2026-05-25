@@ -534,6 +534,12 @@ func is_battler_stunned(battler: Battler) -> bool:
 			
 	return false
 	
+func update_player_hps():
+	for stats: BaseStats in player_character_stats:
+		for player: Player in GameManager.get_alive_players():
+			if player.stats.name == stats.name:
+				player.stats.hp = stats.hp
+				
 #endregion helpers
 
 #region hooks
@@ -546,8 +552,9 @@ func on_nahas_death() -> void:
 	spawn_enemies()
 	alive_enemy_count = len(enemies)
 	enemy_hook = ''
+	update_player_hps() # So that if_dead_go_to check functions correctly
 	DialogueManager.load_dialogue(nahas_split_dialogue_file)
-	
+
 func on_eel_death() -> void:
 	enemies[0].queue_free()
 	enemies.clear()
