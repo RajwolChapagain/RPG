@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dangfcswl6n35" path="res://assets/sprites/effects/hit_particle.png" id="5_kl8h0"]
 [ext_resource type="Texture2D" uid="uid://cqbc0ofs5hmyg" path="res://assets/sprites/effects/pulp_spritesheet_level_1.webp" id="6_bqtme"]
 [ext_resource type="Texture2D" uid="uid://d1fi1bxv5thvj" path="res://assets/sprites/characters/battle/enemies/level_2/mermaid.png" id="6_cff06"]
+[ext_resource type="Texture2D" uid="uid://bujsbfhwfqxs3" path="res://assets/sprites/ui/battle/status_indicators.png" id="6_o6mqh"]
 [ext_resource type="Texture2D" uid="uid://c5pc1ddlkvt6t" path="res://assets/sprites/effects/pulp_spritesheet_level_2.png" id="7_p7hkm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oylcg"]
@@ -452,6 +453,22 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_juhay"]
 radius = 16.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_pct73"]
+atlas = ExtResource("6_o6mqh")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qwt3p"]
+atlas = ExtResource("6_o6mqh")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8cx3t"]
+atlas = ExtResource("6_o6mqh")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqibv"]
+atlas = ExtResource("6_o6mqh")
+region = Rect2(24, 0, 8, 8)
+
 [sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_at1d5"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_csexs"]
@@ -640,12 +657,15 @@ libraries/ = SubResource("AnimationLibrary_fmb78")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1110347991]
 shape = SubResource("CircleShape2D_juhay")
 
-[node name="StatusEffectSymbols" type="HBoxContainer" parent="." unique_id=1643144995]
+[node name="EffectLabelSpawn" type="Control" parent="." unique_id=2016698343]
 unique_name_in_owner = true
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 3
+anchors_preset = 0
+offset_top = -19.0
+offset_bottom = -19.0
+theme = ExtResource("4_at1d5")
 
-[node name="StatusEffectLabels" type="VBoxContainer" parent="." unique_id=705125033]
+[node name="StatusEffectSymbols" type="HBoxContainer" parent="." unique_id=1643144995]
 unique_name_in_owner = true
 anchors_preset = 8
 anchor_left = 0.5
@@ -653,13 +673,45 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -38.0
-offset_top = -47.0
+offset_top = -28.0
 offset_right = 38.0
 offset_bottom = -9.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_at1d5")
-alignment = 2
+alignment = 1
+
+[node name="SuppressedIcon" type="TextureRect" parent="StatusEffectSymbols" unique_id=630538299]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_pct73")
+
+[node name="PoisonedIcon" type="TextureRect" parent="StatusEffectSymbols" unique_id=481526753]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_qwt3p")
+
+[node name="StunnedIcon" type="TextureRect" parent="StatusEffectSymbols" unique_id=325556418]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_8cx3t")
+
+[node name="ResonantIcon" type="TextureRect" parent="StatusEffectSymbols" unique_id=535569056]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_tqibv")
 
 [node name="DamageLabel" type="Label" parent="." unique_id=1305042086]
 unique_name_in_owner = true

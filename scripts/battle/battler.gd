@@ -86,6 +86,7 @@ func process_damage_queue() -> void:
 	%HitParticles.emitting = true
 	
 func APPLY_EFFECT(effect: StatusEffect) -> void:
+	show_effect_application_animation(effect)
 	# Check for effect re-application
 	for existing_effect: StatusEffect in status_effects:
 		if existing_effect.effect_name == effect.effect_name:
@@ -100,13 +101,16 @@ func APPLY_EFFECT(effect: StatusEffect) -> void:
 			return
 	
 	effects_pending_application.append(effect)
-	var effect_label: Label = Label.new()
-	effect_label.text = effect.effect_name.to_upper()
-	effect_label.theme_type_variation = 'ProgressLabel'
-	effect_label.add_theme_font_size_override('font_size', 10)
-	effect_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	%StatusEffectLabels.add_child(effect_label)
-	
+
+	if effect.effect_name == 'Suppressed':
+		%SuppressedIcon.visible = true
+	elif effect.effect_name == 'Poisoned':
+		%PoisonedIcon.visible = true
+	elif effect.effect_name == 'Stunned':
+		%StunnedIcon.visible = true
+	elif effect.effect_name == 'Resonant':
+		%ResonantIcon.visible = true
+
 func TICK_EFFECTS_DOWN() -> void:
 	var depleted_effect_indices = []
 	var i = 0
@@ -117,10 +121,15 @@ func TICK_EFFECTS_DOWN() -> void:
 		i += 1
 	
 	for index in depleted_effect_indices:
-		for label: Label in %StatusEffectLabels.get_children():
-			if label.text.to_upper() == status_effects[index].effect_name.to_upper():
-				label.queue_free()
-	
+		if status_effects[index].effect_name == 'Suppressed':
+			%SuppressedIcon.visible = false
+		elif status_effects[index].effect_name == 'Poisoned':
+			%PoisonedIcon.visible = false
+		elif status_effects[index].effect_name == 'Stunned':
+			%StunnedIcon.visible = false
+		elif status_effects[index].effect_name == 'Resonant':
+			%ResonantIcon.visible = false
+			
 	# Need to sort in descending order before removing from status_effects array because
 	# removing an element with a lower index first shifts all the indices of the following
 	# items by 1, making them inaccurate:
@@ -175,7 +184,7 @@ func die():
 			%PulpSprites.frame = randi_range(0, %PulpSprites.sprite_frames.get_frame_count("pulp_level_1") - 1)
 		%DeathParticles.emitting = true
 		%PulpSprites.visible = true
-		%StatusEffectLabels.visible = false
+		%StatusEffectSymbols.visible = false
 		
 func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "attack":
@@ -245,3 +254,16 @@ func play_phantom_animation(phantom_texture: Texture2D, animation_duration: floa
 		tween.set_parallel(true)
 		tween.tween_property(phantom_sprite, 'position', Vector2(position.x + 20, position.y), animation_duration / 2).set_ease(Tween.EASE_OUT)
 		tween.tween_property(phantom_sprite, 'modulate', Color(phantom_sprite.modulate, 0), animation_duration)
+
+func show_effect_application_animation(effect: StatusEffect) -> void:
+	var effect_label: Label = Label.new()
+	effect_label.text = effect.effect_name.to_upper()
+	effect_label.theme_type_variation = 'ProgressLabel'
+	effect_label.add_theme_font_size_override('font_size', 10)
+	%EffectLabelSpawn.add_child(effect_label)
+	effect_label.position = Vector2(effect_label.position.x - effect_label.size.x / 2, effect_label.position.y)
+	var tween = get_tree().create_tween()
+	tween.tween_property(effect_label, 'position', effect_label.position + Vector2.UP * 20, 0.5).set_ease(Tween.EASE_OUT)
+	tween.tween_property(effect_label, 'modulate', Color(effect_label.modulate, 0.0), 0.3).set_ease(Tween.EASE_IN)
+	await tween.finished
+	effect_label.queue_free()
