@@ -232,4 +232,6 @@ func get_random_alive_hero(excluded_player_names: Array[String] = []) -> String:
 func set_vanguard(character_name: String) -> void:
 	GameManager.activate_party_member(character_name)
 	
+func remove_item(item_name: String) -> void:
+	GameManager.remove_inventory_item(item_name)
 #endregion

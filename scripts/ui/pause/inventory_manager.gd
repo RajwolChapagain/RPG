@@ -194,3 +194,18 @@ func has_item(item_name: String) -> bool:
 			return true
 	
 	return false
+
+func dequip_or_remove_item(item_name: String) -> void:
+	var removed = false
+	for button in item_buttons:
+		if button.get_item_name() == item_name:
+			remove_item(button.item)
+			removed = true
+			
+	if not removed:
+		for character_inventory: CharacterInventory in %CharacterInventories.get_children():
+			if character_inventory.has_item_equipped(item_name):
+				character_inventory.remove_item(item_name)
+				return
+	
+	

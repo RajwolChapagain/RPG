@@ -90,3 +90,13 @@ func has_item_equipped(item_name: String) -> bool:
 		if item.name == item_name:
 			return true
 	return false
+	
+func remove_item(item_name: String) -> void:
+	var item_index = -1
+	for i in range(len(equipped_items)):
+		if equipped_items[i].name == item_name:
+			item_index = i
+			break
+	
+	if item_index != -1:
+		remove_item_at_index(item_index)
