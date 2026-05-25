@@ -8,3 +8,4 @@ signal level_completed(level_number)
 func initialize_party_position(party: Party) -> void:
 	party.global_position = %PartyOriginMarker.global_position
 	party.reset_player_positions()
+	party.regroup_party()

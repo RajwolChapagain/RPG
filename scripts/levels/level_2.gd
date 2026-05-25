@@ -91,8 +91,9 @@ func toggle_enemy_mobility(level: int, make_mobile: bool) -> void:
 	var enemies = %Level2Enemies.get_children() if level == 2 else %Level3Enemies.get_children()
 	if make_mobile:
 		for enemy: Enemy in enemies:
-			enemy.START_PATROL()
-			enemy.GET_ANIMATED_SPRITE().speed_scale = 1.0
+			if not enemy.get_node('PulpSprite').visible:
+				enemy.START_PATROL()
+				enemy.GET_ANIMATED_SPRITE().speed_scale = 1.0
 	else:
 		for enemy: Enemy in enemies:
 			enemy.STOP_PATROL()
