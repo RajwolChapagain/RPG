@@ -1,14 +1,20 @@
 [gd_scene format=4 uid="uid://cj1sajukjk52m"]
 
 [ext_resource type="Script" uid="uid://dhc0wh8yeig00" path="res://scripts/levels/level_3.gd" id="1_fkk1g"]
+[ext_resource type="Texture2D" uid="uid://dxv0ckuh1llwr" path="res://assets/sprites/screens/title_screen.png" id="2_apo5x"]
 [ext_resource type="Shader" uid="uid://cce28s7gcqq6v" path="res://scripts/shaders/sky.gdshader" id="2_ftfob"]
 [ext_resource type="Texture2D" uid="uid://bfil5580pbf61" path="res://assets/sprites/world/level_3/level_3_layout.png" id="2_pimnq"]
 [ext_resource type="Texture2D" uid="uid://dxci1cfqay45t" path="res://assets/sprites/world/level_2/ground_tileset_1_no_water.webp" id="3_0qepi"]
 [ext_resource type="Texture2D" uid="uid://c04d0lapad801" path="res://assets/sprites/world/level_3/wall.png" id="4_fmg3e"]
 [ext_resource type="Texture2D" uid="uid://daqtk31m4qwtq" path="res://assets/sprites/world/level_3/grave_spritesheet.png" id="6_fkk1g"]
 [ext_resource type="Script" uid="uid://yv0lr3ghjog2" path="res://scripts/levels/props/grave.gd" id="6_ugcn1"]
+[ext_resource type="Shader" uid="uid://bahj070arha5b" path="res://scripts/shaders/highlight.gdshader" id="7_2bnyt"]
 [ext_resource type="PackedScene" uid="uid://ccy0aydyv2sxd" path="res://scenes/characters/enemies/level_1/crunk.tscn" id="8_pimnq"]
 [ext_resource type="Texture2D" uid="uid://doti88i48dtjf" path="res://assets/sprites/screens/transition_shroud.png" id="9_pimnq"]
+[ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="10_qi5uv"]
+[ext_resource type="Resource" uid="uid://wa263rtwxdc8" path="res://resources/stats/enemies/level_3/niall.tres" id="11_f6egh"]
+[ext_resource type="Texture2D" uid="uid://dp5klwccethmg" path="res://assets/sprites/world/level_3/sky.png" id="13_f6egh"]
+[ext_resource type="Script" uid="uid://c3wivunly8owt" path="res://scripts/levels/props/sky.gd" id="13_t4txi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fkk1g"]
 shader = ExtResource("2_ftfob")
@@ -43,6 +49,12 @@ sources/0 = SubResource("TileSetAtlasSource_ftfob")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pimnq"]
 size = Vector2(38, 62)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n6eey"]
+shader = ExtResource("7_2bnyt")
+shader_parameter/highlight_color = Vector4(1, 1, 0, 1)
+shader_parameter/interactable = false
+shader_parameter/outline_width = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ugcn1"]
 atlas = ExtResource("6_fkk1g")
@@ -95,9 +107,19 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2bnyt"]
 size = Vector2(38, 62)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f6egh"]
+shader = ExtResource("7_2bnyt")
+shader_parameter/highlight_color = Vector4(1, 1, 0, 1)
+shader_parameter/interactable = false
+shader_parameter/outline_width = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t4txi"]
+size = Vector2(113.137085, 113.137146)
+
 [node name="Level3" type="Node" unique_id=1502880646]
 script = ExtResource("1_fkk1g")
 opening_dialogue = "res://assets/dialogues/level_3/level_3_opening.csv"
+ending_dialogue = "res://assets/dialogues/level_3/level_3_ending.csv"
 level_number = 3
 
 [node name="World" type="Node2D" parent="." unique_id=1157643014]
@@ -127,12 +149,15 @@ sprite = NodePath("AnimatedSprite2D")
 shape = SubResource("RectangleShape2D_pimnq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="World/Grave" unique_id=931156243]
+material = SubResource("ShaderMaterial_n6eey")
 sprite_frames = SubResource("SpriteFrames_qi5uv")
 animation = &"deactivating"
 
 [node name="NiallEnemy" parent="World/Grave" unique_id=1786002395 instance=ExtResource("8_pimnq")]
 unique_name_in_owner = true
+position = Vector2(0, -64)
 monitorable = false
+gang = Array[ExtResource("10_qi5uv")]([ExtResource("11_f6egh")])
 
 [node name="Sprite2D" parent="World/Grave/NiallEnemy" index="0" unique_id=1584948219]
 sprite_frames = null
@@ -141,17 +166,48 @@ frame_progress = 0.0
 [node name="CollisionShape2D" parent="World/Grave/NiallEnemy" index="1" unique_id=819659240]
 shape = SubResource("RectangleShape2D_2bnyt")
 
+[node name="Sky" type="Area2D" parent="World" unique_id=1367134091 node_paths=PackedStringArray("sprite")]
+unique_name_in_owner = true
+visible = false
+position = Vector2(64, -1536)
+monitoring = false
+script = ExtResource("13_t4txi")
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="World/Sky" unique_id=983742905]
+material = SubResource("ShaderMaterial_f6egh")
+texture = ExtResource("13_f6egh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Sky" unique_id=1834457301]
+position = Vector2(-2.2888184e-05, -16)
+rotation = 0.7853982
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_t4txi")
+
 [node name="PartyOriginMarker" type="Marker2D" parent="." unique_id=1030868222]
 unique_name_in_owner = true
-position = Vector2(-32, -64)
+position = Vector2(64, -1376)
+
+[node name="TitleShroud" type="Sprite2D" parent="." unique_id=309160241]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+position = Vector2(64, -1504)
+scale = Vector2(1.44, 1.44)
+texture = ExtResource("2_apo5x")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1037867233]
+layer = 2
 
 [node name="Shroud" type="Sprite2D" parent="CanvasLayer" unique_id=695757191]
 unique_name_in_owner = true
 position = Vector2(160, 90)
 texture = ExtResource("9_pimnq")
 
+[connection signal="area_entered" from="World/Grave" to="World/Grave" method="_on_area_entered"]
+[connection signal="area_exited" from="World/Grave" to="World/Grave" method="_on_area_exited"]
 [connection signal="grave_interacted" from="World/Grave" to="." method="_on_grave_grave_interacted"]
+[connection signal="area_entered" from="World/Sky" to="World/Sky" method="_on_area_entered"]
+[connection signal="area_exited" from="World/Sky" to="World/Sky" method="_on_area_exited"]
+[connection signal="sky_interacted" from="World/Sky" to="." method="_on_sky_sky_interacted"]
 
 [editable path="World/Grave/NiallEnemy"]

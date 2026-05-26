@@ -109,6 +109,22 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_xbiv7"]
+resource_name = "fade_in"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(0.5, -2),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_q85j6"]
 resource_name = "fade_out"
 length = 0.2
@@ -129,6 +145,7 @@ tracks/0/keys = {
 _data = {
 &"RESET": SubResource("Animation_wb0q5"),
 &"blink": SubResource("Animation_btxxm"),
+&"fade_in": SubResource("Animation_xbiv7"),
 &"fade_out": SubResource("Animation_q85j6")
 }
 

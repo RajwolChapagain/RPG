@@ -41,7 +41,6 @@ func _ready() -> void:
 	connect_save_slot_signals()
 	MusicManager.fade_music_out(0.8)
 	
-
 func _on_title_music_delay_timer_timeout() -> void:
 	MusicManager.play_music('title')
 
@@ -129,9 +128,16 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		%PromptAnimationPlayer.play('blink')
 		
 # Intended to be called only by main when coming from pause menu
-func quick_switch_to_main() -> void:
-	%Prompt.visible = false
-	state = states.MENU
+func quick_switch_to_main(game_ended = false) -> void:
+	if not game_ended:
+		%Prompt.visible = false
+		state = states.MENU
+	else:
+		%Prompt.modulate = Color(%Prompt.modulate, 0.0)
+		%Prompt.visible = true
+		%PromptAnimationPlayer.play('fade_in')
+		await %PromptAnimationPlayer.animation_finished
+		%PromptAnimationPlayer.play('blink')
 	
 func play_shroud_animation() -> void:
 	var tween = get_tree().create_tween()

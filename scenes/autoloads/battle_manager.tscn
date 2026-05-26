@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cdvr88h8f2nsx" path="res://scenes/battle/battle_scene.tscn" id="2_05opc"]
 [ext_resource type="PackedScene" uid="uid://d3xpo03pr8ajw" path="res://scenes/ui/title/main_menu.tscn" id="3_8w533"]
 [ext_resource type="Texture2D" uid="uid://fecnsvt7yucw" path="res://assets/sprites/screens/battle_screen_2.png" id="4_wh41w"]
+[ext_resource type="Texture2D" uid="uid://b3jw3m60g086s" path="res://assets/sprites/screens/battle_screen_3.png" id="5_h1knq"]
 
 [node name="BattleManager" type="Node" unique_id=669290881]
 script = ExtResource("1_3jpuh")
@@ -11,6 +12,7 @@ battle_scene = ExtResource("2_05opc")
 MAIN_MENU_SCENE = ExtResource("3_8w533")
 death_dialogues_dir = "res://assets/dialogues/character_deaths/"
 battle_screen_2 = ExtResource("4_wh41w")
+battle_screen_3 = ExtResource("5_h1knq")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2086977407]
 unique_name_in_owner = true

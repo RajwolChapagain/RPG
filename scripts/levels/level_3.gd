@@ -1,6 +1,7 @@
 extends Level
 
 @export_file_path('*.csv') var opening_dialogue
+@export_file_path('*.csv') var ending_dialogue
 
 func _ready() -> void:
 	GameManager.freeze_party()
@@ -16,7 +17,34 @@ func play_unshroud_animation() -> void:
 	await tween.finished
 	
 func _on_grave_grave_interacted() -> void:
+	GameManager.freeze_party()
 	%Grave.interactable = false
 	%Grave.active = false
 	await %Grave.play_activate_animation()
 	%NiallEnemy.monitorable = true
+	var tween = get_tree().create_tween()
+	tween.tween_property(%NiallEnemy, "position", Vector2(%NiallEnemy.position.x, %NiallEnemy.position.y + 64), 0.1)
+	await get_tree().create_timer(1.0).timeout
+	spawn_sky()
+	
+func spawn_sky() -> void:
+	%Sky.visible = true
+	%Sky.active = true
+	%Sky.monitoring = true
+
+func _on_sky_sky_interacted() -> void:
+	%Sky.active = false
+	GameManager.freeze_party()
+	GameManager.party.disable_camera_smoothing()
+	await get_tree().process_frame
+	%TitleShroud.global_position = get_viewport().get_camera_2d().get_screen_center_position()
+	var tween = get_tree().create_tween()
+	tween.set_parallel(true)
+	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	tween.tween_property(%TitleShroud, "modulate", Color(%TitleShroud.modulate, 1.0), 5.0)
+	tween.tween_property(GameManager.party, "modulate", Color(Color.WHITE, 0.0), 5.0)
+	DialogueManager.load_dialogue(ending_dialogue)
+	await DialogueManager.dialogue_finished
+	await get_tree().create_timer(4.0).timeout
+	level_completed.emit(level_number)
+	

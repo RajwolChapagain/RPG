@@ -53,7 +53,12 @@ func load_next_level() -> void:
 	current_level_number += 1
 	await load_level(current_level_number)
 
-func on_level_completed(_level_count: int) -> void:
+func on_level_completed(level_count: int) -> void:
+	if level_count == 3:
+		current_level.queue_free()
+		_on_pause_menu_main_menu_button_pressed(true)
+		return
+		
 	await load_next_level()
 	%AnimationPlayer.play('saving')
 	await %AnimationPlayer.animation_finished
@@ -118,13 +123,13 @@ func save_data() -> void:
 	save.date_time = Time.get_datetime_dict_from_system()
 	SaveManager.save_to_current_slot(save)
 
-func _on_pause_menu_main_menu_button_pressed() -> void:
+func _on_pause_menu_main_menu_button_pressed(game_ended = false) -> void:
 	if BattleManager.active_battle_scene != null:
 		BattleManager.active_battle_scene.queue_free()
 		
 	var main_menu = load("res://scenes/ui/title/main_menu.tscn").instantiate()
 	get_tree().root.add_child(main_menu)
-	main_menu.quick_switch_to_main()
+	main_menu.quick_switch_to_main(game_ended)
 	queue_free()
 	
 func play_shroud_animation() -> void:
