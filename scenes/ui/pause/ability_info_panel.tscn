@@ -4,7 +4,14 @@
 [ext_resource type="Script" uid="uid://cjgfiqm4j8c1n" path="res://scripts/ui/pause/ability_info_panel.gd" id="1_fjimy"]
 [ext_resource type="PackedScene" uid="uid://bycn0lofyiuvm" path="res://scenes/ui/pause/ability_card.tscn" id="2_5kk8j"]
 [ext_resource type="Texture2D" uid="uid://iq8gafxjg2ls" path="res://assets/sprites/ui/pause_menu/ability_sprites/arrow_storm.webp" id="4_nwd31"]
+[ext_resource type="Texture2D" uid="uid://ff3s0g4ogv04" path="res://assets/sprites/ui/pause_menu/ability_sprites/heavy_slash.png" id="5_awvav"]
 [ext_resource type="PackedScene" uid="uid://dj02cbl1erxui" path="res://scenes/ui/pause/ability_stats.tscn" id="5_yphko"]
+[ext_resource type="Texture2D" uid="uid://bo207e37yfddm" path="res://assets/sprites/ui/pause_menu/ability_sprites/heal.png" id="6_g2oyx"]
+[ext_resource type="Texture2D" uid="uid://cii0ww2jmaese" path="res://assets/sprites/ui/pause_menu/ability_sprites/poison.png" id="7_vclm5"]
+[ext_resource type="Texture2D" uid="uid://c4if5gfg4lmok" path="res://assets/sprites/ui/pause_menu/ability_sprites/echo.png" id="8_58syg"]
+[ext_resource type="Texture2D" uid="uid://d3kmvvoeo56pw" path="res://assets/sprites/ui/pause_menu/ability_sprites/stun.png" id="9_15aux"]
+[ext_resource type="Texture2D" uid="uid://blkyufookbdvc" path="res://assets/sprites/ui/pause_menu/ability_sprites/clairvoyance.png" id="10_nuep5"]
+[ext_resource type="Texture2D" uid="uid://dsxjf2omlw7m3" path="res://assets/sprites/ui/pause_menu/ability_sprites/suppress.png" id="11_fvnsb"]
 
 [node name="AbilityInfoPanel" type="Panel" unique_id=1734538499]
 anchors_preset = 15
@@ -19,7 +26,14 @@ theme = ExtResource("1_22ab0")
 script = ExtResource("1_fjimy")
 ability_card_scene = ExtResource("2_5kk8j")
 ability_images = Dictionary[String, Texture2D]({
-"Arrow Storm": ExtResource("4_nwd31")
+"Arrow Storm": ExtResource("4_nwd31"),
+"Clairvoyance": ExtResource("10_nuep5"),
+"Echo": ExtResource("8_58syg"),
+"Heal": ExtResource("6_g2oyx"),
+"Heavy Slash": ExtResource("5_awvav"),
+"Poison": ExtResource("7_vclm5"),
+"Stun": ExtResource("9_15aux"),
+"Suppress": ExtResource("11_fvnsb")
 })
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1128361373]
