@@ -15,3 +15,8 @@ func play_unshroud_animation() -> void:
 	tween.tween_property(%Shroud, 'modulate', Color(%Shroud.modulate, 0), 1).set_ease(Tween.EASE_OUT)
 	await tween.finished
 	
+func _on_grave_grave_interacted() -> void:
+	%Grave.interactable = false
+	%Grave.active = false
+	await %Grave.play_activate_animation()
+	%NiallEnemy.monitorable = true
