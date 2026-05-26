@@ -214,6 +214,9 @@ func set_hit_particle_color() -> void:
 	%HitParticles.modulate = avg_color
 
 func slide(direction: Vector2) -> void:
+	if stats.hp == 0:
+		return
+		
 	var slide_distance = 15
 	var target_position = null
 	if direction == Vector2.DOWN:
