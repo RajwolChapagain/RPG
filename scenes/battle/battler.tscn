@@ -3,16 +3,24 @@
 [ext_resource type="Script" uid="uid://gr353ga32m08" path="res://scripts/battle/battler.gd" id="1_1v4t1"]
 [ext_resource type="Resource" uid="uid://cym67rsdldl6j" path="res://resources/stats/players/einar.tres" id="2_csexs"]
 [ext_resource type="Texture2D" uid="uid://bvh0dl870ttbp" path="res://assets/sprites/ui/battle/pointer.png" id="2_foo5t"]
+[ext_resource type="Texture2D" uid="uid://iq8gafxjg2ls" path="res://assets/sprites/ui/pause_menu/ability_sprites/arrow_storm.webp" id="3_k1ubw"]
 [ext_resource type="Texture2D" uid="uid://doti88i48dtjf" path="res://assets/sprites/screens/transition_shroud.png" id="3_vno5h"]
 [ext_resource type="Texture2D" uid="uid://b8sqs01mv5qci" path="res://assets/sprites/characters/battle/players/attack_ability_combined_tileset.webp" id="3_ybafd"]
 [ext_resource type="Theme" uid="uid://5dapp0d0f0x5" path="res://resources/ui.tres" id="4_at1d5"]
+[ext_resource type="Texture2D" uid="uid://ff3s0g4ogv04" path="res://assets/sprites/ui/pause_menu/ability_sprites/heavy_slash.png" id="4_o4ark"]
 [ext_resource type="Texture2D" uid="uid://be552pwkiglm1" path="res://assets/sprites/characters/battle/enemies/level_1/nahas.png" id="4_oylcg"]
 [ext_resource type="Texture2D" uid="uid://bpyx34vcos6o3" path="res://assets/sprites/characters/battle/enemies/level_2/eel_1.png" id="5_1e5l2"]
+[ext_resource type="Texture2D" uid="uid://bo207e37yfddm" path="res://assets/sprites/ui/pause_menu/ability_sprites/heal.png" id="5_e6itc"]
 [ext_resource type="Texture2D" uid="uid://dangfcswl6n35" path="res://assets/sprites/effects/hit_particle.png" id="5_kl8h0"]
 [ext_resource type="Texture2D" uid="uid://cqbc0ofs5hmyg" path="res://assets/sprites/effects/pulp_spritesheet_level_1.webp" id="6_bqtme"]
 [ext_resource type="Texture2D" uid="uid://d1fi1bxv5thvj" path="res://assets/sprites/characters/battle/enemies/level_2/mermaid.png" id="6_cff06"]
 [ext_resource type="Texture2D" uid="uid://bujsbfhwfqxs3" path="res://assets/sprites/ui/battle/status_indicators.png" id="6_o6mqh"]
+[ext_resource type="Texture2D" uid="uid://c4if5gfg4lmok" path="res://assets/sprites/ui/pause_menu/ability_sprites/echo.png" id="6_vk5t5"]
 [ext_resource type="Texture2D" uid="uid://c5pc1ddlkvt6t" path="res://assets/sprites/effects/pulp_spritesheet_level_2.png" id="7_p7hkm"]
+[ext_resource type="Texture2D" uid="uid://dsxjf2omlw7m3" path="res://assets/sprites/ui/pause_menu/ability_sprites/suppress.png" id="7_pct73"]
+[ext_resource type="Texture2D" uid="uid://cii0ww2jmaese" path="res://assets/sprites/ui/pause_menu/ability_sprites/poison.png" id="8_qwt3p"]
+[ext_resource type="Texture2D" uid="uid://d3kmvvoeo56pw" path="res://assets/sprites/ui/pause_menu/ability_sprites/stun.png" id="9_8cx3t"]
+[ext_resource type="Texture2D" uid="uid://blkyufookbdvc" path="res://assets/sprites/ui/pause_menu/ability_sprites/clairvoyance.png" id="10_tqibv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oylcg"]
 atlas = ExtResource("3_ybafd")
@@ -593,7 +601,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_oylcg"]
 resource_name = "blink"
-length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -601,8 +608,8 @@ tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5),
-"transitions": PackedFloat32Array(1, 6.727168, 1),
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(0.5, 10.928311, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.78431374), Color(1, 1, 1, 0)]
 }
@@ -616,6 +623,16 @@ _data = {
 [node name="Battler" type="Area2D" unique_id=1198724431]
 script = ExtResource("1_1v4t1")
 stats = ExtResource("2_csexs")
+ability_to_icons = Dictionary[String, Texture2D]({
+"Arrow Storm": ExtResource("3_k1ubw"),
+"Clairvoyance": ExtResource("10_tqibv"),
+"Echo": ExtResource("6_vk5t5"),
+"Heal": ExtResource("5_e6itc"),
+"Heavy Slash": ExtResource("4_o4ark"),
+"Poison": ExtResource("8_qwt3p"),
+"Stun": ExtResource("9_8cx3t"),
+"Suppress": ExtResource("7_pct73")
+})
 einar_phantom = SubResource("AtlasTexture_oylcg")
 josephine_phantom = SubResource("AtlasTexture_bqtme")
 lachlan_phantom = SubResource("AtlasTexture_p7hkm")

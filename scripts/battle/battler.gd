@@ -2,6 +2,9 @@ class_name Battler
 extends Area2D
 
 @export var stats: BaseStats
+@export var ability_to_icons: Dictionary[String, Texture2D]
+
+@export_group('Phantoms')
 @export var einar_phantom: Texture2D
 @export var josephine_phantom: Texture2D
 @export var lachlan_phantom: Texture2D
@@ -9,6 +12,7 @@ extends Area2D
 @export var rachelle_phantom: Texture2D
 @export var nahas_phantom: Texture2D
 @export var eel_phantom: Texture2D
+
 
 @onready var default_y_position = position.y
 
@@ -226,8 +230,8 @@ func slide(direction: Vector2) -> void:
 	var tween = get_tree().create_tween()
 	await tween.tween_property(self, 'position', target_position, 0.1).finished
 
-func play_ability_animation(ability_owner: String = stats.name) -> void:
-	var animation_duration = 0.8
+func play_ability_animation(ability_name: String, ability_owner: String = stats.name) -> void:
+	var animation_duration = 1.0
 	%ShroudAnimationPlayer.play('blink')
 	%Sprite2D.reparent(%CanvasLayer)
 	if stats.ability_invoke_sprite != null:
@@ -237,7 +241,9 @@ func play_ability_animation(ability_owner: String = stats.name) -> void:
 		var phantom_texture = get('%s_phantom' % ability_owner.to_lower())
 		if phantom_texture != null:
 			play_phantom_animation(phantom_texture, animation_duration)
-		
+	
+	play_ability_icon_animation(ability_name, animation_duration)
+
 	await get_tree().create_timer(animation_duration).timeout
 	%Sprite2D.reparent(self)
 	move_child(%Sprite2D, 0)
@@ -255,6 +261,17 @@ func play_phantom_animation(phantom_texture: Texture2D, animation_duration: floa
 		tween.tween_property(phantom_sprite, 'position', Vector2(position.x + 20, position.y), animation_duration / 2).set_ease(Tween.EASE_OUT)
 		tween.tween_property(phantom_sprite, 'modulate', Color(phantom_sprite.modulate, 0), animation_duration)
 
+func play_ability_icon_animation(ability_name: String, animation_duration: float) -> void:
+	var ability_icon = Sprite2D.new()
+	ability_icon.texture = ability_to_icons[ability_name]
+	ability_icon.modulate = Color(ability_icon.modulate, 0.0)
+	%CanvasLayer.add_child(ability_icon)
+	ability_icon.global_position = get_viewport_rect().get_center()
+	var fade_tween = get_tree().create_tween()
+	fade_tween.tween_property(ability_icon, 'modulate', Color(ability_icon.modulate, 1.0), animation_duration / 2).set_ease(Tween.EASE_OUT)
+	await get_tree().create_timer(animation_duration).timeout
+	ability_icon.queue_free()
+	
 func show_effect_application_animation(effect: StatusEffect) -> void:
 	var effect_label: Label = Label.new()
 	effect_label.text = effect.effect_name.to_upper()

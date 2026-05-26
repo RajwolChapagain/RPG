@@ -368,8 +368,8 @@ func attack_random_player() -> void:
 	
 	await attacking_enemy.slide(Vector2.DOWN)
 	if not attacking_enemy.stats.abilities.is_empty() and randf() < ABILITY_USE_CHANCE and not is_battler_suppressed(attacking_enemy):
-		await attacking_enemy.play_ability_animation()
 		var ability: Ability = attacking_enemy.stats.abilities.pick_random().instantiate()
+		await attacking_enemy.play_ability_animation(ability.ability_name)
 		add_child(ability)
 		ability.execute(attacking_enemy, get_alive_players().pick_random())
 		await ability.ability_finished_execution
@@ -449,7 +449,7 @@ func destroy_abilities_list() -> void:
 	
 func on_ability_selected(ability: Ability) -> void:
 	destroy_abilities_list()
-	await player_characters[active_index].play_ability_animation(ability.owner_character)
+	await player_characters[active_index].play_ability_animation(ability.ability_name, ability.owner_character)
 
 	%AbilityPointsContainer.decrease_points(ability.cost)
 	
