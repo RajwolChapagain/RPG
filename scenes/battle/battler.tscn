@@ -541,11 +541,13 @@ graph_offset = Vector2(-841, -49)
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_qt5w3"]
 mix_mode = 1
 
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_k1ubw"]
+
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_at1d5"]
-graph_offset = Vector2(-227.22816, 270.72977)
-nodes/output/position = Vector2(1100, 540)
+graph_offset = Vector2(765.88965, 348.44623)
+nodes/output/position = Vector2(1240, 560)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_di6md")
-nodes/StateMachine/position = Vector2(-160, 160)
+nodes/StateMachine/position = Vector2(-220, 160)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_8ciys")
 nodes/Animation/position = Vector2(-120, 600)
 "nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_csexs")
@@ -566,7 +568,9 @@ nodes/CriticalHit/position = Vector2(600, 420)
 "nodes/Animation 5/position" = Vector2(600, 720)
 nodes/CriticalMiss/node = SubResource("AnimationNodeOneShot_ckif6")
 nodes/CriticalMiss/position = Vector2(860, 460)
-node_connections = [&"output", 0, &"CriticalMiss", &"Add2Animation", 0, &"Animation", &"Add2Animation", 1, &"Animation 2", &"TakeDamage", 0, &"Dodge", &"TakeDamage", 1, &"Add2Animation", &"Dodge", 0, &"StateMachine", &"Dodge", 1, &"Animation 3", &"CriticalHit", 0, &"TakeDamage", &"CriticalHit", 1, &"Animation 4", &"CriticalMiss", 0, &"CriticalHit", &"CriticalMiss", 1, &"Animation 5"]
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_k1ubw")
+nodes/TimeScale/position = Vector2(1075.1154, 524.3357)
+node_connections = [&"output", 0, &"TimeScale", &"Add2Animation", 0, &"Animation", &"Add2Animation", 1, &"Animation 2", &"TakeDamage", 0, &"Dodge", &"TakeDamage", 1, &"Add2Animation", &"Dodge", 0, &"StateMachine", &"Dodge", 1, &"Animation 3", &"CriticalHit", 0, &"TakeDamage", &"CriticalHit", 1, &"Animation 4", &"CriticalMiss", 0, &"CriticalHit", &"CriticalMiss", 1, &"Animation 5", &"TimeScale", 0, &"CriticalMiss"]
 
 [sub_resource type="Curve" id="Curve_kl8h0"]
 _data = [Vector2(0, 1), 0.0, 1.4, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -774,6 +778,7 @@ parameters/CriticalHit/request = 0
 parameters/CriticalMiss/active = false
 parameters/CriticalMiss/internal_active = false
 parameters/CriticalMiss/request = 0
+parameters/TimeScale/scale = 1.0
 
 [node name="DodgedLabel" type="Label" parent="." unique_id=48268878]
 modulate = Color(1, 1, 1, 0)

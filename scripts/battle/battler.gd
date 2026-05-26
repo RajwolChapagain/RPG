@@ -83,10 +83,12 @@ func process_damage_queue() -> void:
 	if damage_queue.is_empty():
 		return
 		
+	var animation_speed = len(damage_queue)
 	var damage = damage_queue.pop_front()
 	%DamageLabel.text = str(-damage)
 	%AnimationTree["parameters/TakeDamage/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
-	
+	%AnimationTree["parameters/TimeScale/scale"] = animation_speed
+	%HitParticles.speed_scale = animation_speed
 	%HitParticles.emitting = true
 	
 func APPLY_EFFECT(effect: StatusEffect) -> void:
