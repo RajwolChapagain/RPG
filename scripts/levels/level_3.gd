@@ -1,7 +1,14 @@
 extends Level
 
+@export_file_path('*.csv') var opening_dialogue
+
 func _ready() -> void:
-	play_unshroud_animation()
+	GameManager.freeze_party()
+	#MusicManager.play_music('level3')
+	await play_unshroud_animation()
+	DialogueManager.load_dialogue(opening_dialogue)
+	await DialogueManager.dialogue_finished
+	GameManager.thaw_party()
 	
 func play_unshroud_animation() -> void:
 	var tween = get_tree().create_tween()

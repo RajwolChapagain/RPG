@@ -26,8 +26,6 @@ func load_level(level: int) -> void:
 			party.disable_cycling()
 			#MusicManager.play_music('saved', false)
 			await play_shroud_animation()
-			if level == 3:
-				_on_pause_menu_main_menu_button_pressed()
 		current_level.queue_free()
 	
 	if level == 0:
