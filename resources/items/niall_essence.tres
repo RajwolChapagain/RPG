@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://yel2ssiyli5n"]
+
+[ext_resource type="PackedScene" uid="uid://dy0fajkgewbmq" path="res://scenes/abilities/suppress.tscn" id="1_vs3sl"]
+[ext_resource type="Script" uid="uid://due732el6o1b8" path="res://scripts/resource_scripts/item.gd" id="1_xlbe8"]
+[ext_resource type="Script" uid="uid://cospd4gauu2qa" path="res://scripts/resource_scripts/stat_modifier.gd" id="2_vs3sl"]
+
+[sub_resource type="Resource" id="Resource_xlbe8"]
+script = ExtResource("2_vs3sl")
+stat_name = "ap_slots"
+modification = "+"
+amount = 2.0
+metadata/_custom_type_script = "uid://cospd4gauu2qa"
+
+[resource]
+script = ExtResource("1_xlbe8")
+name = "Niall's Essence"
+type = 1
+stats = Array[ExtResource("2_vs3sl")]([SubResource("Resource_xlbe8")])
+abilities = Array[PackedScene]([ExtResource("1_vs3sl")])
+metadata/_custom_type_script = "uid://due732el6o1b8"

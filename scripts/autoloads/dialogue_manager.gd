@@ -176,6 +176,14 @@ func get_random_dead_hero_name() -> String:
 # line_number is String because we read everything as String from the CSV file
 func if_dead_go_to(player_names: String, line_number: String) -> void:
 	var alive_player_names = GameManager.get_alive_players().map(func(player): return player.stats.name.to_lower())
+	if '&' in player_names:
+		for player_name in player_names.split('&'):
+			if player_name.to_lower().strip_edges() in alive_player_names:
+				return
+		
+		go_to(line_number)
+		return
+		
 	for player_name in player_names.split(','):
 		if player_name.to_lower().strip_edges() not in alive_player_names:
 			go_to(line_number)
@@ -184,6 +192,17 @@ func if_has_item(item_name: String, line_number: String) -> void:
 	if GameManager.has_inventory_item(item_name):
 		go_to(line_number)
 
+func if_true_go_to(var_name: String, line_number: String) -> void:
+	if GameManager.get(var_name) == null:
+		printerr("Error: GameManager doest contain any variable named %s" % var_name)
+		return
+	elif typeof(GameManager.get(var_name)) as Variant.Type != Variant.Type.TYPE_BOOL:
+		printerr("Error: Variable %s in GameManager is not a boolean" % var_name)
+		return
+	
+	if GameManager.get(var_name):
+		go_to(line_number)
+	
 # line_number is String because we read everything as String from the CSV file
 func go_to(line_number: String) -> void:
 	while current_dialogue_line_number < int(line_number) - 1: # Positions cursor right above the starting line

@@ -12,7 +12,7 @@ extends Area2D
 @export var rachelle_phantom: Texture2D
 @export var nahas_phantom: Texture2D
 @export var eel_phantom: Texture2D
-
+@export var niall_phantom: Texture2D
 
 @onready var default_y_position = position.y
 

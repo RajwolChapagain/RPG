@@ -7,3 +7,4 @@
 script = ExtResource("1_igwbb")
 suppress_effect = ExtResource("2_0xgbu")
 ability_name = "Suppress"
+owner_character = "Niall"

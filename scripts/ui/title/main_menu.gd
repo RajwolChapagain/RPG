@@ -63,6 +63,7 @@ func connect_save_slot_signals() -> void:
 		save_slot.new_game_button_pressed.connect(load_new_game)
 		
 func load_new_game(save_slot_id: int) -> void:
+	GameManager.catapace_pair_killed = false
 	%TitleMusicDelayTimer.stop()
 	MusicManager.fade_music_out(0.8)
 	await play_shroud_animation()

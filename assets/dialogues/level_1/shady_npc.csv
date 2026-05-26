@@ -1,0 +1,55 @@
+L:Shady Ghost,"You must really have a penchant for talking to strangers, huh?"
+R:rachelle_base/magda_base,We don't mean to intervene with your rest. Please continue while we take our leave.
+L:Shady Ghost,Wait. Wait. Hold on.
+,I don't get that many visitors so I might as well entertain myself.
+:if_dead_go_to; einar & lachlan; 7,
+R:einar_base/lachlan_base,We have no time for this. 
+R:rachelle_base/magda_base,What do you have to say to us?
+L:Shady Ghost,"Nothing, really."
+,I may just have something to give you.
+:if_dead_go_to; lachlan; 12,
+R:lachlan_base,Another potion? Let's go!
+R:rachelle_base/magda_base,We appreciate your willingness to help--
+L:Shady Ghost,Not so fast!
+,You'll have to do something for me in return.
+R:rachelle_base/magda_base,What do you expect from us?
+L:Shady Ghost,"Further along the path where you come from, there prowls a pair of Catapaces."
+,"Every time I pass by to go meet Doloris, they howl and bark and lunge as if they can harm a ghost."
+:if_true_go_to; catapace_pair_killed; 46,
+:if_dead_go_to; einar & lachlan; 21,
+R:lachlan_base/einar_base,I don't like where this is going.
+R:rachelle_base/magda_base,We're listening.
+L:Shady Ghost,"So, I need you to take care of them for me."
+,"In return, I may have something extraordinary for you to reward your efforts."
+:if_dead_go_to; einar & lachlan; 27,
+R:lachlan_base/einar_base,That's the shadiest offer I've ever heard. We're not getting embroiled in a vendetta between a ghost and some monsters.
+,"Besides, we can't risk our lives for a potion. We're better off moving along."
+:if_dead_go_to; josephine; 30,
+R:rachelle_base/magda_base,Your grace. What is your opinion on the matter?
+L:josephine_base,I trust the vanguard's judgement.
+R:rachelle_base/magda_base,We could use any help we get in here.
+,We may be back.
+L:Shady Ghost,I hope you are. Don't disappoint me.
+:set_next_interaction_line; 35,
+X,
+:if_true_go_to; catapace_pair_killed; 38,
+L:Shady Ghost,I can't give you anything before you finish your job.
+X,
+L:Shady Ghost,I could hear the distinct shreiking of those foul beasts. Well done my little doves.
+,Here you go. I give you what many a fool have ventured fruitlessly in this contraption for.
+,You will realize its value when the time comes.
+:drop_item; Niall's Essence,
+:set_next_interaction_line; 44,
+X,
+L:Shady Ghost,That was the only one in my possesion. I have no more.
+X,
+:if_dead_go_to; einar & lachlan; 48,
+R:lachlan_base/einar_base,"Wait, aren't those the same pair of Catapaces we slew on our way here?"
+R:rachelle_base/magda_base,A pair of Catapaces had lunged at us on our way here too. We struck them down.
+L:Shady Ghost,They're gone? Those foul beasts?
+,Oh my word. I can't contain my joy. I won't have to brace myself for their horrible growls every time I pass by.
+,"Here, here you go. Take this. I'm very happy with you lot."
+,You will realize its value when the time comes.
+:drop_item; Niall's Essence,
+:set_next_interaction_line; 44,
+X,
