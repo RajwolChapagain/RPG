@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_la3q2")
-name = "Mermaid"
+name = "Loreleid"
 battle_sprite = ExtResource("1_plg54")
 attack_damage = 30
 max_hp = 150

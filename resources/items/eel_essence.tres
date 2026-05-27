@@ -13,7 +13,7 @@ metadata/_custom_type_script = "uid://cospd4gauu2qa"
 
 [resource]
 script = ExtResource("1_l8ywq")
-name = "Eel's Essence"
+name = "Cephalo's Essence"
 type = 1
 stats = Array[ExtResource("2_t8ypa")]([SubResource("Resource_dap3m")])
 abilities = Array[PackedScene]([ExtResource("1_t8ypa")])

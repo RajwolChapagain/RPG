@@ -7,7 +7,7 @@
 
 [resource]
 script = ExtResource("1_1fvpy")
-name = "Eel"
+name = "Cephalo"
 battle_sprite = ExtResource("1_8bwnq")
 ability_invoke_sprite = ExtResource("1_yte7n")
 attack_damage = 5

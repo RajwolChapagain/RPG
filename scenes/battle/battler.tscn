@@ -644,7 +644,7 @@ lachlan_phantom = SubResource("AtlasTexture_p7hkm")
 magda_phantom = SubResource("AtlasTexture_cff06")
 rachelle_phantom = SubResource("AtlasTexture_1e5l2")
 nahas_phantom = ExtResource("4_oylcg")
-eel_phantom = ExtResource("5_1e5l2")
+cephalo_phantom = ExtResource("5_1e5l2")
 niall_phantom = ExtResource("14_o4ark")
 
 [node name="Pointer" type="Sprite2D" parent="." unique_id=374239538]
