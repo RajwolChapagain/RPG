@@ -1,7 +1,7 @@
 R:rachelle_base,Einar!
 L:josephine_base,...
 L:lachlan_base,"Magda, something's wrong, right? The air feels heavy."
-R:magda_base,I mean we're pretty far down. It's probably the mold...
+R:magda_base,"I mean, we're pretty far down. It's probably the mold..."
 R:rachelle_base,(You look down at the dust left in the shape of a body.)
 ,(You crouch down to card a hand through the remains when you notice a marble glimmering in the dirt.)
 ,(He's left no other remains. You pocket the glass bauble and continue.) 
@@ -10,7 +10,7 @@ R:rachelle_base,"Your grace, are you alright?"
 L:josephine_base,I've been better. Please help me up.
 R:rachelle_base,"Of course, your grace."
 L:magda_base,...
-,That armor...are you from House Ronan?
+,That armor? are you from House Ronan?
 R:josephine_base,You may address me as Duchess Josephine.
 L:magda_base,(Her eyes grow as wide as saucer dishes.)
 ,"My apologies, your grace. I didn't, um, well... Erm..."
