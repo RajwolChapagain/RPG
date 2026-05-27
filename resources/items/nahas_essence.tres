@@ -4,9 +4,17 @@
 [ext_resource type="PackedScene" uid="uid://giecrxnhvjnp" path="res://scenes/abilities/poison.tscn" id="1_satpr"]
 [ext_resource type="Script" uid="uid://cospd4gauu2qa" path="res://scripts/resource_scripts/stat_modifier.gd" id="2_satpr"]
 
+[sub_resource type="Resource" id="Resource_satpr"]
+script = ExtResource("2_satpr")
+stat_name = "ap_slots"
+modification = "+"
+amount = 2.0
+metadata/_custom_type_script = "uid://cospd4gauu2qa"
+
 [resource]
 script = ExtResource("1_f6201")
 name = "Nahas's Essence"
 type = 1
+stats = Array[ExtResource("2_satpr")]([SubResource("Resource_satpr")])
 abilities = Array[PackedScene]([ExtResource("1_satpr")])
 metadata/_custom_type_script = "uid://due732el6o1b8"
