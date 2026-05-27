@@ -12,7 +12,7 @@ script = ExtResource("1_x12ah")
 heal_amount = 40
 heal_particles = NodePath("HealParticles")
 ability_name = "Heal"
-description = "Endow your target with life-giving energy; delaying their perish in the ENGINE."
+description = "Endow your target with life-giving energy; delaying its perish in the ENGINE."
 cost = 3
 owner_character = "Magda"
 

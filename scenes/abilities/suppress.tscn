@@ -7,4 +7,6 @@
 script = ExtResource("1_igwbb")
 suppress_effect = ExtResource("2_0xgbu")
 ability_name = "Suppress"
+description = "Block your target's energy channels, nullifying its magical abilities."
+cost = 4
 owner_character = "Niall"

@@ -31,9 +31,9 @@ ability_images = Dictionary[String, Texture2D]({
 "Echo": ExtResource("8_58syg"),
 "Heal": ExtResource("6_g2oyx"),
 "Heavy Slash": ExtResource("5_awvav"),
-"Poison": ExtResource("7_vclm5"),
 "Stun": ExtResource("9_15aux"),
-"Suppress": ExtResource("11_fvnsb")
+"Suppress": ExtResource("11_fvnsb"),
+"Viper's Fang": ExtResource("7_vclm5")
 })
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1128361373]

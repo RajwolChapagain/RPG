@@ -7,5 +7,6 @@
 script = ExtResource("1_ey54i")
 poison_effect = ExtResource("2_a3kwo")
 ability_name = "Viper's Fang"
+description = "Intoxicate your target's chemistry with a venomous strike that inflicts pain in waves."
 cost = 2
 owner_character = "Nahas"

@@ -38,38 +38,39 @@ text = "[u]Arrow Storm"
 scroll_active = false
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1038141126]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="KeyContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1913020809]
+[node name="StatsContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1913020809]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/KeyContainer" unique_id=1186758984]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/StatsContainer" unique_id=152833976]
 layout_mode = 2
-theme_override_font_sizes/font_size = 6
-text = "Cost"
 
-[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/KeyContainer" unique_id=730455212]
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/StatsContainer/HBoxContainer" unique_id=730455212]
 layout_mode = 2
+size_flags_vertical = 1
 theme_override_font_sizes/font_size = 6
-text = "Damage"
+text = "Damage:"
 
-[node name="ValueContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1995464585]
-unique_name_in_owner = true
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/StatsContainer/HBoxContainer" unique_id=1186758984]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/ValueContainer" unique_id=998805557]
-layout_mode = 2
+size_flags_vertical = 1
 theme_override_font_sizes/font_size = 6
-text = ": 3"
+text = "30"
+vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/ValueContainer" unique_id=1973174902]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/StatsContainer" unique_id=51219279]
 layout_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/StatsContainer/HBoxContainer2" unique_id=954228247]
+layout_mode = 2
+size_flags_vertical = 1
 theme_override_font_sizes/font_size = 6
-text = ": 40"
+text = "Heal Amount:"
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/StatsContainer/HBoxContainer2" unique_id=921126565]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 6
+text = "30"
