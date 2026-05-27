@@ -5,12 +5,12 @@ extends Level
 
 func _ready() -> void:
 	GameManager.freeze_party()
-	#MusicManager.play_music('level3')
+	MusicManager.play_music('level3')
 	await play_unshroud_animation()
 	DialogueManager.load_dialogue(opening_dialogue)
 	await DialogueManager.dialogue_finished
 	GameManager.thaw_party()
-	
+		
 func play_unshroud_animation() -> void:
 	var tween = get_tree().create_tween()
 	tween.tween_property(%Shroud, 'modulate', Color(%Shroud.modulate, 0), 1).set_ease(Tween.EASE_OUT)
@@ -33,6 +33,7 @@ func activate_sky() -> void:
 	%Sky.monitoring = true
 
 func _on_sky_sky_interacted() -> void:
+	MusicManager.turn_music_down_dramatically()
 	%Sky.active = false
 	GameManager.freeze_party()
 	GameManager.party.disable_camera_smoothing()
@@ -47,4 +48,3 @@ func _on_sky_sky_interacted() -> void:
 	await DialogueManager.dialogue_finished
 	await get_tree().create_timer(4.0).timeout
 	level_completed.emit(level_number)
-	
