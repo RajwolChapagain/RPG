@@ -25,6 +25,10 @@
 [ext_resource type="Resource" uid="uid://ye7vkerqhwn4" path="res://resources/stats/enemies/level_2/eel_right_half.tres" id="15_k0vga"]
 [ext_resource type="Texture2D" uid="uid://c0k11u6dawxtk" path="res://assets/sprites/screens/battle_screen_1.webp" id="15_yt3ua"]
 [ext_resource type="Texture2D" uid="uid://k5kjlbmagipr" path="res://assets/sprites/world/level_2/ground_tileset_1_water.webp" id="16_xxdit"]
+[ext_resource type="Resource" uid="uid://tfpg51mq7ll1" path="res://resources/stats/enemies/level_3/niall_left_tumor.tres" id="17_ceb08"]
+[ext_resource type="Resource" uid="uid://4tff0fpw1nbi" path="res://resources/stats/enemies/level_3/niall_injured.tres" id="17_d7qte"]
+[ext_resource type="Resource" uid="uid://ulemnbyfv8m0" path="res://resources/stats/enemies/level_3/niall_right_tumor.tres" id="18_d7qte"]
+[ext_resource type="Texture2D" uid="uid://c5frkjpqcuhb8" path="res://assets/sprites/characters/battle/enemies/level_3/niall_hurt.png" id="20_lxts7"]
 [ext_resource type="Shader" uid="uid://cce28s7gcqq6v" path="res://scripts/shaders/sky.gdshader" id="25_nqid7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k0vga"]
@@ -204,6 +208,9 @@ MAIN_MENU_SCENE = ExtResource("8_tttxe")
 nahas_parts = Array[ExtResource("2_xwxfl")]([ExtResource("11_7mjbx"), ExtResource("12_jrwob"), ExtResource("13_porms"), ExtResource("14_0hs4o")])
 nahas_split_dialogue_file = "res://assets/dialogues/level_1/nahas_form_change.csv"
 eel_parts = Array[ExtResource("2_xwxfl")]([ExtResource("14_xxdit"), ExtResource("15_k0vga")])
+niall_injured = Array[ExtResource("2_xwxfl")]([ExtResource("17_d7qte")])
+niall_parts = Array[ExtResource("2_xwxfl")]([ExtResource("17_ceb08"), ExtResource("18_d7qte")])
+niall_hurt_sprite = ExtResource("20_lxts7")
 
 [node name="DualGridLevel1" parent="." unique_id=2087056435 instance=ExtResource("1_6lmhm")]
 

@@ -153,11 +153,12 @@ material = SubResource("ShaderMaterial_n6eey")
 sprite_frames = SubResource("SpriteFrames_qi5uv")
 animation = &"deactivating"
 
-[node name="NiallEnemy" parent="World/Grave" unique_id=1786002395 instance=ExtResource("8_pimnq")]
+[node name="NiallEnemy" parent="World/Grave" unique_id=1786002395 groups=["boss_enemy"] instance=ExtResource("8_pimnq")]
 unique_name_in_owner = true
 position = Vector2(0, -64)
 monitorable = false
 gang = Array[ExtResource("10_qi5uv")]([ExtResource("11_f6egh")])
+post_defeat_hook = "on_niall_death"
 
 [node name="Sprite2D" parent="World/Grave/NiallEnemy" index="0" unique_id=1584948219]
 sprite_frames = null
@@ -186,7 +187,7 @@ shape = SubResource("RectangleShape2D_t4txi")
 
 [node name="PartyOriginMarker" type="Marker2D" parent="." unique_id=1030868222]
 unique_name_in_owner = true
-position = Vector2(-32, -64)
+position = Vector2(64, -1408)
 
 [node name="TitleShroud" type="Sprite2D" parent="." unique_id=309160241]
 unique_name_in_owner = true

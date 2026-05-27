@@ -24,6 +24,9 @@ var enemy_hook: String = ''
 @export var nahas_parts: Array[BaseStats]
 @export_file('*.csv') var nahas_split_dialogue_file: String
 @export var eel_parts: Array[BaseStats]
+@export var niall_injured: Array[BaseStats]
+@export var niall_parts: Array[BaseStats]
+@export var niall_hurt_sprite: Texture2D
 
 signal battle_ended
 
@@ -571,6 +574,29 @@ func on_eel_death() -> void:
 	enemies.clear()
 	enemy_stats = eel_parts
 	character_spacing = 64
+	spawn_enemies()
+	alive_enemy_count = len(enemies)
+	enemy_hook = ''
+	
+func on_niall_death() -> void:
+	enemies[0].queue_free()
+	enemies.clear()
+	enemy_stats = niall_injured
+	character_spacing = 0
+	spawn_enemies()
+	alive_enemy_count = len(enemies)
+	enemy_hook = 'on_niall_injured_death'
+	
+func on_niall_injured_death() -> void:
+	var niall_pos = enemies[0].global_position
+	enemies[0].queue_free()
+	var sprite = Sprite2D.new()
+	sprite.texture = niall_hurt_sprite
+	add_child(sprite)
+	sprite.global_position = niall_pos
+	enemies.clear()
+	enemy_stats = niall_parts
+	character_spacing = 36
 	spawn_enemies()
 	alive_enemy_count = len(enemies)
 	enemy_hook = ''
