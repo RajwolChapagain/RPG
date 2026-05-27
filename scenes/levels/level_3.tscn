@@ -15,6 +15,7 @@
 [ext_resource type="Resource" uid="uid://wa263rtwxdc8" path="res://resources/stats/enemies/level_3/niall.tres" id="11_f6egh"]
 [ext_resource type="Texture2D" uid="uid://dp5klwccethmg" path="res://assets/sprites/world/level_3/sky.png" id="13_f6egh"]
 [ext_resource type="Script" uid="uid://c3wivunly8owt" path="res://scripts/levels/props/sky.gd" id="13_t4txi"]
+[ext_resource type="PackedScene" uid="uid://cglapshtkljpc" path="res://scenes/characters/npc.tscn" id="16_josfm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fkk1g"]
 shader = ExtResource("2_ftfob")
@@ -203,6 +204,10 @@ layer = 2
 unique_name_in_owner = true
 position = Vector2(160, 90)
 texture = ExtResource("9_pimnq")
+
+[node name="NPC" parent="." unique_id=1105115065 instance=ExtResource("16_josfm")]
+position = Vector2(288, -64)
+dialogue_file_path = "res://assets/dialogues/level_3/curse_npc.csv"
 
 [connection signal="area_entered" from="World/Grave" to="World/Grave" method="_on_area_entered"]
 [connection signal="area_exited" from="World/Grave" to="World/Grave" method="_on_area_exited"]

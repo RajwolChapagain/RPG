@@ -1,0 +1,62 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://bex7lq6wpy5oi"]
+
+[ext_resource type="Script" uid="uid://due732el6o1b8" path="res://scripts/resource_scripts/item.gd" id="1_6y84e"]
+[ext_resource type="Script" uid="uid://cospd4gauu2qa" path="res://scripts/resource_scripts/stat_modifier.gd" id="2_kpbkc"]
+
+[sub_resource type="Resource" id="Resource_6y84e"]
+script = ExtResource("2_kpbkc")
+stat_name = "attack_damage"
+modification = "-"
+amount = 20.0
+metadata/_custom_type_script = "uid://cospd4gauu2qa"
+
+[sub_resource type="Resource" id="Resource_kpbkc"]
+script = ExtResource("2_kpbkc")
+stat_name = "max_hp"
+modification = "/"
+amount = 2.0
+metadata/_custom_type_script = "uid://cospd4gauu2qa"
+
+[sub_resource type="Resource" id="Resource_malyv"]
+script = ExtResource("2_kpbkc")
+stat_name = "dodge"
+modification = "-"
+percentage = true
+amount = 15.0
+metadata/_custom_type_script = "uid://cospd4gauu2qa"
+
+[sub_resource type="Resource" id="Resource_370fe"]
+script = ExtResource("2_kpbkc")
+stat_name = "ap_slots"
+modification = "-"
+amount = 2.0
+metadata/_custom_type_script = "uid://cospd4gauu2qa"
+
+[sub_resource type="Resource" id="Resource_a0ht1"]
+script = ExtResource("2_kpbkc")
+stat_name = "crit"
+modification = "-"
+percentage = true
+amount = 20.0
+metadata/_custom_type_script = "uid://cospd4gauu2qa"
+
+[sub_resource type="Resource" id="Resource_opu4l"]
+script = ExtResource("2_kpbkc")
+stat_name = "defence"
+modification = "-"
+amount = 20.0
+metadata/_custom_type_script = "uid://cospd4gauu2qa"
+
+[sub_resource type="Resource" id="Resource_6fpua"]
+script = ExtResource("2_kpbkc")
+stat_name = "accuracy"
+modification = "-"
+percentage = true
+amount = 50.0
+metadata/_custom_type_script = "uid://cospd4gauu2qa"
+
+[resource]
+script = ExtResource("1_6y84e")
+name = "Accursed Relic"
+stats = Array[ExtResource("2_kpbkc")]([SubResource("Resource_6y84e"), SubResource("Resource_kpbkc"), SubResource("Resource_malyv"), SubResource("Resource_370fe"), SubResource("Resource_a0ht1"), SubResource("Resource_opu4l"), SubResource("Resource_6fpua")])
+metadata/_custom_type_script = "uid://due732el6o1b8"

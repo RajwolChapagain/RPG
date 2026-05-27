@@ -12,6 +12,7 @@
 [ext_resource type="Resource" uid="uid://bxlxb7khbrjoy" path="res://resources/items/stegomastodon.tres" id="9_pt2ca"]
 [ext_resource type="Script" uid="uid://cospd4gauu2qa" path="res://scripts/resource_scripts/stat_modifier.gd" id="10_hacnp"]
 [ext_resource type="Resource" uid="uid://yel2ssiyli5n" path="res://resources/items/niall_essence.tres" id="11_epxqs"]
+[ext_resource type="Resource" uid="uid://bex7lq6wpy5oi" path="res://resources/items/accursed_relic.tres" id="12_m7kir"]
 
 [sub_resource type="Resource" id="Resource_epxqs"]
 script = ExtResource("2_a4wni")
@@ -30,7 +31,8 @@ ExtResource("5_rikeb"): 2,
 ExtResource("9_pt2ca"): 0,
 ExtResource("9_hacnp"): 4,
 SubResource("Resource_epxqs"): 5,
-ExtResource("11_epxqs"): 5
+ExtResource("11_epxqs"): 5,
+ExtResource("12_m7kir"): 5
 })
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=694202685]

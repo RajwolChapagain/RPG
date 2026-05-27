@@ -1,0 +1,20 @@
+L: Lonely Ghost,Far you have come. Further you will go.
+R:rachelle_base/magda_base,...
+L: Lonely Ghost,"What gift I have for you, would you like to know?"
+R:rachelle_base/magda_base,"At this point, yes please. Anything you have will be of help."
+L: Rhyming Ghost,Take this relic and store it with great care.
+,"To harm you with this in your possession, no man nor monster will dare."
+:drop_item; Accursed Relic,
+:set_next_interaction_line; 10,
+X,
+L: Lonely Ghost,I can't believe you suckers fell for that!
+R:rachelle_base/magda_base,You gave us an accursed relic!
+L: Lonely Ghost,I had been suffering from its effect ever since that wicked Doloris tricked me into owning it.
+,It manifests differently in each entity; it had rendered me incapable of speaking without rhyming.
+,But no more. I'm finally free! I can speak normally again!!
+R:rachelle_base/magda_base,...
+L: Lonely Ghost,Be gone! You can't convince me to take it back.
+:set_next_interaction_line; 19,
+X,
+L: Lonely Ghost,It's fruitless. I'm not taking that relic back.
+X,
