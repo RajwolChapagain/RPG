@@ -9,11 +9,11 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="Heal" type="Node" unique_id=917651593 node_paths=PackedStringArray("heal_particles")]
 script = ExtResource("1_x12ah")
-heal_percentage = 20.0
+heal_amount = 40
 heal_particles = NodePath("HealParticles")
 ability_name = "Heal"
-description = "Endow your target with life-giving energy; delaying their perish in the Regenerengine."
-cost = 2
+description = "Endow your target with life-giving energy; delaying their perish in the ENGINE."
+cost = 3
 owner_character = "Magda"
 
 [node name="HealParticles" type="CPUParticles2D" parent="." unique_id=1020417276]
