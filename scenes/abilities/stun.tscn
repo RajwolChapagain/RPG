@@ -7,4 +7,5 @@
 script = ExtResource("1_ud5n4")
 stun_effect = ExtResource("2_bmyh4")
 ability_name = "Stun"
+cost = 5
 owner_character = "Cephalo"

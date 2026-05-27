@@ -166,6 +166,7 @@ func regroup_party() -> void:
 		member.move_queue.clear()
 		member.sync_last_grid_pos()
 	%Camera2D.zoom = Vector2.ONE
+	%Camera2D.position = Vector2.ZERO
 		
 func disable_camera_smoothing() -> void:
 	%Camera2D.position_smoothing_enabled = false

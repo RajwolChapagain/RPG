@@ -377,6 +377,7 @@ level_number = 2
 
 [node name="PartyOriginMarker" type="Marker2D" parent="." unique_id=1758762546]
 unique_name_in_owner = true
+position = Vector2(0, -896)
 
 [node name="World" type="Node2D" parent="." unique_id=311040849]
 
@@ -1245,6 +1246,7 @@ frame = 2
 [node name="CollisionTriggers" type="Node2D" parent="." unique_id=1024095474]
 
 [node name="LevelCompleteTrigger" type="Area2D" parent="CollisionTriggers" unique_id=727380189]
+unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionTriggers/LevelCompleteTrigger" unique_id=1379712043]
 position = Vector2(-0.9597397, -702.2521)

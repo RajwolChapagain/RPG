@@ -17,6 +17,7 @@ func _ready() -> void:
 func _on_level_complete_trigger_area_entered(area: Area2D) -> void:
 	if area is Player:
 		level_completed.emit(level_number)
+		%LevelCompleteTrigger.set_deferred("monitoring" , false)
 	
 func play_unshroud_animation() -> void:
 	var tween = get_tree().create_tween()

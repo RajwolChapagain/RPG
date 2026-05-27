@@ -646,6 +646,7 @@ position = Vector2(443, 64)
 shape = SubResource("RectangleShape2D_31oqk")
 
 [node name="LevelCompleteTrigger" type="Area2D" parent="CollisionTriggers" unique_id=896547952]
+unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionTriggers/LevelCompleteTrigger" unique_id=1454038055]
 position = Vector2(433, -72)

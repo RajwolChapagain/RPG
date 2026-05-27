@@ -221,6 +221,12 @@ func slide(direction: Vector2) -> void:
 		
 	var slide_distance = 15
 	var target_position = null
+	if default_y_position == null: # BANDAID Fix for crash on Nahash
+		if is_player:
+			default_y_position = 116.0
+		else:
+			default_y_position = 52.0
+			
 	if direction == Vector2.DOWN:
 		if is_player:
 			target_position = Vector2(position.x, default_y_position)

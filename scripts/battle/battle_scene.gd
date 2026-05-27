@@ -343,6 +343,9 @@ func on_ability_finished_execution(ability: Ability, resonant_battlers: Array[Ba
 	# Check for resonance on resonant battlers
 	var copied_ability: Ability = ability
 	for battler: Battler in resonant_battlers:
+		if battler == null: # Battler may have been previously freed
+			continue
+			
 		if not battler.is_alive:
 			continue
 		copied_ability = copied_ability.duplicate()

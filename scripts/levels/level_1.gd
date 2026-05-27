@@ -44,6 +44,7 @@ func _on_nahas_awakening_trigger_area_entered(_area: Area2D) -> void:
 
 func _on_level_complete_trigger_area_entered(_area: Area2D) -> void:
 	level_completed.emit(level_number)
+	%LevelCompleteTrigger.set_deferred("monitoring" , false)
 
 func _on_enemy_4_enemy_defeated() -> void:
 	GameManager.catapace_pair_killed = true

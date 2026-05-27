@@ -634,9 +634,9 @@ ability_to_icons = Dictionary[String, Texture2D]({
 "Echo": ExtResource("6_vk5t5"),
 "Heal": ExtResource("5_e6itc"),
 "Heavy Slash": ExtResource("4_o4ark"),
-"Poison": ExtResource("8_qwt3p"),
 "Stun": ExtResource("9_8cx3t"),
-"Suppress": ExtResource("7_pct73")
+"Suppress": ExtResource("7_pct73"),
+"Viper's Fang": ExtResource("8_qwt3p")
 })
 einar_phantom = SubResource("AtlasTexture_oylcg")
 josephine_phantom = SubResource("AtlasTexture_bqtme")

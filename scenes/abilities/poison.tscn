@@ -7,4 +7,5 @@
 script = ExtResource("1_ey54i")
 poison_effect = ExtResource("2_a3kwo")
 ability_name = "Viper's Fang"
+cost = 2
 owner_character = "Nahas"
