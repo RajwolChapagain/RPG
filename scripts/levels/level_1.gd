@@ -36,9 +36,6 @@ func drop_unselected_player_essence() -> void:
 	var missing_player = all_players.filter(func(player_name): return player_name not in selected_players)[0]
 	GameManager.drop_player_essence(character_name_to_base_stats[missing_player])
 
-func _on_boss_enemy_enemy_defeated() -> void:
-	ItemDropManager.drop_items([nahas_essence])
-
 func _on_nahas_awakening_trigger_area_entered(_area: Area2D) -> void:
 	%NahasAwakeningTrigger.set_deferred('monitoring', false)
 	DialogueManager.load_dialogue(nahas_awakening_dialogue)

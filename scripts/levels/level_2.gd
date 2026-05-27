@@ -14,10 +14,6 @@ func _ready() -> void:
 	await DialogueManager.dialogue_finished
 	GameManager.thaw_party()
 
-func _on_boss_enemy_enemy_defeated() -> void:
-	#	ItemDropManager.drop_items([boss_essence])
-	pass
-	
 func _on_level_complete_trigger_area_entered(area: Area2D) -> void:
 	if area is Player:
 		level_completed.emit(level_number)
