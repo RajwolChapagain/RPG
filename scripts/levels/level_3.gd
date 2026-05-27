@@ -24,11 +24,11 @@ func _on_grave_grave_interacted() -> void:
 	%NiallEnemy.monitorable = true
 	var tween = get_tree().create_tween()
 	tween.tween_property(%NiallEnemy, "position", Vector2(%NiallEnemy.position.x, %NiallEnemy.position.y + 64), 0.1)
-	await get_tree().create_timer(1.0).timeout
-	spawn_sky()
-	
-func spawn_sky() -> void:
 	%Sky.visible = true
+	await get_tree().create_timer(1.0).timeout
+	activate_sky()
+	
+func activate_sky() -> void:
 	%Sky.active = true
 	%Sky.monitoring = true
 
