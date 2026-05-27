@@ -49,8 +49,8 @@ func load_level(level: int) -> void:
 
 	GameManager.current_level = current_level_number
 	
-func load_next_level() -> void:
-	current_level_number += 1
+func load_next_level(completed_level_number: int) -> void:
+	current_level_number = completed_level_number + 1
 	await load_level(current_level_number)
 
 func on_level_completed(level_count: int) -> void:
@@ -59,7 +59,7 @@ func on_level_completed(level_count: int) -> void:
 		_on_pause_menu_main_menu_button_pressed(true)
 		return
 		
-	await load_next_level()
+	await load_next_level(level_count)
 	%AnimationPlayer.play('saving')
 	await %AnimationPlayer.animation_finished
 	save_data()
@@ -73,7 +73,7 @@ func on_characters_selected(names: Array[String]) -> void:
 	initialize_party(names)
 	set_route(names)
 	%PauseMenu.initialize_inventory()
-	load_next_level()
+	load_next_level(0)
 
 func initialize_party(names: Array[String]) -> void:
 	party = party_scene.instantiate()
