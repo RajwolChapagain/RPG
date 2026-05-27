@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://cqug16y1e4r2g"]
+
+[ext_resource type="Script" uid="uid://due732el6o1b8" path="res://scripts/resource_scripts/item.gd" id="1_rkqh3"]
+[ext_resource type="Script" uid="uid://cospd4gauu2qa" path="res://scripts/resource_scripts/stat_modifier.gd" id="2_gib44"]
+
+[sub_resource type="Resource" id="Resource_rkqh3"]
+script = ExtResource("2_gib44")
+stat_name = "accuracy"
+modification = "+"
+percentage = true
+amount = 10.0
+metadata/_custom_type_script = "uid://cospd4gauu2qa"
+
+[resource]
+script = ExtResource("1_rkqh3")
+name = "Eye Drop Vial"
+stats = Array[ExtResource("2_gib44")]([SubResource("Resource_rkqh3")])
+metadata/_custom_type_script = "uid://due732el6o1b8"

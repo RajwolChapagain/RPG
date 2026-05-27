@@ -1,7 +1,7 @@
 extends Resource
 class_name StatModifier
 
-@export_enum('attack_damage', 'max_hp', 'hp', 'dodge', 'accuracy', 'crit', 'defence', 'ap_slots') var stat_name: String
+@export_enum('attack_damage', 'max_hp', 'hp', 'dodge', 'accuracy', 'crit', 'defence', 'ap_slots', 'ap_per_attack') var stat_name: String
 @export_enum('+', '-', '*', '/') var modification: String
 @export var percentage: bool = false
 @export var amount: float

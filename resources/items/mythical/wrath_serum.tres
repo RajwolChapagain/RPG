@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://bdpje021hob8s"]
+
+[ext_resource type="Script" uid="uid://due732el6o1b8" path="res://scripts/resource_scripts/item.gd" id="1_2778x"]
+[ext_resource type="Script" uid="uid://cospd4gauu2qa" path="res://scripts/resource_scripts/stat_modifier.gd" id="2_wp7ge"]
+
+[sub_resource type="Resource" id="Resource_2778x"]
+script = ExtResource("2_wp7ge")
+stat_name = "crit"
+modification = "+"
+percentage = true
+amount = 15.0
+metadata/_custom_type_script = "uid://cospd4gauu2qa"
+
+[sub_resource type="Resource" id="Resource_3l4gc"]
+script = ExtResource("2_wp7ge")
+stat_name = "attack_damage"
+modification = "+"
+amount = 50.0
+metadata/_custom_type_script = "uid://cospd4gauu2qa"
+
+[sub_resource type="Resource" id="Resource_unl5s"]
+script = ExtResource("2_wp7ge")
+stat_name = "accuracy"
+modification = "-"
+percentage = true
+amount = 30.0
+metadata/_custom_type_script = "uid://cospd4gauu2qa"
+
+[sub_resource type="Resource" id="Resource_wp7ge"]
+script = ExtResource("2_wp7ge")
+stat_name = "dodge"
+modification = "-"
+percentage = true
+amount = 30.0
+metadata/_custom_type_script = "uid://cospd4gauu2qa"
+
+[resource]
+script = ExtResource("1_2778x")
+name = "Wrath Serum"
+type = 1
+stats = Array[ExtResource("2_wp7ge")]([SubResource("Resource_2778x"), SubResource("Resource_3l4gc"), SubResource("Resource_unl5s"), SubResource("Resource_wp7ge")])
+metadata/_custom_type_script = "uid://due732el6o1b8"

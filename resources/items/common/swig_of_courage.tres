@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://cm6ykdnx278d0"]
+
+[ext_resource type="Script" uid="uid://due732el6o1b8" path="res://scripts/resource_scripts/item.gd" id="1_teotq"]
+[ext_resource type="Script" uid="uid://cospd4gauu2qa" path="res://scripts/resource_scripts/stat_modifier.gd" id="2_qp46j"]
+
+[sub_resource type="Resource" id="Resource_teotq"]
+script = ExtResource("2_qp46j")
+stat_name = "attack_damage"
+modification = "+"
+amount = 3.0
+metadata/_custom_type_script = "uid://cospd4gauu2qa"
+
+[resource]
+script = ExtResource("1_teotq")
+name = "Swig of Courage"
+type = 1
+stats = Array[ExtResource("2_qp46j")]([SubResource("Resource_teotq")])
+metadata/_custom_type_script = "uid://due732el6o1b8"

@@ -6,5 +6,5 @@
 [node name="Poison" type="Node" unique_id=246938105]
 script = ExtResource("1_ey54i")
 poison_effect = ExtResource("2_a3kwo")
-ability_name = "Poison"
+ability_name = "Viper's Fang"
 owner_character = "Nahas"

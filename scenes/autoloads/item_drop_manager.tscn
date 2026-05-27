@@ -2,17 +2,31 @@
 
 [ext_resource type="Script" uid="uid://bflu2ltrrcf3n" path="res://scripts/autoloads/item_drop_manager.gd" id="1_uacbh"]
 [ext_resource type="Script" uid="uid://due732el6o1b8" path="res://scripts/resource_scripts/item.gd" id="2_a4wni"]
-[ext_resource type="Resource" uid="uid://cbtqlydrjooxl" path="res://resources/items/potion_of_healing.tres" id="3_rpn2w"]
+[ext_resource type="Resource" uid="uid://cbtqlydrjooxl" path="res://resources/items/uncommon/potion_of_healing.tres" id="3_rpn2w"]
 [ext_resource type="Theme" uid="uid://5dapp0d0f0x5" path="res://resources/ui.tres" id="4_81kyb"]
-[ext_resource type="Resource" uid="uid://b2wy6qk2i7dnk" path="res://resources/items/bajra.tres" id="4_351bv"]
 [ext_resource type="PackedScene" uid="uid://cpuacag8n4gcn" path="res://scenes/ui/pause/item_button.tscn" id="4_tnc5c"]
-[ext_resource type="Resource" uid="uid://d04dcksevwiue" path="res://resources/items/fruit_of_life.tres" id="5_rikeb"]
-[ext_resource type="Resource" uid="uid://bin2fs1gqdd6w" path="res://resources/items/doloris's_necklace.tres" id="6_u5da0"]
-[ext_resource type="Resource" uid="uid://hr078w76t52d" path="res://resources/items/glyptodon.tres" id="9_hacnp"]
-[ext_resource type="Resource" uid="uid://bxlxb7khbrjoy" path="res://resources/items/stegomastodon.tres" id="9_pt2ca"]
+[ext_resource type="Resource" uid="uid://d04dcksevwiue" path="res://resources/items/rare/fruit_of_life.tres" id="5_rikeb"]
+[ext_resource type="Resource" uid="uid://bin2fs1gqdd6w" path="res://resources/items/legendary/doloris's_necklace.tres" id="6_u5da0"]
+[ext_resource type="Resource" uid="uid://hr078w76t52d" path="res://resources/items/uncommon/glyptodon.tres" id="9_hacnp"]
+[ext_resource type="Resource" uid="uid://bxlxb7khbrjoy" path="res://resources/items/common/stegomastodon.tres" id="9_pt2ca"]
 [ext_resource type="Script" uid="uid://cospd4gauu2qa" path="res://scripts/resource_scripts/stat_modifier.gd" id="10_hacnp"]
-[ext_resource type="Resource" uid="uid://yel2ssiyli5n" path="res://resources/items/niall_essence.tres" id="11_epxqs"]
-[ext_resource type="Resource" uid="uid://bex7lq6wpy5oi" path="res://resources/items/accursed_relic.tres" id="12_m7kir"]
+[ext_resource type="Resource" uid="uid://yel2ssiyli5n" path="res://resources/items/unachieveable/niall_essence.tres" id="11_epxqs"]
+[ext_resource type="Resource" uid="uid://bex7lq6wpy5oi" path="res://resources/items/unachieveable/accursed_relic.tres" id="12_m7kir"]
+[ext_resource type="Resource" uid="uid://bmslwxg8j6yqt" path="res://resources/items/common/cracked_lens.tres" id="12_rdxqc"]
+[ext_resource type="Resource" uid="uid://62o7d8klp3rm" path="res://resources/items/common/iron_buckler.tres" id="13_d6ve2"]
+[ext_resource type="Resource" uid="uid://nvj57ac8wfco" path="res://resources/items/common/rabbit's_foot.tres" id="14_uupvk"]
+[ext_resource type="Resource" uid="uid://cm6ykdnx278d0" path="res://resources/items/common/swig_of_courage.tres" id="15_6qt1u"]
+[ext_resource type="Resource" uid="uid://cqug16y1e4r2g" path="res://resources/items/uncommon/eye_drop_vial.tres" id="16_d6ve2"]
+[ext_resource type="Resource" uid="uid://dp3gkebnwrai3" path="res://resources/items/rare/berserker_shard.tres" id="17_ulyoi"]
+[ext_resource type="Resource" uid="uid://w4t3n58foyrv" path="res://resources/items/rare/fracture_point.tres" id="18_wa7dw"]
+[ext_resource type="Resource" uid="uid://xkqj38o6iwod" path="res://resources/items/rare/marrow_draught.tres" id="19_djc62"]
+[ext_resource type="Resource" uid="uid://b2wy6qk2i7dnk" path="res://resources/items/uncommon/bajra.tres" id="20_vfd3k"]
+[ext_resource type="Resource" uid="uid://d01tb8j314uy7" path="res://resources/items/legendary/blindfold_of_the_seer.tres" id="21_vfd3k"]
+[ext_resource type="Resource" uid="uid://bpocs5epfjcx4" path="res://resources/items/legendary/eclipse_blade.tres" id="22_ngi3y"]
+[ext_resource type="Resource" uid="uid://c2oiohf7m6mqi" path="res://resources/items/legendary/trickster's_effigy.tres" id="23_bc1px"]
+[ext_resource type="Resource" uid="uid://bwfnq68uh6uw6" path="res://resources/items/mythical/the_hollow_crown.tres" id="24_15dsk"]
+[ext_resource type="Resource" uid="uid://hk6yytkitrn" path="res://resources/items/mythical/eternal_vessel.tres" id="25_jp3s6"]
+[ext_resource type="Resource" uid="uid://bdpje021hob8s" path="res://resources/items/mythical/wrath_serum.tres" id="26_ddyn7"]
 
 [sub_resource type="Resource" id="Resource_epxqs"]
 script = ExtResource("2_a4wni")
@@ -24,15 +38,29 @@ process_mode = 3
 script = ExtResource("1_uacbh")
 item_button_scene = ExtResource("4_tnc5c")
 items_and_rarities = Dictionary[ExtResource("2_a4wni"), int]({
-ExtResource("3_rpn2w"): 1,
-ExtResource("6_u5da0"): 3,
-ExtResource("4_351bv"): 2,
-ExtResource("5_rikeb"): 2,
-ExtResource("9_pt2ca"): 0,
-ExtResource("9_hacnp"): 4,
-SubResource("Resource_epxqs"): 5,
+ExtResource("26_ddyn7"): 4,
+ExtResource("25_jp3s6"): 4,
+ExtResource("24_15dsk"): 4,
+ExtResource("23_bc1px"): 3,
+ExtResource("22_ngi3y"): 3,
+ExtResource("21_vfd3k"): 3,
+ExtResource("20_vfd3k"): 1,
+ExtResource("19_djc62"): 2,
+ExtResource("18_wa7dw"): 2,
+ExtResource("17_ulyoi"): 2,
+ExtResource("16_d6ve2"): 1,
+ExtResource("15_6qt1u"): 0,
+ExtResource("14_uupvk"): 0,
+ExtResource("13_d6ve2"): 0,
+ExtResource("12_rdxqc"): 0,
+ExtResource("12_m7kir"): 5,
 ExtResource("11_epxqs"): 5,
-ExtResource("12_m7kir"): 5
+SubResource("Resource_epxqs"): 5,
+ExtResource("9_hacnp"): 1,
+ExtResource("9_pt2ca"): 0,
+ExtResource("5_rikeb"): 2,
+ExtResource("6_u5da0"): 3,
+ExtResource("3_rpn2w"): 1
 })
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=694202685]
