@@ -27,4 +27,6 @@ attack_damage = 5
 max_hp = 70
 hp = 70
 defence = 3
+dodge = 40
+accuracy = 80
 abilities = Array[PackedScene]([ExtResource("1_fex2c")])

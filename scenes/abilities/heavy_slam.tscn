@@ -4,7 +4,7 @@
 
 [node name="HeavySlam" type="Node" unique_id=1181801355]
 script = ExtResource("1_c2pi8")
-damage = 60
+damage = 75
 ability_name = "Heavy Slash"
 description = "Do what a knight does best—slamming into a target and doing heavy damage!"
 cost = 3

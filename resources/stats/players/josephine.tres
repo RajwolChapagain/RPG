@@ -27,5 +27,5 @@ attack_damage = 20
 max_hp = 200
 hp = 200
 crit = 5
-accuracy = 40
+dodge = 10
 abilities = Array[PackedScene]([ExtResource("1_cwu5v")])
