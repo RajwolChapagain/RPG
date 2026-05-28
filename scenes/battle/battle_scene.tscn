@@ -297,7 +297,7 @@ focus_neighbor_bottom = NodePath("../AttackButton")
 theme = ExtResource("3_gj8wv")
 theme_type_variation = &"SmallButton"
 toggle_mode = true
-text = "ABILITIES"
+text = "ABILITY"
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/Deck/MarginContainer/HBoxContainer" unique_id=147658668]
 layout_mode = 2
