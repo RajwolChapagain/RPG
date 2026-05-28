@@ -7,6 +7,7 @@ var party_members: Array[Player]
 var can_cycle = true
 var active_member_index_before_freezing: int = -1
 var camera_position_smoothing_speed: float
+var movement_disabled: bool = false
 
 func _ready() -> void:
 	instantiate_characters_and_add_to_list()
@@ -57,6 +58,9 @@ func activate_party_member(index: int) -> void:
 			party_members[i].set_active(false)
 	
 func on_character_moved(character, old_grid_pos) -> void:
+	if movement_disabled:
+		return
+		
 	if not character.next_character.is_active:
 		character.next_character.move_queue.push_back(old_grid_pos)
 
@@ -125,9 +129,10 @@ func connect_player_signals() -> void:
 		player.enemy_encountered.connect(on_player_encountered_enemy)
 
 func disable_all_player_movement() -> void:
+	movement_disabled = true
 	active_member_index_before_freezing = get_active_member_index()
 	party_members[active_member_index_before_freezing].set_active(false)
-	
+		
 func disable_party_camera() -> void:
 	%Camera2D.enabled = false
 	
@@ -138,6 +143,7 @@ func disable_cycling() -> void:
 	can_cycle = false
 
 func enable_all_player_movement() -> void:
+	movement_disabled = false
 	active_member_index_before_freezing = clamp(active_member_index_before_freezing, 0, len(party_members) - 1)
 	var member_already_active = false
 	for member in party_members:

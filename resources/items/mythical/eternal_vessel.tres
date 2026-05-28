@@ -36,6 +36,6 @@ metadata/_custom_type_script = "uid://cospd4gauu2qa"
 
 [resource]
 script = ExtResource("1_bggd1")
-name = "Eternall Vessel"
+name = "Eternal Vessel"
 stats = Array[ExtResource("2_hd5vk")]([SubResource("Resource_h5i5l"), SubResource("Resource_6llar"), SubResource("Resource_6e577"), SubResource("Resource_gr7f2")])
 metadata/_custom_type_script = "uid://due732el6o1b8"

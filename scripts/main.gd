@@ -22,8 +22,7 @@ func load_level(level: int) -> void:
 	if current_level != null:
 		if level == 2 or level == 3:
 			transitioning = true
-			party.disable_all_player_movement()
-			party.disable_cycling()
+			GameManager.freeze_party()
 			#MusicManager.play_music('saved', false)
 			await play_shroud_animation()
 		current_level.queue_free()
