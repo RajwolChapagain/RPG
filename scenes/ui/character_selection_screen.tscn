@@ -471,7 +471,7 @@ anchor_right = 0.5
 offset_left = -59.0
 offset_top = 10.0
 offset_right = 59.0
-offset_bottom = 38.000015
+offset_bottom = 45.0
 grow_horizontal = 2
 
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=2001197526]
@@ -605,6 +605,7 @@ stats = null
 [node name="Shroud" type="Sprite2D" parent="." unique_id=1321684341]
 unique_name_in_owner = true
 position = Vector2(160, 90)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("18_jldub")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=531295902]
