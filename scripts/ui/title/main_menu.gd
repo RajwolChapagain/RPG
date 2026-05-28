@@ -37,7 +37,7 @@ enum states { TITLE, MENU, PLAY, SETTINGS, CREDITS }
 
 func _ready() -> void:
 	load_settings()
-	#Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN
+	Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN
 	connect_save_slot_signals()
 	MusicManager.fade_music_out(0.8)
 	
