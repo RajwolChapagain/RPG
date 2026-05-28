@@ -396,6 +396,7 @@ unique_name_in_owner = true
 
 [node name="Mermaid" parent="World/Level2Enemies" unique_id=1786002395 instance=ExtResource("5_r88tb")]
 position = Vector2(-256, -192)
+random_dropped_item_rarity_modifier = 50.0
 
 [node name="Patroller" parent="World/Level2Enemies/Mermaid" unique_id=241894158 instance=ExtResource("6_1yj8c")]
 speed = 130.0
@@ -412,6 +413,8 @@ wait_time = 1.4
 
 [node name="Mermaid2" parent="World/Level2Enemies" unique_id=1786888974 instance=ExtResource("5_r88tb")]
 position = Vector2(192, -576)
+random_drop_item_count = 2
+random_dropped_item_rarity_modifier = 30.0
 
 [node name="Patroller" parent="World/Level2Enemies/Mermaid2" unique_id=998414113 instance=ExtResource("6_1yj8c")]
 speed = 120.0
@@ -444,6 +447,8 @@ wait_time = 0.1
 
 [node name="Mermaid4" parent="World/Level2Enemies" unique_id=48520577 instance=ExtResource("5_r88tb")]
 position = Vector2(64, -800)
+random_drop_item_count = 4
+random_dropped_item_rarity_modifier = 5.0
 
 [node name="Patroller" parent="World/Level2Enemies/Mermaid4" unique_id=637663592 instance=ExtResource("6_1yj8c")]
 
@@ -483,6 +488,8 @@ unique_name_in_owner = true
 
 [node name="Mermaid" parent="World/Level3Enemies" unique_id=117932111 instance=ExtResource("5_r88tb")]
 position = Vector2(-32, -362)
+random_drop_item_count = 3
+random_dropped_item_rarity_modifier = 20.0
 
 [node name="Patroller" parent="World/Level3Enemies/Mermaid" unique_id=902881366 instance=ExtResource("6_1yj8c")]
 

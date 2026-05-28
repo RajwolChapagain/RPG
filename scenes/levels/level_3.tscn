@@ -159,6 +159,7 @@ unique_name_in_owner = true
 position = Vector2(0, -64)
 monitorable = false
 gang = Array[ExtResource("10_qi5uv")]([ExtResource("11_f6egh")])
+random_drop_item_count = 0
 post_defeat_hook = "on_niall_death"
 
 [node name="Sprite2D" parent="World/Grave/NiallEnemy" index="0" unique_id=1584948219]
