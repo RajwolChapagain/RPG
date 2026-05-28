@@ -49,6 +49,7 @@ theme_override_constants/separation = 4
 unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_top = NodePath("../MainMenuButton")
+focus_neighbor_bottom = NodePath("../InventoryButton")
 theme_type_variation = &"SideButton"
 text = "CONTINUE"
 
@@ -59,6 +60,8 @@ metadata/_custom_type_script = "uid://cojsnc1kdvshg"
 [node name="InventoryButton" type="Button" parent="HBoxContainer/ButtonsPanel/ButtonsContainer" unique_id=324524296]
 unique_name_in_owner = true
 layout_mode = 2
+focus_neighbor_top = NodePath("../ContinueButton")
+focus_neighbor_bottom = NodePath("../AbilityInfoButton")
 theme_type_variation = &"SideButton"
 toggle_mode = true
 text = "INVENTORY"
@@ -70,6 +73,8 @@ metadata/_custom_type_script = "uid://cojsnc1kdvshg"
 [node name="AbilityInfoButton" type="Button" parent="HBoxContainer/ButtonsPanel/ButtonsContainer" unique_id=1347281092]
 unique_name_in_owner = true
 layout_mode = 2
+focus_neighbor_top = NodePath("../InventoryButton")
+focus_neighbor_bottom = NodePath("../ControlsButton")
 theme_type_variation = &"SideButton"
 toggle_mode = true
 text = "ABILITIES"
@@ -81,6 +86,8 @@ metadata/_custom_type_script = "uid://cojsnc1kdvshg"
 [node name="ControlsButton" type="Button" parent="HBoxContainer/ButtonsPanel/ButtonsContainer" unique_id=1160744779]
 unique_name_in_owner = true
 layout_mode = 2
+focus_neighbor_top = NodePath("../AbilityInfoButton")
+focus_neighbor_bottom = NodePath("../MainMenuButton")
 theme_type_variation = &"SideButton"
 toggle_mode = true
 text = "CONTROLS"
@@ -92,6 +99,7 @@ metadata/_custom_type_script = "uid://cojsnc1kdvshg"
 [node name="MainMenuButton" type="Button" parent="HBoxContainer/ButtonsPanel/ButtonsContainer" unique_id=1934312075]
 unique_name_in_owner = true
 layout_mode = 2
+focus_neighbor_top = NodePath("../ControlsButton")
 focus_neighbor_bottom = NodePath("../ContinueButton")
 theme_type_variation = &"SideButton"
 text = "MAIN MENU"
