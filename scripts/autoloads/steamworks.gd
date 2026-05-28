@@ -39,6 +39,10 @@ func set_achievement(achievement_name: String) -> void:
 	store_steam_data()
 
 func set_statistic(this_stat: String, new_value: int = 1) -> void:
+	if not steam_enabled:
+		print('Steam is not enabled. Returning from method set_statistic')
+		return
+		
 	# Set Steam's version
 	if not Steam.setStatInt(this_stat, new_value):
 		print("Failed to set stat %s to: %s" % [this_stat, new_value])
@@ -52,6 +56,9 @@ func increment_stat(stat_name: String) -> void:
 	set_statistic(stat_name, current_val + 1)
 	
 func load_steam_stats() -> void:
+	if not steam_enabled:
+		return
+		
 	for this_stat in statistics.keys():
 		var stat_value: int = Steam.getStatInt(this_stat)
 		print("Retrieved %s stat: %s" % [this_stat, stat_value])
