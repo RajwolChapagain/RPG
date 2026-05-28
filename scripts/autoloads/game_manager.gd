@@ -114,5 +114,8 @@ func thaw_party() -> void:
 func has_inventory_item(item_name: String) -> bool:
 	return inventory_manager.has_item(item_name)
 
+func has_item_equipped(item_name: String) -> bool:
+	return inventory_manager.has_item_equipped(item_name)
+	
 func remove_inventory_item(item_name: String) -> void:
 	inventory_manager.dequip_or_remove_item(item_name)

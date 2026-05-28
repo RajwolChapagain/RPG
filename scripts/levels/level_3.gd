@@ -48,3 +48,7 @@ func _on_sky_sky_interacted() -> void:
 	await DialogueManager.dialogue_finished
 	await get_tree().create_timer(4.0).timeout
 	level_completed.emit(level_number)
+
+func _on_niall_enemy_enemy_defeated() -> void:
+	if GameManager.has_item_equipped('Accursed Relic'):
+		Steamworks.set_achievement('debuff()')

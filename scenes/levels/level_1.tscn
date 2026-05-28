@@ -430,6 +430,7 @@ rotation = -1.5707964
 
 [node name="Enemy2" parent="Enemies" unique_id=1786002395 instance=ExtResource("23_7o3do")]
 position = Vector2(119, 425)
+enemy_index = 1
 gang = Array[ExtResource("3_sk5k4")]([SubResource("Resource_ytidy"), SubResource("Resource_hvllt"), SubResource("Resource_dp4fg")])
 
 [node name="Patroller" parent="Enemies/Enemy2" unique_id=1125279601 instance=ExtResource("17_mqh5v")]
@@ -444,6 +445,7 @@ rotation = 0.0
 
 [node name="Enemy3" parent="Enemies" unique_id=296600375 instance=ExtResource("2_6761a")]
 position = Vector2(41, 574)
+enemy_index = 2
 gang = Array[ExtResource("3_sk5k4")]([SubResource("Resource_7o3do"), SubResource("Resource_o7j4k"), SubResource("Resource_31oqk")])
 random_drop_item_count = 2
 
@@ -463,6 +465,7 @@ rotation = 0.0
 
 [node name="Enemy4" parent="Enemies" unique_id=2096919507 instance=ExtResource("23_7o3do")]
 position = Vector2(-177, 562)
+enemy_index = 3
 gang = Array[ExtResource("3_sk5k4")]([SubResource("Resource_x7jkp"), SubResource("Resource_0qwwm")])
 
 [node name="Patroller" parent="Enemies/Enemy4" unique_id=1954782115 instance=ExtResource("17_mqh5v")]
@@ -477,6 +480,7 @@ rotation = -1.5707964
 
 [node name="Enemy5" parent="Enemies" unique_id=1185547935 instance=ExtResource("23_7o3do")]
 position = Vector2(161, 640)
+enemy_index = 4
 gang = Array[ExtResource("3_sk5k4")]([SubResource("Resource_t4umt")])
 
 [node name="Patroller" parent="Enemies/Enemy5" unique_id=1834570598 instance=ExtResource("17_mqh5v")]
@@ -494,6 +498,7 @@ wait_time = 0.5
 
 [node name="Enemy6" parent="Enemies" unique_id=1019885562 instance=ExtResource("15_mqh5v")]
 position = Vector2(398, 498)
+enemy_index = 5
 gang = Array[ExtResource("3_sk5k4")]([SubResource("Resource_4yk0h"), SubResource("Resource_cfnpk"), SubResource("Resource_vmrhw"), SubResource("Resource_wvtie")])
 
 [node name="Patroller" parent="Enemies/Enemy6" unique_id=321498372 instance=ExtResource("17_mqh5v")]
@@ -508,6 +513,7 @@ rotation = -1.5707964
 
 [node name="Enemy7" parent="Enemies" unique_id=178764234 instance=ExtResource("15_mqh5v")]
 position = Vector2(407, 246)
+enemy_index = 6
 gang = Array[ExtResource("3_sk5k4")]([SubResource("Resource_7h2jl"), SubResource("Resource_ndtll")])
 dropped_items = Array[ExtResource("6_s8va5")]([ExtResource("8_dga24")])
 random_drop_item_count = 2
@@ -526,6 +532,7 @@ rotation = 3.1415927
 [node name="NahasEnemy" parent="Enemies" unique_id=1966712350 instance=ExtResource("22_o7j4k")]
 unique_name_in_owner = true
 position = Vector2(432, 17)
+enemy_index = 7
 dropped_items = Array[ExtResource("6_s8va5")]([ExtResource("2_mqh5v")])
 random_drop_item_count = 0
 
@@ -541,6 +548,7 @@ texture = ExtResource("22_7h2jl")
 
 [node name="NPC2" parent="NPCs" unique_id=1975223701 instance=ExtResource("4_oc4kc")]
 position = Vector2(288, 576)
+npc_index = 1
 dialogue_file_path = "res://assets/dialogues/level_1/tutorials/potion_use_tutorial.csv"
 
 [node name="Sprite2D" parent="NPCs/NPC2" index="0" unique_id=1757280124]
@@ -548,6 +556,7 @@ texture = ExtResource("23_mqh5v")
 
 [node name="NPC3" parent="NPCs" unique_id=176092167 instance=ExtResource("4_oc4kc")]
 position = Vector2(128, 352)
+npc_index = 2
 dialogue_file_path = "res://assets/dialogues/level_1/shady_npc.csv"
 
 [node name="Sprite2D" parent="NPCs/NPC3" index="0" unique_id=1757280124]
@@ -653,6 +662,7 @@ position = Vector2(433, -72)
 shape = SubResource("RectangleShape2D_mqh5v")
 
 [connection signal="enemy_defeated" from="Enemies/Enemy4" to="." method="_on_enemy_4_enemy_defeated"]
+[connection signal="enemy_defeated" from="Enemies/NahasEnemy" to="." method="_on_nahas_enemy_enemy_defeated"]
 [connection signal="area_entered" from="CollisionTriggers/NahasAwakeningTrigger" to="." method="_on_nahas_awakening_trigger_area_entered"]
 [connection signal="area_entered" from="CollisionTriggers/LevelCompleteTrigger" to="." method="_on_level_complete_trigger_area_entered"]
 

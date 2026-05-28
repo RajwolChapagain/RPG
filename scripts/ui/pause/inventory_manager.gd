@@ -207,5 +207,10 @@ func dequip_or_remove_item(item_name: String) -> void:
 			if character_inventory.has_item_equipped(item_name):
 				character_inventory.remove_item(item_name)
 				return
+
+func has_item_equipped(item_name: String) -> bool:
+	for character_inventory: CharacterInventory in %CharacterInventories.get_children():
+		if character_inventory.has_item_equipped(item_name):
+			return true
 	
-	
+	return false

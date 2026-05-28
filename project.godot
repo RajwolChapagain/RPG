@@ -31,12 +31,13 @@ BattleManager="*res://scenes/autoloads/battle_manager.tscn"
 SaveManager="*res://scripts/autoloads/save_manager.gd"
 MusicManager="*res://scenes/autoloads/music_manager.tscn"
 UisfxManager="*res://scenes/autoloads/uisfx_manager.tscn"
+Steamworks="*uid://bfenqsp3irxeo"
+StatTracker="*uid://dwa46kl1lgn66"
 
 [display]
 
 window/size/viewport_width=320
 window/size/viewport_height=180
-window/size/mode=3
 window/size/initial_position=Vector2i(200, 200)
 window/stretch/mode="canvas_items"
 
@@ -215,3 +216,9 @@ rendering/root_node_auto_translate=false
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+
+[steam]
+
+initialization/initialize_on_startup=false
+initialization/embed_callbacks=true
+multiplayer_peer/max_channels=4

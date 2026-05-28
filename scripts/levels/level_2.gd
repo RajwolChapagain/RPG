@@ -143,3 +143,6 @@ func shake_camera(magnitude: float, duration: float) -> void:
 	
 	party_cam.global_position = original_pos
 	GameManager.thaw_party()
+
+func _on_eel_enemy_enemy_defeated() -> void:
+	StatTracker.set_essence_collected(1)

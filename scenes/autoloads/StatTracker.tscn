@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dwa46kl1lgn66"]
+
+[ext_resource type="Script" uid="uid://hx2bbj11doxn" path="res://scripts/autoloads/stat_tracker.gd" id="1_a7cbj"]
+
+[node name="StatTracker" type="Node" unique_id=1047066760]
+script = ExtResource("1_a7cbj")

@@ -158,6 +158,7 @@ animation = &"deactivating"
 unique_name_in_owner = true
 position = Vector2(0, -64)
 monitorable = false
+enemy_index = 15
 gang = Array[ExtResource("10_qi5uv")]([ExtResource("11_f6egh")])
 random_drop_item_count = 0
 post_defeat_hook = "on_niall_death"
@@ -208,11 +209,13 @@ texture = ExtResource("9_pimnq")
 
 [node name="NPC" parent="." unique_id=1105115065 instance=ExtResource("16_josfm")]
 position = Vector2(288, -64)
+npc_index = 6
 dialogue_file_path = "res://assets/dialogues/level_3/curse_npc.csv"
 
 [connection signal="area_entered" from="World/Grave" to="World/Grave" method="_on_area_entered"]
 [connection signal="area_exited" from="World/Grave" to="World/Grave" method="_on_area_exited"]
 [connection signal="grave_interacted" from="World/Grave" to="." method="_on_grave_grave_interacted"]
+[connection signal="enemy_defeated" from="World/Grave/NiallEnemy" to="." method="_on_niall_enemy_enemy_defeated"]
 [connection signal="area_entered" from="World/Sky" to="World/Sky" method="_on_area_entered"]
 [connection signal="area_exited" from="World/Sky" to="World/Sky" method="_on_area_exited"]
 [connection signal="sky_interacted" from="World/Sky" to="." method="_on_sky_sky_interacted"]

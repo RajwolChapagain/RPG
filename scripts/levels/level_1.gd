@@ -48,3 +48,6 @@ func _on_level_complete_trigger_area_entered(_area: Area2D) -> void:
 
 func _on_enemy_4_enemy_defeated() -> void:
 	GameManager.catapace_pair_killed = true
+
+func _on_nahas_enemy_enemy_defeated() -> void:
+	StatTracker.set_essence_collected(0)

@@ -53,6 +53,7 @@ func load_next_level(completed_level_number: int) -> void:
 	await load_level(current_level_number)
 
 func on_level_completed(level_count: int) -> void:
+	set_achievements(level_count)
 	if level_count == 3:
 		current_level.queue_free()
 		_on_pause_menu_main_menu_button_pressed(true)
@@ -140,3 +141,26 @@ func play_unshroud_animation() -> void:
 	var tween = get_tree().create_tween()
 	tween.tween_property(%Shroud, 'modulate', Color(%Shroud.modulate, 0), 1).set_ease(Tween.EASE_OUT)
 	await tween.finished
+
+func set_achievements(completed_level: int) -> void:
+	if completed_level == 1:
+		Steamworks.set_achievement('>ENGINE Firewall Bypass')
+	elif completed_level == 2:
+		Steamworks.set_achievement('>>Coolant Reservoir Error')
+	elif completed_level == 3:
+		Steamworks.set_achievement('>>>Initiating Restart')
+		
+		if GameManager.route == SaveInfo.routes.RACHELLE_ROUTE:
+			Steamworks.set_achievement('The Lone Hero')
+		else:
+			Steamworks.set_achievement('The Marked')
+			
+		if len(GameManager.get_alive_players()) == 1:
+			Steamworks.set_achievement('The End of the World Stands Alone')
+		elif len(GameManager.get_alive_players()) == 4:
+			Steamworks.set_achievement('The Friends We Made Along The Way')
+		elif len(GameManager.get_alive_players()) == 3:
+			var alive_player_names = GameManager.get_alive_player_names()
+			if 'Einar' in alive_player_names and 'Rachelle' in alive_player_names and 'Josephine' in alive_player_names:
+				Steamworks.set_achievement('The Rise of House Ronan')
+			

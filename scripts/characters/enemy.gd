@@ -1,6 +1,7 @@
 extends Area2D
 class_name Enemy
 
+@export var enemy_index: int
 @export var gang: Array[BaseStats]
 @export var dropped_items: Array[Item] # Used by battle_manager before queuing this enemy for death
 @export var random_drop_item_count: int = 1 # Used by battle_manager before queuing this enemy for death
