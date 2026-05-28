@@ -17,6 +17,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="Regeneration Engine"
 run/main_scene="uid://d3xpo03pr8ajw"
 config/features=PackedStringArray("4.6", "Forward Plus")
+boot_splash/show_image=false
 
 [audio]
 
