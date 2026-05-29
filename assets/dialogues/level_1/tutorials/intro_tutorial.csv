@@ -1,4 +1,4 @@
-L:???,"So you've trapped yourself here, too.",,COMPLETE/ NOT UPLOADED,Please use NPC 1 for this interaction
+L:???,"So you've trapped yourself here, too.",,COMPLETE/ UPLOADED,Please use NPC 1 for this interaction
 L:Ghost,(The... ghost? The ghost heaves a heavy breath. It really is a living spectral entity.),,,
 ,I'll tell you what I've told the rest.,,,
 R:lachlan_base/einar_base,"Thank you, kind str--",,,
@@ -6,8 +6,8 @@ L:Ghost,"Don't interrupt me, you frivolous fool!",,,
 ,As I was saying...,,,
 ,Souls that perish in the ENGINE are denied the right of death.,,,
 :set_wildcard; :get_random_dead_hero_name,,,,
-":if_dead_go_to; einar, rachelle; 11",,,,
-:if_dead_go_to; lachlan; 15,,,,
+":if_dead_go_to; einar, rachelle; 12",,,,
+:if_dead_go_to; lachlan; 17,,,,
 ":if_dead_go_to; magda, josephine; 17",,,,
 R:magda_base,So that companion of yours...,,,
 R:josephine_base,I see.,,,
