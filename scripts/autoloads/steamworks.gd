@@ -6,7 +6,7 @@ var steam_enabled: bool = false
 var statistics: Dictionary[String, int] = {
 	"npc_count": 0,
 	"enemy_count": 0,
-	"essence_count": 0
+	"essence_count": 0,
 	}
 
 func _ready() -> void:

@@ -34,7 +34,7 @@ SaveManager="*res://scripts/autoloads/save_manager.gd"
 MusicManager="*res://scenes/autoloads/music_manager.tscn"
 UisfxManager="*res://scenes/autoloads/uisfx_manager.tscn"
 Steamworks="*uid://bfenqsp3irxeo"
-StatTracker="*uid://dwa46kl1lgn66"
+StatTracker="uid://dwa46kl1lgn66"
 
 [display]
 

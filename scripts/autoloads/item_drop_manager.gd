@@ -29,7 +29,8 @@ func drop_items(items: Array[Item]) -> void:
 	
 func drop_item_by_name(item_name: String) -> void:
 	if item_name == "Niall's Essence":
-		StatTracker.set_essence_collected(2)
+		#StatTracker.set_essence_collected(2)
+		pass
 		
 	for item: Item in items_and_rarities:
 		if str(item).to_lower() == item_name.to_lower():

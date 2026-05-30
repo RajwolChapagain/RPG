@@ -145,4 +145,5 @@ func shake_camera(magnitude: float, duration: float) -> void:
 	GameManager.thaw_party()
 
 func _on_eel_enemy_enemy_defeated() -> void:
-	StatTracker.set_essence_collected(1)
+	#StatTracker.set_essence_collected(1)
+	pass

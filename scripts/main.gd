@@ -53,10 +53,13 @@ func load_next_level(completed_level_number: int) -> void:
 	await load_level(current_level_number)
 
 func on_level_completed(level_count: int) -> void:
-	set_achievements(level_count)
-	if level_count == 3:
+	#set_achievements(level_count)
+	if level_count == 1:
+		GameManager.freeze_party()
+		%AnimationPlayer.play("thank")
+		await %AnimationPlayer.animation_finished
 		current_level.queue_free()
-		_on_pause_menu_main_menu_button_pressed(true)
+		_on_pause_menu_main_menu_button_pressed(false)
 		return
 		
 	await load_next_level(level_count)
