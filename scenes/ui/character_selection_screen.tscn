@@ -10,7 +10,8 @@
 [ext_resource type="Resource" uid="uid://cym67rsdldl6j" path="res://resources/stats/players/einar.tres" id="8_71for"]
 [ext_resource type="PackedScene" uid="uid://bitedxhspi8i5" path="res://scenes/levels/dual_grid.tscn" id="9_kansl"]
 [ext_resource type="Texture2D" uid="uid://btrv86cgisq13" path="res://assets/sprites/world/level_1/structure_tileset.webp" id="10_quxgc"]
-[ext_resource type="Texture2D" uid="uid://dxv0ckuh1llwr" path="res://assets/sprites/screens/title_screen.png" id="11_abd64"]
+[ext_resource type="Texture2D" uid="uid://dtd6oh5kd37gl" path="res://assets/sprites/screens/wall_screen.png" id="12_3a6hr"]
+[ext_resource type="Shader" uid="uid://2caqpc7tk5ie" path="res://scripts/shaders/scroll.gdshader" id="12_080ej"]
 [ext_resource type="Texture2D" uid="uid://boqdnqcd5kshd" path="res://assets/sprites/characters/overworld/players/rachelle_movement_spritesheet.png" id="12_cudro"]
 [ext_resource type="Texture2D" uid="uid://dwgfyhp5dlhtf" path="res://assets/sprites/characters/overworld/players/magda_movement_spritesheet.png" id="13_8rgwe"]
 [ext_resource type="Texture2D" uid="uid://culhn7diejs2h" path="res://assets/sprites/characters/overworld/players/josephine_movement_spritesheet.png" id="14_bbvtg"]
@@ -71,16 +72,9 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/1 = SubResource("TileSetAtlasSource_vv42o")
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_e4dtk"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("11_abd64")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ciky3"]
+shader = ExtResource("12_080ej")
+shader_parameter/scroll_speed = 0.800000038
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jmy7a"]
 
@@ -473,9 +467,12 @@ position = Vector2(-16, -16)
 tile_map_data = PackedByteArray("AAAOAP//AQABAAEAAAAOAP7/AQABAAEAAAAOAP3/AQABAAEAAAAPAAMAAQABAAEAAAAPAAQAAQABAAEAAAAQAAAAAQABAAEAAAAQAAEAAQABAAEAAAAQAAIAAQABAAEAAAAFAAUAAQABAAEAAAANAAYAAQABAAEAAAAFAP//AQABAAEAAAAGAAAAAQABAAEAAAAHAAEAAQABAAEAAAAHAAIAAQABAAEAAAAGAAMAAQABAAEAAAAGAAQAAQABAAEAAAAFAAYAAQABAAEAAAAFAAcAAQABAAEAAAACAAgAAQABAAEAAAACAAkAAQABAAEAAAACAAoAAQABAAEAAAABAAsAAQABAAEAAAABAAwAAQABAAEAAAAHAA0AAQABAAEAAAAIAA4AAQABAAEAAAAFAAsAAQABAAEAAAAJAA8AAQABAAEAAAAJABAAAQABAAEAAAAJABEAAQABAAEAAAAJABIAAQABAAEAAAD9/w8AAQABAAEAAAD9/xAAAQABAAEAAAD9/xEAAQABAAEAAAARAAsAAQABAAEAAAARAAwAAQABAAEAAAARAA0AAQABAAEAAAARAA4AAQABAAEAAAARAA8AAQABAAEAAAARABAAAQABAAEAAAALAAkAAQABAAEAAAALAAoAAQABAAEAAAANAAcAAQABAAEAAAANAAgAAQABAAEAAAAPAAUAAQABAAEAAAD9/xMAAQABAAEAAAAOABEAAQABAAEAAAAOABIAAQABAAEAAAANABMAAQABAAEAAAAMABQAAQABAAEAAAA=")
 tile_set = SubResource("TileSet_e4dtk")
 
-[node name="Background" type="AnimatedSprite2D" parent="." unique_id=554157308]
+[node name="Background" type="Sprite2D" parent="." unique_id=69208836]
+unique_name_in_owner = true
+texture_repeat = 2
+material = SubResource("ShaderMaterial_ciky3")
 position = Vector2(160, 90)
-sprite_frames = SubResource("SpriteFrames_e4dtk")
+texture = ExtResource("12_3a6hr")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=610063573]
 layout_mode = 1
@@ -512,9 +509,9 @@ size_flags_vertical = 0
 
 [node name="Button1" type="Button" parent="Buttons" unique_id=2085539152]
 layout_mode = 1
-offset_left = 19.0
+offset_left = 43.0
 offset_top = 17.0
-offset_right = 51.0
+offset_right = 75.0
 offset_bottom = 49.0
 size_flags_horizontal = 3
 theme_override_styles/normal = SubResource("StyleBoxEmpty_jmy7a")
@@ -587,9 +584,9 @@ autoplay = "default"
 
 [node name="Button5" type="Button" parent="Buttons" unique_id=891475993]
 layout_mode = 0
-offset_left = 158.0
+offset_left = 178.0
 offset_top = 49.0
-offset_right = 190.0
+offset_right = 210.0
 offset_bottom = 81.0
 size_flags_horizontal = 3
 theme_override_styles/normal = SubResource("StyleBoxEmpty_jmy7a")
