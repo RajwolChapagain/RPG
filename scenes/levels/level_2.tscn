@@ -377,6 +377,7 @@ level_number = 2
 
 [node name="PartyOriginMarker" type="Marker2D" parent="." unique_id=1758762546]
 unique_name_in_owner = true
+position = Vector2(0, -896)
 
 [node name="World" type="Node2D" parent="." unique_id=311040849]
 
