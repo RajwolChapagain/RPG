@@ -66,6 +66,10 @@ func load_new_game(save_slot_id: int) -> void:
 	GameManager.catapace_pair_killed = false
 	%TitleMusicDelayTimer.stop()
 	MusicManager.fade_music_out(0.8)
+	state = states.MENU
+	state = states.TITLE
+	%Prompt.visible = false
+	await %AnimationPlayer.animation_finished
 	await play_shroud_animation()
 	var main = main_scene.instantiate()
 	get_tree().root.add_child(main)
@@ -141,9 +145,10 @@ func quick_switch_to_main(game_ended = false) -> void:
 		%PromptAnimationPlayer.play('blink')
 	
 func play_shroud_animation() -> void:
-	var tween = get_tree().create_tween()
-	tween.tween_property(%Shroud, 'modulate', Color(%Shroud.modulate.r, %Shroud.modulate.g, %Shroud.modulate.b, 1), 0.4).set_ease(Tween.EASE_OUT)
-	await tween.finished
+	%AnimatedSprite2D.play('exploding')
+	#var tween = get_tree().create_tween()
+	#tween.tween_property(%Shroud, 'modulate', Color(%Shroud.modulate.r, %Shroud.modulate.g, %Shroud.modulate.b, 1), 0.4).set_ease(Tween.EASE_OUT)
+	#await tween.finished
 	await get_tree().create_timer(2).timeout
 
 func _on_quit_button_button_down() -> void:

@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://cj1sajukjk52m"]
 
 [ext_resource type="Script" uid="uid://dhc0wh8yeig00" path="res://scripts/levels/level_3.gd" id="1_fkk1g"]
-[ext_resource type="Texture2D" uid="uid://dxv0ckuh1llwr" path="res://assets/sprites/screens/title_screen.png" id="2_apo5x"]
 [ext_resource type="Shader" uid="uid://cce28s7gcqq6v" path="res://scripts/shaders/sky.gdshader" id="2_ftfob"]
 [ext_resource type="Texture2D" uid="uid://bfil5580pbf61" path="res://assets/sprites/world/level_3/level_3_layout.png" id="2_pimnq"]
 [ext_resource type="Texture2D" uid="uid://dxci1cfqay45t" path="res://assets/sprites/world/level_2/ground_tileset_1_no_water.webp" id="3_0qepi"]
@@ -17,6 +16,7 @@
 [ext_resource type="Resource" uid="uid://wa263rtwxdc8" path="res://resources/stats/enemies/level_3/niall.tres" id="11_f6egh"]
 [ext_resource type="Texture2D" uid="uid://dp5klwccethmg" path="res://assets/sprites/world/level_3/sky.png" id="13_f6egh"]
 [ext_resource type="Script" uid="uid://c3wivunly8owt" path="res://scripts/levels/props/sky.gd" id="13_t4txi"]
+[ext_resource type="Texture2D" uid="uid://ciheknvwj76hy" path="res://assets/sprites/screens/title_screen_explosion_spritesheet.png" id="16_fhpes"]
 [ext_resource type="PackedScene" uid="uid://cglapshtkljpc" path="res://scenes/characters/npc.tscn" id="16_josfm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fkk1g"]
@@ -119,6 +119,10 @@ shader_parameter/outline_width = 1.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t4txi"]
 size = Vector2(113.137085, 113.137146)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_vmg1d"]
+atlas = ExtResource("16_fhpes")
+region = Rect2(0, 540, 320, 180)
+
 [node name="Level3" type="Node" unique_id=1502880646]
 script = ExtResource("1_fkk1g")
 opening_dialogue = "res://assets/dialogues/level_3/level_3_opening.csv"
@@ -205,14 +209,16 @@ shape = SubResource("RectangleShape2D_t4txi")
 
 [node name="PartyOriginMarker" type="Marker2D" parent="." unique_id=1030868222]
 unique_name_in_owner = true
-position = Vector2(-32, -96)
+position = Vector2(64, -1408)
 
 [node name="TitleShroud" type="Sprite2D" parent="." unique_id=309160241]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
+z_index = 4
+z_as_relative = false
 position = Vector2(64, -1504)
 scale = Vector2(1.44, 1.44)
-texture = ExtResource("2_apo5x")
+texture = SubResource("AtlasTexture_vmg1d")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1037867233]
 layer = 2

@@ -24,17 +24,12 @@ func _on_grave_grave_interacted() -> void:
 	%NiallEnemy.monitorable = true
 	var tween = get_tree().create_tween()
 	tween.tween_property(%NiallEnemy, "position", Vector2(%NiallEnemy.position.x, %NiallEnemy.position.y + 64), 0.1)
-	%Sky.visible = true
-	await get_tree().create_timer(1.0).timeout
-	activate_sky()
-	
-func activate_sky() -> void:
-	%Sky.active = true
-	%Sky.monitoring = true
 
-func _on_sky_sky_interacted() -> void:
+func _on_niall_enemy_enemy_defeated() -> void:
+	if GameManager.has_item_equipped('Accursed Relic'):
+		Steamworks.set_achievement('debuff()')
+		
 	MusicManager.turn_music_down_dramatically()
-	%Sky.active = false
 	GameManager.freeze_party()
 	GameManager.party.disable_camera_smoothing()
 	await get_tree().process_frame
@@ -48,7 +43,3 @@ func _on_sky_sky_interacted() -> void:
 	await DialogueManager.dialogue_finished
 	await get_tree().create_timer(4.0).timeout
 	level_completed.emit(level_number)
-
-func _on_niall_enemy_enemy_defeated() -> void:
-	if GameManager.has_item_equipped('Accursed Relic'):
-		Steamworks.set_achievement('debuff()')

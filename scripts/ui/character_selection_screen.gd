@@ -154,9 +154,9 @@ func place_rock() -> void:
 	%SharpRock.top_level = true
 
 func play_fade_out_animation() -> void:
-	%Shroud.global_position = %Camera2D.offset
+	%TransitionShroud.global_position = %Camera2D.offset
 	var tween = get_tree().create_tween()
-	tween.tween_property(%Shroud, 'modulate', Color(%Shroud.modulate.r, %Shroud.modulate.g, %Shroud.modulate.b, 1), 2).set_ease(Tween.EaseType.EASE_IN)
+	tween.tween_property(%TransitionShroud, 'modulate', Color(%TransitionShroud.modulate.r, %TransitionShroud.modulate.g, %TransitionShroud.modulate.b, 1), 2).set_ease(Tween.EaseType.EASE_IN)
 	await tween.finished
 	await get_tree().create_timer(3).timeout
 	%Camera2D.enabled = false

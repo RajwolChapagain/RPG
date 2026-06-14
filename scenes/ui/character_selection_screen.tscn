@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://bkbfad4cbiqgk" path="res://assets/sprites/characters/overworld/players/einar_movement_spritesheet.png" id="16_ub8ao"]
 [ext_resource type="PackedScene" uid="uid://23b01ifqxu4" path="res://scenes/ui/pause/stat_card.tscn" id="17_1hta0"]
 [ext_resource type="Texture2D" uid="uid://doti88i48dtjf" path="res://assets/sprites/screens/transition_shroud.png" id="18_jldub"]
+[ext_resource type="Texture2D" uid="uid://ciheknvwj76hy" path="res://assets/sprites/screens/title_screen_explosion_spritesheet.png" id="19_3a6hr"]
 [ext_resource type="Texture2D" uid="uid://dwnlrewymdmns" path="res://assets/sprites/world/props/pulp_rock_spritesheet.png" id="19_080ej"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gxr2e"]
@@ -257,6 +258,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_663hy"]
+atlas = ExtResource("19_3a6hr")
+region = Rect2(0, 540, 320, 180)
+
 [sub_resource type="Animation" id="Animation_76onp"]
 length = 0.001
 tracks/0/type = "value"
@@ -390,7 +395,7 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 2.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_3wur6")
 }, {
 "duration": 1.0,
@@ -615,6 +620,13 @@ stats = null
 
 [node name="Shroud" type="Sprite2D" parent="." unique_id=1321684341]
 unique_name_in_owner = true
+position = Vector2(160, 90)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("AtlasTexture_663hy")
+
+[node name="TransitionShroud" type="Sprite2D" parent="." unique_id=728895630]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
 position = Vector2(160, 90)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("18_jldub")
