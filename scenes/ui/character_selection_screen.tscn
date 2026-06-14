@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://bkbfad4cbiqgk" path="res://assets/sprites/characters/overworld/players/einar_movement_spritesheet.png" id="16_ub8ao"]
 [ext_resource type="PackedScene" uid="uid://23b01ifqxu4" path="res://scenes/ui/pause/stat_card.tscn" id="17_1hta0"]
 [ext_resource type="Texture2D" uid="uid://doti88i48dtjf" path="res://assets/sprites/screens/transition_shroud.png" id="18_jldub"]
-[ext_resource type="Texture2D" uid="uid://d4imwuis4yrhi" path="res://assets/sprites/world/props/sharp_rock_spritesheet.png" id="19_ggg12"]
+[ext_resource type="Texture2D" uid="uid://dwnlrewymdmns" path="res://assets/sprites/world/props/pulp_rock_spritesheet.png" id="19_080ej"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gxr2e"]
 resource_name = "colliders"
@@ -369,31 +369,45 @@ _data = {
 &"label_slide_out": SubResource("Animation_wonia")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gxr2e"]
-atlas = ExtResource("19_ggg12")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vv42o"]
-atlas = ExtResource("19_ggg12")
+[sub_resource type="AtlasTexture" id="AtlasTexture_3a6hr"]
+atlas = ExtResource("19_080ej")
 region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3wur6"]
+atlas = ExtResource("19_080ej")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_080ej"]
+atlas = ExtResource("19_080ej")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ciky3"]
+atlas = ExtResource("19_080ej")
+region = Rect2(32, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7ofbe"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gxr2e")
+"texture": SubResource("AtlasTexture_3a6hr")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }, {
 "frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_3wur6")
+}, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vv42o")
+"texture": SubResource("AtlasTexture_080ej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ciky3")
 }],
 "loop": false,
 "name": &"flow_blood",
-"speed": 5.0
+"speed": 2.0
 }]
 
 [sub_resource type="Curve" id="Curve_3wur6"]
@@ -617,19 +631,19 @@ autoplay = &"label_slide_in"
 unique_name_in_owner = true
 
 [node name="Marker2D" type="Marker2D" parent="FinalPositionMarkers" unique_id=1722312246]
-position = Vector2(67, 384)
+position = Vector2(64, 384)
 
 [node name="Marker2D2" type="Marker2D" parent="FinalPositionMarkers" unique_id=1479269544]
-position = Vector2(110, 359)
+position = Vector2(96, 352)
 
 [node name="Marker2D3" type="Marker2D" parent="FinalPositionMarkers" unique_id=243614280]
-position = Vector2(131, 404)
+position = Vector2(128, 384)
 
 [node name="Marker2D4" type="Marker2D" parent="FinalPositionMarkers" unique_id=414728942]
-position = Vector2(158, 359)
+position = Vector2(160, 352)
 
 [node name="Marker2D5" type="Marker2D" parent="FinalPositionMarkers" unique_id=1430678179]
-position = Vector2(190, 384)
+position = Vector2(192, 384)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1577772239]
 unique_name_in_owner = true
@@ -643,6 +657,7 @@ position = Vector2(35, 344)
 sprite_frames = SubResource("SpriteFrames_7ofbe")
 animation = &"flow_blood"
 autoplay = "default"
+frame = 2
 frame_progress = 1.0
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="SharpRock" unique_id=785005359]
