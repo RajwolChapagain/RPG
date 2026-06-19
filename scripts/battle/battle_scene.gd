@@ -127,11 +127,14 @@ func spawn_players() -> void:
 																 # in player battler for sliding but get_tree() returns
 																 # null because the scene tree hasn't been created yet
 
-func spawn_enemies() -> void:
+func spawn_enemies(custom_spacing: Array[float] = []) -> void:
 	for i in range(len(enemy_stats)):
 		var enemy = battler_scene.instantiate()
 		enemy.stats = enemy_stats[i]
-		enemy.position = Vector2($EnemyStart.position.x + ( -(len(enemy_stats) - 1) * int(character_spacing / 2.0)) + i * character_spacing, $EnemyStart.position.y)
+		if custom_spacing.is_empty():
+			enemy.position = Vector2($EnemyStart.position.x + ( -(len(enemy_stats) - 1) * int(character_spacing / 2.0)) + i * character_spacing, $EnemyStart.position.y)
+		else:
+			enemy.position = Vector2($EnemyStart.position.x + custom_spacing[i], $EnemyStart.position.y)
 		enemy.is_player = false
 		enemies.append(enemy)
 		call_deferred("add_child", enemy)
@@ -566,8 +569,10 @@ func on_nahas_death() -> void:
 	enemies[0].queue_free()
 	enemies.clear()
 	enemy_stats = nahas_parts
-	character_spacing = 50
-	spawn_enemies()
+	spawn_enemies([-55, -30, 10, 39.5])
+	enemies[0].z_index = 3
+	enemies[1].z_index = 2 
+	enemies[2].z_index = 1
 	alive_enemy_count = len(enemies)
 	enemy_hook = ''
 	update_player_hps() # So that if_dead_go_to check functions correctly

@@ -11,5 +11,5 @@ pointer_y_offset = 20
 [node name="Pointer" type="Sprite2D" parent="." unique_id=1604865239]
 unique_name_in_owner = true
 visible = false
-z_index = 2
+z_index = 3
 texture = ExtResource("2_l7lun")
