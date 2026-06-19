@@ -256,10 +256,7 @@ main_scene = ExtResource("2_1g8jr")
 unique_name_in_owner = true
 position = Vector2(160, 90)
 sprite_frames = SubResource("SpriteFrames_uhagc")
-animation = &"exploding_reversed"
 autoplay = "default"
-frame = 4
-frame_progress = 1.0
 
 [node name="UI" type="MarginContainer" parent="." unique_id=1931253480]
 unique_name_in_owner = true

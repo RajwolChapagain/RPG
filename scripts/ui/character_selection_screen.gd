@@ -7,6 +7,7 @@ signal characters_selected(names)
 @export var character_stats: Array[BaseStats]
 
 func _ready() -> void:
+	%Background.material.set_shader_parameter('scroll_speed', 0.8)
 	await play_shroud_animation()
 	%Buttons.get_child(0).grab_focus()
 
@@ -63,15 +64,7 @@ func finalize_selection() -> void:
 	await play_character_orient_animation()
 	place_rock()
 	%AnimationPlayer.play("camera_follow")
-	#var scroll_tween = get_tree().create_tween()
-	#scroll_tween.tween_method(
-	#	func(value): %Background.material.set_shader_parameter('scroll_speed', value),
-	#	1.0,
-	#	0.0,
-	#	3.0
-	#)
 	%Background.material.set_shader_parameter('scroll_speed', 0.0)
-	
 	await play_landing_animation()
 	%SharpRock.play("flow_blood")
 	play_landed_animation()

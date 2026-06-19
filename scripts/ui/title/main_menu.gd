@@ -1,6 +1,7 @@
 extends Node
 
 var menu_opened_this_press: bool = false
+var ignore_input: bool = false
 
 @export var main_scene: PackedScene
 const SETTINGS_DIR = 'user://settings/'
@@ -12,6 +13,7 @@ var state: states = states.TITLE:
 			%AnimationPlayer.play('slide_out')
 			for button in %ButtonsContainer.get_children():
 				button.release_focus()
+			%ContentPanel.modulate = Color(%ContentPanel.modulate.r, %ContentPanel.modulate.g, %ContentPanel.modulate.b, 0)
 		elif value == states.MENU:
 			if state == states.TITLE:
 				%AnimationPlayer.play('slide_in')
@@ -48,6 +50,9 @@ func _on_title_music_delay_timer_timeout() -> void:
 func _input(event: InputEvent) -> void:
 	if event is not InputEventKey and event is not InputEventJoypadButton:
 		return
+	
+	if ignore_input:
+		return
 		
 	if state == states.TITLE:
 		state = states.MENU
@@ -64,10 +69,12 @@ func connect_save_slot_signals() -> void:
 		save_slot.new_game_button_pressed.connect(load_new_game)
 		
 func load_new_game(save_slot_id: int) -> void:
+	if ignore_input:
+		return
+	ignore_input = true
 	GameManager.catapace_pair_killed = false
 	%TitleMusicDelayTimer.stop()
 	MusicManager.fade_music_out(0.8)
-	state = states.MENU
 	state = states.TITLE
 	%Prompt.visible = false
 	await %AnimationPlayer.animation_finished
