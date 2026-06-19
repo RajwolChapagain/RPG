@@ -41,6 +41,26 @@ region = Rect2(0, 360, 320, 180)
 atlas = ExtResource("4_djlfb")
 region = Rect2(0, 540, 320, 180)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ihyc"]
+atlas = ExtResource("4_djlfb")
+region = Rect2(0, 540, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pumvm"]
+atlas = ExtResource("4_djlfb")
+region = Rect2(0, 360, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3donr"]
+atlas = ExtResource("4_djlfb")
+region = Rect2(0, 180, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gtnyx"]
+atlas = ExtResource("4_djlfb")
+region = Rect2(0, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7etrq"]
+atlas = ExtResource("3_xbiv7")
+region = Rect2(0, 0, 320, 180)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_uhagc"]
 animations = [{
 "frames": [{
@@ -76,6 +96,26 @@ animations = [{
 "loop": false,
 "name": &"exploding",
 "speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ihyc")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_pumvm")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_3donr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gtnyx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7etrq")
+}],
+"loop": false,
+"name": &"exploding_reversed",
+"speed": 5.0
 }]
 
 [sub_resource type="Animation" id="Animation_uhagc"]
@@ -216,7 +256,10 @@ main_scene = ExtResource("2_1g8jr")
 unique_name_in_owner = true
 position = Vector2(160, 90)
 sprite_frames = SubResource("SpriteFrames_uhagc")
+animation = &"exploding_reversed"
 autoplay = "default"
+frame = 4
+frame_progress = 1.0
 
 [node name="UI" type="MarginContainer" parent="." unique_id=1931253480]
 unique_name_in_owner = true
@@ -530,6 +573,7 @@ wait_time = 3.0
 one_shot = true
 autostart = true
 
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="toggled" from="UI/HBoxContainer/ButtonsPanel/ButtonsContainer/PlayButton" to="." method="_on_play_button_toggled"]
 [connection signal="toggled" from="UI/HBoxContainer/ButtonsPanel/ButtonsContainer/SettingsButton" to="." method="_on_settings_button_toggled"]
 [connection signal="toggled" from="UI/HBoxContainer/ButtonsPanel/ButtonsContainer/CreditsButton" to="." method="_on_credits_button_toggled"]

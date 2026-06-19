@@ -1,5 +1,6 @@
 extends Node
 
+@export_file_path('*.csv') var ending_dialogue
 @export var character_spacing = 30
 @export var player_character_stats : Array[BaseStats]= []
 @export var enemy_stats : Array[BaseStats]= []
@@ -24,9 +25,9 @@ var enemy_hook: String = ''
 @export var nahas_parts: Array[BaseStats]
 @export_file('*.csv') var nahas_split_dialogue_file: String
 @export var eel_parts: Array[BaseStats]
-@export var niall_injured: Array[BaseStats]
-@export var niall_parts: Array[BaseStats]
-@export var niall_hurt_sprite: Texture2D
+@export var niall_phase_2: Array[BaseStats]
+@export var niall_phase_3: Array[BaseStats]
+@export var niall_phase_4: Array[BaseStats]
 
 signal battle_ended
 
@@ -584,24 +585,54 @@ func on_eel_death() -> void:
 func on_niall_death() -> void:
 	enemies[0].queue_free()
 	enemies.clear()
-	enemy_stats = niall_injured
+	enemy_stats = niall_phase_2
 	character_spacing = 0
 	spawn_enemies()
 	alive_enemy_count = len(enemies)
-	enemy_hook = 'on_niall_injured_death'
+	enemy_hook = 'on_niall_phase_1_death'
 	
-func on_niall_injured_death() -> void:
-	var niall_pos = enemies[0].global_position
+func on_niall_phase_1_death() -> void:
 	enemies[0].queue_free()
-	var sprite = Sprite2D.new()
-	sprite.texture = niall_hurt_sprite
-	add_child(sprite)
-	sprite.global_position = niall_pos
 	enemies.clear()
-	enemy_stats = niall_parts
-	character_spacing = 36
+	enemy_stats = niall_phase_2
+	character_spacing = 0
 	spawn_enemies()
 	alive_enemy_count = len(enemies)
-	enemy_hook = ''
+	enemy_hook = 'on_niall_phase_2_death'
+
+func on_niall_phase_2_death() -> void:
+	enemies[0].queue_free()
+	enemies.clear()
+	enemy_stats = niall_phase_3
+	character_spacing = 0
+	spawn_enemies()
+	alive_enemy_count = len(enemies)
+	enemy_hook = 'on_niall_phase_3_death'
+
+func on_niall_phase_3_death() -> void:
+	enemies[0].queue_free()
+	enemies.clear()
+	enemy_stats = niall_phase_4
+	character_spacing = 65
+	spawn_enemies()
+	enemies[0].z_index += 1 # Hack to get left buddy to appear over Niall's interface
+	alive_enemy_count = len(enemies)
+	enemy_hook = 'on_niall_phase_4_death'
+
+func on_niall_phase_4_death() -> void:
+	battle_won = true
+	battle_ongoing = false
+	disable_attack_button()
+	disable_abilities_button()
+	MusicManager.turn_music_down_dramatically()
+	#%TitleShroud.global_position = get_viewport().get_camera_2d().get_screen_center_position()
+	var tween = get_tree().create_tween()
+	tween.set_parallel(true)
+	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	tween.tween_property(%TitleShroud, "modulate", Color(%TitleShroud.modulate, 1.0), 3.0)
+	DialogueManager.load_dialogue(ending_dialogue)
+	await DialogueManager.dialogue_finished
+	await get_tree().create_timer(4.0).timeout
+	_on_result_label_animation_finished('victory')
 	
 #endregion

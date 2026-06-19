@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="BaseStats" format=3 uid="uid://4tff0fpw1nbi"]
+
+[ext_resource type="PackedScene" uid="uid://dy0fajkgewbmq" path="res://scenes/abilities/suppress.tscn" id="1_wkbqn"]
+[ext_resource type="Texture2D" uid="uid://csf13rv3hmnx0" path="res://assets/sprites/characters/battle/enemies/level_3/niall_phase_2_ability.png" id="2_sa3of"]
+[ext_resource type="Texture2D" uid="uid://c0focgbadt2cr" path="res://assets/sprites/characters/battle/enemies/level_3/niall_phase_2.png" id="3_h3wws"]
+[ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="4_bf5qp"]
+
+[resource]
+script = ExtResource("4_bf5qp")
+name = "Niall"
+battle_sprite = ExtResource("3_h3wws")
+ability_invoke_sprite = ExtResource("2_sa3of")
+attack_damage = 25
+max_hp = 100
+defence = 5
+crit = 10
+dodge = 30
+accuracy = 10
+abilities = Array[PackedScene]([ExtResource("1_wkbqn")])
+metadata/_custom_type_script = "uid://dbtdwrocpsv30"

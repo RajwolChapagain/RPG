@@ -1,16 +1,17 @@
 [gd_resource type="Resource" script_class="BaseStats" format=3 uid="uid://tfpg51mq7ll1"]
 
-[ext_resource type="Texture2D" uid="uid://t8hj65ob1w3c" path="res://assets/sprites/characters/battle/enemies/level_3/niall_left_tumor.png" id="1_7fp27"]
 [ext_resource type="Script" uid="uid://dbtdwrocpsv30" path="res://scripts/resource_scripts/base_stats.gd" id="1_62ywo"]
 [ext_resource type="PackedScene" uid="uid://dy0fajkgewbmq" path="res://scenes/abilities/suppress.tscn" id="1_j5674"]
+[ext_resource type="Texture2D" uid="uid://cj2vura5y0rku" path="res://assets/sprites/characters/battle/enemies/level_3/niall_left_buddy_ability.png" id="2_v5ew7"]
+[ext_resource type="Texture2D" uid="uid://de1h8xobo843" path="res://assets/sprites/characters/battle/enemies/level_3/niall_left_buddy.png" id="3_qutcp"]
 
 [resource]
 script = ExtResource("1_62ywo")
-name = "Niall's Left Tumor"
-battle_sprite = ExtResource("1_7fp27")
+name = "Niall's Left Buddy"
+battle_sprite = ExtResource("3_qutcp")
+ability_invoke_sprite = ExtResource("2_v5ew7")
 attack_damage = 25
 max_hp = 100
-hp = 100
 defence = 20
 crit = 10
 dodge = 10

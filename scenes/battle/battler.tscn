@@ -9,7 +9,6 @@
 [ext_resource type="Theme" uid="uid://5dapp0d0f0x5" path="res://resources/ui.tres" id="4_at1d5"]
 [ext_resource type="Texture2D" uid="uid://ff3s0g4ogv04" path="res://assets/sprites/ui/pause_menu/ability_sprites/heavy_slash.png" id="4_o4ark"]
 [ext_resource type="Texture2D" uid="uid://be552pwkiglm1" path="res://assets/sprites/characters/battle/enemies/level_1/nahas.png" id="4_oylcg"]
-[ext_resource type="Texture2D" uid="uid://bpyx34vcos6o3" path="res://assets/sprites/characters/battle/enemies/level_2/eel_1.png" id="5_1e5l2"]
 [ext_resource type="Texture2D" uid="uid://bo207e37yfddm" path="res://assets/sprites/ui/pause_menu/ability_sprites/heal.png" id="5_e6itc"]
 [ext_resource type="Texture2D" uid="uid://dangfcswl6n35" path="res://assets/sprites/effects/hit_particle.png" id="5_kl8h0"]
 [ext_resource type="Texture2D" uid="uid://cqbc0ofs5hmyg" path="res://assets/sprites/effects/pulp_spritesheet_level_1.webp" id="6_bqtme"]
@@ -21,7 +20,8 @@
 [ext_resource type="Texture2D" uid="uid://cii0ww2jmaese" path="res://assets/sprites/ui/pause_menu/ability_sprites/poison.png" id="8_qwt3p"]
 [ext_resource type="Texture2D" uid="uid://d3kmvvoeo56pw" path="res://assets/sprites/ui/pause_menu/ability_sprites/stun.png" id="9_8cx3t"]
 [ext_resource type="Texture2D" uid="uid://blkyufookbdvc" path="res://assets/sprites/ui/pause_menu/ability_sprites/clairvoyance.png" id="10_tqibv"]
-[ext_resource type="Texture2D" uid="uid://dvq51rfjcqst0" path="res://assets/sprites/characters/battle/enemies/level_3/Niall.png" id="14_o4ark"]
+[ext_resource type="Texture2D" uid="uid://pxbf0riedib8" path="res://assets/sprites/characters/battle/enemies/level_2/eel_3.png" id="13_o4ark"]
+[ext_resource type="Texture2D" uid="uid://d176atdefbr5e" path="res://assets/sprites/characters/battle/enemies/level_3/niall_phase_1_ability.png" id="14_e6itc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oylcg"]
 atlas = ExtResource("3_ybafd")
@@ -644,8 +644,8 @@ lachlan_phantom = SubResource("AtlasTexture_p7hkm")
 magda_phantom = SubResource("AtlasTexture_cff06")
 rachelle_phantom = SubResource("AtlasTexture_1e5l2")
 nahas_phantom = ExtResource("4_oylcg")
-cephalo_phantom = ExtResource("5_1e5l2")
-niall_phantom = ExtResource("14_o4ark")
+cephalo_phantom = ExtResource("13_o4ark")
+niall_phantom = ExtResource("14_e6itc")
 
 [node name="Pointer" type="Sprite2D" parent="." unique_id=374239538]
 visible = false

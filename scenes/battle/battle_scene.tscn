@@ -25,11 +25,13 @@
 [ext_resource type="Resource" uid="uid://ye7vkerqhwn4" path="res://resources/stats/enemies/level_2/eel_right_half.tres" id="15_k0vga"]
 [ext_resource type="Texture2D" uid="uid://c0k11u6dawxtk" path="res://assets/sprites/screens/battle_screen_1.webp" id="15_yt3ua"]
 [ext_resource type="Texture2D" uid="uid://k5kjlbmagipr" path="res://assets/sprites/world/level_2/ground_tileset_1_water.webp" id="16_xxdit"]
-[ext_resource type="Resource" uid="uid://tfpg51mq7ll1" path="res://resources/stats/enemies/level_3/niall_left_tumor.tres" id="17_ceb08"]
-[ext_resource type="Resource" uid="uid://4tff0fpw1nbi" path="res://resources/stats/enemies/level_3/niall_injured.tres" id="17_d7qte"]
-[ext_resource type="Resource" uid="uid://ulemnbyfv8m0" path="res://resources/stats/enemies/level_3/niall_right_tumor.tres" id="18_d7qte"]
-[ext_resource type="Texture2D" uid="uid://c5frkjpqcuhb8" path="res://assets/sprites/characters/battle/enemies/level_3/niall_hurt.png" id="20_lxts7"]
+[ext_resource type="Resource" uid="uid://4tff0fpw1nbi" path="res://resources/stats/enemies/level_3/niall_phase_2.tres" id="17_d7qte"]
+[ext_resource type="Resource" uid="uid://dsvh3t0eve3jo" path="res://resources/stats/enemies/level_3/niall_phase_3.tres" id="18_yi7ix"]
+[ext_resource type="Resource" uid="uid://tfpg51mq7ll1" path="res://resources/stats/enemies/level_3/niall_left_buddy.tres" id="19_4xti3"]
+[ext_resource type="Resource" uid="uid://blf0iyhdsg1sk" path="res://resources/stats/enemies/level_3/niall_phase_4.tres" id="20_yekx8"]
+[ext_resource type="Resource" uid="uid://ulemnbyfv8m0" path="res://resources/stats/enemies/level_3/niall_right_buddy.tres" id="21_hxyyw"]
 [ext_resource type="Shader" uid="uid://cce28s7gcqq6v" path="res://scripts/shaders/sky.gdshader" id="25_nqid7"]
+[ext_resource type="Texture2D" uid="uid://ciheknvwj76hy" path="res://assets/sprites/screens/title_screen_explosion_spritesheet.png" id="32_4xti3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k0vga"]
 texture = ExtResource("16_xxdit")
@@ -198,8 +200,13 @@ shader_parameter/sky_color_a = Vector4(0.4, 0.6, 1, 1)
 shader_parameter/sky_color_b = Vector4(0.85, 0.9, 1, 1)
 shader_parameter/white_threshold = 0.95
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_yekx8"]
+atlas = ExtResource("32_4xti3")
+region = Rect2(0, 540, 320, 180)
+
 [node name="BattleScene" type="Node" unique_id=444611762]
 script = ExtResource("1_0yksl")
+ending_dialogue = "res://assets/dialogues/level_3/level_3_ending.csv"
 character_spacing = 60
 player_character_stats = Array[ExtResource("2_xwxfl")]([ExtResource("6_yt3ua"), ExtResource("3_tc5fe"), ExtResource("5_xxdit"), ExtResource("6_vwcfl")])
 enemy_stats = Array[ExtResource("2_xwxfl")]([ExtResource("6_xxdit"), ExtResource("7_k0vga"), ExtResource("6_xxdit")])
@@ -208,9 +215,9 @@ MAIN_MENU_SCENE = ExtResource("8_tttxe")
 nahas_parts = Array[ExtResource("2_xwxfl")]([ExtResource("11_7mjbx"), ExtResource("12_jrwob"), ExtResource("13_porms"), ExtResource("14_0hs4o")])
 nahas_split_dialogue_file = "res://assets/dialogues/level_1/nahas_form_change.csv"
 eel_parts = Array[ExtResource("2_xwxfl")]([ExtResource("14_xxdit"), ExtResource("15_k0vga")])
-niall_injured = Array[ExtResource("2_xwxfl")]([ExtResource("17_d7qte")])
-niall_parts = Array[ExtResource("2_xwxfl")]([ExtResource("17_ceb08"), ExtResource("18_d7qte")])
-niall_hurt_sprite = ExtResource("20_lxts7")
+niall_phase_2 = Array[ExtResource("2_xwxfl")]([ExtResource("17_d7qte")])
+niall_phase_3 = Array[ExtResource("2_xwxfl")]([ExtResource("18_yi7ix")])
+niall_phase_4 = Array[ExtResource("2_xwxfl")]([ExtResource("19_4xti3"), ExtResource("20_yekx8"), ExtResource("21_hxyyw")])
 
 [node name="DualGridLevel1" parent="." unique_id=2087056435 instance=ExtResource("1_6lmhm")]
 
@@ -522,6 +529,13 @@ unique_name_in_owner = true
 material = SubResource("ShaderMaterial_73faq")
 position = Vector2(160, 66)
 texture = ExtResource("15_yt3ua")
+
+[node name="TitleShroud" type="Sprite2D" parent="." unique_id=653322459]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+z_index = 5
+texture = SubResource("AtlasTexture_yekx8")
+offset = Vector2(160, 90)
 
 [connection signal="button_down" from="UI/Deck/MarginContainer/HBoxContainer/ButtonsContainer/AttackButton" to="." method="_on_attack_button_button_down"]
 [connection signal="toggled" from="UI/Deck/MarginContainer/HBoxContainer/ButtonsContainer/AbilitiesButton" to="." method="_on_abilities_button_toggled"]

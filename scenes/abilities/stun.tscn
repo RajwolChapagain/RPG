@@ -8,5 +8,5 @@ script = ExtResource("1_ud5n4")
 stun_effect = ExtResource("2_bmyh4")
 ability_name = "Stun"
 description = "Shock your target with a bioelectric discharge, rendering it incapable of any action."
-cost = 5
+cost = 4
 owner_character = "Cephalo"

@@ -29,17 +29,9 @@ func _on_niall_enemy_enemy_defeated() -> void:
 	if GameManager.has_item_equipped('Accursed Relic'):
 		Steamworks.set_achievement('debuff()')
 		
-	MusicManager.turn_music_down_dramatically()
+	%TitleShroud.global_position = get_viewport().get_camera_2d().get_screen_center_position()
+	%TitleShroud.modulate = Color(%TitleShroud.modulate, 1.0)
 	GameManager.freeze_party()
 	GameManager.party.disable_camera_smoothing()
-	await get_tree().process_frame
-	%TitleShroud.global_position = get_viewport().get_camera_2d().get_screen_center_position()
-	var tween = get_tree().create_tween()
-	tween.set_parallel(true)
-	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
-	tween.tween_property(%TitleShroud, "modulate", Color(%TitleShroud.modulate, 1.0), 5.0)
-	tween.tween_property(GameManager.party, "modulate", Color(Color.WHITE, 0.0), 5.0)
-	DialogueManager.load_dialogue(ending_dialogue)
-	await DialogueManager.dialogue_finished
-	await get_tree().create_timer(4.0).timeout
+	#tween.tween_property(GameManager.party, "modulate", Color(Color.WHITE, 0.0), 5.0)
 	level_completed.emit(level_number)

@@ -65,20 +65,21 @@ func freeze_enemy() -> void:
 func on_battle_ended(player_character_stats: Array[BaseStats], battle_won: bool) -> void:
 	is_battle_ongoing = false
 	active_battle_scene.queue_free()
+
 	if battle_won:
 		set_player_hps_post_battle(player_character_stats)
 		remove_dead_players()
 		battling_party.regroup_party()
-		MusicManager.play_audio_stream(pre_battle_music_stream)
-		MusicManager.seek_stream(pre_battle_music_timestamp)
 		StatTracker.set_enemy_killed(battling_enemy.enemy_index)
 		battling_enemy.turn_to_pulp()
 		battling_party.enable_party_camera()
-		await trigger_death_dialogues(player_character_stats)
-		drop_dead_player_essences(player_character_stats)
+		if GameManager.current_level != 3:
+			MusicManager.play_audio_stream(pre_battle_music_stream)
+			MusicManager.seek_stream(pre_battle_music_timestamp)
+			await trigger_death_dialogues(player_character_stats)
+			drop_dead_player_essences(player_character_stats)
 		remove_defeated_enemy()
 		thaw_party()
-		battling_party.enable_party_camera()
 	else:
 		get_tree().call_group('main', 'queue_free')
 		get_tree().change_scene_to_packed(MAIN_MENU_SCENE)

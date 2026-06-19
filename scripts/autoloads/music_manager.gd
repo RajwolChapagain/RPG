@@ -15,6 +15,7 @@ func play_audio_stream(stream: AudioStreamWAV, loop_track: bool = true) -> void:
 		if loudness_tween != null and loudness_tween.is_running():
 			loudness_tween.stop()
 			%AudioStreamPlayer.volume_db = 0.0
+			%AudioStreamPlayer.pitch_scale = 1.0
 		%AudioStreamPlayer.stream = stream
 		%AudioStreamPlayer.play()
 		if loop_track:
@@ -43,12 +44,11 @@ func get_current_music_title() -> AudioStreamWAV:
 func get_current_music_timestamp() -> float:
 	return %AudioStreamPlayer.get_playback_position()
 
-func turn_music_down_dramatically(duration: float = 5.0) -> void:
+func turn_music_down_dramatically(duration: float = 3.0) -> void:
 	if loudness_tween != null and loudness_tween.is_running():
 		loudness_tween.stop()
 
 	loudness_tween = get_tree().create_tween()
-	loudness_tween.set_ease(Tween.EASE_IN)
 	loudness_tween.set_trans(Tween.TRANS_EXPO)
 	loudness_tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 

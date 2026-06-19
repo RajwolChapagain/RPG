@@ -43,6 +43,7 @@ func _ready() -> void:
 	
 func _on_title_music_delay_timer_timeout() -> void:
 	MusicManager.play_music('title')
+	MusicManager.seek_stream(0.0)
 
 func _input(event: InputEvent) -> void:
 	if event is not InputEventKey and event is not InputEventJoypadButton:
@@ -138,6 +139,7 @@ func quick_switch_to_main(game_ended = false) -> void:
 		%Prompt.visible = false
 		state = states.MENU
 	else:
+		%AnimatedSprite2D.play('exploding_reversed')
 		%Prompt.modulate = Color(%Prompt.modulate, 0.0)
 		%Prompt.visible = true
 		%PromptAnimationPlayer.play('fade_in')
@@ -146,9 +148,6 @@ func quick_switch_to_main(game_ended = false) -> void:
 	
 func play_shroud_animation() -> void:
 	%AnimatedSprite2D.play('exploding')
-	#var tween = get_tree().create_tween()
-	#tween.tween_property(%Shroud, 'modulate', Color(%Shroud.modulate.r, %Shroud.modulate.g, %Shroud.modulate.b, 1), 0.4).set_ease(Tween.EASE_OUT)
-	#await tween.finished
 	await get_tree().create_timer(2).timeout
 
 func _on_quit_button_button_down() -> void:
@@ -188,3 +187,7 @@ func load_settings() -> void:
 	%MusicVolumeSlider.set_value_no_signal(settings.music_level)
 	get_window().mode = Window.MODE_FULLSCREEN if settings.fullscreen else Window.MODE_MAXIMIZED
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(settings.music_level))
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if %AnimatedSprite2D.animation == 'exploding_reversed':
+		%AnimatedSprite2D.play('default')
