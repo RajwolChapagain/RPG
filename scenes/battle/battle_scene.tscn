@@ -214,6 +214,7 @@ ability_button = ExtResource("3_svpld")
 MAIN_MENU_SCENE = ExtResource("8_tttxe")
 nahas_parts = Array[ExtResource("2_xwxfl")]([ExtResource("11_7mjbx"), ExtResource("12_jrwob"), ExtResource("13_porms"), ExtResource("14_0hs4o")])
 nahas_split_dialogue_file = "res://assets/dialogues/level_1/nahas_form_change.csv"
+cephalo_split_dialogue_file = "res://assets/dialogues/level_2/cephalo_form_change.csv"
 eel_parts = Array[ExtResource("2_xwxfl")]([ExtResource("14_xxdit"), ExtResource("15_k0vga")])
 niall_phase_2 = Array[ExtResource("2_xwxfl")]([ExtResource("17_d7qte")])
 niall_phase_3 = Array[ExtResource("2_xwxfl")]([ExtResource("18_yi7ix")])

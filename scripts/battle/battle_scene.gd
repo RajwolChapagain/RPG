@@ -24,6 +24,7 @@ var enemy_hook: String = ''
 @export_category('Hook variables')
 @export var nahas_parts: Array[BaseStats]
 @export_file('*.csv') var nahas_split_dialogue_file: String
+@export_file('*.csv') var cephalo_split_dialogue_file: String
 @export var eel_parts: Array[BaseStats]
 @export var niall_phase_2: Array[BaseStats]
 @export var niall_phase_3: Array[BaseStats]
@@ -586,6 +587,8 @@ func on_eel_death() -> void:
 	spawn_enemies()
 	alive_enemy_count = len(enemies)
 	enemy_hook = ''
+	update_player_hps() # So that if_dead_go_to check functions correctly
+	DialogueManager.load_dialogue(cephalo_split_dialogue_file)
 	
 func on_niall_death() -> void:
 	enemies[0].queue_free()
