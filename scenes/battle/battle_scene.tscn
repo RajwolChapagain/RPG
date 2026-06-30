@@ -215,6 +215,9 @@ MAIN_MENU_SCENE = ExtResource("8_tttxe")
 nahas_parts = Array[ExtResource("2_xwxfl")]([ExtResource("11_7mjbx"), ExtResource("12_jrwob"), ExtResource("13_porms"), ExtResource("14_0hs4o")])
 nahas_split_dialogue_file = "res://assets/dialogues/level_1/nahas_form_change.csv"
 cephalo_split_dialogue_file = "res://assets/dialogues/level_2/cephalo_form_change.csv"
+niall_form_change_dialogue_file_1 = "res://assets/dialogues/level_3/niall_form_change_1.csv"
+niall_form_change_dialogue_file_2 = "res://assets/dialogues/level_3/niall_form_change_2.csv"
+niall_form_change_dialogue_file_3 = "res://assets/dialogues/level_3/niall_form_change_3.csv"
 eel_parts = Array[ExtResource("2_xwxfl")]([ExtResource("14_xxdit"), ExtResource("15_k0vga")])
 niall_phase_2 = Array[ExtResource("2_xwxfl")]([ExtResource("17_d7qte")])
 niall_phase_3 = Array[ExtResource("2_xwxfl")]([ExtResource("18_yi7ix")])
@@ -243,6 +246,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAA
 position = Vector2(160, 116)
 
 [node name="EnemyStart" type="Marker2D" parent="." unique_id=2039436829]
+unique_name_in_owner = true
 position = Vector2(160, 52)
 
 [node name="TargetSelect" parent="." unique_id=11160794 instance=ExtResource("10_ceooa")]

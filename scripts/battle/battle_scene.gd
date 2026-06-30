@@ -25,6 +25,9 @@ var enemy_hook: String = ''
 @export var nahas_parts: Array[BaseStats]
 @export_file('*.csv') var nahas_split_dialogue_file: String
 @export_file('*.csv') var cephalo_split_dialogue_file: String
+@export_file('*.csv') var niall_form_change_dialogue_file_1: String
+@export_file('*.csv') var niall_form_change_dialogue_file_2: String
+@export_file('*.csv') var niall_form_change_dialogue_file_3: String
 @export var eel_parts: Array[BaseStats]
 @export var niall_phase_2: Array[BaseStats]
 @export var niall_phase_3: Array[BaseStats]
@@ -595,18 +598,12 @@ func on_niall_death() -> void:
 	enemies.clear()
 	enemy_stats = niall_phase_2
 	character_spacing = 0
-	spawn_enemies()
-	alive_enemy_count = len(enemies)
-	enemy_hook = 'on_niall_phase_1_death'
-	
-func on_niall_phase_1_death() -> void:
-	enemies[0].queue_free()
-	enemies.clear()
-	enemy_stats = niall_phase_2
-	character_spacing = 0
+	%EnemyStart.position -= Vector2(0, 3) # To align Niall's top interface with the top of the screen
 	spawn_enemies()
 	alive_enemy_count = len(enemies)
 	enemy_hook = 'on_niall_phase_2_death'
+	update_player_hps() # So that if_dead_go_to check functions correctly
+	DialogueManager.load_dialogue(niall_form_change_dialogue_file_1)
 
 func on_niall_phase_2_death() -> void:
 	enemies[0].queue_free()
@@ -616,7 +613,9 @@ func on_niall_phase_2_death() -> void:
 	spawn_enemies()
 	alive_enemy_count = len(enemies)
 	enemy_hook = 'on_niall_phase_3_death'
-
+	update_player_hps() # So that if_dead_go_to check functions correctly
+	DialogueManager.load_dialogue(niall_form_change_dialogue_file_2)
+	
 func on_niall_phase_3_death() -> void:
 	enemies[0].queue_free()
 	enemies.clear()
@@ -626,6 +625,8 @@ func on_niall_phase_3_death() -> void:
 	enemies[0].z_index += 1 # Hack to get left buddy to appear over Niall's interface
 	alive_enemy_count = len(enemies)
 	enemy_hook = 'on_niall_phase_4_death'
+	update_player_hps() # So that if_dead_go_to check functions correctly
+	DialogueManager.load_dialogue(niall_form_change_dialogue_file_3)
 
 func on_niall_phase_4_death() -> void:
 	battle_won = true
