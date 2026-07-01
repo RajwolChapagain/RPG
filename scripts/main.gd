@@ -6,11 +6,13 @@ extends Node
 @export var party_scene: PackedScene
 @export var character_name_to_scene: Dictionary[String, PackedScene]
 
+var save_thread: Thread
 var current_level: Level = null
 var party: Party = null
 var transitioning: bool = false
 
 func _ready() -> void:
+	save_thread = Thread.new()
 	call_deferred('load_level', current_level_number)
 	
 func _input(event: InputEvent) -> void:
@@ -121,7 +123,7 @@ func save_data() -> void:
 	save.route = GameManager.route
 	save.saved_screenshot = ImageTexture.create_from_image(get_viewport().get_texture().get_image())
 	save.date_time = Time.get_datetime_dict_from_system()
-	SaveManager.save_to_current_slot(save)
+	save_thread.start(SaveManager.save_to_current_slot.bind(save))
 
 func _on_pause_menu_main_menu_button_pressed(game_ended = false) -> void:
 	if BattleManager.active_battle_scene != null:
@@ -164,3 +166,5 @@ func set_achievements(completed_level: int) -> void:
 			if 'Einar' in alive_player_names and 'Rachelle' in alive_player_names and 'Josephine' in alive_player_names:
 				Steamworks.set_achievement('The Rise of House Ronan')
 			
+func _exit_tree() -> void:
+	save_thread.wait_to_finish()
